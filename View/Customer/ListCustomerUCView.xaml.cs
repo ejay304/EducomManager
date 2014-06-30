@@ -23,6 +23,7 @@ namespace PrototypeEDUCOM.View.Customer
         public ListCustomerUCView()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.Customer.ListCustomerViewModel();
         }
     }
 }

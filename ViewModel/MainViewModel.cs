@@ -10,23 +10,10 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel
 {
-    class Tab
-    {
-        public String header { get; set; }
 
-        public UserControl content { get; set; }
-
-        public Tab(String header, UserControl content)
-        {
-            this.header = header;
-            this.content = content;
-        }
-    }
 
     class MainViewModel : BaseViewModel
     {
-        public ObservableCollection<Tab> tabs { get; set; }
-
         public MainViewModel()
         {
             tabs = new ObservableCollection<Tab>();

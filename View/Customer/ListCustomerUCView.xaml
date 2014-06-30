@@ -6,6 +6,42 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Label Content="Liste des demandes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <ListView Height="280" ItemsSource="{Binding customers}" x:Name="list">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
+                        <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
+                        <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
+                        <!-- Bouton accès détail d'une demande -->
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Détails" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!-- Bouton édition d'une demande -->
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Editer" Command="{Binding ElementName=list, Path=DataContext.cmdFormEditRequest}" CommandParameter="{Binding}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <!-- Bouton suppression d'une demande -->
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Supprimer" Command="{Binding ElementName=list, Path=DataContext.cmdDelete}" CommandParameter="{Binding}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Command="{Binding cmdFormAddRequest}" Content="Ajouter" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Margin="0,0,0,20"/>
     </Grid>
 </UserControl>

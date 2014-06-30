@@ -29,8 +29,6 @@ namespace PrototypeEDUCOM.ViewModel
         public void actAdd(object obj)
         {
             request r = new request();
-            r.description = this.description;
-            r.state = "done";
             r.user = db.users.First();
 
             // Voir les possibilité avec EF de modif la list et automatiquement gere la BD

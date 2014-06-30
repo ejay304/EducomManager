@@ -72,6 +72,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\adress.cs" />
+    <Compile Include="Model\campaign.cs" />
+    <Compile Include="Model\campu.cs" />
+    <Compile Include="Model\contact.cs" />
+    <Compile Include="Model\email.cs" />
+    <Compile Include="Model\event.cs" />
+    <Compile Include="Model\event_types.cs" />
+    <Compile Include="Model\invoice.cs" />
+    <Compile Include="Model\organisation.cs" />
+    <Compile Include="Model\phone.cs" />
+    <Compile Include="Model\program.cs" />
+    <Compile Include="Model\program_types.cs" />
+    <Compile Include="Model\proposition.cs" />
+    <Compile Include="Model\question.cs" />
+    <Compile Include="Model\respons.cs" />
+    <Compile Include="Model\survey.cs" />
     <Compile Include="ViewModel\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />

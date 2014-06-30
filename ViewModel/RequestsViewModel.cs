@@ -65,7 +65,7 @@ namespace PrototypeEDUCOM.ViewModel
             this.CloseActionFormEdit = new Action(() => formEditRequestView.Close());
 
             this.currentRequest = request;
-            this.description = request.description;
+            //this.description = request.description;
 
             formEditRequestView.Show();
         }
@@ -86,7 +86,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         public void actEdit(object obj)
         {
-            this.currentRequest.description = this.description;
+            //this.currentRequest.description = this.description;
 
             db.SaveChanges();
 
