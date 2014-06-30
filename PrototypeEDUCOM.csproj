@@ -72,6 +72,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\adress.cs" />
+    <Compile Include="Model\campaign.cs" />
+    <Compile Include="Model\campu.cs" />
+    <Compile Include="Model\contact.cs" />
+    <Compile Include="Model\EducomDb.cs" />
+    <Compile Include="Model\email.cs" />
+    <Compile Include="Model\event.cs" />
+    <Compile Include="Model\event_types.cs" />
+    <Compile Include="Model\invoice.cs" />
+    <Compile Include="Model\organisation.cs" />
+    <Compile Include="Model\phone.cs" />
+    <Compile Include="Model\program.cs" />
+    <Compile Include="Model\program_types.cs" />
+    <Compile Include="Model\proposition.cs" />
+    <Compile Include="Model\question.cs" />
+    <Compile Include="Model\request.cs" />
+    <Compile Include="Model\respons.cs" />
+    <Compile Include="Model\student.cs" />
+    <Compile Include="Model\survey.cs" />
+    <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
@@ -116,10 +136,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\EducomDb.cs" />
-    <Compile Include="Model\request.cs" />
-    <Compile Include="Model\student.cs" />
-    <Compile Include="Model\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,6 +153,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,16 +169,16 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\Customer\EditCustomerView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Customer\ListCustomerUCView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Customer\ShowCustomerView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\FormAddRequestView.xaml">
       <SubType>Designer</SubType>
@@ -172,8 +189,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -196,7 +213,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

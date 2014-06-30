@@ -14,8 +14,8 @@ namespace PrototypeEDUCOM.ViewModel
         public string description { get; set; }
         public string state { get; set; }
         public ShowRequestViewModel(request request) {
-            this.description = request.description;
-            this.state = request.state;
+            this.description = request.comment;
+            this.state = request.comment;
         }
     }
 }
