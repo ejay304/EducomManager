@@ -10,20 +10,22 @@
         <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" FontWeight="Bold"/>
         <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" FontWeight="Bold"/>
         <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0" FontWeight="Bold"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,70,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
         <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,10,0,0" FontWeight="Bold"/>
         <Label Content="Adresse" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,40,0,0" FontWeight="Bold"/>
         <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,70,0,0" FontWeight="Bold"/>
         <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,100,0,0" FontWeight="Bold"/>
         <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,130,0,0" FontWeight="Bold"/>
         <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,160,0,0" FontWeight="Bold"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,10,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,40,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,70,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="348,100,0,0" RenderTransformOrigin="0.265,0.615"/>
+        <Label Content="{Binding titre}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0"/>
+        <Label Content="{Binding firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" />
+        <Label Content="{Binding lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,70,0,0"/>
+        <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,10,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,40,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,70,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,100,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,130,0,0"/>
+        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,160,0,0"/>
 
 
     </Grid>

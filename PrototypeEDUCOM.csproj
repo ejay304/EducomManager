@@ -107,8 +107,8 @@
     <Compile Include="View\Customer\ListCustomerUCView.xaml.cs">
       <DependentUpon>ListCustomerUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\ShowCustomerView.xaml.cs">
-      <DependentUpon>ShowCustomerView.xaml</DependentUpon>
+    <Compile Include="View\Customer\ShowCustumerUCView.xaml.cs">
+      <DependentUpon>ShowCustumerUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FormAddRequestView.xaml.cs">
       <DependentUpon>FormAddRequestView.xaml</DependentUpon>
@@ -153,7 +153,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -176,9 +175,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\ShowCustomerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="View\Customer\ShowCustumerUCView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FormAddRequestView.xaml">
       <SubType>Designer</SubType>

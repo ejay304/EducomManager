@@ -8,7 +8,7 @@ namespace PrototypeEDUCOM.Model
     public partial class EducomDb : DbContext
     {
         public EducomDb()
-            : base("name=EducomDb1")
+            : base("name=EducomDb")
         {
         }
 
