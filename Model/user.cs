@@ -6,7 +6,7 @@ namespace PrototypeEDUCOM.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("prototype.users")]
+    [Table("EducomDb.users")]
     public partial class user
     {
         public user()
@@ -18,11 +18,26 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
+        public string lastname { get; set; }
+
+        [Required]
+        [StringLength(45)]
+        public string firstname { get; set; }
+
+        [Required]
+        [StringLength(45)]
         public string email { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(45)]
         public string password { get; set; }
+
+        [Column(TypeName = "enum")]
+        [Required]
+        [StringLength(65532)]
+        public string role { get; set; }
+
+        public bool active { get; set; }
 
         public virtual ICollection<request> requests { get; set; }
     }
