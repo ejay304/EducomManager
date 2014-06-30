@@ -6,7 +6,7 @@ namespace PrototypeEDUCOM.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("prototype.students")]
+    [Table("EducomDb.students")]
     public partial class student
     {
         public student()
@@ -18,16 +18,30 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
-        public string firstname { get; set; }
+        public string lastname { get; set; }
 
         [Required]
         [StringLength(45)]
-        public string lastname { get; set; }
+        public string firstname { get; set; }
+
+        [Column(TypeName = "enum")]
+        [Required]
+        [StringLength(65532)]
+        public string gender { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? birtday { get; set; }
+        public DateTime birthday { get; set; }
 
-        public float? wage { get; set; }
+        [Column(TypeName = "enum")]
+        [Required]
+        [StringLength(65532)]
+        public string kinship { get; set; }
+
+        public int contacts_id { get; set; }
+
+        public bool active { get; set; }
+
+        public virtual contact contact { get; set; }
 
         public virtual ICollection<request> requests { get; set; }
     }
