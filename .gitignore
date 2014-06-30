@@ -11,6 +11,9 @@
 # Config
 *.config
 
+#
+*.csproj
+
 # User-specific files
 *.suo
 *.user
