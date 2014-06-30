@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:PrototypeEDUCOM.View"
         Title="MainView" Height="700" Width="1000">
     <Grid>
-        <TabControl Margin="10,50,10,10" ItemsSource="{Binding tabs}" >
+        <TabControl Margin="10,50,10,10" ItemsSource="{Binding tabs}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Header" Value="{Binding header}" />

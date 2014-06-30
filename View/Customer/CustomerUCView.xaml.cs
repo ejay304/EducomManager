@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace PrototypeEDUCOM.View.Customer
 {
     /// <summary>
-    /// Logique d'interaction pour ListCustomerUCView.xaml
+    /// Logique d'interaction pour CustomerUCView.xaml
     /// </summary>
-    public partial class ListCustomerUCView : UserControl
+    public partial class CustomerUCView : UserControl
     {
-        public ListCustomerUCView()
+        public CustomerUCView()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.Customer.CustomerViewModel();
         }
     }
 }
