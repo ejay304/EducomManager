@@ -28,7 +28,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ListCustomerViewModel() : base()
         {
             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
-            this.cmdViewDetail = new RelayCommand<request>(actViewDetail);
+            this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
             this.cmdDelete = new RelayCommand<request>(actDelete);
             this.cmdFormAddRequest = new RelayCommand<object>(actFormAddRequest);
             this.cmdFormEditRequest = new RelayCommand<request>(actFormEditRequest);
@@ -46,9 +46,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         }
 
-        public void actViewDetail(request request)
+        public void actViewDetail(contact customer)
         {
-
+            ViewModel.Customer.CustomerViewModel.customerTabs.Add(new Tab("DelPiero", new View.Customer.ListCustomerUCView()));
         }
 
         public void actDelete(request request)

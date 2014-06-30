@@ -208,9 +208,8 @@ namespace PrototypeEDUCOM.Model
 
             modelBuilder.Entity<organisation>()
                 .HasMany(e => e.contacts)
-                .WithRequired(e => e.organisation)
-                .HasForeignKey(e => e.organisation_id)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.organisation)
+                .HasForeignKey(e => e.organisation_id);
 
             modelBuilder.Entity<organisation>()
                 .HasMany(e => e.programs)
@@ -242,9 +241,8 @@ namespace PrototypeEDUCOM.Model
 
             modelBuilder.Entity<program>()
                 .HasMany(e => e.contacts)
-                .WithRequired(e => e.program)
-                .HasForeignKey(e => e.programs_id)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.program)
+                .HasForeignKey(e => e.programs_id);
 
             modelBuilder.Entity<program>()
                 .HasMany(e => e.invoices)
@@ -287,9 +285,8 @@ namespace PrototypeEDUCOM.Model
 
             modelBuilder.Entity<request>()
                 .HasMany(e => e.contacts)
-                .WithRequired(e => e.request)
-                .HasForeignKey(e => e.requests_id)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.request)
+                .HasForeignKey(e => e.requests_id);
 
             modelBuilder.Entity<request>()
                 .HasMany(e => e.events)

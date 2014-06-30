@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PrototypeEDUCOM.View
+namespace PrototypeEDUCOM.View.Customer
 {
     /// <summary>
-    /// Logique d'interaction pour FormEditRequestView.xaml
+    /// Logique d'interaction pour ShowCustumerUCView.xaml
     /// </summary>
-    public partial class FormEditRequestView : Window
+    public partial class ShowCustumerUCView : UserControl
     {
-        public FormEditRequestView()
+        public ShowCustumerUCView()
         {
             InitializeComponent();
         }

@@ -28,7 +28,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Tab> tabs { get; set; }
+        public static ObservableCollection<Tab> tabs { get; set; }
 
         public void NotifyPropertyChanged(string nomPropriete)
         {

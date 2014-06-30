@@ -76,6 +76,7 @@
     <Compile Include="Model\campaign.cs" />
     <Compile Include="Model\campu.cs" />
     <Compile Include="Model\contact.cs" />
+    <Compile Include="Model\EducomDb.cs" />
     <Compile Include="Model\email.cs" />
     <Compile Include="Model\event.cs" />
     <Compile Include="Model\event_types.cs" />
@@ -86,17 +87,21 @@
     <Compile Include="Model\program_types.cs" />
     <Compile Include="Model\proposition.cs" />
     <Compile Include="Model\question.cs" />
+    <Compile Include="Model\request.cs" />
     <Compile Include="Model\respons.cs" />
+    <Compile Include="Model\student.cs" />
     <Compile Include="Model\survey.cs" />
-    <Compile Include="ViewModel\AddRequestViewModel.cs" />
+    <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="ViewModel\RequestsViewModel.cs" />
-    <Compile Include="ViewModel\ShowRequestViewModel.cs" />
+    <Compile Include="View\Customer\CustomerUCView.xaml.cs">
+      <DependentUpon>CustomerUCView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
     </Compile>
@@ -106,36 +111,14 @@
     <Compile Include="View\Customer\ShowCustomerView.xaml.cs">
       <DependentUpon>ShowCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FormAddRequestView.xaml.cs">
-      <DependentUpon>FormAddRequestView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\FormEditRequestView.xaml.cs">
-      <DependentUpon>FormEditRequestView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RequestsUCView.xaml.cs">
-      <DependentUpon>RequestsUCView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RequestsView.xaml.cs">
-      <DependentUpon>RequestsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ShowRequestView.xaml.cs">
-      <DependentUpon>ShowRequestView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControl2.xaml.cs">
-      <DependentUpon>UserControl2.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\EducomDb.cs" />
-    <Compile Include="Model\request.cs" />
-    <Compile Include="Model\student.cs" />
-    <Compile Include="Model\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -153,6 +136,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,52 +151,31 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\Customer\EditCustomerView.xaml">
+    <Page Include="View\Customer\CustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\EditCustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Customer\ListCustomerUCView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Customer\ShowCustomerView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FormAddRequestView.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FormEditRequestView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\RequestsUCView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RequestsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\ShowRequestView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControl2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

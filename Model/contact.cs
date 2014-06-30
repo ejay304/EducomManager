@@ -67,11 +67,11 @@ namespace PrototypeEDUCOM.Model
         [StringLength(5)]
         public string particule { get; set; }
 
-        public int programs_id { get; set; }
+        public int? programs_id { get; set; }
 
-        public int organisation_id { get; set; }
+        public int? organisation_id { get; set; }
 
-        public int requests_id { get; set; }
+        public int? requests_id { get; set; }
 
         public bool active { get; set; }
 

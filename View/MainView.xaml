@@ -6,12 +6,10 @@
     <Grid>
         <TabControl Margin="10,50,10,10" ItemsSource="{Binding tabs}" >
             <TabControl.ItemContainerStyle>
-            <Style TargetType="TabItem">
-                <Setter Property="Header"
-              Value="{Binding header}" />
-                <Setter Property="Content"
-              Value="{Binding content}" />
-            </Style>
+                <Style TargetType="TabItem">
+                    <Setter Property="Header" Value="{Binding header}" />
+                    <Setter Property="Content" Value="{Binding content}" />
+                </Style>
             </TabControl.ItemContainerStyle>
         </TabControl>
     </Grid>
