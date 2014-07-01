@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-                <Button Content="Editer" Command="{Binding cmdFormEditRequest}"/>
+                <Button Content="Editer" Command="{Binding cmdEditRequest}"/>
             </StackPanel>
 
             <Grid Grid.Column="0" Grid.Row="1">
