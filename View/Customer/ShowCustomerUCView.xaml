@@ -6,25 +6,106 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
-        <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0" FontWeight="Bold"/>
-        <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" FontWeight="Bold"/>
-        <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0" FontWeight="Bold"/>
-        <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,10,0,0" FontWeight="Bold"/>
-        <Label Content="Adresse" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,40,0,0" FontWeight="Bold"/>
-        <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,70,0,0" FontWeight="Bold"/>
-        <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,100,0,0" FontWeight="Bold"/>
-        <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,130,0,0" FontWeight="Bold"/>
-        <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,160,0,0" FontWeight="Bold"/>
-        <Label Content="{Binding titre}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0"/>
-        <Label Content="{Binding firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" />
-        <Label Content="{Binding lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,70,0,0"/>
-        <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,10,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,40,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,70,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,100,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,130,0,0"/>
-        <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,160,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+                <Button Content="Editer" Command="{Binding cmdFormEditRequest}"/>
+            </StackPanel>
+
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
+                <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
+                <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+                <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
+                <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
+                <Label Content="{Binding civilite}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
+                <Label Content="{Binding firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="{Binding lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
+                <Label Content="{Binding add_date}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" />
+                <Label Content="{Binding street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
+                <Label Content="{Binding zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
+                <Label Content="{Binding city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
+                <Label Content="{Binding district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
+                <Label Content="{Binding country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
+
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+
+            <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
+                <ListView.View >
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
+                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
+                            <GridViewColumn Header="Naissance" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
+                            <GridViewColumn Header="Sexe" DisplayMemberBinding="{Binding gender}" />
+                            <!-- Bouton édition d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Editer" Command="{Binding ElementName=list, Path=DataContext.cmdFormEditRequest}" CommandParameter="{Binding}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- Bouton suppression d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Supprimer" Command="{Binding ElementName=list, Path=DataContext.cmdDelete}" CommandParameter="{Binding}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>

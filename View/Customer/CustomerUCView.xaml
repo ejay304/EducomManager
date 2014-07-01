@@ -15,7 +15,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock VerticalAlignment="Center" Text="{Binding header}" />
-                                    <Button Margin="10,0,0,0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=TabControl, Path=DataContext.cmdCloseTab}" CommandParameter="{Binding}">X</Button>
+                                    <Button Margin="10,0,0,0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=TabControl, Path=DataContext.cmdCloseTab}" CommandParameter="{Binding}">x</Button>
                                 </StackPanel>
                             </DataTemplate>
                         </Setter.Value>

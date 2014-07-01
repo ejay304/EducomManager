@@ -28,8 +28,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
 
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
-
-
             customerTabs = new ObservableCollection<Tab>();
             View.Customer.ListCustomerUCView view = new View.Customer.ListCustomerUCView();
             view.DataContext = new ViewModel.Customer.ListCustomerViewModel(this);
