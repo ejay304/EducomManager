@@ -13,8 +13,8 @@
                         <Setter.Value>
                             <DataTemplate DataType="TabItem">
                                 <StackPanel>
-                                    <Image Source="../Ressource/clients.png" />
-                                    <TextBlock Text="{Binding header}" FontSize="25" />
+                                    <Image Source="{Binding icon}" Width="40" Height="40"/>
+                                    <TextBlock Text="{Binding header}" FontSize="20" />
                                 </StackPanel>
                             </DataTemplate>
                         </Setter.Value>

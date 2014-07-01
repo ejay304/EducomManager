@@ -17,8 +17,9 @@ namespace PrototypeEDUCOM.ViewModel
         public MainViewModel()
         {
             tabs = new ObservableCollection<Tab>();
-            tabs.Add(new Tab("Clients", new View.Customer.CustomerUCView(), "Ressource/clients.png"));
-
+            tabs.Add(new Tab("Dashboard", new View.Dashboard.DashboardUCView(), "../Ressource/dashboard.png"));
+            tabs.Add(new Tab("Clients", new View.Customer.CustomerUCView(), "../Ressource/clients.png"));
+            tabs.Add(new Tab("Organisations", new View.Organisation.OrganisationUCView(), "../Ressource/organisations.png"));
         }
     }
 }
