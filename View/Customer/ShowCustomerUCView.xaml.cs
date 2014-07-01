@@ -12,18 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrototypeEDUCOM.Model;
 
 namespace PrototypeEDUCOM.View.Customer
 {
     /// <summary>
-    /// Logique d'interaction pour ShowCustumerUCView.xaml
+    /// Logique d'interaction pour ShowCustomerUCView.xaml
     /// </summary>
-    public partial class ShowCustumerUCView : UserControl
+    public partial class ShowCustomerUCView : UserControl
     {
-        public ShowCustumerUCView()
+        public ShowCustomerUCView(contact contact)
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.Customer.ShowCustomerViewModel();
+            this.DataContext = new ViewModel.Customer.ShowCustomerViewModel(contact);
         }
     }
 }

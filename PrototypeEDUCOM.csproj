@@ -112,8 +112,8 @@
     <Compile Include="View\Customer\ListCustomerUCView.xaml.cs">
       <DependentUpon>ListCustomerUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\ShowCustumerUCView.xaml.cs">
-      <DependentUpon>ShowCustumerUCView.xaml</DependentUpon>
+    <Compile Include="View\Customer\ShowCustomerUCView.xaml.cs">
+      <DependentUpon>ShowCustomerUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -170,7 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\ShowCustumerUCView.xaml">
+    <Page Include="View\Customer\ShowCustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

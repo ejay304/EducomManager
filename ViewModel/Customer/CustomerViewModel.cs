@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customer
 {
@@ -12,6 +14,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         private Tab _selectedTab;
 
+        public ICommand cmdCloseTab { get; set; }
         public ObservableCollection<Tab> customerTabs { get; set; }
         public Tab selectedTab {
             get { return _selectedTab;  }
@@ -23,10 +26,20 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public CustomerViewModel()
         {
+
+            this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
+
+
             customerTabs = new ObservableCollection<Tab>();
             View.Customer.ListCustomerUCView view = new View.Customer.ListCustomerUCView();
             view.DataContext = new ViewModel.Customer.ListCustomerViewModel(this);
             customerTabs.Add(new Tab("Liste", view));
+        }
+
+        private void actCloseTab(Tab tab)
+        {
+            customerTabs.Remove(tab);
+            NotifyPropertyChanged("customerTabs");
         }
     }
 }
