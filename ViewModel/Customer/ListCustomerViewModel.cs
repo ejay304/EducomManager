@@ -51,7 +51,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actViewDetail(contact customer)
         {
-            Tab tab = new Tab(customer.lastname, new View.Customer.ShowCustumerUCView());
+            Tab tab = new Tab(customer.lastname, new View.Customer.ShowCustomerUCView(customer));
 
             parentVM.customerTabs.Add(tab);
             parentVM.selectedTab = tab;
