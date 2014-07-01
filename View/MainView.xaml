@@ -7,6 +7,7 @@
         <TabControl Margin="10,50,10,10" ItemsSource="{Binding tabs}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
+                    <Setter Property="FontSize" Value="30" />
                     <Setter Property="Header" Value="{Binding header}" />
                     <Setter Property="Content" Value="{Binding content}" />
                 </Style>

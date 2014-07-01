@@ -93,12 +93,16 @@
     <Compile Include="Model\survey.cs" />
     <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="View\Customer\AddCustomerView.xaml.cs">
+      <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\CustomerUCView.xaml.cs">
       <DependentUpon>CustomerUCView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Customer\AddCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Customer\CustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
