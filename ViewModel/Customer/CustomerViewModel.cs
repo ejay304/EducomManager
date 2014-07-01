@@ -33,7 +33,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             customerTabs = new ObservableCollection<Tab>();
             View.Customer.ListCustomerUCView view = new View.Customer.ListCustomerUCView();
             view.DataContext = new ViewModel.Customer.ListCustomerViewModel(this);
-            customerTabs.Add(new Tab("Liste", view));
+            customerTabs.Add(new Tab("Liste", view, null));
         }
 
         private void actCloseTab(Tab tab)

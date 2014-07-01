@@ -7,8 +7,12 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.contacts")]
-    public partial class contact
+    public class contact : NotifyProperty
     {
+
+        private string _firstname;
+        private string _lastname;
+
         public contact()
         {
             emails = new HashSet<email>();
@@ -25,11 +29,33 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
-        public string firstname { get; set; }
+        public string firstname 
+        { 
+            get 
+            {
+                return _firstname;
+            } 
+            set
+            {
+                _firstname = value;
+                NotifyPropertyChanged("firstname");
+            }
+        }
 
         [Required]
         [StringLength(45)]
-        public string lastname { get; set; }
+        public string lastname
+        {
+            get
+            {
+                return _lastname;
+            }
+            set
+            {
+                _lastname = value;
+                NotifyPropertyChanged("lastname");
+            }
+        }
 
         [StringLength(45)]
         public string street { get; set; }

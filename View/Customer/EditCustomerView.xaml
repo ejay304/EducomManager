@@ -3,6 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EditCustomerView" Height="300" Width="300">
     <Grid>
-        
+        <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,94,0,0"/>
+        <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,128,0,0"/>
+        <Button Command="{Binding cmdEdit}" Content="Modifier" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Margin="0,0,0,10"/>
+        <TextBox Text="{Binding firstName}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125,94,0,0"/>
+        <TextBox Text="{Binding lastName}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125,131,0,0"/>
+        <Label Content="Modifier un client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
     </Grid>
 </Window>

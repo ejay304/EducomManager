@@ -7,9 +7,19 @@ namespace PrototypeEDUCOM.Model
 
     public partial class EducomDb : DbContext
     {
+
+        private static EducomDb instance;
+
         public EducomDb()
             : base("name=EducomDb")
         {
+        }
+
+        public static EducomDb getInstance()
+        {
+            if (instance == null)
+                instance = new EducomDb();
+            return instance;
         }
 
         public virtual DbSet<adress> adresses { get; set; }

@@ -15,16 +15,19 @@ namespace PrototypeEDUCOM.ViewModel
 
         public UserControl content { get; set; }
 
-        public Tab(String header, UserControl content)
+        public String icon { get; set; }
+
+        public Tab(String header, UserControl content, String icon)
         {
             this.header = header;
             this.content = content;
+            this.icon = icon;
         }
     }
 
     public class BaseViewModel : INotifyPropertyChanged
     {
-        protected EducomDb db = new EducomDb();
+        public EducomDb db = EducomDb.getInstance();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
