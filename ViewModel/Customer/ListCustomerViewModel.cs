@@ -1,4 +1,5 @@
 ﻿using PrototypeEDUCOM.Model;
+using PrototypeEDUCOM.View.Customer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,7 +20,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ICommand cmdDelete { get; set; }
 
-        public ICommand cmdFormAddRequest { get; set; }
+        public ICommand cmdAddRequest { get; set; }
 
         public ICommand cmdFormEditRequest { get; set; }
 
@@ -33,15 +34,21 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
             this.cmdDelete = new RelayCommand<request>(actDelete);
-            this.cmdFormAddRequest = new RelayCommand<object>(actFormAddRequest);
+            this.cmdAddRequest = new RelayCommand<object>(actAddRequest);
             this.cmdFormEditRequest = new RelayCommand<request>(actFormEditRequest);
            
             this.cmdEdit = new RelayCommand<request>(actEdit);
         }
 
-        private void actFormAddRequest(object obj)
+        private void actAddRequest(object obj)
         {
+            AddCustomerViewModel addCustomerViewModel = new AddCustomerViewModel(this);
+            AddCustomerView addCustomerView = new AddCustomerView();
 
+            addCustomerView.DataContext = addCustomerViewModel;
+            addCustomerViewModel.CloseActionFormAdd = new Action(() => addCustomerView.Close());
+
+            addCustomerView.Show(); 
         }
 
         private void actFormEditRequest(request request)
