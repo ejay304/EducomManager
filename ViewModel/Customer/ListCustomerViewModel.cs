@@ -20,9 +20,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ICommand cmdDelete { get; set; }
 
-        public ICommand cmdAddRequest { get; set; }
-
-        public ICommand cmdFormEditRequest { get; set; }
+        public ICommand cmdAdd { get; set; }
 
         public ICommand cmdEdit { get; set; }
 
@@ -33,14 +31,12 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.parentVM = parentVM;
             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
-            this.cmdDelete = new RelayCommand<request>(actDelete);
-            this.cmdAddRequest = new RelayCommand<object>(actAddRequest);
-            this.cmdFormEditRequest = new RelayCommand<request>(actFormEditRequest);
-           
-            this.cmdEdit = new RelayCommand<request>(actEdit);
+            this.cmdDelete = new RelayCommand<contact>(actDelete);
+            this.cmdAdd = new RelayCommand<object>(actAdd);           
+            this.cmdEdit = new RelayCommand<contact>(actEdit);
         }
 
-        private void actAddRequest(object obj)
+        private void actAdd(object obj)
         {
             AddCustomerViewModel addCustomerViewModel = new AddCustomerViewModel(this);
             AddCustomerView addCustomerView = new AddCustomerView();
@@ -51,27 +47,31 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             addCustomerView.Show(); 
         }
 
-        private void actFormEditRequest(request request)
-        {
-
-        }
-
         public void actViewDetail(contact customer)
         {
-            Tab tab = new Tab(customer.lastname, new View.Customer.ShowCustomerUCView(customer));
+            Tab tab = new Tab(customer.lastname, new View.Customer.ShowCustomerUCView(customer), null);
 
             parentVM.customerTabs.Add(tab);
             parentVM.selectedTab = tab;
         }
 
-        public void actDelete(request request)
+        public void actDelete(contact customer)
         {
-
+            customers.Remove(customer);
+            db.contacts.Remove(customer);
+            db.SaveChanges();
+            NotifyPropertyChanged("customers");
         }
 
-        public void actEdit(object obj)
+        public void actEdit(contact contact)
         {
+            EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
+            EditCustomerView editCustomerView = new EditCustomerView();
 
+            editCustomerView.DataContext = editCustomerViewModel;
+            editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
+
+            editCustomerView.Show(); 
         }
     }
 }

@@ -81,6 +81,7 @@
     <Compile Include="Model\event.cs" />
     <Compile Include="Model\event_types.cs" />
     <Compile Include="Model\invoice.cs" />
+    <Compile Include="Model\NotifyProperty.cs" />
     <Compile Include="Model\organisation.cs" />
     <Compile Include="Model\phone.cs" />
     <Compile Include="Model\program.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -182,6 +184,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\clients.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
