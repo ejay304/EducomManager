@@ -1,0 +1,17 @@
+﻿<Window x:Class="PrototypeEDUCOM.View.Customer.AddStudentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddStudentView" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Label Content="Ajouter un étudiant" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" />
+        
+        
+
+
+    </Grid>
+</Window>
