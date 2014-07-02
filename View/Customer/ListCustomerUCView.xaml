@@ -6,7 +6,7 @@
              mc:Ignorable="d" Width="735" Height="398">
     <Grid>
         <Label Content="Liste des clients" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <ListView Height="280"  ItemsSource="{Binding customers}" x:Name="list" Margin="10,59,0,59">
+        <ListView HorizontalAlignment="Stretch"  ItemsSource="{Binding customers}" x:Name="list" Margin="10,59,0,59">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
