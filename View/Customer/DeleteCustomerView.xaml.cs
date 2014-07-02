@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypeEDUCOM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PrototypeEDUCOM.Model;
 
 namespace PrototypeEDUCOM.View.Customer
 {
     /// <summary>
-    /// Logique d'interaction pour ShowCustomerUCView.xaml
+    /// Logique d'interaction pour DeleteCustomerView.xaml
     /// </summary>
-    public partial class ShowCustomerUCView : UserControl
+    public partial class DeleteCustomerView : Window
     {
-        public ShowCustomerUCView(contact contact)
+        public DeleteCustomerView(contact contact)
         {
             InitializeComponent();
         }
