@@ -16,14 +16,14 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         private ViewModel.Customer.CustomerViewModel parentVM;
         public ObservableCollection<contact> customers { get; set; }
 
+        public int nbrCustomer 
+        { 
+            get { return this.customers.Count; } 
+        }
+
         public ICommand cmdViewDetail { get; set; }
 
-        public ICommand cmdDelete { get; set; }
-
         public ICommand cmdAdd { get; set; }
-
-        public ICommand cmdEdit { get; set; }
-
         public Action CloseActionFormEdit { get; set; }
 
         public ListCustomerViewModel(ViewModel.Customer.CustomerViewModel parentVM) : base()
@@ -31,9 +31,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.parentVM = parentVM;
             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
-            this.cmdDelete = new RelayCommand<contact>(actDelete);
             this.cmdAdd = new RelayCommand<object>(actAdd);           
-            this.cmdEdit = new RelayCommand<contact>(actEdit);
         }
 
         private void actAdd(object obj)
@@ -53,25 +51,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             parentVM.customerTabs.Add(tab);
             parentVM.selectedTab = tab;
-        }
-
-        public void actDelete(contact customer)
-        {
-            customers.Remove(customer);
-            db.contacts.Remove(customer);
-            db.SaveChanges();
-            NotifyPropertyChanged("customers");
-        }
-
-        public void actEdit(contact contact)
-        {
-            EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
-            EditCustomerView editCustomerView = new EditCustomerView();
-
-            editCustomerView.DataContext = editCustomerViewModel;
-            editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
-
-            editCustomerView.Show(); 
         }
     }
 }

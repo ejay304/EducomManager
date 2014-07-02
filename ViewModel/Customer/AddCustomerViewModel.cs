@@ -39,6 +39,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             // Ajoute dans la liste
             parentVM.customers.Add(customer);
             parentVM.NotifyPropertyChanged("customers");
+            parentVM.NotifyPropertyChanged("nbrCustomer");
 
             // Enregistre dans la base
             db.contacts.Add(customer);

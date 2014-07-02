@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             mc:Ignorable="d" Width="735" Height="398">
     <Grid>
-        <Label Content="Liste des demandes" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <ListView Height="280" ItemsSource="{Binding customers}" x:Name="list">
+        <Label Content="Liste des clients" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <ListView Height="280"  ItemsSource="{Binding customers}" x:Name="list" Margin="10,59,0,59">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -18,23 +17,9 @@
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Détails" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <!-- Bouton édition d'une demande -->
-                        <GridViewColumn>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Editer" Command="{Binding ElementName=list, Path=DataContext.cmdEdit}" CommandParameter="{Binding}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <!-- Bouton suppression d'une demande -->
-                        <GridViewColumn>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Supprimer" Command="{Binding ElementName=list, Path=DataContext.cmdDelete}" CommandParameter="{Binding}" />
+                                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}">
+                                        <Image Source="../../Ressource/show.png" Width="20" Height="20" />
+                                    </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -42,6 +27,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Command="{Binding cmdAdd}" Content="Ajouter" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Margin="0,0,0,20"/>
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Margin="308,352,289,10" Width="138" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA">
+            <StackPanel Orientation="Horizontal" Width="135">
+                <Image Source="../../Ressource/add.png" Width="30" Height="30" />
+                <TextBlock Text="Ajouter un client" VerticalAlignment="Center" FontWeight="Bold" />
+            </StackPanel>
+        </Button>
+        <Label Content="{Binding nbrCustomer}" HorizontalAlignment="Left" Margin="136,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.7,7.7" Height="29" Width="21" Foreground="#FF30859A" FontWeight="Bold"/>
+        <Label Content="Client(s)" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Foreground="#FF30859A" FontStyle="Italic"/>
     </Grid>
 </UserControl>
