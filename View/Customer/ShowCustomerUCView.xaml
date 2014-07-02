@@ -7,9 +7,9 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -26,6 +26,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                 <Button Content="Editer" Command="{Binding cmdEditRequest}"/>
+                <Button Content="Supprimer" Command="{Binding cmdDeleteRequest}"/>
             </StackPanel>
 
             <Grid Grid.Column="0" Grid.Row="1">
@@ -53,16 +54,16 @@
                 <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
                 <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
                 <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
-                <Label Content="{Binding civilite}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
-                <Label Content="{Binding firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
-                <Label Content="{Binding lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+                <Label Content="{Binding contact.civilite}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
+                <Label Content="{Binding contact.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="{Binding contact.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
                 <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
-                <Label Content="{Binding add_date}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" />
-                <Label Content="{Binding street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
-                <Label Content="{Binding zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
-                <Label Content="{Binding city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
-                <Label Content="{Binding district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
-                <Label Content="{Binding country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
+                <Label Content="{Binding contact.add_date}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" />
+                <Label Content="{Binding contact.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
+                <Label Content="{Binding contact.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
+                <Label Content="{Binding contact.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
+                <Label Content="{Binding contact.district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
+                <Label Content="{Binding contact.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
 
             </Grid>
         </Grid>

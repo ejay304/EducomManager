@@ -96,6 +96,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customer\DeleteCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
@@ -109,6 +110,9 @@
     </Compile>
     <Compile Include="View\Customer\CustomerUCView.xaml.cs">
       <DependentUpon>CustomerUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\DeleteCustomerView.xaml.cs">
+      <DependentUpon>DeleteCustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
@@ -169,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Customer\CustomerUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\DeleteCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

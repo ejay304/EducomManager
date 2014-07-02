@@ -49,7 +49,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actViewDetail(contact customer)
         {
-            Tab tab = new Tab(customer.lastname, new View.Customer.ShowCustomerUCView(customer), null);
+
+            View.Customer.ShowCustomerUCView showCustommerView = new View.Customer.ShowCustomerUCView(customer);
+            showCustommerView.DataContext = new ViewModel.Customer.ShowCustomerViewModel(customer, parentVM);
+            Tab tab = new Tab(customer.lastname, showCustommerView, null);
 
             parentVM.customerTabs.Add(tab);
             parentVM.selectedTab = tab;
@@ -57,9 +60,19 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actDelete(contact customer)
         {
+            DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(customer);
+            DeleteCustomerView deleteCustomerView = new DeleteCustomerView(customer);
+
+            deleteCustomerView.DataContext = deleteCustomerViewModel;
+            deleteCustomerViewModel.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView,customer));
+
+            deleteCustomerView.ShowDialog();
+        }
+
+        private void deleteCallback(DeleteCustomerView view, contact customer)
+        {
+            view.Close();
             customers.Remove(customer);
-            db.contacts.Remove(customer);
-            db.SaveChanges();
             NotifyPropertyChanged("customers");
         }
 

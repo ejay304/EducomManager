@@ -11,34 +11,21 @@ using PrototypeEDUCOM.ViewModel.Customer;
 namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ShowCustomerViewModel : BaseViewModel {
-        public string civilite { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public DateTime? add_date { get; set; }
-        public string street { get; set; }
-        public string zip { get; set; }
-        public string city { get; set; }
-        public string district { get; set; }
-        public string country { get; set; }
+
+        public ViewModel.Customer.CustomerViewModel parentVM;
         public contact contact { get; set; }
         public ObservableCollection<student> students { get; set; }
 
         public ICommand cmdEditRequest { get; set; }
+        public ICommand cmdDeleteRequest { get; set; }
 
-        public ShowCustomerViewModel(contact contact)
+        public ShowCustomerViewModel(contact contact, ViewModel.Customer.CustomerViewModel parentVM)
         {
+            this.parentVM = parentVM;
             this.contact = contact;
-            this.civilite = contact.civility;
-            this.firstname = contact.firstname;
-            this.lastname = contact.lastname;
-            this.add_date = contact.add_date;
-            this.street = contact.street;
-            this.zip = contact.zip;
-            this.city = contact.city;
-            this.district = contact.district;
-            this.country = contact.country;
             this.students = new ObservableCollection<student>(contact.students.ToList());
             this.cmdEditRequest = new RelayCommand<Object>(actEditCommand);
+            this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteCommand);
         }
 
         public void actEditCommand(object o){
@@ -49,7 +36,27 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
 
             editCustomerView.Show();
-        
+        }
+
+        public void actDeleteCommand(object o){
+            DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(contact);
+            DeleteCustomerView deleteCustomerView = new DeleteCustomerView(contact);
+
+            deleteCustomerView.DataContext = deleteCustomerViewModel;
+            deleteCustomerViewModel.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView));
+            
+            deleteCustomerView.ShowDialog();
+
+        }
+        private void deleteCallback(DeleteCustomerView view){
+            view.Close();
+            if (tabs.First() != parentVM.selectedTab) {
+                parentVM.customerTabs.Remove(parentVM.selectedTab);
+                parentVM.NotifyPropertyChanged("customerTabs");
+                parentVM.selectedTab = tabs.First();
+                parentVM.NotifyPropertyChanged("selectedTab");
+            }
+
         }
     }
 }
