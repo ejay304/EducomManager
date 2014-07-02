@@ -7,12 +7,12 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*" />
+            <RowDefinition Height="160" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition  />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid>
@@ -25,8 +25,16 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-                <Button Content="Editer" Command="{Binding cmdEditRequest}"/>
-                <Button Content="Supprimer" Command="{Binding cmdDeleteRequest}"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditCustomer}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Ressource/edit.png" Width="20" Height="20" />    
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteCustomer}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Ressource/delete.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
 
             <Grid Grid.Column="0" Grid.Row="1">
@@ -44,21 +52,29 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
-                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
-                <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
+                <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
+                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
                 <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
                 <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
                 <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
                 <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
                 <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
-                <Label Content="{Binding contact.civilite}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
-                <Label Content="{Binding contact.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
-                <Label Content="{Binding contact.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
-                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0"/>
-                <Label Content="{Binding contact.add_date}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" />
+                <Label Content="{Binding contact.add_date}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
+                <Label Content="{Binding contact.civilite}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
+                <Label Content="{Binding contact.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+                <Label Content="{Binding contact.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                <ListBox BorderBrush="Transparent" ItemsSource="{Binding contact.phones}" Grid.Row="4" Grid.Column="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding number}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <Label Content="{Binding contact.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
                 <Label Content="{Binding contact.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
                 <Label Content="{Binding contact.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
@@ -77,13 +93,22 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
             <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
 
             <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
                 <ListView.View >
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
+                            <GridViewColumn  Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
                             <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
                             <GridViewColumn Header="Naissance" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
                             <GridViewColumn Header="Sexe" DisplayMemberBinding="{Binding gender}" />
@@ -91,7 +116,11 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Editer" Command="{Binding ElementName=list, Path=DataContext.cmdFormEditRequest}" CommandParameter="{Binding}" />
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditStudent}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="../../Ressource/edit.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -99,7 +128,11 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Supprimer" Command="{Binding ElementName=list, Path=DataContext.cmdDelete}" CommandParameter="{Binding}" />
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteStudent}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

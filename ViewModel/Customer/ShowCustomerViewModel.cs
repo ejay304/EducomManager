@@ -16,19 +16,24 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public contact contact { get; set; }
         public ObservableCollection<student> students { get; set; }
 
-        public ICommand cmdEditRequest { get; set; }
-        public ICommand cmdDeleteRequest { get; set; }
+        public ICommand cmdEditCustomer { get; set; }
+        public ICommand cmdDeleteCustomer { get; set; }
+        public ICommand cmdAddStudent { get; set; }
 
         public ShowCustomerViewModel(contact contact, ViewModel.Customer.CustomerViewModel parentVM)
         {
             this.parentVM = parentVM;
             this.contact = contact;
             this.students = new ObservableCollection<student>(contact.students.ToList());
-            this.cmdEditRequest = new RelayCommand<Object>(actEditCommand);
-            this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteCommand);
+            this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
+            this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
+            this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
+
+
         }
 
-        public void actEditCommand(object o){
+        public void actEditCustomer(object o)
+        {
             EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
             EditCustomerView editCustomerView = new EditCustomerView();
 
@@ -38,7 +43,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             editCustomerView.Show();
         }
 
-        public void actDeleteCommand(object o){
+        public void actDeleteCustomer(object o)
+        {
             DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(contact);
             DeleteCustomerView deleteCustomerView = new DeleteCustomerView(contact);
 
@@ -56,7 +62,17 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 parentVM.selectedTab = tabs.First();
                 parentVM.NotifyPropertyChanged("selectedTab");
             }
+        }
 
+        public void actAddStudent(object o)
+        {
+            AddStudentModelView addStudentModelView = new AddStudentModelView();
+            AddStudentView addStudentView = new AddStudentView();
+
+            addStudentView.DataContext = addStudentModelView;
+            //addStu.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView));
+
+            addStudentView.Show();
         }
     }
 }
