@@ -45,4 +45,36 @@ namespace PrototypeEDUCOM.Model
 
         public virtual ICollection<request> requests { get; set; }
     }
+
+    public sealed class kinship {
+
+        private readonly String name;
+        private readonly String value;
+
+        public static readonly kinship father = new kinship("father", "Père");
+        public static readonly kinship mother = new kinship ("mother", "Mère");
+        public static readonly kinship uncle = new kinship ("uncle", "Oncle"); 
+       public static List<kinship> list { get; set; }
+        static kinship(){
+            list = new List<kinship>();
+            list.Add(father);
+            list.Add(mother);
+            list.Add(uncle);
+        }
+
+        private kinship(String value, String name){
+            this.name = name;
+            this.value = value;
+        }
+
+        public override String ToString(){
+            return name;
+        }
+        public String getValue(){
+            return name;
+        }
+
+    }
+
+   
 }

@@ -69,7 +69,7 @@
                 <ListBox BorderBrush="Transparent" ItemsSource="{Binding contact.phones}" Grid.Row="4" Grid.Column="1">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel>
                                 <TextBlock Text="{Binding number}" />
                             </StackPanel>
                         </DataTemplate>

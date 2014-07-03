@@ -66,13 +66,14 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actAddStudent(object o)
         {
-            AddStudentModelView addStudentModelView = new AddStudentModelView();
+            AddStudentViewModel addStudentViewModel = new AddStudentViewModel(contact,this);
             AddStudentView addStudentView = new AddStudentView();
 
-            addStudentView.DataContext = addStudentModelView;
-            //addStu.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView));
+            addStudentView.DataContext = addStudentViewModel;
+            addStudentViewModel.CloseActionAdd = new Action(() => addStudentView.Close());
 
             addStudentView.Show();
         }
+
     }
 }

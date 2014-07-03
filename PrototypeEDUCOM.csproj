@@ -113,7 +113,7 @@
     <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\AddStudentModelView.cs" />
+    <Compile Include="ViewModel\Customer\AddStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\DeleteCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
