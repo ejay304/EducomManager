@@ -1,14 +1,47 @@
 ﻿<Window x:Class="PrototypeEDUCOM.View.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Connexion EDUCCOM Manager" Height="350" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        xmlns:control="clr-namespace:LoadingControl.Control"
+        Title="Connexion EDUCCOM Manager" Height="350" Width="318" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Connexion" Command="{Binding btnLogin}" HorizontalAlignment="Left" Margin="78,273,0,0" VerticalAlignment="Top" Width="132"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding login, Mode=OneWayToSource}" Height="23" Margin="108,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Text="{Binding pass, Mode=OneWayToSource}" Height="23" Margin="108,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Name="login" Content="Login" HorizontalAlignment="Left" Margin="61,178,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pass" HorizontalAlignment="Left" Margin="67,220,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding message}" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE63333" Height="33" Width="161"/>
-        <Image Source="../Ressource/logo.png" HorizontalAlignment="Left" Height="100" Margin="10,23,0,0" VerticalAlignment="Top" Width="272"/>
+
+        <Image Source="../Ressource/logo.png" HorizontalAlignment="Left" Height="100" Margin="20,23,0,0" VerticalAlignment="Top" Width="272"/>
+
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding loading}" Value="true">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <!-- Button submit -->
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="0" Margin="104,269,93,17" Width="115" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Ressource/login.png" Width="30" Height="30" />
+                    <TextBlock Text="  Connexion" VerticalAlignment="Center" FontWeight="Bold" />
+                </StackPanel>
+            </Button>
+            <TextBox HorizontalAlignment="Left" Text="{Binding login, Mode=OneWayToSource}" Height="23" Margin="108,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="{Binding pass, Mode=OneWayToSource}" Height="23" Margin="108,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Name="login" Content="Login" HorizontalAlignment="Left" Margin="61,178,0,0" VerticalAlignment="Top"/>
+            <Label Content="Pass" HorizontalAlignment="Left" Margin="67,220,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding message}" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE63333" Height="33" Width="161"/>
+        </Grid>
+        <Grid>
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding loading}" Value="false">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <control:LoadingAnimation HorizontalAlignment="Center" VerticalAlignment="Center" Margin="112,171,112,63"/>
+        </Grid>
     </Grid>
 </Window>

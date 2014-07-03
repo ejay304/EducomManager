@@ -47,7 +47,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actViewDetail(contact customer)
         {
-
             View.Customer.ShowCustomerUCView showCustommerView = new View.Customer.ShowCustomerUCView(customer);
             showCustommerView.DataContext = new ViewModel.Customer.ShowCustomerViewModel(customer, parentVM);
             Tab tab = new Tab(customer.lastname, showCustommerView, null);

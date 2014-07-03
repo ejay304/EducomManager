@@ -90,6 +90,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\adress.cs" />
     <Compile Include="Model\campaign.cs" />
     <Compile Include="Model\campu.cs" />
@@ -123,6 +124,8 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Organisation\OrganisationViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="View\Control\Block.xaml.cs" />
+    <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,14 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Control\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Control\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Customer\AddCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,6 +280,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressource\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\titleAddClient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\logoSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,8 @@
-﻿using PrototypeEDUCOM.Model;
+﻿using PrototypeEDUCOM.Helper;
+using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -27,40 +29,67 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public string country { get; set; }
 
-        public ICollection<phone> phones { get; set; }
+        public string phonePrivate { get; set; }
 
-        public string phone { get; set; }
+        public string phonePro { get; set; }
 
         public string email { get; set; }
 
-        public ICommand cmdAdd { get; set; }
+        public Validation validFirstname { get; set; }
 
-        public ICommand cmdAddPhone { get; set; }
+        public Validation validLastname { get; set; }
+
+        public ICommand cmdAdd { get; set; }
 
         public Action CloseActionFormAdd { get; set; }
 
         public AddCustomerViewModel(ListCustomerViewModel parentVM)
         {
             this.parentVM = parentVM;
-
-            //this.phones = new ICollection<phone>();
-
             this.cmdAdd = new RelayCommand<object>(actAdd);
-            this.cmdAddPhone = new RelayCommand<object>(actAddPhone);
-        }
-
-        public void actAddPhone(object obj)
-        {
-            phone phone = new phone();
-            phones.Add(phone);
         }
 
         public void actAdd(object obj)
         {
+
+            bool error = false;
+            this.validFirstname = new Validation();
+            this.validLastname = new Validation();
+
             contact customer = new contact();
             customer.civility = "m";
-            customer.firstname = this.firstname;
-            customer.lastname = this.lastname;
+
+            // Validation prénom
+            if (!this.firstname.Equals(""))
+            {
+                customer.firstname = this.firstname;
+                this.validFirstname.message = "Valide";
+                this.validFirstname.valid = true;
+                NotifyPropertyChanged("validFirstname");
+            }
+            else
+            {
+                this.validFirstname.message = "Champ requis";
+                this.validFirstname.valid = false;
+                NotifyPropertyChanged("validFirstname");
+                error = true;
+            }
+
+            // Validation nom
+            if (!this.lastname.Equals(""))
+            {
+                customer.lastname = this.lastname;
+                this.validLastname.message = "Valide";
+                this.validLastname.valid = true;
+                NotifyPropertyChanged("validLastname");
+            }
+            else
+            {
+                this.validLastname.message = "Champ requis";
+                this.validLastname.valid = false;
+                NotifyPropertyChanged("validLastname");
+                error = true;
+            }
 
             if (!this.street.Equals(""))
                 customer.street = this.street;
@@ -74,10 +103,20 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             if (!this.country.Equals(""))
                 customer.country = this.country;
 
-            if (!this.phone.Equals("")) 
+            if (!this.phonePrivate.Equals("")) 
             {
                 phone phone = new phone();
-                phone.number = this.phone;
+                phone.number = this.phonePrivate;
+                phone.description = "private";
+                phone.main = true;
+                customer.phones.Add(phone);
+            }
+
+            if (!this.phonePro.Equals(""))
+            {
+                phone phone = new phone();
+                phone.number = this.phonePro;
+                phone.description = "pro";
                 phone.main = true;
                 customer.phones.Add(phone);
             }
@@ -90,18 +129,21 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 customer.emails.Add(email);
             }
 
-            customer.add_date = DateTime.Now;
+            if (!error)
+            {
+                customer.add_date = DateTime.Now;
 
-            // Ajoute dans la liste
-            parentVM.customers.Add(customer);
-            parentVM.NotifyPropertyChanged("customers");
-            parentVM.NotifyPropertyChanged("nbrCustomer");
+                // Ajoute dans la liste
+                parentVM.customers.Add(customer);
+                parentVM.NotifyPropertyChanged("customers");
+                parentVM.NotifyPropertyChanged("nbrCustomer");
 
-            // Enregistre dans la base
-            db.contacts.Add(customer);
-            db.SaveChanges();
+                // Enregistre dans la base
+                db.contacts.Add(customer);
+                db.SaveChanges();
 
-            this.CloseActionFormAdd();
+                this.CloseActionFormAdd();
+            }
         }
     }
 }
