@@ -114,6 +114,7 @@
     <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customer\AddStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\DeleteCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
@@ -128,6 +129,9 @@
     <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customer\AddStudentView.xaml.cs">
+      <DependentUpon>AddStudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\CustomerUCView.xaml.cs">
       <DependentUpon>CustomerUCView.xaml</DependentUpon>
@@ -198,6 +202,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Customer\AddCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customer\AddStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customer
@@ -23,8 +24,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.contact = contact;
         }
 
-
         public void actDeleteCustomer(Object o) {
+            if(contact.students.Count > 0)
+               // MessageBox.Show(, "Impossible de supprimer le client car il a des dépendances.","Dépendances",MessageBoxButton.OK,MessageBoxImage.Error);
 
             db.contacts.Remove(contact);
             db.SaveChanges();
