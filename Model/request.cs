@@ -11,7 +11,6 @@ namespace PrototypeEDUCOM.Model
     {
         public request()
         {
-            contacts = new HashSet<contact>();
             events = new HashSet<_event>();
             propositions = new HashSet<proposition>();
             responses = new HashSet<respons>();
@@ -32,7 +31,9 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual ICollection<contact> contacts { get; set; }
+        public int contacts_id { get; set; }
+
+        public virtual contact contact { get; set; }
 
         public virtual ICollection<_event> events { get; set; }
 
