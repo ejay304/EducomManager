@@ -15,6 +15,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public contact contact { get; set; }
         public ICommand cmdArchive { get; set; }
         public ICommand cmdDelete { get; set; }
+        public int nbrStudent { get; set; }
+        public int nbrRequest { get; set; }
 
         public Action CloseActionDelete { get; set; }
 
@@ -22,11 +24,21 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
             this.cmdDelete = new RelayCommand<Object>(actDeleteCustomer);
             this.contact = contact;
+            this.nbrRequest = contact.requests.Count();
+            this.nbrStudent = contact.students.Count();
+
         }
 
         public void actDeleteCustomer(Object o) {
-            if(contact.students.Count > 0)
-               // MessageBox.Show(, "Impossible de supprimer le client car il a des dépendances.","Dépendances",MessageBoxButton.OK,MessageBoxImage.Error);
+            for (int i = 0; i < nbrRequest; i++ )
+            {
+                db.requests.Remove(contact.requests.First());
+            }
+
+            for (int i = 0; i < nbrStudent; i++ )
+            {
+                db.students.Remove(contact.students.First());
+            }
 
             db.contacts.Remove(contact);
             db.SaveChanges();

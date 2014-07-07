@@ -70,7 +70,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             // Validation nom
             if (!this.lastname.Equals(""))
             {
-                customer.lastname = this.lastname;
+                student.lastname = this.lastname;
                 this.validLastname.message = "Valide";
                 this.validLastname.valid = true;
                 NotifyPropertyChanged("validLastname");

@@ -20,6 +20,7 @@ namespace PrototypeEDUCOM.Model
                 phones = new HashSet<phone>();
                 students = new HashSet<student>();
                 campaigns = new HashSet<campaign>();
+                requests = new HashSet<request>();
             }
 
             public int id { get; set; }

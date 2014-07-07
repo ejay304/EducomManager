@@ -1,25 +1,36 @@
 ﻿<Window x:Class="PrototypeEDUCOM.View.Customer.DeleteCustomerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DeleteCustomerView" Height="200" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"> 
+        Title="DeleteCustomerView" SizeToContent="Height" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"> 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Content="Avertissement !!!! /!\" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+      
+        <StackPanel Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" Text="En supprimant cet élément vous allez suppimer toutes les dépendances qui sont liées: " HorizontalAlignment="Left" Margin="10,4,4,4"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
+                <Label Content="{Binding nbrRequest}" />
+                <Label Content=" demande(s)" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
+                <Label Content="{Binding nbrStudent}" />
+                <Label Content=" étudiant(s)" />
+            </StackPanel>
+        </StackPanel>
+        
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center"> Archiver</Button>
-            <Button Command="{Binding cmdDelete}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"> Supprimer</Button>
+            <Button IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center">Archiver</Button>
+            <Button Command="{Binding cmdDelete}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">Supprimer</Button>
 
         </Grid>
-        
-        <Label Grid.Row="1" Content="Un texte sur les dépendances" HorizontalAlignment="Center"/>
     </Grid>
 </Window>
