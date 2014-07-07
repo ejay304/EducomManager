@@ -90,6 +90,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helper\Enum\Kinship.cs" />
     <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\adress.cs" />
     <Compile Include="Model\campaign.cs" />
@@ -298,6 +299,7 @@
   <ItemGroup>
     <Resource Include="Ressource\login.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

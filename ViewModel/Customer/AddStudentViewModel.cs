@@ -1,4 +1,7 @@
+
 ﻿using PrototypeEDUCOM.Helper;
+
+﻿using PrototypeEDUCOM.Helper.Enum;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -15,7 +18,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public String firstname { get; set; }
         public DateTime birthday { get; set; }
         public String lastname { get; set; }
-        public List<kinship> kinships { get; set; }
+        public List<Kinship> kinships { get; set; }
         public int kinshipIndex { get; set; }
         public String gender { get; set; }
         public Validation validFirstname { get; set; }
@@ -29,7 +32,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public AddStudentViewModel(contact customer, ShowCustomerViewModel parentVM) {
 
             this.customer = customer;
-            this.kinships = kinship.list;
+            this.kinships = Kinship.list;
             this.cmdAdd = new RelayCommand<object>(actAdd);
             this.parentVM = parentVM;
         }

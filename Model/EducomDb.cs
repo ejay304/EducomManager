@@ -7,7 +7,6 @@ namespace PrototypeEDUCOM.Model
 
     public partial class EducomDb : DbContext
     {
-
         private static EducomDb instance;
 
         public EducomDb()
@@ -161,6 +160,12 @@ namespace PrototypeEDUCOM.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<contact>()
+                .HasMany(e => e.requests)
+                .WithRequired(e => e.contact)
+                .HasForeignKey(e => e.contacts_id)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<contact>()
                 .HasMany(e => e.students)
                 .WithRequired(e => e.contact)
                 .HasForeignKey(e => e.contacts_id)
@@ -292,11 +297,6 @@ namespace PrototypeEDUCOM.Model
             modelBuilder.Entity<request>()
                 .Property(e => e.comment)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<request>()
-                .HasMany(e => e.contacts)
-                .WithOptional(e => e.request)
-                .HasForeignKey(e => e.requests_id);
 
             modelBuilder.Entity<request>()
                 .HasMany(e => e.events)

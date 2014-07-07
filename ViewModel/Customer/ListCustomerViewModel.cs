@@ -29,7 +29,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ListCustomerViewModel(ViewModel.Customer.CustomerViewModel parentVM) : base()
         {
             this.parentVM = parentVM;
-            this.customers = new ObservableCollection<contact>(db.contacts.ToList());
+             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
             this.cmdAdd = new RelayCommand<object>(actAdd);           
         }
