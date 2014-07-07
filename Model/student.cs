@@ -7,8 +7,15 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.students")]
-    public partial class student
+    public class student : NotifyProperty
     {
+
+        private string _lastname;
+        private string _firstname;
+        private string _gender;
+        private DateTime _birthday;
+        private string _kinship;
+
         public student()
         {
             requests = new HashSet<request>();
@@ -18,24 +25,72 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
-        public string lastname { get; set; }
+        public string lastname {
+            get {
+                return _lastname;
+            } 
+            set{
+                _lastname = value;
+                NotifyPropertyChanged("lastname");
+            } 
+        }
 
         [Required]
         [StringLength(45)]
-        public string firstname { get; set; }
+        public string firstname {
+            get
+            {
+                return _firstname;
+            }
+            set
+            {
+                _firstname = value;
+                NotifyPropertyChanged("firstname");
+            }
+        }
 
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]
-        public string gender { get; set; }
+        public string gender {
+            get
+            {
+                return _gender;
+            }
+            set
+            {
+                _gender = value;
+                NotifyPropertyChanged("gender");
+            }
+        }
 
         [Column(TypeName = "date")]
-        public DateTime birthday { get; set; }
+        public DateTime birthday {
+            get
+            {
+                return _birthday;
+            }
+            set
+            {
+                _birthday = value;
+                NotifyPropertyChanged("birthday");
+            }
+        }
 
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]
-        public string kinship { get; set; }
+        public string kinship {
+            get
+            {
+                return _kinship;
+            }
+            set
+            {
+                _kinship = value;
+                NotifyPropertyChanged("kinship");
+            }
+        }
 
         public int contacts_id { get; set; }
 
