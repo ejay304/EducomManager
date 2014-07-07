@@ -77,7 +77,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public void actEditStudent(student student)
         {
             EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student,this);
-            AddStudentView editStudentView = new AddStudentView();
+            EditStudentView editStudentView = new EditStudentView();
 
             editStudentView.DataContext = editStudentViewModel;
             editStudentViewModel.CloseActionEdit = new Action(() => editStudentView.Close());

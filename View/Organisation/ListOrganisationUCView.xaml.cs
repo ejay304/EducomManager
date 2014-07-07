@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace PrototypeEDUCOM.View.Organisation
 {
     /// <summary>
-    /// Logique d'interaction pour OrganisationUCView.xaml
+    /// Logique d'interaction pour ListOrganisationUCView.xaml
     /// </summary>
-    public partial class OrganisationUCView : UserControl
+    public partial class ListOrganisationUCView : UserControl
     {
-        public OrganisationUCView()
+        public ListOrganisationUCView()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.Organisation.OrganisationViewModel();
         }
     }
 }

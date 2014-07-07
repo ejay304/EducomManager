@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PrototypeEDUCOM.View.Organisation
 {
     /// <summary>
-    /// Logique d'interaction pour OrganisationUCView.xaml
+    /// Logique d'interaction pour AddOrganisationView.xaml
     /// </summary>
-    public partial class OrganisationUCView : UserControl
+    public partial class AddOrganisationView : Window
     {
-        public OrganisationUCView()
+        public AddOrganisationView()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.Organisation.OrganisationViewModel();
         }
     }
 }

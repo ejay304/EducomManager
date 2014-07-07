@@ -19,7 +19,7 @@
             </Grid.Style>
 
             <!-- Button submit -->
-            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="0" Margin="104,269,93,17" Width="115" >
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="0" Width="116" Margin="98,266,98,20" >
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../Ressource/login.png" Width="30" Height="30" />
                     <TextBlock Text="  Connexion" VerticalAlignment="Center" FontWeight="Bold" />
