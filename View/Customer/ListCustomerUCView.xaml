@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Width="735" Height="398">
+             mc:Ignorable="d">
     <Grid>
-        <Label Content="Liste des clients" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <ListView HorizontalAlignment="Stretch"  ItemsSource="{Binding customers}" x:Name="list" Margin="10,59,0,59">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Content="Liste des clients"  Margin="10,0,0,0" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
+            <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#FF30859A" FontWeight="Bold"/>
+            <Label Content="Client(s)" VerticalAlignment="Center" Foreground="#FF30859A" FontStyle="Italic"/>
+        </StackPanel>
+        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -27,13 +36,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Margin="308,352,289,10" Width="138" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA">
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Width="138" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2" >
             <StackPanel Orientation="Horizontal" Width="135">
                 <Image Source="../../Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter un client" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>
-        <Label Content="{Binding nbrCustomer}" HorizontalAlignment="Left" Margin="136,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.7,7.7" Height="29" Width="21" Foreground="#FF30859A" FontWeight="Bold"/>
-        <Label Content="Client(s)" HorizontalAlignment="Left" Margin="150,13,0,0" VerticalAlignment="Top" Foreground="#FF30859A" FontStyle="Italic"/>
     </Grid>
 </UserControl>

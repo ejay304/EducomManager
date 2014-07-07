@@ -6,16 +6,26 @@ using System.Threading.Tasks;
 
 namespace PrototypeEDUCOM.Helper.Enum
 {
-   public sealed class Kinship
+   public class Kinship : EnumDb
     {
-       
-            private readonly String name;
-            private readonly String value;
 
             public static readonly Kinship father = new Kinship("father", "Père");
             public static readonly Kinship mother = new Kinship("mother", "Mère");
             public static readonly Kinship uncle = new Kinship("uncle", "Oncle");
+
             public static List<Kinship> list { get; set; }
+            
+            private Kinship(String value, String name) : base(value,name) {
+            }
+
+            public static int indexByValue(String value)
+            {
+                for (int i = 0; i < Kinship.list.Count; i++)
+                    if (String.Compare(Kinship.list.ElementAt(i).getValue(), value) == 0)
+                        return i;
+                return -1;
+            }
+
             static Kinship()
             {
                 list = new List<Kinship>();
@@ -23,21 +33,5 @@ namespace PrototypeEDUCOM.Helper.Enum
                 list.Add(mother);
                 list.Add(uncle);
             }
-
-            private Kinship(String value, String name)
-            {
-                this.name = name;
-                this.value = value;
-            }
-
-            public override String ToString()
-            {
-                return name;
-            }
-            public String getValue()
-            {
-                return name;
-            }
-
         }
 }

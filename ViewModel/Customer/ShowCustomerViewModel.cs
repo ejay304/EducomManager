@@ -19,6 +19,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ICommand cmdEditCustomer { get; set; }
         public ICommand cmdDeleteCustomer { get; set; }
         public ICommand cmdAddStudent { get; set; }
+        public ICommand cmdEditStudent { get; set; }
+        public ICommand cmdDeleteStudent { get; set; }
 
         public ShowCustomerViewModel(contact contact, ViewModel.Customer.CustomerViewModel parentVM)
         {
@@ -28,10 +30,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
             this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
-
-
+            this.cmdEditStudent = new RelayCommand<student>(actEditStudent);
+            //this.cmdDeleteStudent = new RelayCommand<Object>(actDeleteStudent);
         }
-
         public void actEditCustomer(object o)
         {
             EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
@@ -42,7 +43,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             editCustomerView.Show();
         }
-
         public void actDeleteCustomer(object o)
         {
             DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(contact);
@@ -74,6 +74,17 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             addStudentView.Show();
         }
+        public void actEditStudent(student student)
+        {
+            EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student,this);
+            AddStudentView editStudentView = new AddStudentView();
+
+            editStudentView.DataContext = editStudentViewModel;
+            editStudentViewModel.CloseActionEdit = new Action(() => editStudentView.Close());
+
+            editStudentView.Show();
+        }
+      
 
     }
 }
