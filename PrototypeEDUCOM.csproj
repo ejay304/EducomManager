@@ -127,6 +127,8 @@
     <Compile Include="ViewModel\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\ListOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\OrganisationViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\Control\Block.xaml.cs" />
@@ -146,6 +148,9 @@
     <Compile Include="View\Customer\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Customer\EditStudentView.xaml.cs">
+      <DependentUpon>EditStudentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customer\ListCustomerUCView.xaml.cs">
       <DependentUpon>ListCustomerUCView.xaml</DependentUpon>
     </Compile>
@@ -160,6 +165,12 @@
     </Compile>
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Organisation\AddOrganisationView.xaml.cs">
+      <DependentUpon>AddOrganisationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Organisation\ListOrganisationUCView.xaml.cs">
+      <DependentUpon>ListOrganisationUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\OrganisationUCView.xaml.cs">
       <DependentUpon>OrganisationUCView.xaml</DependentUpon>
@@ -225,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Customer\EditStudentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Customer\ListCustomerUCView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -244,6 +259,14 @@
     <Page Include="View\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Organisation\AddOrganisationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Organisation\ListOrganisationUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Organisation\OrganisationUCView.xaml">
       <SubType>Designer</SubType>
@@ -302,7 +325,9 @@
   <ItemGroup>
     <Resource Include="Ressource\login.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Ressource\titleAddStudent.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

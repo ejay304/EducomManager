@@ -39,6 +39,19 @@
                 <TextBox Text="{Binding login, Mode=OneWayToSource}" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1"  Margin="10,8,60,8" />
                 <TextBox Text="{Binding pass, Mode=OneWayToSource}"  TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="10,8,60,8" />
             </Grid>
+            
+            <!-- Button submit -->
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="0" Width="116" Margin="98,266,98,20" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Ressource/login.png" Width="30" Height="30" />
+                    <TextBlock Text="  Connexion" VerticalAlignment="Center" FontWeight="Bold" />
+                </StackPanel>
+            </Button>
+            <TextBox HorizontalAlignment="Left" Text="{Binding login, Mode=OneWayToSource}" Height="23" Margin="108,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Left" Text="{Binding pass, Mode=OneWayToSource}" Height="23" Margin="108,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Name="login" Content="Login" HorizontalAlignment="Left" Margin="61,178,0,0" VerticalAlignment="Top"/>
+            <Label Content="Pass" HorizontalAlignment="Left" Margin="67,220,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding message}" HorizontalAlignment="Left" Margin="67,128,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE63333" Height="33" Width="161"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.Style>
