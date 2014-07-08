@@ -27,9 +27,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public Validation validBirthday { get; set; }
         public ICommand cmdAdd { get; set; }
         public Action CloseActionEdit { get; set; }
-        public ShowCustomerViewModel parentVM { get; set; }
-
-        public EditStudentViewModel(student student, ShowCustomerViewModel parentVM)
+ 
+        public EditStudentViewModel(student student)
         {
 
             this.student = student;
@@ -41,7 +40,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.kinships = Kinship.list;
             this.genders = Gender.list;
             this.cmdAdd = new RelayCommand<object>(actEdit);
-            this.parentVM = parentVM;
         }
         public void actEdit(object o)
         {

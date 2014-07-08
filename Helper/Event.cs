@@ -10,5 +10,8 @@ namespace PrototypeEDUCOM.Helper
     {
         public const string ADD_CUSTOMER = "add_customer";
         public const string DELETE_CUSTOMER = "delete_customer"; 
+
+        public const string ADD_STUDENT = "add_student";
+        public const string DELETE_STUDENT = "delete_student"; 
     }
 }

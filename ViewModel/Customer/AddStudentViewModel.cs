@@ -31,7 +31,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public Action CloseActionAdd { get; set; }
         public ShowCustomerViewModel parentVM { get; set; }
 
-        public AddStudentViewModel(contact customer, ShowCustomerViewModel parentVM) {
+        public AddStudentViewModel(contact customer) {
 
             this.customer = customer;
             this.birthday = DateTime.Now;
@@ -109,9 +109,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 customer.students.Add(student);
 
                 db.SaveChanges();
-
-                parentVM.students.Add(student);
-                parentVM.NotifyPropertyChanged("students");
+                mediator.NotifyViewModel(Helper.Event.ADD_STUDENT, student);
 
                 this.CloseActionAdd();
             }

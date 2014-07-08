@@ -114,5 +114,36 @@ namespace PrototypeEDUCOM.ViewModel
             TabViewModel.Add("customer", customerViewModel);
             TabUC.Add("customer", customerUCView);
         }
+
+        public void openAddStudentView(contact customer) {
+            AddStudentViewModel addStudentViewModel = new AddStudentViewModel(customer);
+            AddStudentView addStudentView = new AddStudentView();
+
+            addStudentView.DataContext = addStudentViewModel;
+            addStudentViewModel.CloseActionAdd = new Action(() => addStudentView.Close());
+
+            addStudentView.Show();
+        }
+        public void openEditStudentView(student student) {
+            EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student);
+            EditStudentView editStudentView = new EditStudentView();
+
+            editStudentView.DataContext = editStudentViewModel;
+            editStudentViewModel.CloseActionEdit = new Action(() => editStudentView.Close());
+
+            editStudentView.Show();
+       
+        }
+        public void openDeleteStudentView(student student) {
+
+            DeleteStudentViewModel deleteStudentViewModel = new DeleteStudentViewModel(student);
+            DeleteStudentView deleteStudentView = new DeleteStudentView();
+
+            deleteStudentView.DataContext = deleteStudentViewModel;
+            deleteStudentViewModel.CloseActionDelete = new Action(() => deleteStudentView.Close());
+
+            deleteStudentView.ShowDialog();
+        }
+        
     }
 }

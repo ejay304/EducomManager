@@ -30,6 +30,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
             this.cmdEditStudent = new RelayCommand<student>(actEditStudent);
             this.cmdDeleteStudent = new RelayCommand<student>(actDeleteStudent);
+
+            mediator.Register(Helper.Event.ADD_STUDENT, this);
+            mediator.Register(Helper.Event.DELETE_STUDENT, this);
         }
 
         public void actEditCustomer(object o)
@@ -43,28 +46,33 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actAddStudent(object o)
         {
-            AddStudentViewModel addStudentViewModel = new AddStudentViewModel(customer, this);
-            AddStudentView addStudentView = new AddStudentView();
-
-            addStudentView.DataContext = addStudentViewModel;
-            addStudentViewModel.CloseActionAdd = new Action(() => addStudentView.Close());
-
-            addStudentView.Show();
+            mediator.openAddStudentView(this.customer);
         }
         public void actEditStudent(student student)
         {
-            EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student, this);
-            EditStudentView editStudentView = new EditStudentView();
-
-            editStudentView.DataContext = editStudentViewModel;
-            editStudentViewModel.CloseActionEdit = new Action(() => editStudentView.Close());
-
-            editStudentView.Show();
+            mediator.openEditStudentView(student);
         }
         public void actDeleteStudent(student student)
         {
-          //TODO DELETE student
+            mediator.openDeleteStudentView(student);
+        }
 
+        public override void Update(string eventName, object item)
+        {
+            switch (eventName)
+            {
+                case Helper.Event.ADD_STUDENT:
+
+                    this.students.Add((student)item);
+                    NotifyPropertyChanged("students");
+                    break;
+                case Helper.Event.DELETE_STUDENT:
+
+                    // Ajoute dans la liste
+                    this.students.Remove((student)item);
+                    NotifyPropertyChanged("students");
+                    break;
+            }
         }
     }
 }

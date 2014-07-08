@@ -16,14 +16,11 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public int nbrRequest { get; set; }
         public Action CloseActionDelete { get; set; }
 
-        private ShowCustomerViewModel parentVM;
-
-        public DeleteStudentViewModel(student student,ShowCustomerViewModel parentVM)
+        public DeleteStudentViewModel(student student)
         {
             this.cmdDelete = new RelayCommand<Object>(actDeleteStudent);
             this.student = student;
             this.nbrRequest = student.requests.Count();
-            this.parentVM = parentVM;
         }
 
         private void actDeleteStudent(Object o)
@@ -33,11 +30,11 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 db.requests.Remove(student.requests.First());
             }
 
+            mediator.NotifyViewModel(Helper.Event.DELETE_STUDENT, student);
+
             db.students.Remove(student);
             db.SaveChanges();
 
-            parentVM.students.Remove(student);
-            parentVM.NotifyPropertyChanged("students");
             this.CloseActionDelete();
         }
     }
