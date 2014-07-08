@@ -1,0 +1,47 @@
+﻿<Window x:Class="PrototypeEDUCOM.View.Customer.DeleteStudentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DeleteCustomerView" SizeToContent="Height" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"> 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
+            <Image  Source="../../Ressource/titleAddStudent.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
+            <Label Content="Suppression d'un étudiant" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" Text="En supprimant cet élément vous allez suppimer toutes les dépendances qui sont liées: " HorizontalAlignment="Left" Margin="10,4,4,4"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
+                <Label Content="{Binding nbrRequest}" />
+                <Label Content=" demande(s)" />
+            </StackPanel>
+        </StackPanel>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center">Archiver</Button>
+            <Button Command="{Binding cmdDelete}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">Supprimer</Button>
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextAlignment="Right" Padding="0,2,7,0" VerticalAlignment="Bottom" Background="#FF30859A" Text="EDUCOM Manager © Wavemind, 2014" Height="20" HorizontalAlignment="Stretch" FontSize="10" FontStyle="Italic" Foreground="#FFBACFD4"/>
+            <Border BorderThickness="1,1,0,0" BorderBrush="#FF30859A" Grid.Column="1">
+                <Image Source="/PrototypeEDUCOM;component/Ressource/logoSmall.png" Height="34" VerticalAlignment="Top" Width="34" Panel.ZIndex="55"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
