@@ -39,7 +39,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             {
                 db.students.Remove(contact.students.First());
             }
-
+            mediator.NotifyViewModel(Helper.Event.DELETE_CUSTOMER, contact);
             db.contacts.Remove(contact);
             db.SaveChanges();
             this.CloseActionDelete();

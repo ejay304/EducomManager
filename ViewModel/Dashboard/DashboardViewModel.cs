@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PrototypeEDUCOM.ViewModel.Dashboard
 {
-    class DashboardViewModel
+    class DashboardViewModel : BaseViewModel
     {
+
     }
 }

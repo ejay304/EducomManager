@@ -43,9 +43,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public Action CloseActionFormAdd { get; set; }
 
-        public AddCustomerViewModel(ListCustomerViewModel parentVM)
+        public AddCustomerViewModel()
         {
-            this.parentVM = parentVM;
             this.cmdAdd = new RelayCommand<object>(actAdd);
         }
 
@@ -133,14 +132,11 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             {
                 customer.add_date = DateTime.Now;
 
-                // Ajoute dans la liste
-                parentVM.customers.Add(customer);
-                parentVM.NotifyPropertyChanged("customers");
-                parentVM.NotifyPropertyChanged("nbrCustomer");
-
                 // Enregistre dans la base
                 db.contacts.Add(customer);
                 db.SaveChanges();
+
+                mediator.NotifyViewModel(Helper.Event.ADD_CUSTOMER, customer);
 
                 this.CloseActionFormAdd();
             }

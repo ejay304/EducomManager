@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypeEDUCOM.Helper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             View.Organisation.ListOrganisationUCView view = new View.Organisation.ListOrganisationUCView();
             view.DataContext = new ViewModel.Organisation.ListOrganisationViewModel(this);
 
-            organisationTabs.Add(new Tab("Liste", view, null));
+            organisationTabs.Add(new Tab("Liste", view,null, null));
         }
 
         private void actCloseTab(Tab tab)

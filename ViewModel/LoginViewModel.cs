@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypeEDUCOM.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -59,10 +60,12 @@ namespace PrototypeEDUCOM.ViewModel
             if (login.Length != 0 && pass.Length != 0)
             {
 
-                int nbrUser = db.users.Where(u => u.email == login && u.password == pass).Count();
+                user user = db.users.Where(u => u.email == login && u.password == pass).First();
 
-                if (nbrUser == 1)
+                if (user != null)
                 {
+                    mediator.roleUser = Helper.Enum.User.list[Helper.Enum.User.indexByValue(user.role)];
+
                     return;
                 }
                 else

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PrototypeEDUCOM.Helper;
+using PrototypeEDUCOM.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -26,18 +28,48 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public CustomerViewModel()
         {
-
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
             customerTabs = new ObservableCollection<Tab>();
             View.Customer.ListCustomerUCView view = new View.Customer.ListCustomerUCView();
-            view.DataContext = new ViewModel.Customer.ListCustomerViewModel(this);
-            customerTabs.Add(new Tab("Liste", view, null));
+            view.DataContext = new ViewModel.Customer.ListCustomerViewModel();
+            customerTabs.Add(new Tab("Liste", view, null, null));
         }
 
         private void actCloseTab(Tab tab)
         {
             customerTabs.Remove(tab);
             NotifyPropertyChanged("customerTabs");
+        }
+
+        public void actAddTab(contact customer, UserControl view)
+        {
+            Tab tab = new Tab(customer.lastname, view,customer, null);
+
+            this.customerTabs.Add(tab);
+            this.selectedTab = tab;
+
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
+        }
+
+            public override void Update(string eventName, Object item)
+        {
+            switch (eventName)
+            {
+                case Helper.Event.DELETE_CUSTOMER:
+
+                    for(int i = 0 ; i < customerTabs.Count() ; i++) {
+                        if (customerTabs[i].entity == item)
+                        {
+                            customerTabs.Remove(customerTabs[i]);
+                            i--;
+                        }
+                    }
+                    
+                    selectedTab = tabs.First();
+                    NotifyPropertyChanged("customerTabs");
+                    NotifyPropertyChanged("selectedTab");
+                    break;
+            }
         }
     }
 }

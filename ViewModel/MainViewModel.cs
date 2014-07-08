@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypeEDUCOM.Helper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -17,9 +18,16 @@ namespace PrototypeEDUCOM.ViewModel
         public MainViewModel()
         {
             tabs = new ObservableCollection<Tab>();
-            tabs.Add(new Tab("Dashboard", new View.Dashboard.DashboardUCView(), "../Ressource/dashboard.png"));
-            tabs.Add(new Tab("Clients", new View.Customer.CustomerUCView(), "../Ressource/clients.png"));
-            tabs.Add(new Tab("Organisations", new View.Organisation.OrganisationUCView(), "../Ressource/organisations.png"));
+
+            mediator.createTabViewModel();
+
+            if(mediator.roleUser != Helper.Enum.User.assistant)
+                tabs.Add(new Tab("Dashboard", mediator.TabUC["dashboard"],null, "../Ressource/dashboard.png"));
+
+
+            tabs.Add(new Tab("Clients", mediator.TabUC["customer"],null, "../Ressource/clients.png"));
+
+            tabs.Add(new Tab("Organisations", new View.Organisation.OrganisationUCView(),null, "../Ressource/organisations.png"));
         }
     }
 }

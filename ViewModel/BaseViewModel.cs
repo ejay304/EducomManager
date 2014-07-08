@@ -1,4 +1,5 @@
-﻿using PrototypeEDUCOM.Model;
+﻿using PrototypeEDUCOM.Helper;
+using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,25 +10,12 @@ using System.Windows.Controls;
 
 namespace PrototypeEDUCOM.ViewModel
 {
-    public class Tab
-    {
-        public String header { get; set; }
-
-        public UserControl content { get; set; }
-
-        public String icon { get; set; }
-
-        public Tab(String header, UserControl content, String icon)
-        {
-            this.header = header;
-            this.content = content;
-            this.icon = icon;
-        }
-    }
 
     public class BaseViewModel : INotifyPropertyChanged
     {
         public EducomDb db = EducomDb.getInstance();
+
+        public MediatorViewModel mediator = MediatorViewModel.getInstance();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -38,5 +26,10 @@ namespace PrototypeEDUCOM.ViewModel
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(nomPropriete));
         }
+
+        public virtual void Update(string eventName, object item)
+        {
+
+        } 
     }
 }

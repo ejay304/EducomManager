@@ -12,8 +12,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ListCustomerViewModel : BaseViewModel
     {
-
-        private ViewModel.Customer.CustomerViewModel parentVM;
         public ObservableCollection<contact> customers { get; set; }
 
         public int nbrCustomer 
@@ -26,33 +24,45 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ICommand cmdAdd { get; set; }
         public Action CloseActionFormEdit { get; set; }
 
-        public ListCustomerViewModel(ViewModel.Customer.CustomerViewModel parentVM) : base()
+        public ListCustomerViewModel() : base()
         {
-            this.parentVM = parentVM;
-             this.customers = new ObservableCollection<contact>(db.contacts.ToList());
+            this.customers = new ObservableCollection<contact>(db.contacts.ToList());
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
-            this.cmdAdd = new RelayCommand<object>(actAdd);           
+            this.cmdAdd = new RelayCommand<object>(actAdd);
+            mediator.Register(Helper.Event.ADD_CUSTOMER, this);
         }
 
         private void actAdd(object obj)
         {
-            AddCustomerViewModel addCustomerViewModel = new AddCustomerViewModel(this);
-            AddCustomerView addCustomerView = new AddCustomerView();
-
-            addCustomerView.DataContext = addCustomerViewModel;
-            addCustomerViewModel.CloseActionFormAdd = new Action(() => addCustomerView.Close());
-
-            addCustomerView.Show(); 
+            mediator.openAddCustomerView();
         }
 
         public void actViewDetail(contact customer)
         {
-            View.Customer.ShowCustomerUCView showCustommerView = new View.Customer.ShowCustomerUCView(customer);
-            showCustommerView.DataContext = new ViewModel.Customer.ShowCustomerViewModel(customer, parentVM);
-            Tab tab = new Tab(customer.lastname, showCustommerView, null);
+            mediator.openShowCustomerView(customer);
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, mediator.TabViewModel["customer"]);
+        }
 
-            parentVM.customerTabs.Add(tab);
-            parentVM.selectedTab = tab;
+        public override void Update(string eventName, object item)
+        {
+            switch (eventName)
+            {
+                case Helper.Event.ADD_CUSTOMER :
+
+                    // Ajoute dans la liste
+                    this.customers.Add((contact)item);
+                    NotifyPropertyChanged("customers");
+                    NotifyPropertyChanged("nbrCustomer");
+                    break;
+                case Helper.Event.DELETE_CUSTOMER :
+
+                    // Ajoute dans la liste
+                    this.customers.Remove((contact)item);
+                    NotifyPropertyChanged("customers");
+                    NotifyPropertyChanged("nbrCustomer");
+                    break;
+            }
         }
     }
 }

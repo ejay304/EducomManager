@@ -12,7 +12,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ShowCustomerViewModel : BaseViewModel {
 
-        public ViewModel.Customer.CustomerViewModel parentVM;
         public contact contact { get; set; }
         public ObservableCollection<student> students { get; set; }
 
@@ -22,9 +21,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ICommand cmdEditStudent { get; set; }
         public ICommand cmdDeleteStudent { get; set; }
 
-        public ShowCustomerViewModel(contact contact, ViewModel.Customer.CustomerViewModel parentVM)
+        public ShowCustomerViewModel(contact contact)
         {
-            this.parentVM = parentVM;
+            //this.parentVM = parentVM;
             this.contact = contact;
             this.students = new ObservableCollection<student>(contact.students.ToList());
             this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
@@ -45,23 +44,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         }
         public void actDeleteCustomer(object o)
         {
-            DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(contact);
-            DeleteCustomerView deleteCustomerView = new DeleteCustomerView(contact);
-
-            deleteCustomerView.DataContext = deleteCustomerViewModel;
-            deleteCustomerViewModel.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView));
-            
-            deleteCustomerView.ShowDialog();
-
-        }
-        private void deleteCallback(DeleteCustomerView view){
-            view.Close();
-            if (tabs.First() != parentVM.selectedTab) {
-                parentVM.customerTabs.Remove(parentVM.selectedTab);
-                parentVM.NotifyPropertyChanged("customerTabs");
-                parentVM.selectedTab = tabs.First();
-                parentVM.NotifyPropertyChanged("selectedTab");
-            }
+            mediator.openDeleteCustomerView(this.contact);
         }
 
         public void actAddStudent(object o)
@@ -84,7 +67,5 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             editStudentView.Show();
         }
-      
-
     }
 }

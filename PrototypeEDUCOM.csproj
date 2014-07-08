@@ -93,6 +93,9 @@
     <Compile Include="Helper\Enum\EnumDb.cs" />
     <Compile Include="Helper\Enum\Gender.cs" />
     <Compile Include="Helper\Enum\Kinship.cs" />
+    <Compile Include="Helper\Enum\User.cs" />
+    <Compile Include="Helper\Event.cs" />
+    <Compile Include="Helper\Tab.cs" />
     <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\adress.cs" />
     <Compile Include="Model\campaign.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="ViewModel\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MediatorViewModel.cs" />
     <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\ListOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\OrganisationViewModel.cs" />
