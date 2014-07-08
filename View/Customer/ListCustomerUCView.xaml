@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Label Content="Liste des clients"  Margin="10,0,0,0" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
-            <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#FF30859A" FontWeight="Bold"/>
+            <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="#FF30859A" FontWeight="Bold"/>
             <Label Content="Client(s)" VerticalAlignment="Center" Foreground="#FF30859A" FontStyle="Italic"/>
         </StackPanel>
         <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1" >

@@ -1,113 +1,191 @@
 ﻿<Window x:Class="PrototypeEDUCOM.View.Customer.AddCustomerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AddCustomerView" Width="469" Height="536" >
+        Title="AddCustomerView" Width="469" SizeToContent="Height" ResizeMode="NoResize" >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="323*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,120,0,0"/>
-        <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114.223,117,0,0" Grid.Column="1"/>
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Margin="63,422,175,50" Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
+            <Image  Source="../../Ressource/titleAddClient.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
+            <Label Content="Ajouter un client" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Civilité" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Column="0" Grid.Row="0"/>
+                <Label Content="Prénom" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Column="0" Grid.Row="1" />
+
+                <Label Content="Nom" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Column="2" Grid.Row="1" />
+                <ComboBox SelectedIndex="{Binding civilityIndex}" ItemsSource="{Binding civilities}" Grid.Row="0" Grid.Column="1" Margin="10,8,10,8" />
+                <StackPanel Grid.Row="1" Grid.Column="1" >
+                    <TextBox Text="{Binding firstname}"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2" >
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
+                                        <Setter Property="BorderBrush" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,2,10,8">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validFirstname}" Value="{x:Null}">
+                                        <Setter Property="Text" Value="Champ obligatoire"/>
+                                        <Setter Property="Foreground" Value="Gray"/>
+                                        <Setter Property="FontStyle" Value="Italic"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
+                                        <Setter Property="Text" Value="{Binding validFirstname.message}"/>
+                                        <Setter Property="Foreground" Value="Red"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validFirstname.valid}" Value="true">
+                                        <Setter Property="Text" Value="{Binding validFirstname.message}"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="3" Grid.Row="1">
+                    <TextBox Text="{Binding lastname }" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
+                                        <Setter Property="BorderBrush" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="1" Margin="10,2,10,8">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validLastname}" Value="{x:Null}">
+                                        <Setter Property="Text" Value="Champ obligatoire"/>
+                                        <Setter Property="Foreground" Value="Gray"/>
+                                        <Setter Property="FontStyle" Value="Italic"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
+                                        <Setter Property="Text" Value="{Binding validLastname.message}"/>
+                                        <Setter Property="Foreground" Value="Red"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validLastname.valid}" Value="true">
+                                        <Setter Property="Text" Value="{Binding validLastname.message}"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="Adresse" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Grid.Row="0"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Rue" HorizontalAlignment="Right" Grid.Row="0" Margin="0,6,10,6" Grid.Column="0" />
+                    <Label Content="Ville" HorizontalAlignment="Right" Grid.Row="1" Margin="0,6,10,6" Grid.Column="0"/>
+                    <Label Content="NPA" HorizontalAlignment="Right" Grid.Row="0"  Margin="0,6,10,6" Grid.Column="2" />
+                    <Label Content="Pays" HorizontalAlignment="Right" Grid.Row="1" Margin="0,6,10,6" Grid.Column="2"/>
+                    <TextBox Text="{Binding street, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Text="{Binding city, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Text="{Binding zip, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
+                    <TextBox Text="{Binding country, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="3"/>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="Contact" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Tél. privé" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="0" />
+                    <Label Content="Tél. pro" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="1" Grid.Column="0"/>
+                    <Label Content="Email" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="2" />
+                    <TextBox Text="{Binding phonePrivate, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Text="{Binding phonePro, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Text="{Binding email, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
+                 
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal" Width="76">
                 <Image Source="../../Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>
-        <TextBox Text="{Binding firstname, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="97,120,0,0" Grid.ColumnSpan="2">
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
-                            <Setter Property="BorderBrush" Value="Red"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-        <TextBox Text="{Binding lastname, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="156.223,120,0,0" Grid.Column="1">
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
-                            <Setter Property="BorderBrush" Value="Red"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-        <Label Content="Ajouter un client" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.ColumnSpan="2" Foreground="White" />
-        <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="55,211,0,0"/>
-        <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="56,245,0,0"/>
-        <TextBox Text="{Binding street, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="98,211,0,0" Grid.ColumnSpan="2"/>
-        <TextBox Text="{Binding city, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="98,248,0,0" Grid.ColumnSpan="2"/>
-        <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113.223,211,0,0" Grid.Column="1"/>
-        <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113.223,245,0,0" Grid.Column="1"/>
-        <TextBox Text="{Binding zip, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="157.223,211,0,0" Grid.Column="1"/>
-        <TextBox Text="{Binding country, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="157.223,248,0,0" Grid.Column="1"/>
-        <Label Content="Civilité" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,80,0,0"/>
-        <RadioButton GroupName="civility" Content="M." HorizontalAlignment="Left" Margin="109,85,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <RadioButton GroupName="civility" Content="Mme." HorizontalAlignment="Left" Margin="30.223,85,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label Content="Adresse" HorizontalAlignment="Left" Margin="11,170,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Tél. privé" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,338,0,0"/>
-        <TextBox Text="{Binding phonePrivate, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="98,338,0,0" Grid.ColumnSpan="2"/>
-        <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110.223,338,0,0" Grid.Column="1"/>
-        <TextBox Text="{Binding email, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="157.223,338,0,0" Grid.Column="1"/>
-        <Label Content="Contact" HorizontalAlignment="Left" Margin="11,297,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Tél. pro" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,374,0,0"/>
-        <TextBox Text="{Binding phonePro, Mode=OneWayToSource}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="98,374,0,0" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="99,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.172,0.223" Grid.ColumnSpan="2">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validFirstname}" Value="{x:Null}">
-                            <Setter Property="Text" Value="Champ obligatoire"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="FontStyle" Value="Italic"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
-                            <Setter Property="Text" Value="{Binding validFirstname.message}"/>
-                            <Setter Property="Foreground" Value="Red"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="true">
-                            <Setter Property="Text" Value="{Binding validFirstname.message}"/>
-                            <Setter Property="Foreground" Value="Green"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="156.223,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.172,0.223" Grid.Column="1">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validLastname}" Value="{x:Null}">
-                            <Setter Property="Text" Value="Champ obligatoire"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="FontStyle" Value="Italic"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
-                            <Setter Property="Text" Value="{Binding validLastname.message}"/>
-                            <Setter Property="Foreground" Value="Red"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="true">
-                            <Setter Property="Text" Value="{Binding validLastname.message}"/>
-                            <Setter Property="Foreground" Value="Green"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <Rectangle Fill="#FF30859A" HorizontalAlignment="Left" Height="65" Stroke="White" VerticalAlignment="Top" Width="464" Grid.ColumnSpan="2" Panel.ZIndex="-1"/>
-        <Image  Source="../../Ressource/titleAddClient.png" Margin="16,12,77,456" Width="40" Height="40" Panel.ZIndex="23"/>
-        <Rectangle Fill="#FF30859A" HorizontalAlignment="Left" Height="25" Margin="0,484,0,-1" Stroke="White" VerticalAlignment="Top" Width="424" Grid.ColumnSpan="2" Panel.ZIndex="-1"/>
-        <Image Source="../../Ressource/logoSmall.png" HorizontalAlignment="Left" Height="34" Margin="293,473,0,0" VerticalAlignment="Top" Width="34" Grid.Column="1" Panel.ZIndex="55"/>
-        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="289,468,0,0" Stroke="#FF30859A" VerticalAlignment="Top" Width="41"/>
-        <TextBlock Text="EDUCOM Manager © Wavemind, 2014" Grid.Column="1" HorizontalAlignment="Left" Margin="111,490,0,0" VerticalAlignment="Top" Width="173" FontSize="10" FontStyle="Italic" Foreground="#FFBACFD4"/>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextAlignment="Right" Padding="0,2,7,0" VerticalAlignment="Bottom" Background="#FF30859A" Text="EDUCOM Manager © Wavemind, 2014" Height="20" HorizontalAlignment="Stretch" FontSize="10" FontStyle="Italic" Foreground="#FFBACFD4"/>
+            <Border BorderThickness="1,1,0,0" BorderBrush="#FF30859A" Grid.Column="1">
+                <Image Source="/PrototypeEDUCOM;component/Ressource/logoSmall.png" Height="34" VerticalAlignment="Top" Width="34" Panel.ZIndex="55"/>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

@@ -128,7 +128,7 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteStudent}">
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
                                             </StackPanel>

@@ -1,4 +1,5 @@
 ﻿using PrototypeEDUCOM.Helper;
+using PrototypeEDUCOM.Helper.Enum;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
     {
         
         private ListCustomerViewModel parentVM;
+        public List<Civility> civilities { get; set; }
+
+        public int civilityIndex { get; set; }
 
         public string firstname { get; set; }
 
@@ -46,6 +50,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public AddCustomerViewModel()
         {
             this.cmdAdd = new RelayCommand<object>(actAdd);
+            this.civilities = Civility.list;
+
         }
 
         public void actAdd(object obj)
