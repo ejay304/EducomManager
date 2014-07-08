@@ -12,7 +12,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ShowCustomerViewModel : BaseViewModel {
 
-        public contact contact { get; set; }
+        public contact customer { get; set; }
         public ObservableCollection<student> students { get; set; }
 
         public ICommand cmdEditCustomer { get; set; }
@@ -21,11 +21,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ICommand cmdEditStudent { get; set; }
         public ICommand cmdDeleteStudent { get; set; }
 
-        public ShowCustomerViewModel(contact contact)
+        public ShowCustomerViewModel(contact customer)
         {
-            //this.parentVM = parentVM;
-            this.contact = contact;
-            this.students = new ObservableCollection<student>(contact.students.ToList());
+            this.customer = customer;
+            this.students = new ObservableCollection<student>(customer.students.ToList());
             this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
             this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
@@ -35,22 +34,16 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actEditCustomer(object o)
         {
-            EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
-            EditCustomerView editCustomerView = new EditCustomerView();
-
-            editCustomerView.DataContext = editCustomerViewModel;
-            editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
-
-            editCustomerView.Show();
+            mediator.openEditCustomerView(this.customer);
         }
         public void actDeleteCustomer(object o)
         {
-            mediator.openDeleteCustomerView(this.contact);
+            mediator.openDeleteCustomerView(this.customer);
         }
 
         public void actAddStudent(object o)
         {
-            AddStudentViewModel addStudentViewModel = new AddStudentViewModel(contact,this);
+            AddStudentViewModel addStudentViewModel = new AddStudentViewModel(customer, this);
             AddStudentView addStudentView = new AddStudentView();
 
             addStudentView.DataContext = addStudentViewModel;

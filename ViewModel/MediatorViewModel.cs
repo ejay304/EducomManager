@@ -60,10 +60,21 @@ namespace PrototypeEDUCOM.ViewModel
             addCustomerView.Show();
         }
 
+        public void openEditCustomerView(contact customer)
+        {
+            EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(customer);
+            EditCustomerView editCustomerView = new EditCustomerView();
+
+            editCustomerView.DataContext = editCustomerViewModel;
+            editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
+
+            editCustomerView.Show();
+        }
+
         public void openDeleteCustomerView(contact customer)
         {
             DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(customer);
-            DeleteCustomerView deleteCustomerView = new DeleteCustomerView(customer);
+            DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
 
             deleteCustomerView.DataContext = deleteCustomerViewModel;
             deleteCustomerViewModel.CloseActionDelete = new Action(() => deleteCustomerView.Close());

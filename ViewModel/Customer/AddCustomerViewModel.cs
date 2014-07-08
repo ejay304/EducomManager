@@ -16,7 +16,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
     class AddCustomerViewModel : BaseViewModel
     {
         
-        private ListCustomerViewModel parentVM;
         public List<Civility> civilities { get; set; }
 
         public int civilityIndex { get; set; }
@@ -62,7 +61,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.validLastname = new Validation();
 
             contact customer = new contact();
-            customer.civility = "m";
 
             // Validation prénom
             if (!this.firstname.Equals(""))
@@ -137,7 +135,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             if (!error)
             {
                 customer.add_date = DateTime.Now;
-
+                customer.civility = civilities.ElementAt(civilityIndex).getValue();
+       
                 // Enregistre dans la base
                 db.contacts.Add(customer);
                 db.SaveChanges();
