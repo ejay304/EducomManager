@@ -31,8 +31,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
             this.cmdEditStudent = new RelayCommand<student>(actEditStudent);
-            //this.cmdDeleteStudent = new RelayCommand<Object>(actDeleteStudent);
+            this.cmdDeleteStudent = new RelayCommand<student>(actDeleteStudent);
         }
+
         public void actEditCustomer(object o)
         {
             EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(contact);
@@ -46,7 +47,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public void actDeleteCustomer(object o)
         {
             DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(contact);
-            DeleteCustomerView deleteCustomerView = new DeleteCustomerView(contact);
+            DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
 
             deleteCustomerView.DataContext = deleteCustomerViewModel;
             deleteCustomerViewModel.CloseActionDelete = new Action(() => deleteCallback(deleteCustomerView));
@@ -76,7 +77,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         }
         public void actEditStudent(student student)
         {
-            EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student,this);
+            EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student, this);
             EditStudentView editStudentView = new EditStudentView();
 
             editStudentView.DataContext = editStudentViewModel;
@@ -84,7 +85,23 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             editStudentView.Show();
         }
-      
+
+        public void actDeleteStudent(student student)
+        {
+            DeleteStudentViewModel deleteStudentViewModel = new DeleteStudentViewModel(student,this);
+            DeleteStudentView deleteStudentView = new DeleteStudentView();
+
+            deleteStudentView.DataContext = deleteStudentViewModel;
+            deleteStudentViewModel.CloseActionDelete = new Action(() => deleteStudentCallback(deleteStudentView));
+
+            deleteStudentView.ShowDialog();
+
+        }
+
+        private void deleteStudentCallback(DeleteStudentView deleteStudentView)
+        {
+            deleteStudentView.Close();
+        }
 
     }
 }

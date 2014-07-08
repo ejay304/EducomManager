@@ -13,6 +13,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
     {
         public contact currentCustomer { get; set; }
 
+        public int civilityIndex { get; set; }
         public string firstname { get; set; }
 
         public string lastname { get; set; }

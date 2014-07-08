@@ -20,7 +20,7 @@ namespace PrototypeEDUCOM.View.Customer
     /// </summary>
     public partial class DeleteCustomerView : Window
     {
-        public DeleteCustomerView(contact contact)
+        public DeleteCustomerView()
         {
             InitializeComponent();
         }
