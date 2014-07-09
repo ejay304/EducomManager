@@ -102,7 +102,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             student.kinship = kinships.ElementAt(kinshipIndex).getValue();
             student.birthday = birthday;
             student.gender = genders.ElementAt(genderIndex).getValue();
-            customer.students.Add(student);
 
             if (!error)
             {

@@ -9,13 +9,10 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="#FF30859A" HorizontalAlignment="Left" Height="55" Stroke="White" VerticalAlignment="Top" Panel.ZIndex="-1"/>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
+        <StackPanel Height="55" Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
             <Image  Source="../../Ressource/titleAddStudent.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
             <Label Content="Modifier un étudiant" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
         </StackPanel>
-
-
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

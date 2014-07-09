@@ -27,7 +27,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             tabs.Add(new Tab("Clients", mediator.TabUC["customer"],null, "../Ressource/clients.png"));
 
-            tabs.Add(new Tab("Organisations", new View.Organisation.OrganisationUCView(),null, "../Ressource/organisations.png"));
+            tabs.Add(new Tab("Organisations", mediator.TabUC["organisation"], null, "../Ressource/organisations.png"));
         }
     }
 }

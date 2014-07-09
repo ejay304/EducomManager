@@ -21,7 +21,7 @@ namespace PrototypeEDUCOM.View.Customer
     /// </summary>
     public partial class ShowCustomerUCView : UserControl
     {
-        public ShowCustomerUCView(contact contact)
+        public ShowCustomerUCView()
         {
             InitializeComponent();
         }

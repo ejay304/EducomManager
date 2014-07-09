@@ -2,8 +2,10 @@
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.View.Dashboard;
+using PrototypeEDUCOM.View.Organisation;
 using PrototypeEDUCOM.ViewModel.Customer;
 using PrototypeEDUCOM.ViewModel.Dashboard;
+using PrototypeEDUCOM.ViewModel.Organisation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,8 +49,27 @@ namespace PrototypeEDUCOM.ViewModel
             if (container.ContainsKey(eventName))
                 foreach (BaseViewModel vm in container[eventName])
                     vm.Update(eventName, item);
-        } 
+        }
 
+
+        #region Customer 
+
+        public UserControl openListCustomerView()
+        {
+            ListCustomerUCView view = new ListCustomerUCView();
+            view.DataContext = new ListCustomerViewModel();
+
+            return view;
+        }
+
+        public void openShowCustomerView(contact customer)
+        {
+            ShowCustomerUCView showCustomerView = new ShowCustomerUCView();
+            showCustomerView.DataContext = new ShowCustomerViewModel(customer);
+
+            ((CustomerViewModel)TabViewModel["customer"]).actAddTab(customer, showCustomerView);
+
+        }
         public void openAddCustomerView()
         {
             AddCustomerViewModel addCustomerViewModel = new AddCustomerViewModel();
@@ -81,21 +102,62 @@ namespace PrototypeEDUCOM.ViewModel
 
             deleteCustomerView.ShowDialog();
         }
+        #endregion
 
-        public void openShowCustomerView(contact customer)
+        #region Organisation
+
+        public UserControl openListOrganisationView()
         {
-            ShowCustomerUCView showCustomerView = new ShowCustomerUCView(customer);
-            showCustomerView.DataContext = new ShowCustomerViewModel(customer);
+            ListOrganisationUCView view = new ListOrganisationUCView();
+            view.DataContext = new ListOrganisationViewModel();
 
-            ((CustomerViewModel)TabViewModel["customer"]).actAddTab(customer, showCustomerView);
+            return view;
+        }
+
+        public void openShowOrganisationView(organisation organisation)
+        {
+            ShowOrganisationUCView showOrganisationView = new ShowOrganisationUCView();
+            showOrganisationView.DataContext = new ShowOrganisationViewModel(organisation);
+
+            ((OrganisationViewModel)TabViewModel["organisation"]).actAddTab(organisation, showOrganisationView);
 
         }
+
+        public void openAddOrganisationView()
+        {
+            AddOrganisationViewModel addOrganisationViewModel = new AddOrganisationViewModel();
+            AddOrganisationView addOrganisationView = new AddOrganisationView();
+
+            addOrganisationView.DataContext = addOrganisationViewModel;
+            addOrganisationViewModel.CloseActionFormAdd = new Action(() => addOrganisationView.Close());
+
+            addOrganisationView.Show(); 
+        }
+
+        public void openEditOrganisationView()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void openDeleteOrganisationView(organisation organisation)
+        {
+            DeleteOrganisationViewModel deleteOrganisationViewModel = new DeleteOrganisationViewModel(organisation);
+            DeleteOrganisationView deleteOrganisationView = new DeleteOrganisationView();
+
+            deleteOrganisationView.DataContext = deleteOrganisationViewModel;
+            deleteOrganisationViewModel.CloseActionDelete = new Action(() => deleteOrganisationView.Close());
+
+            deleteOrganisationView.ShowDialog();
+        }
+ 
+        #endregion
+       
 
         public void createTabViewModel()
         {
             if (this.roleUser != Helper.Enum.User.assistant)
             {
-
+                // Onglet dashboard
                 DashboardViewModel dashboardViewModel = new DashboardViewModel();
                 DashboardUCView dashboardUCView =  new DashboardUCView();
 
@@ -106,6 +168,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             }
 
+            // Onglet client
             CustomerViewModel customerViewModel = new CustomerViewModel();
             CustomerUCView customerUCView = new CustomerUCView();
 
@@ -113,6 +176,15 @@ namespace PrototypeEDUCOM.ViewModel
 
             TabViewModel.Add("customer", customerViewModel);
             TabUC.Add("customer", customerUCView);
+
+            // Onglet organisation
+            OrganisationViewModel organisationViewModel = new OrganisationViewModel();
+            OrganisationUCView organisationUCView = new OrganisationUCView();
+
+            organisationUCView.DataContext = organisationViewModel;
+
+            TabViewModel.Add("organisation", organisationViewModel);
+            TabUC.Add("organisation", organisationUCView);
         }
 
         public void openAddStudentView(contact customer) {
@@ -144,6 +216,5 @@ namespace PrototypeEDUCOM.ViewModel
 
             deleteStudentView.ShowDialog();
         }
-        
     }
 }
