@@ -2,8 +2,10 @@
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.View.Dashboard;
+using PrototypeEDUCOM.View.Organisation;
 using PrototypeEDUCOM.ViewModel.Customer;
 using PrototypeEDUCOM.ViewModel.Dashboard;
+using PrototypeEDUCOM.ViewModel.Organisation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +49,15 @@ namespace PrototypeEDUCOM.ViewModel
             if (container.ContainsKey(eventName))
                 foreach (BaseViewModel vm in container[eventName])
                     vm.Update(eventName, item);
-        } 
+        }
+
+        public UserControl openListCustomerView()
+        {
+            ListCustomerUCView view = new ListCustomerUCView();
+            view.DataContext = new ListCustomerViewModel();
+
+            return view;
+        }
 
         public void openAddCustomerView()
         {
@@ -84,10 +94,38 @@ namespace PrototypeEDUCOM.ViewModel
 
         public void openShowCustomerView(contact customer)
         {
-            ShowCustomerUCView showCustomerView = new ShowCustomerUCView(customer);
+            ShowCustomerUCView showCustomerView = new ShowCustomerUCView();
             showCustomerView.DataContext = new ShowCustomerViewModel(customer);
 
             ((CustomerViewModel)TabViewModel["customer"]).actAddTab(customer, showCustomerView);
+
+        }
+
+        public UserControl openListOrganisationView()
+        {
+            ListOrganisationUCView view = new ListOrganisationUCView();
+            view.DataContext = new ListOrganisationViewModel();
+
+            return view;
+        }
+
+        public void openAddOrganisationView()
+        {
+            AddOrganisationViewModel addOrganisationViewModel = new AddOrganisationViewModel();
+            AddOrganisationView addOrganisationView = new AddOrganisationView();
+
+            addOrganisationView.DataContext = addOrganisationViewModel;
+            addOrganisationViewModel.CloseActionFormAdd = new Action(() => addOrganisationView.Close());
+
+            addOrganisationView.Show(); 
+        }
+
+        public void openShowOrganisationView(organisation organisation)
+        {
+            ShowOrganisationUCView showOrganisationView = new ShowOrganisationUCView();
+            showOrganisationView.DataContext = new ShowOrganisationViewModel(organisation);
+
+            ((OrganisationViewModel)TabViewModel["organisation"]).actAddTab(organisation, showOrganisationView);
 
         }
 
@@ -95,7 +133,7 @@ namespace PrototypeEDUCOM.ViewModel
         {
             if (this.roleUser != Helper.Enum.User.assistant)
             {
-
+                // Onglet dashboard
                 DashboardViewModel dashboardViewModel = new DashboardViewModel();
                 DashboardUCView dashboardUCView =  new DashboardUCView();
 
@@ -106,6 +144,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             }
 
+            // Onglet client
             CustomerViewModel customerViewModel = new CustomerViewModel();
             CustomerUCView customerUCView = new CustomerUCView();
 
@@ -113,6 +152,15 @@ namespace PrototypeEDUCOM.ViewModel
 
             TabViewModel.Add("customer", customerViewModel);
             TabUC.Add("customer", customerUCView);
+
+            // Onglet organisation
+            OrganisationViewModel organisationViewModel = new OrganisationViewModel();
+            OrganisationUCView organisationUCView = new OrganisationUCView();
+
+            organisationUCView.DataContext = organisationViewModel;
+
+            TabViewModel.Add("organisation", organisationViewModel);
+            TabUC.Add("organisation", organisationUCView);
         }
     }
 }

@@ -12,12 +12,9 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 {
     class ListOrganisationViewModel : BaseViewModel
     {
-        
-        private ViewModel.Organisation.OrganisationViewModel parentVM;
-
         public ObservableCollection<organisation> organisations { get; set; }
 
-        public int nbrCustomer 
+        public int nbrOrganisation
         { 
             get { return this.organisations.Count; } 
         }
@@ -26,28 +23,45 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         public ICommand cmdAdd { get; set; }
 
-        public ListOrganisationViewModel(ViewModel.Organisation.OrganisationViewModel parentVM) : base()
+        public ListOrganisationViewModel() : base()
         {
-            this.parentVM = parentVM;
             this.organisations = new ObservableCollection<organisation>(db.organisations.ToList());
-            this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
-            this.cmdAdd = new RelayCommand<object>(actAdd);           
+            this.cmdViewDetail = new RelayCommand<organisation>(actViewDetail);
+            this.cmdAdd = new RelayCommand<object>(actAdd);
+
+            mediator.Register(Helper.Event.ADD_ORGANISATION, this);
         }
 
         private void actAdd(object obj)
         {
-            AddOrganisationViewModel addOrganisationViewModel = new AddOrganisationViewModel(this);
-            AddOrganisationView addOrganisationView = new AddOrganisationView();
-
-            addOrganisationView.DataContext = addOrganisationViewModel;
-            addOrganisationViewModel.CloseActionFormAdd = new Action(() => addOrganisationView.Close());
-
-            addOrganisationView.Show(); 
+            mediator.openAddOrganisationView();
         }
 
-        public void actViewDetail(contact customer)
+        public void actViewDetail(organisation organisation)
         {
+            mediator.openShowOrganisationView(organisation);
+        }
 
+
+        public override void Update(string eventName, object item)
+        {
+            switch (eventName)
+            {
+                case Helper.Event.ADD_CUSTOMER:
+
+                    // Ajoute dans la liste
+                    this.organisations.Add((organisation)item);
+                    NotifyPropertyChanged("organisations");
+                    NotifyPropertyChanged("nbrOrganisation");
+                    break;
+                case Helper.Event.DELETE_CUSTOMER:
+
+                    // Ajoute dans la liste
+                    this.organisations.Remove((organisation)item);
+                    NotifyPropertyChanged("organisations");
+                    NotifyPropertyChanged("nbrOrganisation");
+                    break;
+            }
         }
     }
 }

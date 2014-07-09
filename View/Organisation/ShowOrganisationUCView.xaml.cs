@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PrototypeEDUCOM.Model;
 
-namespace PrototypeEDUCOM.View.Customer
+namespace PrototypeEDUCOM.View.Organisation
 {
     /// <summary>
-    /// Logique d'interaction pour ShowCustomerUCView.xaml
+    /// Logique d'interaction pour ShowOrganisationUCView.xaml
     /// </summary>
-    public partial class ShowCustomerUCView : UserControl
+    public partial class ShowOrganisationUCView : UserControl
     {
-        public ShowCustomerUCView()
+        public ShowOrganisationUCView()
         {
             InitializeComponent();
         }

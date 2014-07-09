@@ -30,9 +30,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
             customerTabs = new ObservableCollection<Tab>();
-            View.Customer.ListCustomerUCView view = new View.Customer.ListCustomerUCView();
-            view.DataContext = new ViewModel.Customer.ListCustomerViewModel();
-            customerTabs.Add(new Tab("Liste", view, null, null));
+            customerTabs.Add(new Tab("Liste", mediator.openListCustomerView(), null, null));
         }
 
         private void actCloseTab(Tab tab)
@@ -51,7 +49,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
         }
 
-            public override void Update(string eventName, Object item)
+        public override void Update(string eventName, Object item)
         {
             switch (eventName)
             {

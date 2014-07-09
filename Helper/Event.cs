@@ -9,6 +9,9 @@ namespace PrototypeEDUCOM.Helper
     class Event
     {
         public const string ADD_CUSTOMER = "add_customer";
-        public const string DELETE_CUSTOMER = "delete_customer"; 
+        public const string DELETE_CUSTOMER = "delete_customer";
+
+        public const string ADD_ORGANISATION = "add_organisation"; 
+        public const string DELETE_ORGANISATION = "delete_organisation"; 
     }
 }

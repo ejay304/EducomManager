@@ -12,6 +12,6 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         public Action CloseActionFormAdd { get; set; }
 
-        public AddOrganisationViewModel(ListOrganisationViewModel parentVM) { }
+        public AddOrganisationViewModel() { }
     }
 }
