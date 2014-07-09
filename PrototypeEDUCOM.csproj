@@ -184,6 +184,9 @@
     <Compile Include="View\Organisation\OrganisationUCView.xaml.cs">
       <DependentUpon>OrganisationUCView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Organisation\ShowOrganisationUCView.xaml.cs">
+      <DependentUpon>ShowOrganisationUCView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -282,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Organisation\OrganisationUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Organisation\ShowOrganisationUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

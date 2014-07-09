@@ -48,10 +48,12 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
             mediator.openAddStudentView(this.customer);
         }
+
         public void actEditStudent(student student)
         {
             mediator.openEditStudentView(student);
         }
+
         public void actDeleteStudent(student student)
         {
             mediator.openDeleteStudentView(student);
@@ -62,13 +64,11 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             switch (eventName)
             {
                 case Helper.Event.ADD_STUDENT:
-
                     this.students.Add((student)item);
                     NotifyPropertyChanged("students");
                     break;
-                case Helper.Event.DELETE_STUDENT:
 
-                    // Ajoute dans la liste
+                case Helper.Event.DELETE_STUDENT:
                     this.students.Remove((student)item);
                     NotifyPropertyChanged("students");
                     break;

@@ -13,6 +13,15 @@ namespace PrototypeEDUCOM.Model
 
             private string _firstname;
             private string _lastname;
+            private string _street;
+            private string _city;
+            private string _zip;
+            private string _country;
+            private string _district;
+            private string _language;
+            private DateTime? _add_date;
+
+
 
             public contact()
             {
@@ -60,23 +69,86 @@ namespace PrototypeEDUCOM.Model
             }
 
             [StringLength(45)]
-            public string street { get; set; }
+            public string street {
+                get
+                {
+                    return _street;
+                }
+                set
+                {
+                    _street = value;
+                    NotifyPropertyChanged("street");
+                }
+            }
 
             [StringLength(45)]
-            public string city { get; set; }
+            public string city
+            {
+                get
+                {
+                    return _city;
+                }
+                set
+                {
+                    _city = value;
+                    NotifyPropertyChanged("city");
+                }
+            }
 
             [StringLength(45)]
-            public string zip { get; set; }
+            public string zip {
+                get
+                {
+                    return _zip;
+                }
+                set
+                {
+                    _zip = value;
+                    NotifyPropertyChanged("zip");
+                }
+            }
 
             [StringLength(45)]
-            public string country { get; set; }
+            public string country {
+                get
+                {
+                    return _country;
+                }
+                set
+                {
+                    _country = value;
+                    NotifyPropertyChanged("country");
+                }
+            }
 
             [StringLength(45)]
-            public string district { get; set; }
+            public string district
+            {
+                get
+                {
+                    return _district;
+                }
+                set
+                {
+                    _district = value;
+                    NotifyPropertyChanged("country");
+                }
+            }
 
             [Column(TypeName = "enum")]
             [StringLength(65532)]
-            public string language { get; set; }
+            public string language
+            {
+                get
+                {
+                    return _language;
+                }
+                set
+                {
+                    _language = value;
+                    NotifyPropertyChanged("country");
+                }
+            }
 
             [Column(TypeName = "date")]
             public DateTime? add_date { get; set; }
