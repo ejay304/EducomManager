@@ -87,7 +87,7 @@ namespace PrototypeEDUCOM.ViewModel
             EditCustomerView editCustomerView = new EditCustomerView();
 
             editCustomerView.DataContext = editCustomerViewModel;
-            editCustomerViewModel.CloseActionFormAdd = new Action(() => editCustomerView.Close());
+            editCustomerViewModel.CloseActionFormEdit = new Action(() => editCustomerView.Close());
 
             editCustomerView.Show();
         }
@@ -134,9 +134,15 @@ namespace PrototypeEDUCOM.ViewModel
             addOrganisationView.Show(); 
         }
 
-        public void openEditOrganisationView()
+        public void openEditOrganisationView(organisation organisation)
         {
-            throw new NotImplementedException();
+            EditOrganisationViewModel editOrganisationViewModel = new EditOrganisationViewModel(organisation);
+            EditCustomerView editCustomerView = new EditCustomerView();
+
+            editCustomerView.DataContext = editOrganisationViewModel;
+            editOrganisationViewModel.CloseActionFormEdit = new Action(() => editCustomerView.Close());
+
+            editCustomerView.Show();
         }
 
         public void openDeleteOrganisationView(organisation organisation)
@@ -151,7 +157,40 @@ namespace PrototypeEDUCOM.ViewModel
         }
  
         #endregion
-       
+
+        #region Program
+
+        public void openAddProgramView(organisation organisation)
+        {
+            AddProgramViewModel addProgramViewModel = new AddProgramViewModel(organisation);
+            AddProgramView addProgramView = new AddProgramView();
+
+            addProgramView.DataContext = addProgramViewModel;
+            addProgramViewModel.CloseActionAdd = new Action(() => addProgramView.Close());
+
+            addProgramView.Show();
+        }
+
+        public void openEditProgramView(program program)
+        {
+            EditProgramViewModel editProgramViewModel = new EditProgramViewModel(program);
+            EditProgramView editProgramView = new EditProgramView();
+
+            editProgramView.DataContext = editProgramViewModel;
+            editProgramViewModel.CloseActionEdit = new Action(() => editProgramView.Close());
+
+            editProgramView.Show();
+   
+        }
+
+        public void openDeleteProgramView(organisation organisation)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+
 
         public void createTabViewModel()
         {
@@ -216,5 +255,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             deleteStudentView.ShowDialog();
         }
+
+
     }
 }

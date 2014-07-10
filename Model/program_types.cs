@@ -25,5 +25,10 @@ namespace PrototypeEDUCOM.Model
         public string description { get; set; }
 
         public virtual ICollection<program> programs { get; set; }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 }

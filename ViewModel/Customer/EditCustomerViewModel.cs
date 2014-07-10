@@ -34,7 +34,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ICommand cmdEdit { get; set; }
 
-        public Action CloseActionFormAdd { get; set; }
+        public Action CloseActionFormEdit { get; set; }
 
         public EditCustomerViewModel(contact customer)
         {
@@ -111,7 +111,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 // Enregistre dans la base
                 db.SaveChanges();
 
-                this.CloseActionFormAdd();
+                this.CloseActionFormEdit();
                 
             }
         }

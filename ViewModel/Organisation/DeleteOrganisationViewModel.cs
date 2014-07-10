@@ -13,7 +13,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         public organisation organisation { get; set; }
         public ICommand cmdArchive { get; set; }
         public ICommand cmdDelete { get; set; }
-        public int nbrContacts { get; set; }
+        public int nbrContact { get; set; }
   
         public Action CloseActionDelete { get; set; }
 
@@ -21,12 +21,12 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
             this.cmdDelete = new RelayCommand<Object>(actDelete);
             this.organisation = organisation;
-            this.nbrContacts = organisation.contacts.Count();
+            this.nbrContact = organisation.contacts.Count();
         }
 
         private void actDelete(object obj)
         {
-            for (int i = 0; i < nbrContacts; i++)
+            for (int i = 0; i < nbrContact; i++)
             {
                 db.contacts.Remove(organisation.contacts.First());
             }

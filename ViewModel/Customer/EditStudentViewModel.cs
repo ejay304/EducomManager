@@ -25,7 +25,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public Validation validLastname { get; set; }
         public Validation validGender { get; set; }
         public Validation validBirthday { get; set; }
-        public ICommand cmdAdd { get; set; }
+        public ICommand cmdEdit { get; set; }
         public Action CloseActionEdit { get; set; }
  
         public EditStudentViewModel(student student)
@@ -39,7 +39,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.kinshipIndex = Kinship.indexByValue(student.kinship);
             this.kinships = Kinship.list;
             this.genders = Gender.list;
-            this.cmdAdd = new RelayCommand<object>(actEdit);
+            this.cmdEdit = new RelayCommand<object>(actEdit);
         }
         public void actEdit(object o)
         {

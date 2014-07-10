@@ -15,7 +15,10 @@ namespace PrototypeEDUCOM.Helper
         public const string DELETE_STUDENT = "delete_student"; 
             
         public const string ADD_ORGANISATION = "add_organisation"; 
-        public const string DELETE_ORGANISATION = "delete_organisation"; 
+        public const string DELETE_ORGANISATION = "delete_organisation";
+
+        public const string ADD_PROGRAM = "add_program";
+        public const string DELETE_PROGRAM = "delete_program"; 
 
     }
 }

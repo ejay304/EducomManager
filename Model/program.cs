@@ -9,6 +9,8 @@ namespace PrototypeEDUCOM.Model
     [Table("EducomDb.programs")]
     public partial class program
     {
+        private DateTime? _begin_date { get; set; }
+        private DateTime? _end_date { get; set; }
         public program()
         {
             contacts = new HashSet<contact>();

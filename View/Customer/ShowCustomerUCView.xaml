@@ -94,16 +94,15 @@
             </Grid.ColumnDefinitions>
 
 
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
+            <StackPanel Orientation="Horizontal"  Grid.Column="0" Grid.Row="0">
+                <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="../../Ressource/add.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-
+           
             <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
                 <ListView.View >
                     <GridView>
