@@ -17,18 +17,16 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         public ICommand cmdEdit { get; set; }
         public ICommand cmdDelete { get; set; }
-        public ICommand cmdAddProgram { get; set; } 
-        public ICommand cmdEditProgram { get; set; } 
-        public ICommand cmdDeleteProgram { get; set; }
+        public ICommand cmdAddProgram { get; set; }
+        public ICommand cmdShowProgram { get; set; } 
         public ShowOrganisationViewModel(organisation organisation)
         {
             this.organisation = organisation;
             this.cmdEdit = new RelayCommand<organisation>(actEdit);
             this.cmdDelete = new RelayCommand<organisation>(actDelete);
             this.cmdAddProgram = new RelayCommand<organisation>(actAddProgram);
-            this.cmdEditProgram = new RelayCommand<program>(actEditProgram);
-            this.cmdDeleteProgram = new RelayCommand<organisation>(actDeleteProgram);
-
+            this.cmdShowProgram = new RelayCommand<program>(actShowProgram);
+     
             db.SaveChanges();
             this.programs = new ObservableCollection<program>(organisation.programs.ToList());
 
@@ -50,13 +48,9 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         {
             mediator.openAddProgramView(this.organisation);
         }
-        private void actEditProgram(program program)
+        private void actShowProgram(program program)
         {
-            mediator.openEditProgramView(program);
-        }
-        private void actDeleteProgram(Object o)
-        {
-            mediator.openDeleteProgramView(this.organisation);
+            mediator.openShowProgramView(program);
         }
         public override void Update(string eventName, object item)
         {

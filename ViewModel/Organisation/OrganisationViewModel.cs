@@ -32,6 +32,8 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
             this.organisationTabs.Add(new Tab("Liste", mediator.openListOrganisationView(), null, null));
             mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
+            mediator.Register(Helper.Event.DELETE_PROGRAM, this);
+     
         }
 
         private void actCloseTab(Tab tab)
@@ -43,6 +45,15 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         {
             Tab tab = new Tab(organisation.name, view , organisation, null);
          
+            organisationTabs.Add(tab);
+            this.selectedTab = tab;
+
+        }
+        //TODO CHANGE CA ON doit pas avoir 2 methode actAddTab qui font la même chose
+        public void actAddTab(program program, UserControl view)
+        {
+            Tab tab = new Tab(program.program_types.name , view, program, null);
+
             organisationTabs.Add(tab);
             this.selectedTab = tab;
 
@@ -66,6 +77,20 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
                     NotifyPropertyChanged("organisationTabs");
                     NotifyPropertyChanged("selectedTab");
                     break;
+                case Helper.Event.DELETE_PROGRAM:
+                     for (int i = 0; i < organisationTabs.Count(); i++)
+                    {
+                        if (organisationTabs[i].entity == item)
+                        {
+                            organisationTabs.Remove(organisationTabs[i]);
+                            i--;
+                        }
+                    }
+
+                    NotifyPropertyChanged("organisationTabs");
+                    NotifyPropertyChanged("selectedTab");
+                    break;
+
             }
         }
     }

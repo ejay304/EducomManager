@@ -160,6 +160,15 @@ namespace PrototypeEDUCOM.ViewModel
 
         #region Program
 
+        public void openShowProgramView(program program)
+        {
+            ShowProgramUCView showProgramView = new ShowProgramUCView();
+            showProgramView.DataContext = new ShowProgramViewModel(program);
+
+            ((OrganisationViewModel)TabViewModel["organisation"]).actAddTab(program, showProgramView);
+
+        }
+
         public void openAddProgramView(organisation organisation)
         {
             AddProgramViewModel addProgramViewModel = new AddProgramViewModel(organisation);
@@ -183,9 +192,15 @@ namespace PrototypeEDUCOM.ViewModel
    
         }
 
-        public void openDeleteProgramView(organisation organisation)
+        public void openDeleteProgramView(program program)
         {
-            throw new NotImplementedException();
+            DeleteProgramViewModel deleteProgramViewModel = new DeleteProgramViewModel(program);
+            DeleteProgramView deleteProgramView = new DeleteProgramView();
+
+            deleteProgramView.DataContext = deleteProgramViewModel;
+            deleteProgramViewModel.CloseActionDelete = new Action(() => deleteProgramView.Close());
+
+            deleteProgramView.ShowDialog();
         }
 
         #endregion

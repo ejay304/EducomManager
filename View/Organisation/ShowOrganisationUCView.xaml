@@ -25,19 +25,19 @@
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="27" />
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="27"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -63,7 +63,7 @@
                 <Label Content="Contact Stuff" />
             </StackPanel>
 
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
                     <RowDefinition />
@@ -89,25 +89,13 @@
                                 <GridViewColumn  Header="Début" DisplayMemberBinding="{Binding begin_date, StringFormat={}{0:dd/MM/yyyy}}" />
                                 <GridViewColumn  Header="Fin" DisplayMemberBinding="{Binding end_date, StringFormat={}{0:dd/MM/yyyy}}" />
                                 <GridViewColumn  Header="Type" DisplayMemberBinding="{Binding program_types.name}" />
-                                <!-- Bouton édition d'un programme -->
+                                <!-- Bouton de détail d'un programme -->
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditProgram}" CommandParameter="{Binding}">
+                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdShowProgram}" CommandParameter="{Binding}">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <Image Source="../../Ressource/edit.png" Width="15" Height="15" />
-                                                </StackPanel>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <!-- Bouton suppression d'une demande -->
-                                <GridViewColumn>
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteProgram}" CommandParameter="{Binding}">
-                                                <StackPanel Orientation="Horizontal">
-                                                    <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                                    <Image Source="../../Ressource/show.png" Width="15" Height="15" />
                                                 </StackPanel>
                                             </Button>
                                         </DataTemplate>
