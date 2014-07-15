@@ -8,13 +8,13 @@ using System.Windows.Controls;
 
 namespace PrototypeEDUCOM.Helper
 {
-    class TabContent
+    public class TabContent
     {
         public BaseViewModel tabViewModel { get; set; }
 
         public UserControl tabUC { get; set; }
 
-        public TabContent(BaseViewModel tabViewModel, UserControl tabUc)
+        public TabContent(BaseViewModel tabViewModel, UserControl tabUC)
         {
             this.tabViewModel = tabViewModel;
             this.tabUC = tabUC;

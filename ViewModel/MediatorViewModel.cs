@@ -206,6 +206,25 @@ namespace PrototypeEDUCOM.ViewModel
 
         #endregion
 
+        #region Request
+
+        public UserControl openListRequestView()
+        {
+            ListRequestUCView view = new ListRequestUCView();
+            view.DataContext = new ListRequestViewModel();
+
+            return view;
+        }
+
+        public void openShowRequestView(request request)
+        {
+            ShowRequestUCView showRequestView = new ShowRequestUCView();
+            showRequestView.DataContext = new ShowRequestViewModel(request);
+
+            ((RequestViewModel)mainTabs["request"].tabViewModel).actAddTab(request, showRequestView);
+        }
+
+        #endregion
 
         public void openAddCampusView(program program)
         {
