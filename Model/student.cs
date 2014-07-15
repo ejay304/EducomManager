@@ -25,19 +25,23 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
-        public string lastname {
-            get {
+        public string lastname
+        {
+            get
+            {
                 return _lastname;
-            } 
-            set{
+            }
+            set
+            {
                 _lastname = value;
                 NotifyPropertyChanged("lastname");
-            } 
+            }
         }
 
         [Required]
         [StringLength(45)]
-        public string firstname {
+        public string firstname
+        {
             get
             {
                 return _firstname;
@@ -52,7 +56,8 @@ namespace PrototypeEDUCOM.Model
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]
-        public string gender {
+        public string gender
+        {
             get
             {
                 return _gender;
@@ -65,7 +70,8 @@ namespace PrototypeEDUCOM.Model
         }
 
         [Column(TypeName = "date")]
-        public DateTime birthday {
+        public DateTime birthday
+        {
             get
             {
                 return _birthday;
@@ -80,7 +86,8 @@ namespace PrototypeEDUCOM.Model
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]
-        public string kinship {
+        public string kinship
+        {
             get
             {
                 return _kinship;

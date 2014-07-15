@@ -16,7 +16,7 @@ using System.Windows.Controls;
 namespace PrototypeEDUCOM.ViewModel
 {
 
-    public class MediatorViewModel
+    public class MediatorViewModel  
     {
 
         private Dictionary<string, List<BaseViewModel>> container = new Dictionary<string, List<BaseViewModel>>();
@@ -205,6 +205,26 @@ namespace PrototypeEDUCOM.ViewModel
 
         #endregion
 
+        public void openAddCampusView(program program)
+        {
+            AddCampusViewModel addCampusViewModel = new AddCampusViewModel(program);
+            AddCampusView addCampusView = new AddCampusView();
+
+            addCampusView.DataContext = addCampusViewModel;
+            addCampusViewModel.CloseActionAdd = new Action(() => addCampusView.Close());
+
+            addCampusView.Show();
+        }
+
+        public void openDeleteCampusView(campu campus) {
+            DeleteCampusViewModel deleteCampusViewModel = new DeleteCampusViewModel(campus);
+            DeleteCampusView deleteCampusView = new DeleteCampusView();
+
+            deleteCampusView.DataContext = deleteCampusViewModel;
+            deleteCampusViewModel.CloseActionDelete = new Action(() => deleteCampusView.Close());
+
+            deleteCampusView.ShowDialog();   
+        }
 
 
         public void createTabViewModel()

@@ -10,11 +10,11 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 {
     class DeleteProgramViewModel : BaseViewModel
     {
-        public program program { get; set; }
-        public ICommand cmdArchive { get; set; }
-        public ICommand cmdDelete { get; set; }
-        public int nbrContact { get; set; }
-        public int nbrCampus { get; set; }
+            public program program { get; set; }
+            public ICommand cmdArchive { get; set; }
+            public ICommand cmdDelete { get; set; }
+            public int nbrContact { get; set; }
+            public int nbrCampus { get; set; }
 
         public Action CloseActionDelete { get; set; }
         public DeleteProgramViewModel(program program) {

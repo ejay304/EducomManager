@@ -12,7 +12,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
             <Image   Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
-            <Label Content="Suppression d'un programme" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
+            <Label Content="Supprimer un programme" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
         </StackPanel>
 
         <StackPanel Grid.Row="1">
