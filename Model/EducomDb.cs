@@ -255,6 +255,10 @@ namespace PrototypeEDUCOM.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<program>()
+                .Property(e => e.description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<program>()
                 .HasMany(e => e.contacts)
                 .WithOptional(e => e.program)
                 .HasForeignKey(e => e.programs_id);

@@ -97,6 +97,7 @@
     <Compile Include="Helper\Enum\User.cs" />
     <Compile Include="Helper\Event.cs" />
     <Compile Include="Helper\Tab.cs" />
+    <Compile Include="Helper\TabContent.cs" />
     <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\adress.cs" />
     <Compile Include="Model\campaign.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="ViewModel\Organisation\ShowOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\Request\RequestViewModel.cs" />
     <Compile Include="View\Control\Block.xaml.cs" />
     <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
@@ -211,6 +213,9 @@
     </Compile>
     <Compile Include="View\Organisation\ShowProgramUCView.xaml.cs">
       <DependentUpon>ShowProgramUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\RequestUCView.xaml.cs">
+      <DependentUpon>RequestUCView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +346,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Request\RequestUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressource\clients.png" />
@@ -403,6 +412,11 @@
   <ItemGroup>
     <Resource Include="Ressource\valid.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\demandes.png" />
+    <Resource Include="Ressource\titleAddDemande.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

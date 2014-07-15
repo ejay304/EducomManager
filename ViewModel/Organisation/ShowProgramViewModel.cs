@@ -18,6 +18,9 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         public ICommand cmdEdit { get; set; }
         public ICommand cmdDelete { get; set; }
 
+        public ICommand cmdAddCampus { get; set; }
+        public ICommand cmdDeleteCampus { get; set; }
+
         public ICommand cmdEditDescription { get; set; }
     
         public program program { get; set; }
@@ -27,9 +30,14 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             this.campuses = new ObservableCollection<campu>(program.campus.ToList());
             this.cmdEdit = new RelayCommand<Object>(actEdit);
             this.cmdDelete = new RelayCommand<Object>(actDelete);
-            this.cmdEditDescription = new RelayCommand<Object>(actEditDescription);
 
+            this.cmdEditDescription = new RelayCommand<Object>(actEditDescription);
             this.editDescription = false;
+
+            this.cmdAddCampus = new RelayCommand<Object>(actAddCampus);
+            this.cmdDeleteCampus = new RelayCommand<campu>(actDeleteCampus);
+
+            mediator.Register(Helper.Event.ADD_CAMPUS, this);
         }
 
         public void actEdit(Object o){
@@ -49,6 +57,28 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
             editDescription = !editDescription;
             NotifyPropertyChanged("editDescription");
+        }
+
+        public void actAddCampus(Object o) {
+            mediator.openAddCampusView(program);
+        }
+        public void actDeleteCampus(campu campus) {
+            mediator.openDeleteCampusView(campus);
+        }
+        public override void Update(string eventName, object item)
+        {
+            switch (eventName)
+            {
+                case Helper.Event.ADD_CAMPUS:
+                    this.campuses.Add((campu)item);
+                    NotifyPropertyChanged("campuses");
+                    break;
+
+                case Helper.Event.DELETE_CAMPUS:
+                    this.campuses.Remove((campu)item);
+                    NotifyPropertyChanged("campuses");
+                    break;
+            }
         }
     }
 }
