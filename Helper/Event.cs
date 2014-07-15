@@ -21,8 +21,9 @@ namespace PrototypeEDUCOM.Helper
         public const string DELETE_PROGRAM = "delete_program";
 
         public const string ADD_CAMPUS= "add_campus";
-        public const string DELETE_CAMPUS = "delete_campus"; 
+        public const string DELETE_CAMPUS = "delete_campus";
 
-
+        public const string ADD_REQUEST = "add_request";
+        public const string DELETE_REQUEST = "delete_request"; 
     }
 }

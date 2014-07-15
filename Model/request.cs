@@ -5,6 +5,7 @@ namespace PrototypeEDUCOM.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Windows.Documents;
 
     [Table("EducomDb.requests")]
     public partial class request
@@ -32,6 +33,17 @@ namespace PrototypeEDUCOM.Model
         public bool active { get; set; }
 
         public int contacts_id { get; set; }
+
+        public _event state
+        {
+            get
+            {
+                _event[] e = new _event[events.Count];
+                events.CopyTo(e,0);
+
+                return e[events.Count - 1];
+            }
+        }
 
         public virtual contact contact { get; set; }
 

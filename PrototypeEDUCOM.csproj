@@ -148,7 +148,9 @@
     <Compile Include="ViewModel\Organisation\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\ShowRequestViewModel.cs" />
     <Compile Include="View\Control\Block.xaml.cs" />
     <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
@@ -226,8 +228,14 @@
     <Compile Include="View\Request\AddRequestView.xaml.cs">
       <DependentUpon>AddRequestView.xaml</DependentUpon>
     </Compile>
+	  <Compile Include="View\Request\ListRequestUCView.xaml.cs">
+      <DependentUpon>ListRequestUCView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Request\RequestUCView.xaml.cs">
       <DependentUpon>RequestUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\ShowRequestUCView.xaml.cs">
+      <DependentUpon>ShowRequestUCView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -367,10 +375,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\AddRequestView.xaml">
+		<SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\ListRequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\RequestUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\ShowRequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
