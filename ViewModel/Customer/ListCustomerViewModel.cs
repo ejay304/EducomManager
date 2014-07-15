@@ -41,7 +41,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
             mediator.openShowCustomerView(customer);
             mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
-            mediator.Register(Helper.Event.DELETE_CUSTOMER, mediator.TabViewModel["customer"]);
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, mediator.mainTabs["customer"].tabViewModel);
         }
 
         public override void Update(string eventName, object item)

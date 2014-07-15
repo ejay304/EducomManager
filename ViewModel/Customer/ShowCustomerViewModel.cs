@@ -14,22 +14,27 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public contact customer { get; set; }
         public ObservableCollection<student> students { get; set; }
+        public ObservableCollection<request> ongoingRequests { get; set; }
 
         public ICommand cmdEditCustomer { get; set; }
         public ICommand cmdDeleteCustomer { get; set; }
         public ICommand cmdAddStudent { get; set; }
         public ICommand cmdEditStudent { get; set; }
         public ICommand cmdDeleteStudent { get; set; }
+        public ICommand cmdAddRequest { get; set; }
 
         public ShowCustomerViewModel(contact customer)
         {
+            var ongoningRequestQuery = from s in db.requests where s.active == true select s;
             this.customer = customer;
             this.students = new ObservableCollection<student>(customer.students.ToList());
+            this.ongoingRequests = new ObservableCollection<request>(ongoningRequestQuery.ToList());
             this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
             this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
             this.cmdEditStudent = new RelayCommand<student>(actEditStudent);
             this.cmdDeleteStudent = new RelayCommand<student>(actDeleteStudent);
+            this.cmdAddRequest = new RelayCommand<student>(actAddRequest);
 
             mediator.Register(Helper.Event.ADD_STUDENT, this);
             mediator.Register(Helper.Event.DELETE_STUDENT, this);
@@ -57,6 +62,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public void actDeleteStudent(student student)
         {
             mediator.openDeleteStudentView(student);
+        }
+
+        public void actAddRequest(Object o) {
+            mediator.openAddRequestView(customer);
         }
 
         public override void Update(string eventName, object item)

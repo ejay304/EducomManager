@@ -27,7 +27,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         private static MediatorViewModel instance;
 
-        public Helper.Enum.User roleUser { get; set; }
+        public user user { get; set; }
 
         public static MediatorViewModel getInstance()
         {
@@ -228,9 +228,19 @@ namespace PrototypeEDUCOM.ViewModel
             deleteCampusView.ShowDialog();   
         }
 
+        public void openAddRequestView(contact customer) {
+            AddRequestViewModel addRequestViewModel = new AddRequestViewModel(customer);
+            AddRequestView addRequestView = new AddRequestView();
+
+            addRequestView.DataContext = addRequestViewModel;
+         //   addRequestViewModel.CloseActionAdd = new Action(() => addRequestView.Close());
+
+            addRequestView.Show();
+        }
+
         public void createTabViewModel()
         {
-            if (this.roleUser != Helper.Enum.User.assistant)
+            if (Helper.Enum.User.assistant != Helper.Enum.User.list[Helper.Enum.User.indexByValue(user.role)])
             {
                 // Onglet dashboard
                 DashboardViewModel dashboardViewModel = new DashboardViewModel();

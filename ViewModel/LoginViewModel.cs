@@ -64,7 +64,8 @@ namespace PrototypeEDUCOM.ViewModel
 
                 if (user != null)
                 {
-                    mediator.roleUser = Helper.Enum.User.list[Helper.Enum.User.indexByValue(user.role)];
+                    mediator.user = user;
+
 
                     return;
                 }

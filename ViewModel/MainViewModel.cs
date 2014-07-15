@@ -21,8 +21,8 @@ namespace PrototypeEDUCOM.ViewModel
 
             mediator.createTabViewModel();
 
-            if(mediator.roleUser != Helper.Enum.User.assistant)
-                tabs.Add(new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC,null, "../Ressource/dashboard.png"));
+            if (Helper.Enum.User.assistant != Helper.Enum.User.list[Helper.Enum.User.indexByValue(mediator.user.role)])
+                tabs.Add(new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC, null, "../Ressource/dashboard.png"));
 
 
             tabs.Add(new Tab("Clients", mediator.mainTabs["customer"].tabUC,null, "../Ressource/clients.png"));

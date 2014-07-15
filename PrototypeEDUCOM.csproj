@@ -130,12 +130,14 @@
     <Compile Include="ViewModel\Customer\EditStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\AddCampusViewModel.cs" />
     <Compile Include="ViewModel\Organisation\AddProgramViewModel.cs" />
     <Compile Include="ViewModel\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MediatorViewModel.cs" />
     <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\DeleteCampusViewModel.cs" />
     <Compile Include="ViewModel\Organisation\DeleteOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\DeleteProgramViewModel.cs" />
     <Compile Include="ViewModel\Organisation\EditOrganisationViewModel.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="ViewModel\Organisation\ShowOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
     <Compile Include="View\Control\Block.xaml.cs" />
     <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
@@ -184,11 +187,17 @@
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Organisation\AddCampusView.xaml.cs">
+      <DependentUpon>AddCampusView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Organisation\AddOrganisationView.xaml.cs">
       <DependentUpon>AddOrganisationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\AddProgramView.xaml.cs">
       <DependentUpon>AddProgramView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Organisation\DeleteCampusView.xaml.cs">
+      <DependentUpon>DeleteCampusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\DeleteOrganisationView.xaml.cs">
       <DependentUpon>DeleteOrganisationView.xaml</DependentUpon>
@@ -213,6 +222,9 @@
     </Compile>
     <Compile Include="View\Organisation\ShowProgramUCView.xaml.cs">
       <DependentUpon>ShowProgramUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\AddRequestView.xaml.cs">
+      <DependentUpon>AddRequestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\RequestUCView.xaml.cs">
       <DependentUpon>RequestUCView.xaml</DependentUpon>
@@ -306,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Organisation\AddCampusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Organisation\AddOrganisationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -313,6 +329,10 @@
     <Page Include="View\Organisation\AddProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Organisation\DeleteCampusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Organisation\DeleteOrganisationView.xaml">
       <SubType>Designer</SubType>
@@ -343,6 +363,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Organisation\ShowProgramUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\AddRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

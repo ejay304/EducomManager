@@ -189,5 +189,10 @@ namespace PrototypeEDUCOM.Model
         public virtual ICollection<student> students { get; set; }
 
         public virtual ICollection<campaign> campaigns { get; set; }
+
+        public override string ToString()
+        {
+            return this.firstname + " " + this.lastname;
+        }
     }
 }

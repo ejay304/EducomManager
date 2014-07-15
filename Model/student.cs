@@ -106,5 +106,10 @@ namespace PrototypeEDUCOM.Model
         public virtual contact contact { get; set; }
 
         public virtual ICollection<request> requests { get; set; }
+
+        public override string ToString()
+        {
+            return this.firstname + " " + this.lastname;
+        }
     }
 }

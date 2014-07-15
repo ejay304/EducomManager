@@ -12,7 +12,6 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid>
@@ -22,12 +21,13 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditCustomer}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/edit.png" Width="20" Height="20" />    
+                        <Image Source="../../Ressource/edit.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteCustomer}">
@@ -82,19 +82,8 @@
                 <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
 
             </Grid>
-        </Grid>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-
-            <StackPanel Orientation="Horizontal"  Grid.Column="0" Grid.Row="0">
+            <StackPanel Orientation="Horizontal"  Grid.Column="1" Grid.Row="0">
                 <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
                     <StackPanel Orientation="Horizontal">
@@ -102,7 +91,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-           
+
             <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
                 <ListView.View >
                     <GridView>
@@ -111,6 +100,56 @@
                             <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
                             <GridViewColumn Header="Naissance" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
                             <GridViewColumn Header="Sexe" DisplayMemberBinding="{Binding gender}" />
+                            <!-- Bouton édition d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="../../Ressource/edit.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- Bouton suppression d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"  Grid.Row="0">
+                <Label Content="Demandes en cours" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <ListView Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding ongoingRequests}" x:Name="request">
+                <ListView.View >
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn  Header="Date" DisplayMemberBinding="{Binding creation_date}" />
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding lastname}" />
+                            <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student, StringFormat={}{0:dd/MM/yyyy}}" />
+                            <GridViewColumn Header="Etat" DisplayMemberBinding="{Binding active}" />
                             <!-- Bouton édition d'une demande -->
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
