@@ -93,6 +93,7 @@
     <Compile Include="Helper\Enum\Civility.cs" />
     <Compile Include="Helper\Enum\EnumDb.cs" />
     <Compile Include="Helper\Enum\Gender.cs" />
+    <Compile Include="Helper\Enum\Journey.cs" />
     <Compile Include="Helper\Enum\Kinship.cs" />
     <Compile Include="Helper\Enum\User.cs" />
     <Compile Include="Helper\Event.cs" />
@@ -228,7 +229,7 @@
     <Compile Include="View\Request\AddRequestView.xaml.cs">
       <DependentUpon>AddRequestView.xaml</DependentUpon>
     </Compile>
-	  <Compile Include="View\Request\ListRequestUCView.xaml.cs">
+    <Compile Include="View\Request\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\RequestUCView.xaml.cs">
@@ -375,7 +376,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\AddRequestView.xaml">
-		<SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\ListRequestUCView.xaml">

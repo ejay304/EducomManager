@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:PrototypeEDUCOM.View"
         Title="EDUCOM Manager" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl Margin="10,113,10,10" ItemsSource="{Binding tabs}">
+        <TabControl Margin="10,110,10,10" ItemsSource="{Binding tabs}">
 
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">

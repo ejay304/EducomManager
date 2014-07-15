@@ -7,7 +7,7 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="160" />
+            <RowDefinition Height="170" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
@@ -39,11 +39,11 @@
 
             <Grid Grid.Column="0" Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -66,11 +66,12 @@
                 <Label Content="{Binding customer.civility}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
                 <Label Content="{Binding customer.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
                 <Label Content="{Binding customer.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <ListBox BorderBrush="Transparent" ItemsSource="{Binding contact.phones}" Grid.Row="4" Grid.Column="1">
+                <ListBox VerticalAlignment="Stretch" BorderBrush="Transparent" ItemsSource="{Binding customer.phones}" Grid.Row="4" Grid.Column="1">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding number}" />
+                                <TextBlock Text="{Binding description}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

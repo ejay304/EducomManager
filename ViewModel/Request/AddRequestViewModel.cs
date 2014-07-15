@@ -1,4 +1,5 @@
-﻿using PrototypeEDUCOM.Model;
+﻿using PrototypeEDUCOM.Helper.Enum;
+using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,18 @@ namespace PrototypeEDUCOM.ViewModel.Request
     {
         public contact customer { get; set; }
         public student student { get; set; }
-
+        public List<student> students { get; set; }
+        public survey survey { get; set; }
+        public List<Journey> surveys { get; set; }
+      
         public ICommand cmdAdd { get; set; }
-        public Action CloseActionFormAdd { get; set; }
+        public Action CloseActionAdd { get; set; }
 
         public AddRequestViewModel(contact customer) {
             this.cmdAdd = new RelayCommand<Object>(actAdd);
-            this.CloseActionFormAdd();  
+            this.customer = customer;
+            this.students = customer.students.ToList();
+            this.surveys = Helper.Enum.Journey.list;
         }
 
         public void actAdd(Object o) { 
@@ -28,7 +34,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
             request request = new request();
 
-            
+            this.CloseActionAdd();  
         }
     }
 }
