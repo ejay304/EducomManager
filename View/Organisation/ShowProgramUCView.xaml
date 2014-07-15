@@ -105,7 +105,7 @@
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="56">
+                <TextBox Text="{Binding description}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="56">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Style.Triggers>

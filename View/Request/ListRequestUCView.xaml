@@ -24,7 +24,16 @@
                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding creation_date}" />
                         <GridViewColumn Header="Type de séjour" DisplayMemberBinding="{Binding country}" />
                         <GridViewColumn Header="Conseiller" DisplayMemberBinding="{Binding user}" />
-                        <GridViewColumn Header="Etat" DisplayMemberBinding="{Binding state}" />
+                        <GridViewColumn Header="Etat" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <TextBlock Text="{Binding state.event_types.name}" />
+                                        <ProgressBar Value="{Binding state.event_types.order}" HorizontalAlignment="Stretch" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <!-- Bouton accès détail d'une demande -->
                         <GridViewColumn>
                             <GridViewColumn.CellTemplate>

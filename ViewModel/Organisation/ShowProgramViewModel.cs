@@ -25,8 +25,13 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
     
         public program program { get; set; }
 
+        public string description { get; set; }
+
         public ShowProgramViewModel(program program) {
+
             this.program = program;
+            this.description = program.description;
+
             this.campuses = new ObservableCollection<campu>(program.campus.ToList());
             this.cmdEdit = new RelayCommand<Object>(actEdit);
             this.cmdDelete = new RelayCommand<Object>(actDelete);
@@ -52,6 +57,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         {
             if (editDescription)
             {
+                program.description = description;
                 db.SaveChanges();
             }
 
