@@ -194,6 +194,9 @@
     <Compile Include="View\Organisation\DeleteProgramView.xaml.cs">
       <DependentUpon>DeleteProgramView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Organisation\EditOrganisationView.xaml.cs">
+      <DependentUpon>EditOrganisationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Organisation\EditProgramView.xaml.cs">
       <DependentUpon>EditProgramView.xaml</DependentUpon>
     </Compile>
@@ -314,6 +317,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Organisation\EditOrganisationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Organisation\EditProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -389,6 +396,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressource\titleAddStudent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\titleAddOrganisation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\valid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,14 +49,14 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         {
             switch (eventName)
             {
-                case Helper.Event.ADD_CUSTOMER:
+                case Helper.Event.ADD_ORGANISATION:
 
                     // Ajoute dans la liste
                     this.organisations.Add((organisation)item);
                     NotifyPropertyChanged("organisations");
                     NotifyPropertyChanged("nbrOrganisation");
                     break;
-                case Helper.Event.DELETE_CUSTOMER:
+                case Helper.Event.DELETE_ORGANISATION:
 
                     // Ajoute dans la liste
                     this.organisations.Remove((organisation)item);

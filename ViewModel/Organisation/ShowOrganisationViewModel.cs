@@ -37,7 +37,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         private void actEdit(organisation organisation)
         {
-            throw new NotImplementedException();
+            mediator.openEditOrganisationView(this.organisation);
         }
 
         private void actDelete(Object o)

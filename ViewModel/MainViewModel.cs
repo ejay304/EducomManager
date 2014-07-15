@@ -22,12 +22,11 @@ namespace PrototypeEDUCOM.ViewModel
             mediator.createTabViewModel();
 
             if(mediator.roleUser != Helper.Enum.User.assistant)
-                tabs.Add(new Tab("Dashboard", mediator.TabUC["dashboard"],null, "../Ressource/dashboard.png"));
+                tabs.Add(new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC,null, "../Ressource/dashboard.png"));
 
 
-            tabs.Add(new Tab("Clients", mediator.TabUC["customer"],null, "../Ressource/clients.png"));
-
-            tabs.Add(new Tab("Organisations", mediator.TabUC["organisation"], null, "../Ressource/organisations.png"));
+            tabs.Add(new Tab("Clients", mediator.mainTabs["customer"].tabUC,null, "../Ressource/clients.png"));
+            tabs.Add(new Tab("Organisations", mediator.mainTabs["organisation"].tabUC, null, "../Ressource/organisations.png"));
         }
     }
 }

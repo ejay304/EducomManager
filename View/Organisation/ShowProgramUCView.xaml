@@ -86,12 +86,39 @@
                 </ListView>
                 <StackPanel Orientation="Horizontal"  Grid.Column="0" Grid.Row="0">
                     <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddCampus}">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditDescription}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../../Ressource/edit.png" Width="20" Height="20" />
+                            <Image Width="20" Height="20">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding editDescription}" Value="false">
+                                                <Setter Property="Source" Value="../../Ressource/edit.png" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding editDescription}" Value="true">
+                                                <Setter Property="Source" Value="../../Ressource/valid.png" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
                         </StackPanel>
                     </Button>
                 </StackPanel>
+                <TextBox TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="56">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding editDescription}" Value="false">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding editDescription}" Value="true">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
             </StackPanel>
         </Grid>
             
