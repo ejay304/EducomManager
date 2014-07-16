@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TabControl Name="TabControl" Margin="10,50,10,10" ItemsSource="{Binding requestTabs}" SelectedItem="{Binding selectedTab}">
+        <TabControl Name="TabControl" Margin="10,10,10,10" ItemsSource="{Binding requestTabs}" SelectedItem="{Binding selectedTab}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Content" Value="{Binding content}" />

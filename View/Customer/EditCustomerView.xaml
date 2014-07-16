@@ -86,10 +86,10 @@
                     <Label Content="Ville" HorizontalAlignment="Right" Grid.Row="1" Margin="0,6,10,6" Grid.Column="0"/>
                     <Label Content="NPA" HorizontalAlignment="Right" Grid.Row="0"  Margin="0,6,10,6" Grid.Column="2" />
                     <Label Content="Pays" HorizontalAlignment="Right" Grid.Row="1" Margin="0,6,10,6" Grid.Column="2"/>
-                    <TextBox Text="{Binding street }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
-                    <TextBox Text="{Binding city }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
-                    <TextBox Text="{Binding zip }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
-                    <TextBox Text="{Binding country }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="3"/>
+                    <TextBox Text="{Binding street}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Text="{Binding city}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Text="{Binding zip}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
+                    <TextBox Text="{Binding country}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="3"/>
 
                 </Grid>
             </Grid>
@@ -115,9 +115,9 @@
                     <Label Content="Tél. privé" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="0" />
                     <Label Content="Tél. pro" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="1" Grid.Column="0"/>
                     <Label Content="Email" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="2" />
-                    <TextBox Text="{Binding phonePrivate }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
-                    <TextBox Text="{Binding phonePro }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
-                    <TextBox Text="{Binding email }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
+                    <TextBox Text="{Binding phonePrivate }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1" IsEnabled="false"/>
+                    <TextBox Text="{Binding phonePro }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1" IsEnabled="false"/>
+                    <TextBox Text="{Binding email }" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3" IsEnabled="false"/>
 
                 </Grid>
             </Grid>

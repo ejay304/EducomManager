@@ -122,30 +122,30 @@
     <Compile Include="Model\user.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\AddStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customer\Student\AddStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\DeleteCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\DeleteStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customer\Student\DeleteStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\EditStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customer\Student\EditStudentViewModel.cs" />
     <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
     <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\AddCampusViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\AddProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\Campus\AddCampusViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\AddProgramViewModel.cs" />
     <Compile Include="ViewModel\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MediatorViewModel.cs" />
     <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\DeleteCampusViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\Campus\DeleteCampusViewModel.cs" />
     <Compile Include="ViewModel\Organisation\DeleteOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\DeleteProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\DeleteProgramViewModel.cs" />
     <Compile Include="ViewModel\Organisation\EditOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\EditProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\EditProgramViewModel.cs" />
     <Compile Include="ViewModel\Organisation\ListOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\OrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\ShowOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\ShowProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
@@ -156,7 +156,7 @@
     <Compile Include="View\Customer\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\AddStudentView.xaml.cs">
+    <Compile Include="View\Customer\Student\AddStudentView.xaml.cs">
       <DependentUpon>AddStudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\CustomerUCView.xaml.cs">
@@ -165,13 +165,13 @@
     <Compile Include="View\Customer\DeleteCustomerView.xaml.cs">
       <DependentUpon>DeleteCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\DeleteStudentView.xaml.cs">
+    <Compile Include="View\Customer\Student\DeleteStudentView.xaml.cs">
       <DependentUpon>DeleteStudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\EditStudentView.xaml.cs">
+    <Compile Include="View\Customer\Student\EditStudentView.xaml.cs">
       <DependentUpon>EditStudentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customer\ListCustomerUCView.xaml.cs">
@@ -282,7 +282,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\AddStudentView.xaml">
+    <Page Include="View\Customer\Student\AddStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,7 +294,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\DeleteStudentView.xaml">
+    <Page Include="View\Customer\Student\DeleteStudentView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -302,7 +302,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\EditStudentView.xaml">
+    <Page Include="View\Customer\Student\EditStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

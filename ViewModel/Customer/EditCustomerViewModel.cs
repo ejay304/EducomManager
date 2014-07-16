@@ -48,6 +48,21 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.zip = customer.zip;
             this.country = customer.country;
 
+            foreach (phone p in this.currentCustomer.phones)
+            {
+                switch (p.description)
+                {
+                    case "private":
+                        this.phonePrivate = p.number;
+                        break;
+                    case "pro":
+                        this.phonePro = p.number;
+                        break;
+                }
+            }
+
+            if(customer.emails.Count != 0)
+                this.email = customer.emails.First().email1;
 
             this.cmdEdit = new RelayCommand<object>(actEdit);
         }
@@ -91,23 +106,14 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             if (!error)
             {
-
                 currentCustomer.firstname = this.firstname;
                 currentCustomer.lastname = this.lastname;
-
-                 if (!this.street.Equals(""))
-                    currentCustomer.street = this.street;
-
-                if (!this.city.Equals(""))
-                    currentCustomer.city = this.city;
-
-                if (!this.zip.Equals(""))
-                    currentCustomer.zip = this.zip;
-
-                if (!this.country.Equals(""))
-                    currentCustomer.country = this.country;
-
+                currentCustomer.street = this.street;
+                currentCustomer.city = this.city;
+                currentCustomer.zip = this.zip;
+                currentCustomer.country = this.country;
                 currentCustomer.civility = civilities.ElementAt(civilityIndex).getValue();
+
                 // Enregistre dans la base
                 db.SaveChanges();
 

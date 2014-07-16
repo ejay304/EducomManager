@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:PrototypeEDUCOM.View"
         Title="EDUCOM Manager" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl Margin="10,113,10,10" ItemsSource="{Binding tabs}">
+        <TabControl Margin="10,125,10,10" ItemsSource="{Binding tabs}">
 
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
@@ -13,8 +13,8 @@
                         <Setter.Value>
                             <DataTemplate DataType="TabItem">
                                 <StackPanel Width="120">
-                                    <Image Source="{Binding icon}" Width="40" Height="40"/>
-                                    <TextBlock Text="{Binding header}" FontSize="20" HorizontalAlignment="Center" />
+                                    <Image Source="{Binding icon}" Width="30" Height="30" Margin="0,5,0,0" />
+                                    <TextBlock Text="{Binding header}" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF30859A" />
                                 </StackPanel>
                             </DataTemplate>
                         </Setter.Value>
@@ -22,10 +22,10 @@
                 </Style>
             </TabControl.ItemContainerStyle>
         </TabControl>
-        <Image Source="../Ressource/logo.png" HorizontalAlignment="Left" Height="79" Margin="10,15,0,0" VerticalAlignment="Top" Width="256"/>
+        <Image Source="/PrototypeEDUCOM;component/Ressource/logo.png" HorizontalAlignment="Left" Height="79" Margin="10,15,0,0" VerticalAlignment="Top" Width="256"/>
         <TextBox HorizontalAlignment="Left" Height="37" Margin="294,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="410" FontSize="22"/>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="703,35,0,0" VerticalAlignment="Top" Width="40" Height="37"  Background="#FFEEEEEE" BorderBrush="#FFAAAAAA">
-            <Image Source="../Ressource/search.png" />
+            <Image Source="/PrototypeEDUCOM;component/Ressource/search.png" />
         </Button>
         <CheckBox Content="Cients" HorizontalAlignment="Left" Margin="297,81,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="Demandes" HorizontalAlignment="Left" Margin="371,81,0,0" VerticalAlignment="Top"/>

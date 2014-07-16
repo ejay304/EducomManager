@@ -22,9 +22,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         public string country { get; set; }
 
-        public string phonePrivate { get; set; }
-
-        public string phonePro { get; set; }
+        public string phone { get; set; }
 
         public string email { get; set; }
 
@@ -75,42 +73,23 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             if (!this.country.Equals(""))
                 organisation.country = this.country;
 
-            if (!this.phonePrivate.Equals("") || !this.phonePro.Equals("") || !this.email.Equals(""))
+            if (!this.phone.Equals(""))
             {
-                contact contact = new contact();
-                contact.contact_type = "organisation";
+                phone phone = new phone();
+                phone.number = this.phone;
+                phone.description = "main";
+                phone.main = true;
 
-                if (!this.phonePrivate.Equals(""))
-                {
-                    phone phone = new phone();
-                    phone.number = this.phonePrivate;
-                    phone.description = "private";
-                    phone.main = true;
+                //organisation.phone = phone;
+            }
 
-                    contact.phones.Add(phone);
-                }
+            if (!this.email.Equals(""))
+            {
+                email email = new email();
+                email.email1 = this.email;
+                email.main = true;
 
-                if (!this.phonePro.Equals(""))
-                {
-                    phone phone = new phone();
-                    phone.number = this.phonePro;
-                    phone.description = "pro";
-                    phone.main = true;
-
-                    contact.phones.Add(phone);
-
-                }
-
-                if (!this.email.Equals(""))
-                {
-                    email email = new email();
-                    email.email1 = this.email;
-                    email.main = true;
-
-                    contact.emails.Add(email);
-                }
-
-                organisation.contacts.Add(contact);
+                //organisation.email = email;
             }
 
             if (!error)

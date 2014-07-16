@@ -13,7 +13,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
     {
         public ObservableCollection<request> requests { get; set; }
 
-        public int nbrOrganisation
+        public int nbrRequest
         { 
             get { return this.requests.Count; } 
         }

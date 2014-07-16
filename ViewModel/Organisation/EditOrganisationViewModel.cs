@@ -17,8 +17,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         public string city { get; set; }
         public string zip { get; set; }
         public string country { get; set; }
-        public string phonePrivate { get; set; }
-        public string phonePro { get; set; }
+        public string phone { get; set; }
         public string email { get; set; }
 
         public Validation validName { get; set; }
@@ -35,6 +34,8 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             this.city = organisation.city;
             this.zip = organisation.zip;
             this.country = organisation.country;
+            //this.phone = organisation.phone.number;
+            //this.email = organisation.email.email1;
 
             this.cmdEdit = new RelayCommand<object>(actEdit);        
         }

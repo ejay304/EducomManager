@@ -34,7 +34,6 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
             mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
             mediator.Register(Helper.Event.DELETE_PROGRAM, this);
-     
         }
 
         private void actCloseTab(Tab tab)

@@ -94,17 +94,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 error = true;
             }
 
-            if (!this.street.Equals(""))
-                customer.street = this.street;
-
-            if (!this.city.Equals(""))
-                customer.city = this.city;
-
-            if (!this.zip.Equals(""))
-                customer.zip = this.zip;
-
-            if (!this.country.Equals(""))
-                customer.country = this.country;
+            customer.street = this.street;
+            customer.city = this.city;
+            customer.zip = this.zip;
+            customer.country = this.country;
 
             if (!this.phonePrivate.Equals("")) 
             {

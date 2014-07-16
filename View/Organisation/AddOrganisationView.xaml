@@ -92,7 +92,6 @@
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition />
-                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*" />
@@ -100,13 +99,10 @@
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="5*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Tél. privé" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="0" />
-                    <Label Content="Tél. pro" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="1" Grid.Column="0"/>
+                    <Label Content="Tél. " HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="0" />
                     <Label Content="Email" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="2" />
-                    <TextBox Text="{Binding phonePrivate, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
-                    <TextBox Text="{Binding phonePro, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Text="{Binding phone, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1"/>
                     <TextBox Text="{Binding email, Mode=OneWayToSource}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3"/>
-                 
                 </Grid>
             </Grid>
         </Grid>
