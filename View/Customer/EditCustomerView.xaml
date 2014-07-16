@@ -203,7 +203,7 @@
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEdit}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
-                <TextBlock Text="Modifier" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Modifier" Margin="10,0" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>
 

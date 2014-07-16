@@ -120,10 +120,10 @@
                 </TextBlock>
             </StackPanel>
         </Grid>
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}"  Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
-            <StackPanel Orientation="Horizontal" Width="76">
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
-                <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Ajouter" Margin="10,0" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>
         <Grid Grid.Row="3">

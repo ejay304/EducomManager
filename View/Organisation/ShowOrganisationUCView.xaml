@@ -44,15 +44,15 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Téléphone" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
                 <Label Content="E-mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
                 <Label Content="Adresse" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
                 <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
                 <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="5" FontWeight="Bold"/>
                 <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="6" FontWeight="Bold"/>
                 <Label Content="{Binding organisation.name}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0"/>
-                <Label Content="{Binding organisation.name}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
-                <Label Content="{Binding organisation.name}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                <Label Content="{Binding organisation.phone.number}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
+                <Label Content="{Binding organisation.email.email1}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                 <Label Content="{Binding organisation.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
                 <Label Content="{Binding organisation.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4" />
                 <Label Content="{Binding organisation.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5"/>

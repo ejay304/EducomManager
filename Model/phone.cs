@@ -26,7 +26,7 @@ namespace PrototypeEDUCOM.Model
 
         public bool main { get; set; }
 
-        public int contacts_id { get; set; }
+        public int? contacts_id { get; set; }
 
         public bool active { get; set; }
 
