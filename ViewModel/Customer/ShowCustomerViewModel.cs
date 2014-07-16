@@ -25,7 +25,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ShowCustomerViewModel(contact customer)
         {
-            var ongoningRequestQuery = from s in db.requests where s.active == true select s;
+            var ongoningRequestQuery = from s in db.requests where s.active = false)  select s;
+            //db.requests.ToList().Where();
             this.customer = customer;
             this.students = new ObservableCollection<student>(customer.students.ToList());
             this.ongoingRequests = new ObservableCollection<request>(ongoningRequestQuery.ToList());
