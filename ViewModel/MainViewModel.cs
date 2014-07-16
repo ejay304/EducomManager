@@ -17,6 +17,13 @@ namespace PrototypeEDUCOM.ViewModel
     {
         public MainViewModel()
         {
+
+            //SUPRIMER LORS DE LA MISE EN PROD !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            mediator.user = db.users.First();
+
+
+
+
             tabs = new ObservableCollection<Tab>();
 
             mediator.createTabViewModel();

@@ -25,5 +25,10 @@ namespace PrototypeEDUCOM.Model
         public virtual event_types event_types { get; set; }
 
         public virtual request request { get; set; }
+        public override string ToString()
+        {
+            return this.event_types.name;
+        }
+
     }
 }

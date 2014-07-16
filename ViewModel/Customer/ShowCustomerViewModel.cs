@@ -25,8 +25,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ShowCustomerViewModel(contact customer)
         {
-            var ongoningRequestQuery = from s in db.requests where s.active = false)  select s;
-            //db.requests.ToList().Where();
+            var ongoningRequestQuery = customer.requests.Where(r => r.events.Last().event_types.order != 100);
+                                    
             this.customer = customer;
             this.students = new ObservableCollection<student>(customer.students.ToList());
             this.ongoingRequests = new ObservableCollection<request>(ongoningRequestQuery.ToList());
@@ -81,6 +81,14 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 case Helper.Event.DELETE_STUDENT:
                     this.students.Remove((student)item);
                     NotifyPropertyChanged("students");
+                    break;
+                case Helper.Event.ADD_REQUEST:
+                    this.ongoingRequests.Add((request)item);
+                    NotifyPropertyChanged("ongoingRequests");
+                    break;
+                case Helper.Event.DELETE_REQUEST:
+                    this.ongoingRequests.Remove((request)item);
+                    NotifyPropertyChanged("ongoingRequests");
                     break;
             }
         }
