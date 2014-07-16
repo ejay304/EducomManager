@@ -7,8 +7,15 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.organisation")]
-    public partial class organisation
+    public partial class organisation : NotifyProperty
     {
+
+        private string _name;
+        private string _street;
+        private string _city;
+        private string _zip;
+        private string _country;
+
         public organisation()
         {
             contacts = new HashSet<contact>();
@@ -19,19 +26,74 @@ namespace PrototypeEDUCOM.Model
 
         [Required]
         [StringLength(45)]
-        public string name { get; set; }
+        public string name 
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+                NotifyPropertyChanged("name");
+            }
+        }
 
         [StringLength(45)]
-        public string street { get; set; }
+        public string street 
+        {
+            get
+            {
+                return _street;
+            }
+            set
+            {
+                _street = value;
+                NotifyPropertyChanged("street");
+            }
+        }
 
         [StringLength(45)]
-        public string city { get; set; }
+        public string city
+        {
+            get
+            {
+                return _city;
+            }
+            set
+            {
+                _city = value;
+                NotifyPropertyChanged("city");
+            }
+        }
 
         [StringLength(45)]
-        public string zip { get; set; }
+        public string zip
+        {
+            get
+            {
+                return _zip;
+            }
+            set
+            {
+                _zip = value;
+                NotifyPropertyChanged("zip");
+            }
+        }
 
         [StringLength(45)]
-        public string country { get; set; }
+        public string country
+        {
+            get
+            {
+                return _country;
+            }
+            set
+            {
+                _country = value;
+                NotifyPropertyChanged("country");
+            }
+        }
 
         public bool active { get; set; }
 

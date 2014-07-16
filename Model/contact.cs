@@ -21,8 +21,6 @@ namespace PrototypeEDUCOM.Model
         private string _language;
         private DateTime? _add_date;
 
-
-
         public contact()
         {
             emails = new HashSet<email>();

@@ -139,6 +139,7 @@
     <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\Program\Campus\DeleteCampusViewModel.cs" />
     <Compile Include="ViewModel\Organisation\DeleteOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisation\Program\Campus\EditCampusViewModel.cs" />
     <Compile Include="ViewModel\Organisation\Program\DeleteProgramViewModel.cs" />
     <Compile Include="ViewModel\Organisation\EditOrganisationViewModel.cs" />
     <Compile Include="ViewModel\Organisation\Program\EditProgramViewModel.cs" />
@@ -203,6 +204,9 @@
     </Compile>
     <Compile Include="View\Organisation\DeleteOrganisationView.xaml.cs">
       <DependentUpon>DeleteOrganisationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Organisation\Program\Campus\EditCampusView.xaml.cs">
+      <DependentUpon>EditCampusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\Program\DeleteProgramView.xaml.cs">
       <DependentUpon>DeleteProgramView.xaml</DependentUpon>
@@ -343,6 +347,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Organisation\DeleteOrganisationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Organisation\Program\Campus\EditCampusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
