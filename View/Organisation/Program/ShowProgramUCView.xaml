@@ -19,12 +19,12 @@
                 <Label Content="Fiche Programme" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"  Command="{Binding cmdEdit}" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/edit.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDelete}" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/delete.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -58,7 +58,7 @@
                     <Label Content="Liste des campus" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                     <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddCampus}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                            <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -74,7 +74,7 @@
                                         <DataTemplate>
                                             <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteCampus}" CommandParameter="{Binding}">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                                    <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                                 </StackPanel>
                                             </Button>
                                         </DataTemplate>
@@ -93,10 +93,10 @@
                                     <Style TargetType="{x:Type Image}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding editDescription}" Value="false">
-                                                <Setter Property="Source" Value="../../Ressource/edit.png" />
+                                                <Setter Property="Source" Value="/PrototypeEDUCOM;component/Ressource/edit.png" />
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding editDescription}" Value="true">
-                                                <Setter Property="Source" Value="../../Ressource/valid.png" />
+                                                <Setter Property="Source" Value="/PrototypeEDUCOM;component/Ressource/valid.png" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>

@@ -189,28 +189,28 @@
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\AddCampusView.xaml.cs">
+    <Compile Include="View\Organisation\Program\Campus\AddCampusView.xaml.cs">
       <DependentUpon>AddCampusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\AddOrganisationView.xaml.cs">
       <DependentUpon>AddOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\AddProgramView.xaml.cs">
+    <Compile Include="View\Organisation\Program\AddProgramView.xaml.cs">
       <DependentUpon>AddProgramView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\DeleteCampusView.xaml.cs">
+    <Compile Include="View\Organisation\Program\Campus\DeleteCampusView.xaml.cs">
       <DependentUpon>DeleteCampusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\DeleteOrganisationView.xaml.cs">
       <DependentUpon>DeleteOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\DeleteProgramView.xaml.cs">
+    <Compile Include="View\Organisation\Program\DeleteProgramView.xaml.cs">
       <DependentUpon>DeleteProgramView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\EditOrganisationView.xaml.cs">
       <DependentUpon>EditOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\EditProgramView.xaml.cs">
+    <Compile Include="View\Organisation\Program\EditProgramView.xaml.cs">
       <DependentUpon>EditProgramView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Organisation\ListOrganisationUCView.xaml.cs">
@@ -222,7 +222,7 @@
     <Compile Include="View\Organisation\ShowOrganisationUCView.xaml.cs">
       <DependentUpon>ShowOrganisationUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\ShowProgramUCView.xaml.cs">
+    <Compile Include="View\Organisation\Program\ShowProgramUCView.xaml.cs">
       <DependentUpon>ShowProgramUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\AddRequestView.xaml.cs">
@@ -326,7 +326,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Organisation\AddCampusView.xaml">
+    <Page Include="View\Organisation\Program\Campus\AddCampusView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -334,11 +334,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\AddProgramView.xaml">
+    <Page Include="View\Organisation\Program\AddProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\DeleteCampusView.xaml">
+    <Page Include="View\Organisation\Program\Campus\DeleteCampusView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -346,7 +346,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\DeleteProgramView.xaml">
+    <Page Include="View\Organisation\Program\DeleteProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,7 +354,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\EditProgramView.xaml">
+    <Page Include="View\Organisation\Program\EditProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,7 +370,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\ShowProgramUCView.xaml">
+    <Page Include="View\Organisation\Program\ShowProgramUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

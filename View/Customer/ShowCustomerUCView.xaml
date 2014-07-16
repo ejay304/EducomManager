@@ -27,12 +27,12 @@
                 <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditCustomer}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/edit.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteCustomer}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/delete.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -88,7 +88,7 @@
                 <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -107,7 +107,7 @@
                                     <DataTemplate>
                                         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="../../Ressource/edit.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -119,7 +119,7 @@
                                     <DataTemplate>
                                         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -139,7 +139,7 @@
                 <Label Content="Demandes en cours" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -157,7 +157,7 @@
                                     <DataTemplate>
                                         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="../../Ressource/edit.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -169,7 +169,7 @@
                                     <DataTemplate>
                                         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="../../Ressource/delete.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>

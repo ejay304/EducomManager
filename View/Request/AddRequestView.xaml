@@ -10,7 +10,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal"  Background="#FF30859A" >
-            <Image   Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
+            <Image  Source="/PrototypeEDUCOM;component/Ressource/titleAddDemande.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
             <Label Content="Ajouter une requête" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
         </StackPanel>
 
@@ -37,7 +37,7 @@
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}"  Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal" Width="76">
-                <Image Source="../../Ressource/add.png" Width="30" Height="30" />
+                <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>

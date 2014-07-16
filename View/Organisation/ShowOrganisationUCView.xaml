@@ -14,12 +14,12 @@
             <Label Content="Fiche Organisation" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
             <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"  Command="{Binding cmdEdit}" >
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="../../Ressource/edit.png" Width="20" Height="20" />
+                    <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="20" Height="20" />
                 </StackPanel>
             </Button>
             <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDelete}" >
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="../../Ressource/delete.png" Width="20" Height="20" />
+                    <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="20" Height="20" />
                 </StackPanel>
             </Button>
         </StackPanel>
@@ -77,7 +77,7 @@
                     <Label Content="Liste des programmes" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                     <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddProgram}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../../Ressource/add.png" Width="20" Height="20" />
+                            <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -95,7 +95,7 @@
                                         <DataTemplate>
                                             <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdShowProgram}" CommandParameter="{Binding}">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <Image Source="../../Ressource/show.png" Width="15" Height="15" />
+                                                    <Image Source="/PrototypeEDUCOM;component/Ressource/show.png" Width="15" Height="15" />
                                                 </StackPanel>
                                             </Button>
                                         </DataTemplate>

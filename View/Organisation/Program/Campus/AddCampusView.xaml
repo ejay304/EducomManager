@@ -30,7 +30,7 @@
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}"  Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal" Width="76">
-                <Image Source="../../Ressource/add.png" Width="30" Height="30" />
+                <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>

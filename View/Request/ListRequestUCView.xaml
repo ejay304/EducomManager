@@ -24,12 +24,12 @@
                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding creation_date}" />
                         <GridViewColumn Header="Type de séjour" DisplayMemberBinding="{Binding country}" />
                         <GridViewColumn Header="Conseiller" DisplayMemberBinding="{Binding user}" />
-                        <GridViewColumn Header="Etat" Width="100">
+                        <GridViewColumn Header="Etat">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" >
-                                        <TextBlock Text="{Binding state.event_types.name}" />
-                                        <ProgressBar Value="{Binding state.event_types.order}" HorizontalAlignment="Stretch" />
+                                        <TextBlock Text="{Binding state.event_types.name}" Width="100" />
+                                        <ProgressBar Value="{Binding state.event_types.order}" Width="150" />
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

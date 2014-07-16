@@ -38,7 +38,7 @@
         </ListView>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2" >
             <StackPanel Orientation="Horizontal">
-                <Image Source="../../Ressource/add.png" Width="30" Height="30" />
+                <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter une organisation" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>

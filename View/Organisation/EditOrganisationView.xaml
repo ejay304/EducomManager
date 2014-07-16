@@ -11,7 +11,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF30859A" >
-            <Image  Source="../../Ressource/titleAddOrganisation.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
+            <Image  Source="/PrototypeEDUCOM;component/Ressource/titleAddOrganisation.png" Margin="10,0,10,0" Width="40" Height="40" Panel.ZIndex="23"/>
             <Label Content="Modifier une organisation" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
         </StackPanel>
 
@@ -113,7 +113,7 @@
 
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEdit}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal">
-                <Image Source="../../Ressource/edit.png" Width="30" Height="30" />
+                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="30" Height="30" />
                 <TextBlock Text="Modifier" VerticalAlignment="Center" FontWeight="Bold" Margin="6" />
             </StackPanel>
         </Button>
