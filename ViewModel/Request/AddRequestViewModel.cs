@@ -14,9 +14,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public contact customer { get; set; }
         public student student { get; set; }
         public List<student> students { get; set; }
-        public survey survey { get; set; }
-        public List<Journey> surveys { get; set; }
-      
+        public Journey journey { get; set; }
+        public List<Journey> journeys { get; set; }
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
 
@@ -24,18 +23,28 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.cmdAdd = new RelayCommand<Object>(actAdd);
             this.customer = customer;
             this.students = customer.students.ToList();
-            this.surveys = Helper.Enum.Journey.list;
+            this.journeys = Helper.Enum.Journey.list;
         }
 
         public void actAdd(Object o) { 
 
-            _event _event = new _event();
-            _event.event_types = db.event_types.First();
+            _event _newEvent = new _event();
+            _newEvent.event_types = db.event_types.OrderBy(event_type => event_type.order).First();
 
             request request = new request();
 
-            request.events.Add(_event);
+            request.events.Add(_newEvent);
+            request.contact = this.customer;
+            request.user = mediator.user;
+            request.journey_type = journey.getValue();
+            request.student = student;
+            request.creation_date = DateTime.Now;
 
+            db.requests.Add(request);
+
+            db.SaveChanges();
+
+            mediator.NotifyViewModel(Helper.Event.ADD_REQUEST, request);
             this.CloseActionAdd();  
         }
     }

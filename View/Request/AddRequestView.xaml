@@ -32,7 +32,7 @@
 
             <Label Content="{Binding customer}"  Margin="0,6,10,6" Grid.Row="0" Grid.Column="1"/>
             <ComboBox SelectedItem="{Binding student, Mode=TwoWay}" ItemsSource="{Binding students}" Grid.Row="1" Grid.Column="1" Margin="10,8,10,8" />
-            <ComboBox SelectedItem="{Binding survey, Mode=TwoWay}" ItemsSource="{Binding surveys}" Grid.Row="2" Grid.Column="1" Margin="10,8,10,8" />
+            <ComboBox SelectedItem="{Binding journey, Mode=TwoWay}" ItemsSource="{Binding journeys}" Grid.Row="2" Grid.Column="1" Margin="10,8,10,8" />
 
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">

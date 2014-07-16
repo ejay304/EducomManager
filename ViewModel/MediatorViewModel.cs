@@ -252,7 +252,7 @@ namespace PrototypeEDUCOM.ViewModel
             AddRequestView addRequestView = new AddRequestView();
 
             addRequestView.DataContext = addRequestViewModel;
-         //   addRequestViewModel.CloseActionAdd = new Action(() => addRequestView.Close());
+            addRequestViewModel.CloseActionAdd = new Action(() => addRequestView.Close());
 
             addRequestView.Show();
         }
