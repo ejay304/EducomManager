@@ -5,7 +5,6 @@ namespace PrototypeEDUCOM.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Windows.Documents;
 
     [Table("EducomDb.requests")]
     public partial class request
@@ -39,11 +38,15 @@ namespace PrototypeEDUCOM.Model
             get
             {
                 _event[] e = new _event[events.Count];
-                events.CopyTo(e,0);
+                events.CopyTo(e, 0);
 
                 return e[events.Count - 1];
             }
         }
+
+        [Column(TypeName = "enum")]
+        [StringLength(65532)]
+        public string journey_type { get; set; }
 
         public virtual contact contact { get; set; }
 

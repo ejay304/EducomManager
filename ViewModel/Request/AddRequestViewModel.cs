@@ -34,6 +34,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
             request request = new request();
 
+            request.events.Add(_event);
+
             this.CloseActionAdd();  
         }
     }

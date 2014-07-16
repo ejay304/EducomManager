@@ -7,6 +7,7 @@ namespace PrototypeEDUCOM.Model
 
     public partial class EducomDb : DbContext
     {
+
         private static EducomDb instance;
 
         public EducomDb()
@@ -21,7 +22,6 @@ namespace PrototypeEDUCOM.Model
             return instance;
         }
 
-        public virtual DbSet<adress> adresses { get; set; }
         public virtual DbSet<campaign> campaigns { get; set; }
         public virtual DbSet<campu> campus { get; set; }
         public virtual DbSet<contact> contacts { get; set; }
@@ -179,6 +179,12 @@ namespace PrototypeEDUCOM.Model
                 .Property(e => e.description)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<email>()
+                .HasMany(e => e.organisations)
+                .WithRequired(e => e.email)
+                .HasForeignKey(e => e.emails_id)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<event_types>()
                 .Property(e => e.name)
                 .IsUnicode(false);
@@ -240,6 +246,12 @@ namespace PrototypeEDUCOM.Model
                 .Property(e => e.description)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<phone>()
+                .HasMany(e => e.organisations)
+                .WithRequired(e => e.phone)
+                .HasForeignKey(e => e.phones_id)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<program_types>()
                 .Property(e => e.name)
                 .IsUnicode(false);
@@ -300,6 +312,10 @@ namespace PrototypeEDUCOM.Model
 
             modelBuilder.Entity<request>()
                 .Property(e => e.comment)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<request>()
+                .Property(e => e.journey_type)
                 .IsUnicode(false);
 
             modelBuilder.Entity<request>()

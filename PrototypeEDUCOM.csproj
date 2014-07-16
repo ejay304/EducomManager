@@ -100,7 +100,6 @@
     <Compile Include="Helper\Tab.cs" />
     <Compile Include="Helper\TabContent.cs" />
     <Compile Include="Helper\Validation.cs" />
-    <Compile Include="Model\adress.cs" />
     <Compile Include="Model\campaign.cs" />
     <Compile Include="Model\campu.cs" />
     <Compile Include="Model\contact.cs" />

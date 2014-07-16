@@ -35,7 +35,15 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
+        public int phones_id { get; set; }
+
+        public int emails_id { get; set; }
+
         public virtual ICollection<contact> contacts { get; set; }
+
+        public virtual email email { get; set; }
+
+        public virtual phone phone { get; set; }
 
         public virtual ICollection<program> programs { get; set; }
     }
