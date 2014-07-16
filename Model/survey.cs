@@ -21,5 +21,10 @@ namespace PrototypeEDUCOM.Model
         public string type { get; set; }
 
         public virtual ICollection<question> questions { get; set; }
+
+        public override string ToString()
+        {
+            return this.type;
+        }
     }
 }

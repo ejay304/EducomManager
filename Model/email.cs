@@ -9,6 +9,11 @@ namespace PrototypeEDUCOM.Model
     [Table("EducomDb.emails")]
     public partial class email
     {
+        public email()
+        {
+            organisations = new HashSet<organisation>();
+        }
+
         public int id { get; set; }
 
         [Column("email")]
@@ -27,5 +32,7 @@ namespace PrototypeEDUCOM.Model
         public bool active { get; set; }
 
         public virtual contact contact { get; set; }
+
+        public virtual ICollection<organisation> organisations { get; set; }
     }
 }

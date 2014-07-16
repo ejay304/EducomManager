@@ -28,11 +28,11 @@
 
             <Label Content="Client" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" />
             <Label Content="Etudiant" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="1"/>
-            <Label Content="Date" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="2"/>
+            <Label Content="Type de séjour" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="2"/>
 
             <Label Content="{Binding customer}"  Margin="0,6,10,6" Grid.Row="0" Grid.Column="1"/>
             <ComboBox SelectedItem="{Binding student, Mode=TwoWay}" ItemsSource="{Binding students}" Grid.Row="1" Grid.Column="1" Margin="10,8,10,8" />
-            <DatePicker SelectedDate="{Binding creation_date}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,8" Grid.Column="1" Grid.Row="2"/>
+            <ComboBox SelectedItem="{Binding survey, Mode=TwoWay}" ItemsSource="{Binding surveys}" Grid.Row="2" Grid.Column="1" Margin="10,8,10,8" />
 
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}"  Width="92" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">

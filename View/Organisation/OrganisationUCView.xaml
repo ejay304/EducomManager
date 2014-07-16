@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
     <Grid>
-        <TabControl Name="TabControl" Margin="10,50,10,10" ItemsSource="{Binding organisationTabs}" SelectedItem="{Binding selectedTab}">
+        <TabControl Name="TabControl" Margin="10,10,10,10" ItemsSource="{Binding organisationTabs}" SelectedItem="{Binding selectedTab}">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Content" Value="{Binding content}" />

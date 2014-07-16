@@ -9,6 +9,11 @@ namespace PrototypeEDUCOM.Model
     [Table("EducomDb.phones")]
     public partial class phone
     {
+        public phone()
+        {
+            organisations = new HashSet<organisation>();
+        }
+
         public int id { get; set; }
 
         [Required]
@@ -26,5 +31,7 @@ namespace PrototypeEDUCOM.Model
         public bool active { get; set; }
 
         public virtual contact contact { get; set; }
+
+        public virtual ICollection<organisation> organisations { get; set; }
     }
 }
