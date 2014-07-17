@@ -25,7 +25,9 @@ namespace PrototypeEDUCOM.ViewModel
 
         private Dictionary<string, List<BaseViewModel>> container = new Dictionary<string, List<BaseViewModel>>();
 
-        public Dictionary<string, TabContent> mainTabs = new Dictionary<string,TabContent>();
+        public Dictionary<string, TabContent> mainTabs = new Dictionary<string, TabContent>();
+
+        private MainViewModel mainViewModel;
 
         private static MediatorViewModel instance;
 
@@ -52,6 +54,14 @@ namespace PrototypeEDUCOM.ViewModel
             if (container.ContainsKey(eventName))
                 foreach (BaseViewModel vm in container[eventName])
                     vm.Update(eventName, item);
+        }
+
+        public void openMainView()
+        { 
+            mainViewModel = new MainViewModel();
+            View.MainView mainView = new View.MainView();
+            mainView.DataContext = mainViewModel;
+            mainView.Show();
         }
 
 
@@ -220,10 +230,22 @@ namespace PrototypeEDUCOM.ViewModel
 
         public void openShowRequestView(request request)
         {
+            mainViewModel.selectedTab = BaseViewModel.tabs["request"];
             ShowRequestUCView showRequestView = new ShowRequestUCView();
             showRequestView.DataContext = new ShowRequestViewModel(request);
 
             ((RequestViewModel)mainTabs["request"].tabViewModel).actAddTab(request, showRequestView);
+        }
+
+        public void openAddRequestView(contact customer)
+        {
+            AddRequestViewModel addRequestViewModel = new AddRequestViewModel(customer);
+            AddRequestView addRequestView = new AddRequestView();
+
+            addRequestView.DataContext = addRequestViewModel;
+            addRequestViewModel.CloseActionAdd = new Action(() => addRequestView.Close());
+
+            addRequestView.Show();
         }
 
         #endregion
@@ -258,16 +280,6 @@ namespace PrototypeEDUCOM.ViewModel
             deleteCampusViewModel.CloseActionDelete = new Action(() => deleteCampusView.Close());
 
             deleteCampusView.ShowDialog();   
-        }
-
-        public void openAddRequestView(contact customer) {
-            AddRequestViewModel addRequestViewModel = new AddRequestViewModel(customer);
-            AddRequestView addRequestView = new AddRequestView();
-
-            addRequestView.DataContext = addRequestViewModel;
-            addRequestViewModel.CloseActionAdd = new Action(() => addRequestView.Close());
-
-            addRequestView.Show();
         }
 
         public void createTabViewModel()

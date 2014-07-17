@@ -47,9 +47,7 @@ namespace PrototypeEDUCOM.ViewModel
         {
             if (loading)
             {
-                View.MainView mainView = new View.MainView();
-                mainView.Show();
-
+                mediator.openMainView();
                 CloseAction();
             }
         }
@@ -70,8 +68,6 @@ namespace PrototypeEDUCOM.ViewModel
                 if (user != null)
                 {
                     mediator.user = user;
-
-
                     return;
                 }
                 else

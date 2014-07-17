@@ -46,7 +46,8 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -65,25 +66,19 @@
                 <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
                 <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
                 <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
+                <Label Content="E-Mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="5" FontWeight="Bold"/>
                 <Label Content="{Binding customer.add_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
                 <Label Content="{Binding customer.civility}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
                 <Label Content="{Binding customer.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
                 <Label Content="{Binding customer.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <ListBox VerticalAlignment="Stretch" BorderBrush="Transparent" ItemsSource="{Binding customer.phones}" Grid.Row="4" Grid.Column="1">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding number}" />
-                                <TextBlock Text="{Binding description}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Label Content="{Binding phone1 }" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4"/>
+                <Label Content="{Binding phone2 }" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5"/>
                 <Label Content="{Binding customer.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
                 <Label Content="{Binding customer.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
                 <Label Content="{Binding customer.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
                 <Label Content="{Binding customer.district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
-                <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
+                <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4" />
+                <Label Content="{Binding email.email1}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="5"/>
             </Grid>
         </Grid>
 
@@ -192,182 +187,4 @@
             </ListView>
         </Grid>
     </Grid>
-
-    <!--
-    <Grid.RowDefinitions>
-            <RowDefinition Height="170" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="2*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Fiche Client" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.Column="0" Grid.Row="0"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditCustomer}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="20" Height="20" />
-                    </StackPanel>
-                </Button>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteCustomer}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="20" Height="20" />
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-
-            <Grid Grid.Column="0" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
-                <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
-                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
-                <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
-                <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
-                <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
-                <Label Content="{Binding customer.add_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
-                <Label Content="{Binding customer.civility}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
-                <Label Content="{Binding customer.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
-                <Label Content="{Binding customer.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <ListBox VerticalAlignment="Stretch" BorderBrush="Transparent" ItemsSource="{Binding customer.phones}" Grid.Row="4" Grid.Column="1">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding number}" />
-                                <TextBlock Text="{Binding description}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <Label Content="{Binding customer.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
-                <Label Content="{Binding customer.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
-                <Label Content="{Binding customer.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
-                <Label Content="{Binding customer.district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
-                <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
-
-            </Grid>
-
-            <StackPanel Orientation="Horizontal"  Grid.Column="1" Grid.Row="0">
-                <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-
-            <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
-                <ListView.View >
-                    <GridView>
-                        <GridView.Columns>
-                            <GridViewColumn  Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
-                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
-                            <GridViewColumn Header="Naissance" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
-                            <GridViewColumn Header="Sexe" DisplayMemberBinding="{Binding gender}" />
-                            
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
-                                            </StackPanel>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
-                                            </StackPanel>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView.Columns>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal"  Grid.Row="0">
-                <Label Content="Demandes en cours" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-            <ListView Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding ongoingRequests}" x:Name="request">
-                <ListView.View >
-                    <GridView>
-                        <GridView.Columns>
-                            <GridViewColumn  Header="Date" DisplayMemberBinding="{Binding creation_date}" />
-                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding lastname}" />
-                            <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student, StringFormat={}{0:dd/MM/yyyy}}" />
-                            <GridViewColumn Header="Etat" DisplayMemberBinding="{Binding active}" />
-                            
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
-                                            </StackPanel>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
-                                            </StackPanel>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView.Columns>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
-    </Grid>
-    -->
 </UserControl>

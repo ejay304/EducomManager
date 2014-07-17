@@ -9,6 +9,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
 {
     class ShowRequestViewModel : BaseViewModel
     {
+        public request request { get; set; }
         public ShowRequestViewModel(request request)
         {
 

@@ -33,5 +33,10 @@ namespace PrototypeEDUCOM.Model
         public virtual contact contact { get; set; }
 
         public virtual ICollection<organisation> organisations { get; set; }
+
+        public override string ToString()
+        {
+            return this.number + " - " + this.description;
+        }
     }
 }

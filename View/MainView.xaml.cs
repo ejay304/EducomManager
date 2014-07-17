@@ -22,7 +22,6 @@ namespace PrototypeEDUCOM.View
         public MainView()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.MainViewModel();
         }
     }
 }
