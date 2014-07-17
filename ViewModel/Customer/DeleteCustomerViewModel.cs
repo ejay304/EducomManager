@@ -30,15 +30,34 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         }
 
         public void actDeleteCustomer(Object o) {
+
+            int nbrPhone = contact.phones.Count;
+            int nbrEmail = contact.emails.Count;
+
+            // Suppression des téléphone
+            for (int i = 0; i < nbrPhone; i++)
+            {
+                db.phones.Remove(contact.phones.First());
+            }
+
+            // Suppression des emails
+            for (int i = 0; i < nbrEmail; i++)
+            {
+                db.emails.Remove(contact.emails.First());
+            }
+
+            // Suppression des demandes
             for (int i = 0; i < nbrRequest; i++ )
             {
                 db.requests.Remove(contact.requests.First());
             }
 
+            // Suppression des étudiants
             for (int i = 0; i < nbrStudent; i++ )
             {
                 db.students.Remove(contact.students.First());
             }
+
             mediator.NotifyViewModel(Helper.Event.DELETE_CUSTOMER, contact);
             db.contacts.Remove(contact);
             db.SaveChanges();

@@ -27,6 +27,8 @@ namespace PrototypeEDUCOM.ViewModel
         public LoginViewModel()
         {
             btnLogin = new RelayCommand<object>(actLogin);
+
+            actLogin(new object());
         }
 
         private void actLogin(object arg)
@@ -57,6 +59,9 @@ namespace PrototypeEDUCOM.ViewModel
         {
             // login admin@admin.com pass admin
             // login test@testcom pass test
+
+            this.login = this.pass = "test";
+
             if (login.Length != 0 && pass.Length != 0)
             {
 

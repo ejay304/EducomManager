@@ -26,6 +26,8 @@ namespace PrototypeEDUCOM.View
             this.DataContext = vm;
 
             vm.CloseAction = new Action(() => this.Close());
+
+            btn.Focus();
         }
     }
 }

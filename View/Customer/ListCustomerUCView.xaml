@@ -15,7 +15,7 @@
             <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="#FF30859A" FontWeight="Bold"/>
             <Label Content="Client(s)" VerticalAlignment="Center" Foreground="#FF30859A" FontStyle="Italic"/>
         </StackPanel>
-        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1" >
+        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

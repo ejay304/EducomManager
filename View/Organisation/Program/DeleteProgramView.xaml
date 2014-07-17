@@ -32,9 +32,18 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center">Archiver</Button>
-            <Button Command="{Binding cmdDelete}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">Supprimer</Button>
-
+            <Button IsEnabled="False" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDelete}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PrototypeEDUCOM;component/Ressource/archive.png" Width="30" Height="30" />
+                    <TextBlock Text="Archiver" Margin="10,0" VerticalAlignment="Center" FontWeight="Bold" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDelete}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="30" Height="30" />
+                    <TextBlock Text="Supprimer" Margin="10,0" VerticalAlignment="Center" FontWeight="Bold" />
+                </StackPanel>
+            </Button>
         </Grid>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>

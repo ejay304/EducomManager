@@ -37,12 +37,12 @@
                 <Label Content="Login" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" Margin="0,6,0,6" />
                 <Label Content="Pass" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="0,6,0,6"/>
 
-                <TextBox Text="{Binding login, Mode=OneWayToSource}" Grid.Row="0" Grid.Column="1"  Margin="10,8,60,8" />
-                <TextBox Text="{Binding pass, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="1" Margin="10,8,60,8" />
+                <TextBox Text="test" Grid.Row="0" Grid.Column="1"  Margin="10,8,60,8" />
+                <TextBox Text="test" Grid.Row="1" Grid.Column="1" Margin="10,8,60,8" />
                 
             </Grid>
                 <!-- Button submit -->
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="35" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2"  >
+                <Button Name="btn" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="35" Command="{Binding btnLogin}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2"  >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/PrototypeEDUCOM;component/Ressource/login.png" Width="30" Height="30" />
                         <TextBlock Text="Connexion" VerticalAlignment="Center" Margin="6,0" FontWeight="Bold" />
