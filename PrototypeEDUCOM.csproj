@@ -150,6 +150,7 @@
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\Program\AddPropositionViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ShowRequestViewModel.cs" />
     <Compile Include="View\Control\Block.xaml.cs" />
@@ -234,6 +235,9 @@
     </Compile>
     <Compile Include="View\Request\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\Proposition\AddPropositionView.xaml.cs">
+      <DependentUpon>AddPropositionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\RequestUCView.xaml.cs">
       <DependentUpon>RequestUCView.xaml</DependentUpon>
@@ -387,6 +391,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\ListRequestUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\Proposition\AddPropositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

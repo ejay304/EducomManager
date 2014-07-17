@@ -36,7 +36,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <Grid Background="White" Grid.Column="0" Grid.Row="1">
+            <Grid Grid.Column="0" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -144,8 +144,8 @@
                     <GridView>
                         <GridView.Columns>
                             <GridViewColumn  Header="Date" DisplayMemberBinding="{Binding creation_date, StringFormat={}{0:dd/MM/yyyy}}" />
-                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding student}" />
-                            <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student}" />
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding student.fullName}" />
+                            <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student.fullName}" />
                             <GridViewColumn Header="Etat" DisplayMemberBinding="{Binding state}" />
                             <!-- Bouton édition d'une demande -->
                             <GridViewColumn>

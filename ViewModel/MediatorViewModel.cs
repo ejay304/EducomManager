@@ -5,11 +5,13 @@ using PrototypeEDUCOM.View.Dashboard;
 using PrototypeEDUCOM.View.Organisation;
 using PrototypeEDUCOM.View.Organisation.Program.Campus;
 using PrototypeEDUCOM.View.Request;
+using PrototypeEDUCOM.View.Request.Proposition;
 using PrototypeEDUCOM.ViewModel.Customer;
 using PrototypeEDUCOM.ViewModel.Dashboard;
 using PrototypeEDUCOM.ViewModel.Organisation;
 using PrototypeEDUCOM.ViewModel.Organisation.Program.Campus;
 using PrototypeEDUCOM.ViewModel.Request;
+using PrototypeEDUCOM.ViewModel.Request.Program;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +65,6 @@ namespace PrototypeEDUCOM.ViewModel
             mainView.DataContext = mainViewModel;
             mainView.Show();
         }
-
 
         #region Customer 
 
@@ -250,6 +251,8 @@ namespace PrototypeEDUCOM.ViewModel
 
         #endregion
 
+        #region Campus
+
         public void openAddCampusView(program program)
         {
             AddCampusViewModel addCampusViewModel = new AddCampusViewModel(program);
@@ -282,6 +285,20 @@ namespace PrototypeEDUCOM.ViewModel
             deleteCampusView.ShowDialog();   
         }
 
+        #endregion
+
+
+        public void openAddPropositionView(request request){
+            AddPropositionViewModel addPropositionViewModel = new AddPropositionViewModel(request);
+            AddPropositionView addPropositionView = new AddPropositionView();
+
+            addPropositionView.DataContext = addPropositionViewModel;
+            addPropositionViewModel.CloseActionAdd = new Action(() => addPropositionView.Close());
+
+            addPropositionView.Show(); 
+
+        
+        }
         public void createTabViewModel()
         {
             if (Helper.Enum.User.assistant != Helper.Enum.User.list[Helper.Enum.User.indexByValue(user.role)])

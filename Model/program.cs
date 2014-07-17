@@ -46,5 +46,10 @@ namespace PrototypeEDUCOM.Model
         public virtual ICollection<proposition> propositions { get; set; }
 
         public virtual ICollection<campu> campus { get; set; }
+
+        public override string ToString()
+        {
+            return this.organisation.name + " - " + this.program_types.name;
+        }
     }
 }

@@ -41,9 +41,12 @@ namespace PrototypeEDUCOM.Model
 
         public virtual ICollection<request> requests { get; set; }
 
-        public override string ToString()
+        public string fullName
         {
-            return this.firstname + " " + this.lastname;
+            get
+            {
+                return this.firstname + " " + this.lastname;
+            }
         }
     }
 }

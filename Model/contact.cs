@@ -48,6 +48,7 @@ namespace PrototypeEDUCOM.Model
             {
                 _firstname = value;
                 NotifyPropertyChanged("firstname");
+                NotifyPropertyChanged("fullName");
             }
         }
 
@@ -63,6 +64,7 @@ namespace PrototypeEDUCOM.Model
             {
                 _lastname = value;
                 NotifyPropertyChanged("lastname");
+                NotifyPropertyChanged("fullName");
             }
         }
 
@@ -188,9 +190,12 @@ namespace PrototypeEDUCOM.Model
 
         public virtual ICollection<campaign> campaigns { get; set; }
 
-        public override string ToString()
+        public string fullName
         {
-            return this.firstname + " " + this.lastname;
+            get
+            {
+                return this.firstname + " " + this.lastname;
+            }
         }
     }
 }

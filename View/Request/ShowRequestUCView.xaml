@@ -51,10 +51,10 @@
                 <Label Content="Conseillers" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
                 <Label Content="Satisfaction" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
                 <Label Content="{Binding request.creation_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
-                <Label Content="{Binding customer.user}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
-                <Label Content="{Binding customer.contact}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                <Label Content="{Binding request.contact.fullName}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
+                <Label Content="{Binding request.student.fullName}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
                 <Label Content="{Binding request.journey_type}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
-                <Label Content="{Binding customer.user}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" />
+                <Label Content="{Binding request.user.fullName}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" />
                 <Label Content="??????????????" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
 
             </Grid>
@@ -68,24 +68,24 @@
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal"  Grid.Row="0">
                     <Label Content="Organisation recommandée" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
+                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddProposition}">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
+                <ListView Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding propositions}" x:Name="list">
                     <ListView.View >
                         <GridView>
                             <GridView.Columns>
-                                <GridViewColumn Header="Sigle" />
-                                <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
-                                <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
-                                <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding gender}" />
+                                <GridViewColumn Header="Sigle" DisplayMemberBinding="{Binding program.organisation.name}" />
+                                <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding program.organisation.name}" />
+                                <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding program.organisation.city}" />
+                                <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding program.organisation.country}" />
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
+                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteProposition}" CommandParameter="{Binding}">
                                                 <StackPanel Orientation="Horizontal">
                                                     <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                                 </StackPanel>

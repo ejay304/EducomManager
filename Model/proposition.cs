@@ -21,7 +21,7 @@ namespace PrototypeEDUCOM.Model
 
         public bool? inscription { get; set; }
 
-        public int campus_id { get; set; }
+        public int? campus_id { get; set; }
 
         public virtual campu campu { get; set; }
 

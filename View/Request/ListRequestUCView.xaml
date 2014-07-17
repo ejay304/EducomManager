@@ -19,11 +19,11 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Client" DisplayMemberBinding="{Binding contact}" />
-                        <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student}" />
+                        <GridViewColumn Header="Client" DisplayMemberBinding="{Binding contact.fullName}" />
+                        <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student.fullName}" />
                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding creation_date}" />
                         <GridViewColumn Header="Type de séjour" DisplayMemberBinding="{Binding country}" />
-                        <GridViewColumn Header="Conseiller" DisplayMemberBinding="{Binding user}" />
+                        <GridViewColumn Header="Conseiller" DisplayMemberBinding="{Binding user.fullName}" />
                         <GridViewColumn Header="Etat">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
