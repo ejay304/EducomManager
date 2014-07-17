@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View\LoginView.xaml">
     <Application.Resources>
-
+        <Style x:Key="alternatingListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Margin" Value="0,-1,0,-1"/>
+             <Style.Triggers>
+                 <!-- setting up triggers for alternate background colors -->
+                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="#f8f8f8"></Setter>
+                 </Trigger>
+                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="#f1f1f1"></Setter>
+                 </Trigger>
+             </Style.Triggers>
+             <!-- setting row height here --> 
+        </Style>
     </Application.Resources>
 </Application>
