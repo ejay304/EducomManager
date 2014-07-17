@@ -97,7 +97,7 @@
                 </Button>
             </StackPanel>
 
-            <ListView Grid.Row="1" BorderThickness="2" BorderBrush="#30859a" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" Grid.Row="1" BorderThickness="2" BorderBrush="#30859a" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
@@ -149,7 +149,7 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <ListView Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  BorderBrush="#30859a" BorderThickness="2" ItemsSource="{Binding ongoingRequests}" x:Name="request">
+            <ListView Grid.Row="1" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  BorderBrush="#30859a" BorderThickness="2" ItemsSource="{Binding ongoingRequests}" x:Name="request">
                 <ListView.View >
                     <GridView>
                         <GridView.Columns>
