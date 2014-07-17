@@ -101,8 +101,8 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Tél." HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="0" />
                     <Label Content="Email" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" Grid.Column="2" />
-                    <TextBox Text="{Binding phone}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1" IsEnabled="false"/>
-                    <TextBox Text="{Binding email}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3" IsEnabled="false"/>
+                    <TextBox Text="{Binding phone}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="1" />
+                    <TextBox Text="{Binding email}" HorizontalAlignment="Stretch" Margin="10,8,10,8" Grid.Row="0" Grid.Column="3" />
                 </Grid>
             </Grid>
         </Grid>
@@ -110,7 +110,7 @@
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEdit}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="30" Height="30" />
-                <TextBlock Text="Modifier" VerticalAlignment="Center" FontWeight="Bold" Margin="6" />
+                <TextBlock Text="Modifier" Margin="10,0" VerticalAlignment="Center" FontWeight="Bold" />
             </StackPanel>
         </Button>
 

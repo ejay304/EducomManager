@@ -80,7 +80,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
                 phone.description = "main";
                 phone.main = true;
 
-                //organisation.phone = phone;
+                organisation.phone = phone;
             }
 
             if (!this.email.Equals(""))
@@ -89,7 +89,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
                 email.email1 = this.email;
                 email.main = true;
 
-                //organisation.email = email;
+                organisation.email = email;
             }
 
             if (!error)

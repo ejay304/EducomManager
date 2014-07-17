@@ -3,10 +3,12 @@ using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.View.Dashboard;
 using PrototypeEDUCOM.View.Organisation;
+using PrototypeEDUCOM.View.Organisation.Program.Campus;
 using PrototypeEDUCOM.View.Request;
 using PrototypeEDUCOM.ViewModel.Customer;
 using PrototypeEDUCOM.ViewModel.Dashboard;
 using PrototypeEDUCOM.ViewModel.Organisation;
+using PrototypeEDUCOM.ViewModel.Organisation.Program.Campus;
 using PrototypeEDUCOM.ViewModel.Request;
 using System;
 using System.Collections.Generic;
@@ -257,6 +259,17 @@ namespace PrototypeEDUCOM.ViewModel
             addCampusViewModel.CloseActionAdd = new Action(() => addCampusView.Close());
 
             addCampusView.Show();
+        }
+
+        public void openEditCampusView(campu campus)
+        {
+            EditCampusViewModel editCampusViewModel = new EditCampusViewModel(campus);
+            EditCampusView editCampusView = new EditCampusView();
+
+            editCampusView.DataContext = editCampusViewModel;
+            editCampusViewModel.CloseActionAdd = new Action(() => editCampusView.Close());
+
+            editCampusView.Show();
         }
 
         public void openDeleteCampusView(campu campus) {

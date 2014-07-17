@@ -34,8 +34,16 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             this.city = organisation.city;
             this.zip = organisation.zip;
             this.country = organisation.country;
-            //this.phone = organisation.phone.number;
-            //this.email = organisation.email.email1;
+
+            if (organisation.phone != null)
+                this.phone = organisation.phone.number;
+            else
+                this.phone = "";
+
+            if(organisation.email != null)
+                this.email = organisation.email.email1;
+            else
+                this.email = "";
 
             this.cmdEdit = new RelayCommand<object>(actEdit);        
         }
@@ -64,18 +72,41 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             if (!error)
             {
                 currentOrganisation.name = this.name;
+                currentOrganisation.street = this.street;
+                currentOrganisation.city = this.city;
+                currentOrganisation.zip = this.zip;
+                currentOrganisation.country = this.country;
 
-                if (!this.street.Equals(""))
-                    currentOrganisation.street = this.street;
+                // Numéro de téléphone
+                if (!this.phone.Equals(""))
+                {
+                    if (currentOrganisation.phone != null)
+                        currentOrganisation.phone.number = this.phone;
+                    else
+                    {
+                        phone phone = new phone();
+                        phone.number = this.phone;
+                        phone.description = "main";
+                        phone.main = true;
 
-                if (!this.city.Equals(""))
-                    currentOrganisation.city = this.city;
+                        currentOrganisation.phone = phone;
+                    }
+                }
 
-                if (!this.zip.Equals(""))
-                    currentOrganisation.zip = this.zip;
+                // Adresse email
+                if (!this.email.Equals(""))
+                {
+                    if (currentOrganisation.email != null)
+                        currentOrganisation.email.email1 = this.email;
+                    else
+                    {
+                        email email = new email();
+                        email.email1 = this.email;
+                        email.main = true;
 
-                if (!this.country.Equals(""))
-                    currentOrganisation.country = this.country;
+                        currentOrganisation.email = email;
+                    }
+                }
 
                 // Enregistre dans la base
                 db.SaveChanges();

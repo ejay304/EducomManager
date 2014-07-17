@@ -68,7 +68,21 @@
                         <GridView>
                             <GridView.Columns>
                                 <GridViewColumn  Header="Nom" DisplayMemberBinding="{Binding name}" />
-                                <!-- Bouton de détail d'un programme -->
+                                <GridViewColumn  Header="Ville" DisplayMemberBinding="{Binding city}" />
+                                <GridViewColumn  Header="Pays" DisplayMemberBinding="{Binding country}" />
+                                <!-- Bouton dde modification d'un campus -->
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditCampus}" CommandParameter="{Binding}">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
+                                                </StackPanel>
+                                            </Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <!-- Bouton de suppressio d'un campus -->
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>

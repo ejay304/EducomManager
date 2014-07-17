@@ -7,35 +7,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace PrototypeEDUCOM.ViewModel.Organisation
+namespace PrototypeEDUCOM.ViewModel.Organisation.Program.Campus
 {
-    class AddCampusViewModel : BaseViewModel 
+    class EditCampusViewModel : BaseViewModel
     {
-        public program program { get; set; }
+        public campu campus { get; set; }
         public string name { get; set; }
         public string street { get; set; }
         public string city { get; set; }
         public string zip { get; set; }
         public string country { get; set; }
         public Validation validName { get; set; }
-        public ICommand cmdAdd { get; set; }
+        public ICommand cmdEdit { get; set; }
         public Action CloseActionAdd { get; set; }
       
-        public AddCampusViewModel(program  program) {
-            this.program = program;
-            this.cmdAdd = new RelayCommand<Object>(actAdd);
+        public EditCampusViewModel(campu campus) {
+            this.campus = campus;
+            this.name = campus.name;
+            this.street = campus.street;
+            this.city = campus.city;
+            this.zip = campus.zip;
+            this.country = campus.country;
+            this.cmdEdit = new RelayCommand<Object>(actEdit);
         }
-        public void actAdd(Object o) {
+        public void actEdit(Object o) {
 
             bool error = false;
             this.validName = new Validation();
 
-            
-
             // Validation prénom
             if (!this.name.Equals(""))
             {
-                
                 this.validName.message = "Valide";
                 this.validName.valid = true;
                 NotifyPropertyChanged("validName");
@@ -50,19 +52,14 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
             if (!error)
             {
-                campu campus = new campu();
-
+                // Enregistre dans la base
                 campus.name = this.name;
                 campus.street = this.street;
                 campus.zip = this.zip;
                 campus.city = this.city;
                 campus.country = this.country;
 
-                // Enregistre dans la base
-                program.campus.Add(campus);
-
                 db.SaveChanges();
-                mediator.NotifyViewModel(Helper.Event.ADD_CAMPUS, campus);
 
                 this.CloseActionAdd();
             }

@@ -12,6 +12,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ListCustomerViewModel : BaseViewModel
     {
+
         public ObservableCollection<contact> customers { get; set; }
 
         public int nbrCustomer 

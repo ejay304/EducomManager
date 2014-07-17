@@ -52,7 +52,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         //TODO CHANGE CA ON doit pas avoir 2 methode actAddTab qui font la même chose
         public void actAddTab(program program, UserControl view)
         {
-            Tab tab = new Tab(program.program_types.name , view, program, null);
+            Tab tab = new Tab(program.organisation.name + " - " + program.program_types.name , view, program, null);
 
             organisationTabs.Add(tab);
             this.selectedTab = tab;

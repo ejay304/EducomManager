@@ -29,8 +29,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ShowCustomerViewModel(contact customer)
         {
-            var ongoningRequestQuery = customer.requests.Where(r => r.events.Last().event_types.order != 100);
-                                    
+
+            var ongoningRequestQuery = customer.requests.Where(r => r.events.Last().event_types.order != 100);                        
             this.customer = customer;
             this.students = new ObservableCollection<student>(customer.students.ToList());
             this.ongoingRequests = new ObservableCollection<request>(ongoningRequestQuery.ToList());

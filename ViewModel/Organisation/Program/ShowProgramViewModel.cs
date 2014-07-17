@@ -19,6 +19,8 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         public ICommand cmdDelete { get; set; }
 
         public ICommand cmdAddCampus { get; set; }
+
+        public ICommand cmdEditCampus { get; set; }
         public ICommand cmdDeleteCampus { get; set; }
 
         public ICommand cmdEditDescription { get; set; }
@@ -40,6 +42,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             this.editDescription = false;
 
             this.cmdAddCampus = new RelayCommand<Object>(actAddCampus);
+            this.cmdEditCampus = new RelayCommand<campu>(actEditCampus);
             this.cmdDeleteCampus = new RelayCommand<campu>(actDeleteCampus);
 
             mediator.Register(Helper.Event.ADD_CAMPUS, this);
@@ -68,6 +71,12 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         public void actAddCampus(Object o) {
             mediator.openAddCampusView(program);
         }
+
+        public void actEditCampus(campu campus)
+        {
+            mediator.openEditCampusView(campus);
+        }
+
         public void actDeleteCampus(campu campus) {
             mediator.openDeleteCampusView(campus);
         }

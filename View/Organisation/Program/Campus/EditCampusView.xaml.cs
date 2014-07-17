@@ -12,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PrototypeEDUCOM.View
+namespace PrototypeEDUCOM.View.Organisation.Program.Campus
 {
     /// <summary>
-    /// Logique d'interaction pour LoginView.xaml
+    /// Logique d'interaction pour EditCampusView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class EditCampusView : Window
     {
-        public LoginView()
+        public EditCampusView()
         {
             InitializeComponent();
-            ViewModel.LoginViewModel vm = new ViewModel.LoginViewModel();
-            this.DataContext = vm;
-
-            vm.CloseAction = new Action(() => this.Close());
-
-            btn.Focus();
         }
     }
 }
