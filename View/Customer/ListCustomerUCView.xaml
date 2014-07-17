@@ -6,37 +6,43 @@
              mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
             <RowDefinition />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Label Content="Liste des clients"  Margin="10,0,0,0" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
-            <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="#FF30859A" FontWeight="Bold"/>
-            <Label Content="Client(s)" VerticalAlignment="Center" Foreground="#FF30859A" FontStyle="Italic"/>
-        </StackPanel>
-        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
-                        <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
-                        <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
-                        <!-- Bouton accès détail d'une demande -->
-                        <GridViewColumn>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}">
-                                        <Image Source="../../Ressource/show.png" Width="20" Height="20" />
-                                    </Button>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Width="138" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2" >
+        <Grid Grid.Row="0" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#30859a">
+                <Label Content="Liste des clients"  Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="White" FontWeight="Bold"/>
+                <Label Content="Client(s)" VerticalAlignment="Center" Foreground="White" FontStyle="Italic"/>
+            </StackPanel>
+            <ListView HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
+                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
+                            <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
+                            <!-- Bouton accès détail d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}">
+                                            <Image Source="../../Ressource/show.png" Width="20" Height="20" />
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Width="138" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="1" >
             <StackPanel Orientation="Horizontal" Width="135">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter un client" VerticalAlignment="Center" FontWeight="Bold" />
