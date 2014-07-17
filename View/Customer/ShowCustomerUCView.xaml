@@ -7,7 +7,7 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="170" />
+            <RowDefinition Height="180" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
@@ -20,7 +20,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
+                <ColumnDefinition Width="460" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
@@ -36,53 +36,49 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
+            <Grid Background="White" Grid.Column="0" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="140" />
+                    </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+                    <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                    <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                    <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                    <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
+                    <Label Content="Téléphones" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold"/>
+                    <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                    <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+                    <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+                    <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
+                    <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
+                    <Label Content="E-Mail" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="5" FontWeight="Bold"/>
 
-                <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="Titre" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
-                <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.Column="0" Grid.Row="3" FontWeight="Bold"/>
-                <Label Content="Téléphone" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4" FontWeight="Bold" Margin="-1,15,0,-13"/>
-                <Label Content="Rue" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
-                <Label Content="NPA" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
-                <Label Content="Ville" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
-                <Label Content="Province" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="3" FontWeight="Bold"/>
-                <Label Content="Pays" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="4" FontWeight="Bold"/>
-                <Label Content="{Binding customer.add_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
-                <Label Content="{Binding customer.civility}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
-                <Label Content="{Binding customer.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
-                <Label Content="{Binding customer.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
-                <ListBox VerticalAlignment="Stretch" BorderBrush="Transparent" ItemsSource="{Binding customer.phones}" Grid.Row="4" Grid.Column="1">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding number}" />
-                                <TextBlock Text="{Binding description}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-                <Label Content="{Binding customer.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
-                <Label Content="{Binding customer.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
-                <Label Content="{Binding customer.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
-                <Label Content="{Binding customer.district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
-                <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4"/>
-
+                    <Label Content="{Binding customer.add_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
+                    <Label Content="{Binding customer.civility}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
+                    <Label Content="{Binding customer.firstname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
+                    <Label Content="{Binding customer.lastname}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3"/>
+                    <Label Content="{Binding phone1 }" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="4"/>
+                    <Label Content="{Binding phone2 }" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5"/>
+                    <Label Content="{Binding customer.street}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
+                    <Label Content="{Binding customer.zip}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1"/>
+                    <Label Content="{Binding customer.city}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
+                    <Label Content="{Binding customer.district}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
+                <Label Content="{Binding customer.country}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4" />
+                <Label Content="{Binding email.email1}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="5"/>
             </Grid>
+            
+
 
             <StackPanel Orientation="Horizontal"  Grid.Column="1" Grid.Row="0">
                 <Label Content="Liste des étudiants" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>

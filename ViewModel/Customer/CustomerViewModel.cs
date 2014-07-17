@@ -63,7 +63,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                         }
                     }
                     
-                    selectedTab = tabs.First();
                     NotifyPropertyChanged("customerTabs");
                     NotifyPropertyChanged("selectedTab");
                     break;

@@ -13,6 +13,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
     class ShowCustomerViewModel : BaseViewModel {
 
         public contact customer { get; set; }
+        public phone phone1 { get; set; }
+        public phone phone2 { get; set; }
+        public email email { get; set; }
         public ObservableCollection<student> students { get; set; }
         public ObservableCollection<request> ongoingRequests { get; set; }
 
@@ -22,6 +25,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public ICommand cmdEditStudent { get; set; }
         public ICommand cmdDeleteStudent { get; set; }
         public ICommand cmdAddRequest { get; set; }
+        public ICommand cmdShowRequest { get; set; }
 
         public ShowCustomerViewModel(contact customer)
         {
@@ -30,12 +34,20 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.customer = customer;
             this.students = new ObservableCollection<student>(customer.students.ToList());
             this.ongoingRequests = new ObservableCollection<request>(ongoningRequestQuery.ToList());
+            if (customer.phones.Count > 0)
+                this.phone1 = customer.phones.First();
+            if (customer.phones.Count > 1)
+                this.phone2 = customer.phones.ElementAt(2);
+            if (customer.emails.Count > 0)
+                this.email = customer.emails.First();
+            
             this.cmdEditCustomer = new RelayCommand<Object>(actEditCustomer);
             this.cmdDeleteCustomer = new RelayCommand<Object>(actDeleteCustomer);
             this.cmdAddStudent = new RelayCommand<Object>(actAddStudent);
             this.cmdEditStudent = new RelayCommand<student>(actEditStudent);
             this.cmdDeleteStudent = new RelayCommand<student>(actDeleteStudent);
             this.cmdAddRequest = new RelayCommand<student>(actAddRequest);
+            this.cmdShowRequest = new RelayCommand<request>(actShowRequest);
 
             mediator.Register(Helper.Event.ADD_STUDENT, this);
             mediator.Register(Helper.Event.DELETE_STUDENT, this);
@@ -67,6 +79,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actAddRequest(Object o) {
             mediator.openAddRequestView(customer);
+        }
+
+        public void actShowRequest(request request) {
+            mediator.openShowRequestView(request);
         }
 
         public override void Update(string eventName, object item)
