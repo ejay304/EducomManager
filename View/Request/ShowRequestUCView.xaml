@@ -5,6 +5,118 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Information générale -->
+        <Grid Grid.Row="0" Grid.Column="0" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
+                <Label Content="Information générale" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditRequest}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/editWhite.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteRequest}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/deleteWhite.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Border BorderThickness="2" BorderBrush="#30859a" Grid.Column="0" Grid.Row="1" />
+            <Grid Grid.Row="1" Background="White" Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                <Label Content="Responsable" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Etudiant" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                <Label Content="Séjours" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                <Label Content="Conseillers" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+                <Label Content="Satisfaction" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+                <Label Content="{Binding request.creation_date, StringFormat={}{0:dd/MM/yyyy}}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" />
+                <Label Content="{Binding customer.user}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" />
+                <Label Content="{Binding customer.contact}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" />
+                <Label Content="{Binding request.journey_type}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" />
+                <Label Content="{Binding customer.user}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" />
+                <Label Content="??????????????" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" />
+            </Grid>
+        </Grid>
+        
+        <!-- Jauge d'événement -->
+        <Grid Grid.Row="1" Grid.Column="0" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
+                <Label Content="Jauge d'événement" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Background="White" />
+
+            <Border BorderThickness="2" BorderBrush="#30859a" Grid.Column="0" Grid.Row="1" />
+        </Grid>
+        
+        <!-- Organisation recommandée -->
+        <Grid Grid.Row="2" Grid.Column="0" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
+                <Label Content="Organisation recommandée" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" Grid.Row="1" BorderBrush="#FF30859A" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
+                <ListView.View >
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Sigle" />
+                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
+                            <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
+                            <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding gender}" />
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+    <!-- 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -99,5 +211,6 @@
                 </ListView>
             </Grid>
         </Grid>
-    </Grid>
+        -->
+
 </UserControl>

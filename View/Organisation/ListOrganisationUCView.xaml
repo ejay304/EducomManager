@@ -6,37 +6,45 @@
              mc:Ignorable="d" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
             <RowDefinition />
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Label Content="Liste des organisations"  Margin="10,0,0,0" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
-            <Label Content="{Binding nbrOrganisation}"  VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#FF30859A" FontWeight="Bold"/>
-            <Label Content="Organisation(s)" VerticalAlignment="Center" Foreground="#FF30859A" FontStyle="Italic"/>
-        </StackPanel>
-        <ListView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding organisations}" x:Name="list" Grid.Row="1" >
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding name}" />
-                        <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding city}" />
-                        <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
-                        <!-- Bouton accès détail d'une demande -->
-                        <GridViewColumn>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}">
-                                        <Image Source="../../Ressource/show.png" Width="20" Height="20" />
-                                    </Button>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2" >
+
+        <!-- Liste des organisations-->
+        <Grid Grid.Row="0" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
+                <Label Content="Liste des organisations"  Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                <Label Content="{Binding nbrOrganisation}"  VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White" FontWeight="Bold"/>
+                <Label Content="Organisation(s)" VerticalAlignment="Center" Foreground="White" FontStyle="Italic"/>
+            </StackPanel>
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#FF30859A" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding organisations}" x:Name="list" Grid.Row="1" >
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding name}" />
+                            <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding city}" />
+                            <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
+                            <!-- Bouton accès détail d'une demande -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdViewDetail}" CommandParameter="{Binding}">
+                                            <Image Source="../../Ressource/show.png" Width="20" Height="20" />
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>       
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="1" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="30" Height="30" />
                 <TextBlock Text="Ajouter une organisation" VerticalAlignment="Center" FontWeight="Bold" />
