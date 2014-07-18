@@ -1,4 +1,5 @@
 ﻿using PrototypeEDUCOM.Helper;
+using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,10 +12,10 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel
 {
-
-
     class MainViewModel : BaseViewModel
     {
+        public user user { get { return mediator.user; } }
+
         private Tab _selectedTab;
         public Tab selectedTab
         {
