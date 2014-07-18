@@ -29,12 +29,12 @@
                     <Label Content="Information générale" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Grid.Column="0" Grid.Row="0"/>
                     <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditCustomer}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/PrototypeEDUCOM;component/Ressource/titleAddCampus.png" Width="20" Height="20" />
+                            <Image Source="/PrototypeEDUCOM;component/Ressource/editWhite.png" Width="20" Height="20" />
                         </StackPanel>
                     </Button>
                     <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdDeleteCustomer}">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/PrototypeEDUCOM;component/Ressource/titleAddClient.png" Width="20" Height="20" />
+                            <Image Source="/PrototypeEDUCOM;component/Ressource/deleteWhite.png" Width="20" Height="20" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -92,7 +92,7 @@
                 <Label Content="Liste des étudiants" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddStudent}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/titleAddOrganisation.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -145,7 +145,7 @@
                 <Label Margin="10,0,0,0" Content="Demandes en cours" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="White"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/add.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
