@@ -114,5 +114,10 @@ namespace PrototypeEDUCOM.Model
                 return this.firstname + " " + this.lastname;
             }
         }
+
+        public override string ToString()
+        {
+            return fullName;
+        }
     }
 }
