@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
                 <Label Content="Information générale" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEditRequest}">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEdit}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/PrototypeEDUCOM;component/Ressource/editWhite.png" Width="20" Height="20" />
                     </StackPanel>

@@ -249,6 +249,17 @@ namespace PrototypeEDUCOM.ViewModel
             addRequestView.Show();
         }
 
+        public void openEditRequestView(request request)
+        {
+            EditRequestViewModel editRequestViewModel = new EditRequestViewModel(request);
+            EditRequestView editRequestView = new EditRequestView();
+
+            editRequestView.DataContext = editRequestViewModel;
+            editRequestViewModel.CloseActionEdit = new Action(() => editRequestView.Close());
+
+            editRequestView.Show();
+        }
+
         #endregion
 
         #region Campus

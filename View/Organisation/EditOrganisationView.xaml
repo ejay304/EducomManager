@@ -120,7 +120,7 @@
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock TextAlignment="Right" Padding="0,2,7,0" VerticalAlignment="Bottom" Background="#FF30859A" Text="EDUCOM Manager © Wavemind, 2014" Height="20" HorizontalAlignment="Stretch" FontSize="10" FontStyle="Italic" Foreground="#FFBACFD4"/>
+            <TextBlock TextAlignment="Right" Padding="0,2,7,0" VerticalAlignment="Bottom" Background="#FF30859A" Text="EDUCOM Manager © Wavemind, 2014" Height="20" HorizontalAlignment="Stretch" FontSize="10" FontStyle="Italic" Foreground="#c5dee4"/>
             <Border BorderThickness="1,1,0,0" BorderBrush="#FF30859A" Grid.Column="1">
                 <Image Source="/PrototypeEDUCOM;component/Ressource/logoSmall.png" Height="34" VerticalAlignment="Top" Width="34" Panel.ZIndex="55"/>
             </Border>

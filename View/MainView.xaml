@@ -72,7 +72,7 @@
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6" Orientation="Horizontal">
                     <Image Source="/PrototypeEDUCOM;component/Ressource/userLogin.png" Width="40" Height="40" />
                     <StackPanel>
-                        <TextBlock Text="{Binding user}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding user.fullName}" FontWeight="Bold" />
                         <TextBlock Text="{Binding user.role}" />
                     </StackPanel>
                 </StackPanel>
