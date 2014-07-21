@@ -5,7 +5,7 @@
     <Application.Resources>
         <Style x:Key="alternatingListViewItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="Margin" Value="2,-1"/>
-             <Style.Triggers>
+            <Style.Triggers>
                  <!-- setting up triggers for alternate background colors -->
                  <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                             <Setter Property="Background" Value="#f8f8f8"></Setter>
@@ -15,6 +15,10 @@
                  </Trigger>
              </Style.Triggers>
              <!-- setting row height here --> 
+        </Style>
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="Padding" Value="-3,-1" />
+
         </Style>
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="Template">
@@ -27,7 +31,7 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Padding" Value="-3,-1" />
-            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="False" />
             <Setter Property="Foreground" Value="#414141" />
             <Setter Property="FontSize" Value="12" />
             <Setter Property="FontWeight" Value="Bold" />
