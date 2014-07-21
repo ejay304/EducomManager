@@ -28,8 +28,8 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" >
-                                        <TextBlock Text="{Binding state.event_types.name}" Width="100" />
                                         <ProgressBar Value="{Binding state.event_types.order}" Width="150" />
+                                        <TextBlock Margin="6,0,0,0" Text="{Binding state.event_types.name}" />
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>

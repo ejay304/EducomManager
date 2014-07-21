@@ -36,5 +36,44 @@
             <Setter Property="FontSize" Value="12" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        <Style TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush x:Name="Foreground" EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#2a7c90" Offset="1"/>
+                        <GradientStop Color="#83bcca" Offset="0.052"/>
+                        <GradientStop Color="#30859a"/>
+                        <GradientStop Color="#2691ab" Offset="0.937"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush  EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFBBBBBB" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                        <GradientStop Color="#FFAEAEAE" Offset="0.721"/>
+                        <GradientStop Color="#FFB6B6B6" Offset="0.499"/>
+                        <GradientStop Color="#FFCBCACA" Offset="0.068"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid Margin="1">
+                            <Rectangle x:Name="opacityMask" RadiusX="4" RadiusY="4" Fill="{TemplateBinding Background}" Margin="0"/>
+                            <Grid Margin="-1">
+                                <Grid.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=opacityMask}"/>
+                                </Grid.OpacityMask>
+                                <Rectangle x:Name="PART_Track" RadiusX="{Binding ElementName=opacityMask, Path=RadiusX}" RadiusY="{Binding ElementName=opacityMask, Path=RadiusY}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1" Fill="{TemplateBinding Background}"/>
+                                <Rectangle x:Name="PART_Indicator" RadiusX="{Binding ElementName=opacityMask, Path=RadiusX}" RadiusY="{Binding ElementName=opacityMask, Path=RadiusY}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1" HorizontalAlignment="Left" Fill="{TemplateBinding Foreground}" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
