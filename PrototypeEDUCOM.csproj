@@ -399,7 +399,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\EditRequestView.xaml">
-          <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\DeleteRequestView.xaml">
