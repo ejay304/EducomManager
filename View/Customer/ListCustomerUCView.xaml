@@ -19,7 +19,7 @@
                 <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="White" FontWeight="Bold"/>
                 <Label Content="Client(s)" VerticalAlignment="Center" Foreground="White" FontStyle="Italic"/>
             </StackPanel>
-            <ListView Padding="-3,-1" ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>

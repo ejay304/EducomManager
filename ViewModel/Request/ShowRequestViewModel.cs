@@ -16,12 +16,15 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public ICommand cmdAddProposition { get; set; }
         public ICommand cmdDeleteProposition { get; set; }
+        public ICommand cmdDeleteRequest { get; set; }
+
         public ShowRequestViewModel(request request)
         {
             this.request = request;
             this.propositions = new ObservableCollection<proposition>(request.propositions.ToList());
             this.cmdAddProposition = new RelayCommand<Object>(actAddProposition);
             this.cmdDeleteProposition = new RelayCommand<proposition>(actDeleteProposition);
+            this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteRequest);
             mediator.Register(Helper.Event.ADD_PROPOSITION,this);
         }
 
@@ -34,6 +37,11 @@ namespace PrototypeEDUCOM.ViewModel.Request
             propositions.Remove(proposition);
             NotifyPropertyChanged("propositions");
         }
+
+        public void actDeleteRequest(Object o) {
+           mediator.openDeleteRequestView(this.request);
+        }
+
         public override void Update(string eventName, object item)
         {
             switch (eventName)

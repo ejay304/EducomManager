@@ -85,24 +85,24 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
                 <Label Content="Organisation recommandée" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontWeight="Bold" FontSize="14"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddProposition}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" Grid.Row="1" BorderBrush="#FF30859A" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding students}" x:Name="list">
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" Grid.Row="1" BorderBrush="#FF30859A" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource="{Binding propositions}" x:Name="list">
                 <ListView.View >
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="Sigle" />
-                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
-                            <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding birthday, StringFormat={}{0:dd/MM/yyyy}}" />
-                            <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding gender}" />
+                            <GridViewColumn Header="Sigle" DisplayMemberBinding="{Binding program.organisation.name}" />
+                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding program.organisation.name}" />
+                            <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding program.organisation.city}" />
+                                <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding program.organisation.country}" />
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteProposition}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                             </StackPanel>
