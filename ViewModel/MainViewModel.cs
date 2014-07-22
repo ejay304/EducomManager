@@ -35,16 +35,16 @@ namespace PrototypeEDUCOM.ViewModel
             mediator.createTabViewModel();
 
             if (Helper.Enum.User.assistant != Helper.Enum.User.list[Helper.Enum.User.indexByValue(mediator.user.role)])
-                tabs.Add("dashboard",new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC, null, "../Ressource/dashboard.png"));
+                tabs.Add(TabName.DASHBORAD,new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC, null, "../Ressource/dashboard.png"));
 
-            tabs.Add("customer",new Tab("Clients", mediator.mainTabs["customer"].tabUC, null, "../Ressource/clients.png"));
-            tabs.Add("organisation",new Tab("Organisations", mediator.mainTabs["organisation"].tabUC, null, "../Ressource/organisations.png"));
-            tabs.Add("request",new Tab("Demandes", mediator.mainTabs["request"].tabUC, null, "../Ressource/demandes.png"));
+            tabs.Add(TabName.CUSTOMER,new Tab("Clients", mediator.mainTabs["customer"].tabUC, null, "../Ressource/clients.png"));
+            tabs.Add(TabName.ORGANISATION, new Tab("Organisations", mediator.mainTabs["organisation"].tabUC, null, "../Ressource/organisations.png"));
+            tabs.Add(TabName.REQUEST, new Tab("Demandes", mediator.mainTabs["request"].tabUC, null, "../Ressource/demandes.png"));
 
             if (Helper.Enum.User.assistant == Helper.Enum.User.list[Helper.Enum.User.indexByValue(mediator.user.role)])
-                this.selectedTab = tabs["customer"];
+                this.selectedTab = tabs[TabName.CUSTOMER];
             else
-                this.selectedTab = tabs["dashboard"];
+                this.selectedTab = tabs[TabName.DASHBORAD];
         }
     }
 }

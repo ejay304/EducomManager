@@ -21,15 +21,11 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public string city { get; set; }
         public string zip { get; set; }
         public string country { get; set; }
-
         public string phonePrivate { get; set; }
-
         public string phonePro { get; set; }
-
         public string email { get; set; }
 
         public Validation validFirstname { get; set; }
-
         public Validation validLastname { get; set; }
 
         public ICommand cmdEdit { get; set; }

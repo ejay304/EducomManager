@@ -12,13 +12,13 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="550" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!-- Fiche client-->
         
-        <Grid Grid.Row="0" Grid.Column="0" Margin="15">
+        <Grid Grid.Row="0" Grid.Column="0" Margin="15,15,10,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition />
@@ -42,17 +42,17 @@
             <Grid Grid.Column="0" Grid.Row="1" Background="White" Margin="2">
                 <Grid.RowDefinitions>
                     <RowDefinition />
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Content="Date de Création" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
@@ -82,7 +82,7 @@
         </Grid>
 
         <!-- Liste des étudiants-->
-        <Grid Grid.Row="0" Grid.Column="1" Margin="15">
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10,15,15,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition />
@@ -135,7 +135,7 @@
         </Grid>
 
         <!-- Liste demande en cours-->
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="15">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="15,10,15,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
                 <RowDefinition />
@@ -178,26 +178,15 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdShowRequest}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/show.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
-                                            </StackPanel>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>

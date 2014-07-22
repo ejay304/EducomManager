@@ -6,22 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TabControl Name="TabControl" Margin="10,10,10,10" ItemsSource="{Binding customerTabs}" SelectedItem="{Binding selectedTab}">
-            <TabControl.ItemContainerStyle>
-                <Style TargetType="TabItem">
-                    <Setter Property="Content" Value="{Binding content}" />
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock VerticalAlignment="Center" Text="{Binding header}" />
-                                    <Button Margin="10,0,0,0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=TabControl, Path=DataContext.cmdCloseTab}" CommandParameter="{Binding}">x</Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.ItemContainerStyle>
-        </TabControl>
+        <TabControl Name="TabControl" Margin="10,10,10,10" ItemsSource="{Binding customerTabs}" SelectedItem="{Binding selectedTab}" />
     </Grid>
 </UserControl>

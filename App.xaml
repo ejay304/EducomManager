@@ -3,29 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View\LoginView.xaml">
     <Application.Resources>
+        
+        
         <Style x:Key="alternatingListViewItemStyle" TargetType="{x:Type ListViewItem}">
             <Setter Property="Margin" Value="2,-1"/>
+            <Setter Property="Height" Value="35" />
             <Style.Triggers>
-                 <!-- setting up triggers for alternate background colors -->
-                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-                            <Setter Property="Background" Value="#f8f8f8"></Setter>
-                 </Trigger>
-                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="#f1f1f1"></Setter>
-                 </Trigger>
-             </Style.Triggers>
-             <!-- setting row height here --> 
+                <!-- setting up triggers for alternate background colors -->
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#f8f8f8"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#f1f1f1"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#DFEAED"/>
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border
+                                     BorderBrush="Transparent"
+                                     BorderThickness="2"
+                                     Background="{TemplateBinding Background}">
+                                    <GridViewRowPresenter HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="Auto" Margin="0" Content="{TemplateBinding Content}"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+            <!-- setting row height here --> 
         </Style>
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Content" Value="{Binding content}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding main}" Value="true">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding header}" FontWeight="Bold" Padding="5" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding main}" Value="false">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding header}" />
+                                    <Button Margin="10,0,0,0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=TabControl, Path=DataContext.cmdCloseTab}" CommandParameter="{Binding}">x</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style utilisé pour les listes d'élément -->
         <Style TargetType="{x:Type ListView}">
             <Setter Property="Padding" Value="-3,-1" />
-
         </Style>
+
+        <!-- Style utilisé pour l'en-tête des colonnes de listes -->
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
-                        <Border BorderThickness="1,0,0,1" BorderBrush="#808080" Background="#c5dee4">
-                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="25" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ContentHeader" Content="{TemplateBinding Content}" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" Width="{TemplateBinding Width}"  />
+                        <Border BorderThickness="1,0,0,1" BorderBrush="#808080" Background="#FFDADADA">
+                            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Foreground="#414141" Height="25" Padding="10,3" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ContentHeader" Content="{TemplateBinding Content}" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}"   />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -36,6 +87,8 @@
             <Setter Property="FontSize" Value="12" />
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        
+        <!-- Style utlisé pour la barre de chargement des états -->
         <Style TargetType="{x:Type ProgressBar}">
             <Setter Property="Foreground">
                 <Setter.Value>

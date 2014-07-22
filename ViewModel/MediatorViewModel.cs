@@ -329,7 +329,7 @@ namespace PrototypeEDUCOM.ViewModel
 
                 dashboardUCView.DataContext = dashboardViewModel;
 
-                mainTabs.Add("dashboard", new TabContent(dashboardViewModel, dashboardUCView));
+                mainTabs.Add(TabName.DASHBORAD, new TabContent(dashboardViewModel, dashboardUCView));
             }
 
             // Onglet client
@@ -338,7 +338,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             customerUCView.DataContext = customerViewModel;
 
-            mainTabs.Add("customer", new TabContent(customerViewModel, customerUCView));
+            mainTabs.Add(TabName.CUSTOMER, new TabContent(customerViewModel, customerUCView));
 
             // Onglet organisation
             OrganisationViewModel organisationViewModel = new OrganisationViewModel();
@@ -346,7 +346,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             organisationUCView.DataContext = organisationViewModel;
 
-            mainTabs.Add("organisation", new TabContent(organisationViewModel, organisationUCView));
+            mainTabs.Add(TabName.ORGANISATION, new TabContent(organisationViewModel, organisationUCView));
 
             // Onglet demande
             RequestViewModel requestViewModel = new RequestViewModel();
@@ -354,7 +354,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             requestUCView.DataContext = requestViewModel;
 
-            mainTabs.Add("request", new TabContent(requestViewModel, requestUCView));
+            mainTabs.Add(TabName.REQUEST, new TabContent(requestViewModel, requestUCView));
         }
 
         public void openAddStudentView(contact customer) {

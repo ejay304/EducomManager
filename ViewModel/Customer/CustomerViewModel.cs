@@ -30,7 +30,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         {
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
             customerTabs = new ObservableCollection<Tab>();
-            customerTabs.Add(new Tab("Liste", mediator.openListCustomerView(), null, null));
+            customerTabs.Add(new Tab("Liste", mediator.openListCustomerView(), null, null,true));
         }
 
         private void actCloseTab(Tab tab)
