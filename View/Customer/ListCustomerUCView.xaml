@@ -50,6 +50,26 @@
                                     <GridViewColumnHeader Content="Nom" Command="{Binding cmdSort}" CommandParameter="lastname" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding country}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Pays" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding city}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Ville" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding language}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Langue" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding add_date, StringFormat={}{0:dd/MM/yyyy}}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Création" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
                             <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
                             <!-- Bouton accès détail d'une demande -->
                             <GridViewColumn>

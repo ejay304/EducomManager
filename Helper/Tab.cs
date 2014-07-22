@@ -16,12 +16,15 @@ namespace PrototypeEDUCOM.Helper
         public String icon { get; set; }
 
         public Object entity { get; set; }
-        public Tab(String header, UserControl content, Object entity, String icon)
+
+        public Boolean main { get; set; }
+        public Tab(String header, UserControl content, Object entity, String icon, Boolean main = false)
         {
             this.header = header;
             this.content = content;
             this.entity = entity;
             this.icon = icon;
+            this.main = main;
         }
     }
 }

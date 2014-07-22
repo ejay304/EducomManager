@@ -30,7 +30,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
             this.requestTabs = new ObservableCollection<Tab>();
 
-            this.requestTabs.Add(new Tab("Liste", mediator.openListRequestView(), null, null));
+            this.requestTabs.Add(new Tab("Liste", mediator.openListRequestView(), null, null,true));
 
             mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
             mediator.Register(Helper.Event.DELETE_PROGRAM, this);
