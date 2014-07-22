@@ -156,7 +156,16 @@
                             <GridViewColumn  Header="Date" DisplayMemberBinding="{Binding creation_date, StringFormat={}{0:dd/MM/yyyy}}" />
                             <GridViewColumn Header="Type" DisplayMemberBinding="{Binding student.fullName}" />
                             <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student.fullName}" />
-                            <GridViewColumn Header="Etat" DisplayMemberBinding="{Binding state}" />
+                            <GridViewColumn Header="Etat">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <ProgressBar Value="{Binding state.event_types.order}" Width="150" />
+                                            <TextBlock Margin="6,0,0,0" Text="{Binding state.event_types.name}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
