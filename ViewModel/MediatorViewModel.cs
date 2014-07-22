@@ -248,6 +248,26 @@ namespace PrototypeEDUCOM.ViewModel
 
             addRequestView.Show();
         }
+        public void openDeleteRequestView(request request) {
+            DeleteRequestViewModel deleteRequestViewModel = new DeleteRequestViewModel(request);
+            DeleteRequestView deleteRequestView = new DeleteRequestView();
+
+            deleteRequestView.DataContext = deleteRequestViewModel;
+            deleteRequestViewModel.CloseActionDelete = new Action(() => deleteRequestView.Close());
+
+            deleteRequestView.ShowDialog();
+        }
+
+        public void openEditRequestView(request request)
+        {
+            EditRequestViewModel editRequestViewModel = new EditRequestViewModel(request);
+            EditRequestView editRequestView = new EditRequestView();
+
+            editRequestView.DataContext = editRequestViewModel;
+            editRequestViewModel.CloseActionEdit = new Action(() => editRequestView.Close());
+
+            editRequestView.Show();
+        }
 
         #endregion
 

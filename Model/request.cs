@@ -1,4 +1,4 @@
-namespace PrototypeEDUCOM.Model
+    namespace PrototypeEDUCOM.Model
 {
     using System;
     using System.Collections.Generic;

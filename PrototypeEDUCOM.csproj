@@ -149,6 +149,8 @@
     <Compile Include="ViewModel\Organisation\Program\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\EditRequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\DeleteRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\Program\AddPropositionViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
@@ -232,6 +234,12 @@
     </Compile>
     <Compile Include="View\Request\AddRequestView.xaml.cs">
       <DependentUpon>AddRequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\EditRequestView.xaml.cs">
+      <DependentUpon>EditRequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\DeleteRequestView.xaml.cs">
+      <DependentUpon>DeleteRequestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
@@ -390,6 +398,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Request\EditRequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\DeleteRequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Request\ListRequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -478,6 +494,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressource\archive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\editWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\addWhite.png" />
+    <Resource Include="Ressource\deleteWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\userLogin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
