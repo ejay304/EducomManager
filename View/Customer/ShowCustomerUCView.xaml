@@ -142,7 +142,16 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal"  Grid.Row="0" Background="#30859a">
                 <Label Margin="10,0,0,0" Content="Demandes en cours" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="White"/>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAddRequest}">
+                <Button Command="{Binding cmdAddRequest}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding students.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
                     </StackPanel>
@@ -169,9 +178,21 @@
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdShowRequest}" CommandParameter="{Binding}">
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdEditStudent}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="/PrototypeEDUCOM;component/Ressource/show.png" Width="15" Height="15" />
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/edit.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdDeleteStudent}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/delete.png" Width="15" Height="15" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>

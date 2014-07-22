@@ -12,6 +12,7 @@
         <Grid Grid.Row="0" Margin="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35" />
+                <RowDefinition Height="50" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#30859a">
@@ -19,12 +20,36 @@
                 <Label Content="{Binding nbrCustomer}"  VerticalAlignment="Center" Margin="0,0,2,0" Foreground="White" FontWeight="Bold"/>
                 <Label Content="Client(s)" VerticalAlignment="Center" Foreground="White" FontStyle="Italic"/>
             </StackPanel>
-            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="1">
+            <Border BorderThickness="2" BorderBrush="#30859a" Grid.Row="1" />
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Background="White" HorizontalAlignment="Stretch" Margin="2,2,2,0">
+                <Label Content="Filtres" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+                <Label Content="Pays" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <ComboBox Height="30" Margin="5,0,0,0">
+                    <ComboBoxItem Name="cbi1">Suisse</ComboBoxItem>
+                    <ComboBoxItem Name="cbi2">Italie</ComboBoxItem>
+                    <ComboBoxItem Name="cbi3">France</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Langue" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <ComboBox Height="30" Margin="5,0,10,0">
+                    <ComboBoxItem>Francais</ComboBoxItem>
+                    <ComboBoxItem>Italien</ComboBoxItem>
+                    <ComboBoxItem>Anglais</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="2">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding firstname}" />
-                            <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding lastname}" />
+                            <GridViewColumn DisplayMemberBinding="{Binding firstname}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Prénom" Command="{Binding cmdSort}" CommandParameter="firstname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding lastname}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Content="Nom" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
                             <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
                             <!-- Bouton accès détail d'une demande -->
                             <GridViewColumn>

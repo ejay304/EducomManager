@@ -23,7 +23,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.cmdAdd = new RelayCommand<Object>(actAdd);
             this.customer = customer;
             this.students = customer.students.ToList();
-            this.student = this.students.First();
+            if(students.Count != 0)
+                this.student = this.students.First();
             this.journeys = Helper.Enum.Journey.list;
             this.journey = this.journeys.First();
         }
