@@ -32,6 +32,9 @@ namespace PrototypeEDUCOM.Model
         [StringLength(45)]
         public string password { get; set; }
 
+        [Required]
+        public string salt { get; set; }
+
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]

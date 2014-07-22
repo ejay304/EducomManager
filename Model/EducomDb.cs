@@ -383,6 +383,10 @@ namespace PrototypeEDUCOM.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<user>()
+                .Property(e => e.salt)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<user>()
                 .Property(e => e.role)
                 .IsUnicode(false);
 
