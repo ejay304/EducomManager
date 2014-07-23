@@ -37,7 +37,7 @@
         </Style>
 
         <Style TargetType="{x:Type TabItem}">
-            <Setter Property="Content" Value="{Binding content}" />
+            <Setter Property="Content" Value="{Binding content}" /> 
             <Style.Triggers>
                 <DataTrigger Binding="{Binding main}" Value="true">
                     <Setter Property="HeaderTemplate">

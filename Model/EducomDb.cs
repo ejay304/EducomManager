@@ -18,7 +18,10 @@ namespace PrototypeEDUCOM.Model
         public static EducomDb getInstance()
         {
             if (instance == null)
+            {
                 instance = new EducomDb();
+                instance.Database.Log = Console.WriteLine;
+            }
             return instance;
         }
 

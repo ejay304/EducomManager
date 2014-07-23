@@ -37,8 +37,8 @@
                 <Label Content="Login" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" Margin="0,6,0,6" />
                 <Label Content="Pass" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Margin="0,6,0,6"/>
 
-                <TextBox Text="test" Grid.Row="0" Grid.Column="1"  Margin="10,8,60,8" />
-                <TextBox Text="test" Grid.Row="1" Grid.Column="1" Margin="10,8,60,8" />
+                <TextBox Text="{Binding login}" Grid.Row="0" Grid.Column="1"  Margin="10,8,60,8" />
+                <TextBox Text="{Binding pass}" Grid.Row="1" Grid.Column="1" Margin="10,8,60,8" />
                 
             </Grid>
                 <!-- Button submit -->

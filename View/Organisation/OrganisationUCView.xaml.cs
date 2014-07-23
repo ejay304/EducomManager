@@ -23,7 +23,6 @@ namespace PrototypeEDUCOM.View.Organisation
         public OrganisationUCView()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.Organisation.OrganisationViewModel();
         }
     }
 }

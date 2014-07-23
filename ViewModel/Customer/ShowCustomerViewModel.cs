@@ -8,6 +8,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.ViewModel.Customer;
+using System.Data.Entity;
+
 namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class ShowCustomerViewModel : BaseViewModel {
@@ -51,6 +53,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             mediator.Register(Helper.Event.ADD_STUDENT, this);
             mediator.Register(Helper.Event.DELETE_STUDENT, this);
+            mediator.Register(Helper.Event.ADD_REQUEST, this);
+            mediator.Register(Helper.Event.DELETE_REQUEST, this);
+
         }
 
         public void actEditCustomer(object o)
