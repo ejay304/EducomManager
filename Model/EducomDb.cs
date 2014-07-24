@@ -4,21 +4,25 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Data.Entity.Migrations;
 
     public partial class EducomDb : DbContext
     {
 
         private static EducomDb instance;
 
-        public EducomDb()
-            : base("name=EducomDb")
+        public EducomDb() : base("name=EducomDb")
         {
+
         }
 
         public static EducomDb getInstance()
         {
-            if (instance == null)
+            if (instance == null) 
+            {
                 instance = new EducomDb();
+                instance.Database.Log = Console.WriteLine;
+             }
             return instance;
         }
 

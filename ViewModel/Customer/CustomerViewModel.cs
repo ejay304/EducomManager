@@ -31,6 +31,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
             customerTabs = new ObservableCollection<Tab>();
             customerTabs.Add(new Tab("Liste", mediator.openListCustomerView(), null, null,true));
+
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
         }
 
         private void actCloseTab(Tab tab)
@@ -41,12 +43,19 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public void actAddTab(contact customer, UserControl view)
         {
+            foreach (Tab t in customerTabs)
+            {
+                if (t.entity == customer)
+                {
+                    this.selectedTab = t;
+                    return;
+                }
+            }
+
             Tab tab = new Tab(customer.lastname, view,customer, null);
 
             this.customerTabs.Add(tab);
             this.selectedTab = tab;
-
-            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
         }
 
         public override void Update(string eventName, Object item)

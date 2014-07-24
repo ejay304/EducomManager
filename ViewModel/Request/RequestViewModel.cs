@@ -43,11 +43,19 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public void actAddTab(request request, UserControl view)
         {
+            foreach (Tab t in requestTabs)
+            {
+                if (t.entity == request)
+                {
+                    this.selectedTab = t;
+                    return;
+                }
+            }
+
             Tab tab = new Tab(request.creation_date.ToString(), view , request, null);
          
             requestTabs.Add(tab);
             this.selectedTab = tab;
-
         }
 
         public override void Update(string eventName, Object item)
