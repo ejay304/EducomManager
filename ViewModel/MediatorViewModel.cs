@@ -1,5 +1,6 @@
 ﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
+using PrototypeEDUCOM.View;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.View.Dashboard;
 using PrototypeEDUCOM.View.Organisation;
@@ -63,7 +64,17 @@ namespace PrototypeEDUCOM.ViewModel
             mainViewModel = new MainViewModel();
             View.MainView mainView = new View.MainView();
             mainView.DataContext = mainViewModel;
+
+            mainViewModel.CloseWindow = new Action(() => mainView.Close());
+
             mainView.Show();
+        }
+
+        public void openLoginView()
+        {
+            container.Clear();
+            mainTabs.Clear();
+            new LoginView().Show();
         }
 
         #region Customer 
@@ -306,6 +317,8 @@ namespace PrototypeEDUCOM.ViewModel
         }
 
         #endregion
+
+
 
 
         public void openAddPropositionView(request request){

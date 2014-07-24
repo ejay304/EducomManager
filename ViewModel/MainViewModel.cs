@@ -27,8 +27,14 @@ namespace PrototypeEDUCOM.ViewModel
             }
         }
 
+        public ICommand cmdLogout { get; set; }
+
+        public Action CloseWindow { get; set; }
+
         public MainViewModel()
         {
+
+            this.cmdLogout = new RelayCommand<object>(actLogout);        
 
             tabs = new Dictionary<String, Tab>();
 
@@ -45,6 +51,12 @@ namespace PrototypeEDUCOM.ViewModel
                 this.selectedTab = tabs[TabName.CUSTOMER];
             else
                 this.selectedTab = tabs[TabName.DASHBORAD];
+        }
+
+        public void actLogout(object obj)
+        {
+            mediator.openLoginView();
+            this.CloseWindow();
         }
     }
 }
