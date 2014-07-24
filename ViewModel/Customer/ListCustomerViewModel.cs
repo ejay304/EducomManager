@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Data.Entity;
 
 namespace PrototypeEDUCOM.ViewModel.Customer
 {
@@ -37,15 +38,22 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ICommand cmdFilter { get; set; }
         public ICommand cmdSort { get; set; }
+        public ICommand test { get; set; }
         public Action CloseActionFormEdit { get; set; }
 
         public ListCustomerViewModel() : base()
         {
-            this.customers = new SortableObservableCollection<contact>(db.contacts.ToList());
+            this.customers = new SortableObservableCollection<contact>(db.contacts
+                .Include(c => c.requests.Select(r => r.events.Select(e => e.event_types)))
+                .Include(c => c.emails)
+                //.Include(c => c.)
+                .ToList());
+
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
             this.cmdAdd = new RelayCommand<object>(actAdd);
             this.cmdFilter = new RelayCommand<object>(actFilter);
             this.cmdSort = new RelayCommand<string>(actSort);
+            this.test = new RelayCommand<string>(actSort);
             mediator.Register(Helper.Event.ADD_CUSTOMER, this);
 
             directionSorted.Add("firstname", false);

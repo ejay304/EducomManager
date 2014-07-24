@@ -32,7 +32,7 @@ namespace PrototypeEDUCOM.ViewModel
         {
             btnLogin = new RelayCommand<object>(actLogin);
 
-            actLogin(new object());
+            //actLogin(new object());
         }
 
         private void actLogin(object arg)
@@ -61,8 +61,8 @@ namespace PrototypeEDUCOM.ViewModel
             // login admin@admin.com pass admin
             // login test@testcom pass test
 
-            this.login = "test";
-            this.pass = "test";
+            //this.login = "test";
+            //this.pass = "test";
 
             if (login.Length != 0 && pass.Length != 0)
             {
@@ -76,7 +76,7 @@ namespace PrototypeEDUCOM.ViewModel
                         mediator.user = user;
                         return;
                     }
-                }
+                }       
                 else
                 {
                     message = "Login ou mot de passe incorrect";
