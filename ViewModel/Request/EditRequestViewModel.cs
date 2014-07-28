@@ -1,4 +1,4 @@
-﻿using PrototypeEDUCOM.Helper.Enum;
+﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -14,8 +14,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public request currentRequest { get; set; }
         public student student { get; set; }
         public List<student> students { get; set; }
-        public Journey journey { get; set; }
-        public List<Journey> journeys { get; set; }
+        public string journey { get; set; }
+        public Dictionary<string, string> journeys { get { return Dictionaries.journeys; } set { } }
 
         public ICommand cmdEdit { get; set; }
         public Action CloseActionEdit { get; set; }
@@ -24,17 +24,16 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public EditRequestViewModel(request request)
         {
             currentRequest = request;
-            this.journey = Journey.list[Journey.indexByValue(request.journey_type)];
+            this.journey = request.journey_type;
             this.student = request.student;
             this.students = request.contact.students.ToList();
-            this.journeys = Helper.Enum.Journey.list;
 
             this.cmdEdit = new RelayCommand<object>(actEdit);
         }
 
         public void actEdit(object obj)
         {
-            currentRequest.journey_type = journey.getValue();
+            currentRequest.journey_type = journey;
             currentRequest.student = student;
 
             db.SaveChanges();

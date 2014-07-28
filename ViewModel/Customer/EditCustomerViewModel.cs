@@ -1,5 +1,4 @@
 ﻿using PrototypeEDUCOM.Helper;
-using PrototypeEDUCOM.Helper.Enum;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -13,8 +12,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
     class EditCustomerViewModel : BaseViewModel
     {
         public contact currentCustomer { get; set; }
-        public List<Civility> civilities { get; set; }
-        public int civilityIndex { get; set; }
+        public Dictionary<string, string> civilities { get { return Dictionaries.civilities; } set { } }
+        public String civility { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
         public string street { get; set; }
@@ -35,8 +34,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public EditCustomerViewModel(contact customer)
         {
             this.currentCustomer = customer;
-            this.civilities = Civility.list;
-            this.civilityIndex = Civility.indexByValue(customer.civility);
+            this.civility = customer.civility;
             this.firstname = customer.firstname;
             this.lastname = customer.lastname;
             this.street = customer.street;
@@ -108,7 +106,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 currentCustomer.city = this.city;
                 currentCustomer.zip = this.zip;
                 currentCustomer.country = this.country;
-                currentCustomer.civility = civilities.ElementAt(civilityIndex).getValue();
+                currentCustomer.civility = this.civility;
 
                 // Enregistre dans la base
                 db.SaveChanges();

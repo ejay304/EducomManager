@@ -27,7 +27,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         private Dictionary<string,bool> directionSorted = new Dictionary<string,bool>();
 
-        public Dictionary<string, string> countries { get; set; }
+        public Dictionary<string, string> countries { get { return Dictionaries.countries; } set { } }
 
         public string filterCountry { get; set; }
         public string filterLanguage { get; set; }
@@ -59,10 +59,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             directionSorted.Add("firstname", false);
             directionSorted.Add("lastname", false);
 
-            countries = new Dictionary<string, string>();
-            countries.Add("suisse", "Suisse");
-            countries.Add("france", "France");
-            countries.Add("italie", "Italie");
         }
 
         private void actAdd(object obj)

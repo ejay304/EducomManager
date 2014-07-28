@@ -13,6 +13,7 @@ namespace PrototypeEDUCOM.Model
 
         private string _firstname;
         private string _lastname;
+        private string _civility;
         private string _street;
         private string _city;
         private string _zip;
@@ -34,7 +35,16 @@ namespace PrototypeEDUCOM.Model
 
         [Column(TypeName = "enum")]
         [StringLength(65532)]
-        public string civility { get; set; }
+        public string civility {
+            get {
+                return _civility;
+            }
+            set {
+                _civility = value;
+                NotifyPropertyChanged("civility");
+
+            }
+        }
 
         [Required]
         [StringLength(45)]
