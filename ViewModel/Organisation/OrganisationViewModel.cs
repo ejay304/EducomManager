@@ -43,6 +43,15 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
         public void actAddTab(organisation organisation, UserControl view)
         {
+            foreach (Tab t in organisationTabs)
+            {
+                if (t.entity == organisation)
+                {
+                    this.selectedTab = t;
+                    return;
+                }
+            }
+
             Tab tab = new Tab(organisation.name, view , organisation, null);
          
             organisationTabs.Add(tab);
@@ -52,6 +61,15 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
         //TODO CHANGE CA ON doit pas avoir 2 methode actAddTab qui font la même chose
         public void actAddTab(program program, UserControl view)
         {
+            foreach (Tab t in organisationTabs)
+            {
+                if (t.entity == program)
+                {
+                    this.selectedTab = t;
+                    return;
+                }
+            }
+
             Tab tab = new Tab(program.organisation.name + " - " + program.program_types.name , view, program, null);
 
             organisationTabs.Add(tab);

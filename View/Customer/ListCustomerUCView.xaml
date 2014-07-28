@@ -24,17 +24,14 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Background="White" HorizontalAlignment="Stretch" Margin="2,2,2,0">
                 <Label Content="Filtres" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
                 <Label Content="Pays" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Height="30" Width="100" Margin="5,0,0,0" Text="Sélection pays">
-                    <ComboBoxItem Name="cbi1">Suisse</ComboBoxItem>
-                    <ComboBoxItem Name="cbi2">Italie</ComboBoxItem>
-                    <ComboBoxItem Name="cbi3">France</ComboBoxItem>
-                </ComboBox>
+                <ComboBox Height="30" Width="100" Margin="5,0,0,0"  ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterCountry}" />
                 <Label Content="Langue" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Height="30" Width="100" Margin="5,0,10,0" Text="Sélection langue">
+                <ComboBox Height="30" Width="100" Margin="5,0,10,0" Text="Sélection langue" SelectedValue="{Binding filterLanguage}">
                     <ComboBoxItem>Francais</ComboBoxItem>
                     <ComboBoxItem>Italien</ComboBoxItem>
                     <ComboBoxItem>Anglais</ComboBoxItem>
                 </ComboBox>
+                <Button Content="Appliquer" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdFilter}"></Button>
             </StackPanel>
             <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="2">
                 <ListView.View>

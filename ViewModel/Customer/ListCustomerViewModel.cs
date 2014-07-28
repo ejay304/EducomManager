@@ -27,10 +27,16 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         private Dictionary<string,bool> directionSorted = new Dictionary<string,bool>();
 
+        public Dictionary<string, string> countries { get; set; }
+
+        public string filterCountry { get; set; }
+        public string filterLanguage { get; set; }
+
         public ICommand cmdViewDetail { get; set; }
 
         public ICommand cmdAdd { get; set; }
 
+        public ICommand cmdFilter { get; set; }
         public ICommand cmdSort { get; set; }
         public ICommand test { get; set; }
         public Action CloseActionFormEdit { get; set; }
@@ -45,17 +51,39 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             this.cmdViewDetail = new RelayCommand<contact>(actViewDetail);
             this.cmdAdd = new RelayCommand<object>(actAdd);
+            this.cmdFilter = new RelayCommand<object>(actFilter);
             this.cmdSort = new RelayCommand<string>(actSort);
             this.test = new RelayCommand<string>(actSort);
             mediator.Register(Helper.Event.ADD_CUSTOMER, this);
 
             directionSorted.Add("firstname", false);
             directionSorted.Add("lastname", false);
+
+            countries = new Dictionary<string, string>();
+            countries.Add("suisse", "Suisse");
+            countries.Add("france", "France");
+            countries.Add("italie", "Italie");
         }
 
         private void actAdd(object obj)
         {
             mediator.openAddCustomerView();
+        }
+
+        private void actFilter(object obj)
+        {
+
+            var query = from p in db.contacts
+                        select p;
+
+            if (filterCountry != null)
+                query = query.Where(c => c.country == filterCountry);
+
+            if (filterLanguage != null)
+                query = query.Where(c => c.language == filterLanguage);
+
+            this.customers = new SortableObservableCollection<contact>(query.ToList());
+            NotifyPropertyChanged("customers");
         }
 
         private void actSort(string arg)

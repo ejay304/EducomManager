@@ -104,6 +104,7 @@
     <Compile Include="Helper\Validation.cs" />
     <Compile Include="Model\campaign.cs" />
     <Compile Include="Model\campu.cs" />
+    <Compile Include="Model\Configuration.cs" />
     <Compile Include="Model\contact.cs" />
     <Compile Include="Model\EducomDb.cs" />
     <Compile Include="Model\email.cs" />
