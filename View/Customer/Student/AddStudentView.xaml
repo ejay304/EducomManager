@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Sex" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" />
+            <Label Content="Sexe" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="0" />
             <Label Content="Nom" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="1"/>
             <Label Content="Prénom" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="2"/>
             <Label Content="Parenté" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="3"/>

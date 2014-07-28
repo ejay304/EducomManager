@@ -11,7 +11,7 @@ using System.Windows.Controls;
 namespace PrototypeEDUCOM.ViewModel
 {
 
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public EducomDb db = EducomDb.getInstance();
 

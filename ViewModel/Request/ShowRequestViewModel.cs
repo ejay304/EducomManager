@@ -28,6 +28,10 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.cmdAddProposition = new RelayCommand<Object>(actAddProposition);
             this.cmdDeleteProposition = new RelayCommand<proposition>(actDeleteProposition);
             this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteRequest);
+
+            mediator.Register(Helper.Event.ADD_REQUEST,this);
+            mediator.Register(Helper.Event.DELETE_REQUEST, this);
+           
             mediator.Register(Helper.Event.ADD_PROPOSITION,this);
         }
 
