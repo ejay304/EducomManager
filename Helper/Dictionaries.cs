@@ -14,7 +14,7 @@ namespace PrototypeEDUCOM.Helper
         public static Dictionary<string, string> kinships { get; set; }
         public static Dictionary<string, string> journeys { get; set; }
         public static Dictionary<string, string> users { get; set; }
-
+        public static Dictionary<string, string> languages { get; set; }
 
         static Dictionaries() {
 
@@ -22,6 +22,12 @@ namespace PrototypeEDUCOM.Helper
             countries.Add("suisse", "Suisse");
             countries.Add("france", "France");
             countries.Add("italie", "Italie");
+            countries.Add("usa", "Etat-Unis");
+
+            languages = new Dictionary<string, string>();
+            languages.Add("fr", "Français");
+            languages.Add("it", "Italien");
+            languages.Add("en", "Anglais");
 
             civilities = new Dictionary<string, string>();
             civilities.Add("m", "M.");
