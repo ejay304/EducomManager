@@ -24,13 +24,9 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Background="White" HorizontalAlignment="Stretch" Margin="2,2,2,0">
                 <Label Content="Filtres" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
                 <Label Content="Pays" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Height="30" Width="100" Margin="5,0,0,0"  ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterCountry}" />
+                <ComboBox Height="30" Width="100" Margin="5,0,0,0" ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterCountry}" />
                 <Label Content="Langue" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Height="30" Width="100" Margin="5,0,10,0" Text="Sélection langue" SelectedValue="{Binding filterLanguage}">
-                    <ComboBoxItem>Francais</ComboBoxItem>
-                    <ComboBoxItem>Italien</ComboBoxItem>
-                    <ComboBoxItem>Anglais</ComboBoxItem>
-                </ComboBox>
+                <ComboBox Height="30" Width="100" Margin="5,0,10,0"  ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterLanguage}" />
                 <Button Content="Appliquer" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdFilter}"></Button>
             </StackPanel>
             <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#30859a" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding customers}" x:Name="list" Grid.Row="2">
@@ -49,25 +45,24 @@
                             </GridViewColumn>
                             <GridViewColumn DisplayMemberBinding="{Binding country}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Content="Pays" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                    <GridViewColumnHeader Content="Pays" Command="{Binding cmdSort}" CommandParameter="country" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
                             <GridViewColumn DisplayMemberBinding="{Binding city}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Content="Ville" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                    <GridViewColumnHeader Content="Ville" Command="{Binding cmdSort}" CommandParameter="city" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
                             <GridViewColumn DisplayMemberBinding="{Binding language}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Content="Langue" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                    <GridViewColumnHeader Content="Langue" Command="{Binding cmdSort}" CommandParameter="language" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
                             <GridViewColumn DisplayMemberBinding="{Binding add_date, StringFormat={}{0:dd/MM/yyyy}}">
                                 <GridViewColumn.Header>
-                                    <GridViewColumnHeader Content="Création" Command="{Binding cmdSort}" CommandParameter="lastname" />
+                                    <GridViewColumnHeader Content="Création" Command="{Binding cmdSort}" CommandParameter="date" />
                                 </GridViewColumn.Header>
                             </GridViewColumn>
-                            <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding country}" />
                             <!-- Bouton accès détail d'une demande -->
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
