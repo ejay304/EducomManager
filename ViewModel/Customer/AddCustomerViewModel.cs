@@ -1,5 +1,4 @@
 ﻿using PrototypeEDUCOM.Helper;
-using PrototypeEDUCOM.Helper.Enum;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -15,10 +14,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 {
     class AddCustomerViewModel : BaseViewModel
     {
-        
-        public List<Civility> civilities { get; set; }
 
-        public int civilityIndex { get; set; }
+        public Dictionary<string, string> civilities { get { return Dictionaries.civilities; } set { } }
+      
+        public string civility { get; set; }
 
         public string firstname { get; set; }
 
@@ -49,7 +48,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public AddCustomerViewModel()
         {
             this.cmdAdd = new RelayCommand<object>(actAdd);
-            this.civilities = Civility.list;
 
         }
 
@@ -128,7 +126,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             if (!error)
             {
                 customer.add_date = DateTime.Now;
-                customer.civility = civilities.ElementAt(civilityIndex).getValue();
+                customer.civility = this.civility;
        
                 // Enregistre dans la base
                 db.contacts.Add(customer);

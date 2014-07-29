@@ -32,8 +32,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
             this.requestTabs.Add(new Tab("Liste", mediator.openListRequestView(), null, null,true));
 
-            mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
-            mediator.Register(Helper.Event.DELETE_PROGRAM, this);
+            mediator.Register(Helper.Event.DELETE_REQUEST, this);
         }
 
         private void actCloseTab(Tab tab)

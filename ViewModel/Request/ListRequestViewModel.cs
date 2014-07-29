@@ -127,15 +127,14 @@ namespace PrototypeEDUCOM.ViewModel.Request
         {
             switch (eventName)
             {
-                case Helper.Event.ADD_ORGANISATION:
+                case Helper.Event.ADD_REQUEST:
 
                     // Ajoute dans la liste
                     this.requests.Add((request)item);
                     NotifyPropertyChanged("requests");
                     NotifyPropertyChanged("nbrRequest");
                     break;
-
-                case Helper.Event.DELETE_ORGANISATION:
+                case Helper.Event.DELETE_REQUEST:
 
                     // Ajoute dans la liste
                     this.requests.Remove((request)item);

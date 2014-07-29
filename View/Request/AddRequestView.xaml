@@ -31,8 +31,8 @@
             <Label Content="Type de séjour" HorizontalAlignment="Right" Margin="0,6,10,6" Grid.Row="2"/>
 
             <Label Content="{Binding customer.fullName}"  Margin="0,6,10,6" Grid.Row="0" Grid.Column="1"/>
-            <ComboBox SelectedItem="{Binding student, Mode=TwoWay}" ItemsSource="{Binding students}" Grid.Row="1" Grid.Column="1" Margin="10,8,10,8" />
-            <ComboBox SelectedItem="{Binding journey, Mode=TwoWay}" ItemsSource="{Binding journeys}" Grid.Row="2" Grid.Column="1" Margin="10,8,10,8" />
+            <ComboBox SelectedItem="{Binding student}" ItemsSource="{Binding students}" Grid.Row="1" Grid.Column="1" Margin="10,8,10,8" />
+            <ComboBox SelectedValue="{Binding journey}" DisplayMemberPath="Value" SelectedValuePath="Key" ItemsSource="{Binding journeys}" Grid.Row="2" Grid.Column="1" Margin="10,8,10,8" />
 
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">

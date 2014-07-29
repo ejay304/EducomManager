@@ -33,7 +33,7 @@
             <Label Content="Parenté" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,10,6" Grid.Row="3"/>
             <Label Content="Date de naissance" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,10,6" Grid.Row="4"/>
 
-            <ComboBox SelectedIndex="{Binding genderIndex}" ItemsSource="{Binding genders}" Grid.Row="0" Grid.Column="1" Margin="10,8,10,8" />
+            <ComboBox SelectedValue="{Binding gender}" DisplayMemberPath="Value"  SelectedValuePath="Key" ItemsSource="{Binding genders}" Grid.Row="0" Grid.Column="1" Margin="10,8,10,8" />
 
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <TextBox Text="{Binding firstname}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2" Grid.Row="2" Grid.Column="1" />
@@ -89,7 +89,7 @@
                 </TextBlock>
             </StackPanel>
 
-            <ComboBox SelectedIndex="{Binding kinshipIndex}" ItemsSource="{Binding kinships}" Grid.Row="3" Grid.Column="1" Margin="10,8,10,8" />
+            <ComboBox SelectedIndex="{Binding kinship}" DisplayMemberPath="Value"  SelectedValuePath="Key" ItemsSource="{Binding kinships}" Grid.Row="3" Grid.Column="1" Margin="10,8,10,8" />
 
             <StackPanel Grid.Column="1" Grid.Row="4">
                 <DatePicker SelectedDate="{Binding birthday}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2" Grid.Column="1" Grid.Row="4"/>

@@ -334,7 +334,7 @@ namespace PrototypeEDUCOM.ViewModel
         }
         public void createTabViewModel()
         {
-            if (Helper.Enum.User.assistant != Helper.Enum.User.list[Helper.Enum.User.indexByValue(user.role)])
+            if (Dictionaries.users["assistant"].CompareTo(user.role) != 0)
             {
                 // Onglet dashboard
                 DashboardViewModel dashboardViewModel = new DashboardViewModel();

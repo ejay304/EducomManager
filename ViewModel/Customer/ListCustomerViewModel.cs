@@ -27,9 +27,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         private Dictionary<string,bool> directionSorted = new Dictionary<string,bool>();
 
-        public Dictionary<string, string> countries { get; set; }
+        public Dictionary<string, string> countries { get { return Dictionaries.countries; } set { } }
 
-        public Dictionary<string, string> languages { get; set; }
+        public Dictionary<string, string> languages { get { return Dictionaries.languages; } set { } }
 
         public string filterCountry { get; set; }
         public string filterLanguage { get; set; }
@@ -62,16 +62,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             directionSorted.Add("city", false);
             directionSorted.Add("language", false);
             directionSorted.Add("date", false);
-
-            countries = new Dictionary<string, string>();
-            countries.Add("suisse", "Suisse");
-            countries.Add("france", "France");
-            countries.Add("italie", "Italie");
-
-            languages = new Dictionary<string, string>();
-            languages.Add("fr", "Français");
-            languages.Add("it", "Italien");
-            languages.Add("en", "Anglais");
         }
 
         private void actAdd(object obj)
@@ -95,7 +85,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             NotifyPropertyChanged("customers");
             NotifyPropertyChanged("nbrCustomer");
-
         }
 
         private void actSort(string arg)

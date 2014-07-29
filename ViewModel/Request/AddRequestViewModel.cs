@@ -1,4 +1,4 @@
-﻿using PrototypeEDUCOM.Helper.Enum;
+﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -14,8 +14,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public contact customer { get; set; }
         public student student { get; set; }
         public List<student> students { get; set; }
-        public Journey journey { get; set; }
-        public List<Journey> journeys { get; set; }
+        public string journey { get; set; }
+        public Dictionary<string, string> journeys { get { return Dictionaries.journeys; } set { } }
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
 
@@ -25,8 +25,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.students = customer.students.ToList();
             if(students.Count != 0)
                 this.student = this.students.First();
-            this.journeys = Helper.Enum.Journey.list;
-            this.journey = this.journeys.First();
+            this.journey = this.journeys.First().Value;
         }
 
         public void actAdd(Object o) { 
@@ -39,7 +38,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
             request.events.Add(_newEvent);
             request.contact = this.customer;
             request.user = mediator.user;
-            request.journey_type = journey.getValue();
+            request.journey_type = this.journey;
             request.student = student;
             request.creation_date = DateTime.Now;
 

@@ -1,7 +1,5 @@
 
 ﻿using PrototypeEDUCOM.Helper;
-
-﻿using PrototypeEDUCOM.Helper.Enum;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -18,11 +16,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public String firstname { get; set; }
         public DateTime birthday { get; set; }
         public String lastname { get; set; }
-        public List<Gender> genders { get; set; }
-        public int genderIndex { get; set; }
-        public List<Kinship> kinships { get; set; }
-        public int kinshipIndex { get; set; }
-        public String gender { get; set; }
+        public Dictionary<string, string> genders { get { return Dictionaries.genders; } set { } }
+        public string gender { get; set; }
+        public Dictionary<string, string> kinships { get { return Dictionaries.kinships; } set { } }
+        public string kinship { get; set; }
         public Validation validFirstname { get; set; }
         public Validation validLastname { get; set; }
         public Validation validGender { get; set; }
@@ -35,8 +32,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             this.customer = customer;
             this.birthday = DateTime.Now;
-            this.kinships = Kinship.list;
-            this.genders = Gender.list;
+            this.kinship = kinships.First().Key;
+            this.gender = genders.First().Key;
             this.cmdAdd = new RelayCommand<object>(actAdd);
             this.parentVM = parentVM;
         }
@@ -99,9 +96,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 error = true;
             }
 
-            student.kinship = kinships.ElementAt(kinshipIndex).getValue();
+            student.kinship = this.kinship;
             student.birthday = birthday;
-            student.gender = genders.ElementAt(genderIndex).getValue();
+            student.gender = this.gender;
 
             if (!error)
             {
