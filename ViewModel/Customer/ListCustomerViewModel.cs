@@ -29,6 +29,8 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public Dictionary<string, string> countries { get; set; }
 
+        public Dictionary<string, string> languages { get; set; }
+
         public string filterCountry { get; set; }
         public string filterLanguage { get; set; }
 
@@ -38,7 +40,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         public ICommand cmdFilter { get; set; }
         public ICommand cmdSort { get; set; }
-        public ICommand test { get; set; }
         public Action CloseActionFormEdit { get; set; }
 
         public ListCustomerViewModel() : base()
@@ -53,16 +54,24 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.cmdAdd = new RelayCommand<object>(actAdd);
             this.cmdFilter = new RelayCommand<object>(actFilter);
             this.cmdSort = new RelayCommand<string>(actSort);
-            this.test = new RelayCommand<string>(actSort);
             mediator.Register(Helper.Event.ADD_CUSTOMER, this);
 
             directionSorted.Add("firstname", false);
             directionSorted.Add("lastname", false);
+            directionSorted.Add("country", false);
+            directionSorted.Add("city", false);
+            directionSorted.Add("language", false);
+            directionSorted.Add("date", false);
 
             countries = new Dictionary<string, string>();
             countries.Add("suisse", "Suisse");
             countries.Add("france", "France");
             countries.Add("italie", "Italie");
+
+            languages = new Dictionary<string, string>();
+            languages.Add("fr", "Français");
+            languages.Add("it", "Italien");
+            languages.Add("en", "Anglais");
         }
 
         private void actAdd(object obj)
@@ -83,7 +92,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                 query = query.Where(c => c.language == filterLanguage);
 
             this.customers = new SortableObservableCollection<contact>(query.ToList());
+
             NotifyPropertyChanged("customers");
+            NotifyPropertyChanged("nbrCustomer");
+
         }
 
         private void actSort(string arg)
@@ -101,6 +113,18 @@ namespace PrototypeEDUCOM.ViewModel.Customer
                     break;
                 case "lastname":
                     this.customers.Sort(c => c.lastname, direction);
+                    break;
+                case "country":
+                    this.customers.Sort(c => c.country, direction);
+                    break;
+                case "city":
+                    this.customers.Sort(c => c.city, direction);
+                    break;
+                case "language":
+                    this.customers.Sort(c => c.language, direction);
+                    break;
+                case "date":
+                    this.customers.Sort(c => c.add_date, direction);
                     break;
             }
             

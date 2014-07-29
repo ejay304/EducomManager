@@ -8,7 +8,6 @@ namespace PrototypeEDUCOM.Helper.Enum
 {
    public class Kinship : EnumDb
     {
-
         public static readonly Kinship father = new Kinship("father", "Père");
         public static readonly Kinship mother = new Kinship("mother", "Mère");
         public static readonly Kinship uncle = new Kinship("uncle", "Oncle");

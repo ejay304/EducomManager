@@ -26,5 +26,10 @@ namespace PrototypeEDUCOM.Model
         public short order { get; set; }
 
         public virtual ICollection<_event> events { get; set; }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 }
