@@ -65,13 +65,13 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
             countries = new Dictionary<string, string>();
             countries.Add("all", "TOUS");
-            countries.Concat(Dictionaries.countries);
-            filterCountry = countries.First().Value;
+            countries = countries.Concat(Dictionaries.countries).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterCountry = countries.First().Key;
 
             languages = new Dictionary<string, string>();
             languages.Add("all", "TOUS");
-            languages.Concat(Dictionaries.languages);
-            filterLanguage = countries.First().Value;
+            languages = languages.Concat(Dictionaries.languages).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterLanguage = languages.First().Key;
         }
 
         private void actAdd(object obj)
@@ -85,10 +85,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             var query = from p in db.contacts
                         select p;
 
-            if (filterCountry != "TOUS")
+            if (filterCountry != "all")
                 query = query.Where(c => c.country == filterCountry);
 
-            if (filterLanguage != "TOUS")
+            if (filterLanguage != "all")
                 query = query.Where(c => c.language == filterLanguage);
 
             this.customers = new SortableObservableCollection<contact>(query.ToList());

@@ -52,8 +52,8 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
 
             countries = new Dictionary<string, string>();
             countries.Add("all", "TOUS");
-            countries.Concat(Dictionaries.countries);
-            filterCountry = countries.First().Value;
+            countries = countries.Concat(Dictionaries.countries).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterCountry = countries.First().Key;
         }
 
         private void actFilter(object obj)
@@ -61,7 +61,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             var query = from p in db.organisations
                         select p;
 
-            if (filterCountry != "TOUS")
+            if (filterCountry != "all")
                 query = query.Where(c => c.country == filterCountry);
 
             this.organisations = new SortableObservableCollection<organisation>(query.ToList());
