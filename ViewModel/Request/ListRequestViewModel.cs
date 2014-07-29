@@ -24,6 +24,10 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public ListRequestViewModel() : base()
         {
             this.requests = new ObservableCollection<request>(db.requests.ToList());
+            this.requests = new ObservableCollection<request>(db.requests
+                .Where(r => r.events.OrderByDescending(e => e.date)
+                .FirstOrDefault().event_types.name == "Réception de commission")
+                .ToList());
             this.cmdViewDetail = new RelayCommand<request>(actViewDetail);
 
             mediator.Register(Helper.Event.ADD_REQUEST, this);
