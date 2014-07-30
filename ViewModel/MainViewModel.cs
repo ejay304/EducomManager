@@ -14,7 +14,7 @@ namespace PrototypeEDUCOM.ViewModel
 {
     class MainViewModel : BaseViewModel
     {
-        public user user { get { return mediator.user; } }
+        public User user { get { return mediator.user; } }
 
         private Tab _selectedTab;
         public Tab selectedTab

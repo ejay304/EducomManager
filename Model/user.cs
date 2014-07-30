@@ -8,12 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
     [Table("EducomDb.users")]
-    public partial class user
+    public partial class User
     {
         private string _role;
-        public user()
+        public User()
         {
-            requests = new HashSet<request>();
+            requests = new HashSet<Request>();
         }
 
         public int id { get; set; }
@@ -51,7 +51,7 @@ using System.Data.Entity.Spatial;
 
         public bool active { get; set; }
 
-        public virtual ICollection<request> requests { get; set; }
+        public virtual ICollection<Request> requests { get; set; }
 
         public string fullName
         {

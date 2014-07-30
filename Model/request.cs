@@ -8,14 +8,14 @@
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.requests")]
-    public partial class request
+    public partial class Request
     {
         private string _journey_type;
-        public request()
+        public Request()
         {
-            events = new HashSet<_event>();
-            propositions = new HashSet<proposition>();
-            responses = new HashSet<respons>();
+            events = new HashSet<Event>();
+            propositions = new HashSet<Proposition>();
+            responses = new HashSet<Respons>();
         }
 
         public int id { get; set; }
@@ -35,11 +35,11 @@
 
         public int contacts_id { get; set; }
 
-        public _event state
+        public Event state
         {
             get
             {
-                _event[] e = new _event[events.Count];
+                Event[] e = new Event[events.Count];
                 events.CopyTo(e, 0);
 
                 return e[events.Count - 1];
@@ -59,16 +59,16 @@
             }
         }
 
-        public virtual contact contact { get; set; }
+        public virtual Contact contact { get; set; }
 
-        public virtual ICollection<_event> events { get; set; }
+        public virtual ICollection<Event> events { get; set; }
 
-        public virtual ICollection<proposition> propositions { get; set; }
+        public virtual ICollection<Proposition> propositions { get; set; }
 
-        public virtual student student { get; set; }
+        public virtual Student student { get; set; }
 
-        public virtual user user { get; set; }
+        public virtual User user { get; set; }
 
-        public virtual ICollection<respons> responses { get; set; }
+        public virtual ICollection<Respons> responses { get; set; }
     }
 }

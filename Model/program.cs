@@ -7,14 +7,14 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.programs")]
-    public partial class program
+    public partial class Program
     {
-        public program()
+        public Program()
         {
-            contacts = new HashSet<contact>();
-            invoices = new HashSet<invoice>();
-            propositions = new HashSet<proposition>();
-            campus = new HashSet<campu>();
+            contacts = new HashSet<Contact>();
+            invoices = new HashSet<Invoice>();
+            propositions = new HashSet<Proposition>();
+            campus = new HashSet<Campus>();
         }
 
         public int id { get; set; }
@@ -35,17 +35,17 @@ namespace PrototypeEDUCOM.Model
         [StringLength(65535)]
         public string description { get; set; }
 
-        public virtual ICollection<contact> contacts { get; set; }
+        public virtual ICollection<Contact> contacts { get; set; }
 
-        public virtual ICollection<invoice> invoices { get; set; }
+        public virtual ICollection<Invoice> invoices { get; set; }
 
-        public virtual organisation organisation { get; set; }
+        public virtual Organisation organisation { get; set; }
 
-        public virtual program_types program_types { get; set; }
+        public virtual ProgramTypes program_types { get; set; }
 
-        public virtual ICollection<proposition> propositions { get; set; }
+        public virtual ICollection<Proposition> propositions { get; set; }
 
-        public virtual ICollection<campu> campus { get; set; }
+        public virtual ICollection<Campus> campus { get; set; }
 
         public override string ToString()
         {

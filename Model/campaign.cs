@@ -7,11 +7,11 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.campaigns")]
-    public partial class campaign
+    public partial class Campaign
     {
-        public campaign()
+        public Campaign()
         {
-            contacts = new HashSet<contact>();
+            contacts = new HashSet<Contact>();
         }
 
         public int id { get; set; }
@@ -41,6 +41,6 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual ICollection<contact> contacts { get; set; }
+        public virtual ICollection<Contact> contacts { get; set; }
     }
 }

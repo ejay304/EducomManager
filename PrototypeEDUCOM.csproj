@@ -97,95 +97,94 @@
     <Compile Include="Helper\TabContent.cs" />
     <Compile Include="Helper\TabName.cs" />
     <Compile Include="Helper\Validation.cs" />
-    <Compile Include="Model\campaign.cs" />
-    <Compile Include="Model\campu.cs" />
-    <Compile Include="Model\Configuration.cs" />
-    <Compile Include="Model\contact.cs" />
+    <Compile Include="Model\Campaign.cs" />
+    <Compile Include="Model\Campus.cs" />
+    <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\EducomDb.cs" />
-    <Compile Include="Model\email.cs" />
-    <Compile Include="Model\event.cs" />
-    <Compile Include="Model\event_types.cs" />
-    <Compile Include="Model\invoice.cs" />
+    <Compile Include="Model\Email.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\EventTypes.cs" />
+    <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\NotifyProperty.cs" />
-    <Compile Include="Model\organisation.cs" />
-    <Compile Include="Model\phone.cs" />
-    <Compile Include="Model\program.cs" />
-    <Compile Include="Model\program_types.cs" />
-    <Compile Include="Model\proposition.cs" />
-    <Compile Include="Model\question.cs" />
-    <Compile Include="Model\request.cs" />
-    <Compile Include="Model\respons.cs" />
-    <Compile Include="Model\student.cs" />
-    <Compile Include="Model\survey.cs" />
-    <Compile Include="Model\user.cs" />
+    <Compile Include="Model\Organisation.cs" />
+    <Compile Include="Model\Phone.cs" />
+    <Compile Include="Model\Program.cs" />
+    <Compile Include="Model\ProgramTypes.cs" />
+    <Compile Include="Model\Proposition.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\Request.cs" />
+    <Compile Include="Model\Respons.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Survey.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\Admin\AdminViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Customer\AddCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\Student\AddStudentViewModel.cs" />
-    <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\DeleteCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\Student\DeleteStudentViewModel.cs" />
-    <Compile Include="ViewModel\Customer\EditCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\Student\EditStudentViewModel.cs" />
-    <Compile Include="ViewModel\Customer\ListCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Customer\ShowCustomerViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\Campus\AddCampusViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\AddProgramViewModel.cs" />
+    <Compile Include="ViewModel\Customers\AddCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customers\Students\AddStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customers\DeleteCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customers\Students\DeleteStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customers\EditCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customers\Students\EditStudentViewModel.cs" />
+    <Compile Include="ViewModel\Customers\ListCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Customers\ShowCustomerViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\Campuses\AddCampusViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\AddProgramViewModel.cs" />
     <Compile Include="ViewModel\Dashboard\DashboardViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MediatorViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\AddOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\Campus\DeleteCampusViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\DeleteOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\Campus\EditCampusViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\DeleteProgramViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\EditOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\EditProgramViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\ListOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\OrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\ShowOrganisationViewModel.cs" />
-    <Compile Include="ViewModel\Organisation\Program\ShowProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\AddOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\Campuses\DeleteCampusViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\DeleteOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\Campuses\EditCampusViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\DeleteProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\EditOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\EditProgramViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\ListOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\OrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\ShowOrganisationViewModel.cs" />
+    <Compile Include="ViewModel\Organisations\Programs\ShowProgramViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
-    <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\EditRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\DeleteRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\ListEventViewModel.cs" />
-    <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\Proposition\AddInscriptionViewModel.cs" />
-    <Compile Include="ViewModel\Request\Proposition\AddPropositionViewModel.cs" />
-    <Compile Include="ViewModel\Request\RequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\ShowRequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\AddRequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\EditRequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\DeleteRequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\ListEventViewModel.cs" />
+    <Compile Include="ViewModel\Requests\ListRequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\Propositions\AddInscriptionViewModel.cs" />
+    <Compile Include="ViewModel\Requests\Propositions\AddPropositionViewModel.cs" />
+    <Compile Include="ViewModel\Requests\RequestViewModel.cs" />
+    <Compile Include="ViewModel\Requests\ShowRequestViewModel.cs" />
     <Compile Include="View\Admin\AdminUCView.xaml.cs">
       <DependentUpon>AdminUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Control\Block.xaml.cs" />
     <Compile Include="View\Control\LoadingAnimation.xaml.cs" />
-    <Compile Include="View\Customer\AddCustomerView.xaml.cs">
+    <Compile Include="View\Customers\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\Student\AddStudentView.xaml.cs">
+    <Compile Include="View\Customers\Students\AddStudentView.xaml.cs">
       <DependentUpon>AddStudentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\CustomerUCView.xaml.cs">
+    <Compile Include="View\Customers\CustomerUCView.xaml.cs">
       <DependentUpon>CustomerUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\DeleteCustomerView.xaml.cs">
+    <Compile Include="View\Customers\DeleteCustomerView.xaml.cs">
       <DependentUpon>DeleteCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\Student\DeleteStudentView.xaml.cs">
+    <Compile Include="View\Customers\Students\DeleteStudentView.xaml.cs">
       <DependentUpon>DeleteStudentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\EditCustomerView.xaml.cs">
+    <Compile Include="View\Customers\EditCustomerView.xaml.cs">
       <DependentUpon>EditCustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\Student\EditStudentView.xaml.cs">
+    <Compile Include="View\Customers\Students\EditStudentView.xaml.cs">
       <DependentUpon>EditStudentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\ListCustomerUCView.xaml.cs">
+    <Compile Include="View\Customers\ListCustomerUCView.xaml.cs">
       <DependentUpon>ListCustomerUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer\ShowCustomerUCView.xaml.cs">
+    <Compile Include="View\Customers\ShowCustomerUCView.xaml.cs">
       <DependentUpon>ShowCustomerUCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Dashboard\DashboardUCView.xaml.cs">
@@ -197,70 +196,70 @@
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\Campus\AddCampusView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\Campuses\AddCampusView.xaml.cs">
       <DependentUpon>AddCampusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\AddOrganisationView.xaml.cs">
+    <Compile Include="View\Organisations\AddOrganisationView.xaml.cs">
       <DependentUpon>AddOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\AddProgramView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\AddProgramView.xaml.cs">
       <DependentUpon>AddProgramView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\Campus\DeleteCampusView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\Campuses\DeleteCampusView.xaml.cs">
       <DependentUpon>DeleteCampusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\DeleteOrganisationView.xaml.cs">
+    <Compile Include="View\Organisations\DeleteOrganisationView.xaml.cs">
       <DependentUpon>DeleteOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\Campus\EditCampusView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\Campuses\EditCampusView.xaml.cs">
       <DependentUpon>EditCampusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\DeleteProgramView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\DeleteProgramView.xaml.cs">
       <DependentUpon>DeleteProgramView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\EditOrganisationView.xaml.cs">
+    <Compile Include="View\Organisations\EditOrganisationView.xaml.cs">
       <DependentUpon>EditOrganisationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\EditProgramView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\EditProgramView.xaml.cs">
       <DependentUpon>EditProgramView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\ListOrganisationUCView.xaml.cs">
+    <Compile Include="View\Organisations\ListOrganisationUCView.xaml.cs">
       <DependentUpon>ListOrganisationUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\OrganisationUCView.xaml.cs">
+    <Compile Include="View\Organisations\OrganisationUCView.xaml.cs">
       <DependentUpon>OrganisationUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\ShowOrganisationUCView.xaml.cs">
+    <Compile Include="View\Organisations\ShowOrganisationUCView.xaml.cs">
       <DependentUpon>ShowOrganisationUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Organisation\Program\ShowProgramUCView.xaml.cs">
+    <Compile Include="View\Organisations\Programs\ShowProgramUCView.xaml.cs">
       <DependentUpon>ShowProgramUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\AddRequestView.xaml.cs">
+    <Compile Include="View\Requests\AddRequestView.xaml.cs">
       <DependentUpon>AddRequestView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\EditRequestView.xaml.cs">
+    <Compile Include="View\Requests\EditRequestView.xaml.cs">
       <DependentUpon>EditRequestView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\DeleteRequestView.xaml.cs">
+    <Compile Include="View\Requests\DeleteRequestView.xaml.cs">
       <DependentUpon>DeleteRequestView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\ListEventView.xaml.cs">
+    <Compile Include="View\Requests\ListEventView.xaml.cs">
       <DependentUpon>ListEventView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\ListRequestUCView.xaml.cs">
+    <Compile Include="View\Requests\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\Proposition\AddInscriptionView.xaml.cs">
+    <Compile Include="View\Requests\Propositions\AddInscriptionView.xaml.cs">
       <DependentUpon>AddInscriptionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\Proposition\AddPropositionView.xaml.cs">
+    <Compile Include="View\Requests\Propositions\AddPropositionView.xaml.cs">
       <DependentUpon>AddPropositionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\RequestUCView.xaml.cs">
+    <Compile Include="View\Requests\RequestUCView.xaml.cs">
       <DependentUpon>RequestUCView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Request\ShowRequestUCView.xaml.cs">
+    <Compile Include="View\Requests\ShowRequestUCView.xaml.cs">
       <DependentUpon>ShowRequestUCView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -308,39 +307,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\AddCustomerView.xaml">
+    <Page Include="View\Customers\AddCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\Student\AddStudentView.xaml">
+    <Page Include="View\Customers\Students\AddStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\CustomerUCView.xaml">
+    <Page Include="View\Customers\CustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\DeleteCustomerView.xaml">
+    <Page Include="View\Customers\DeleteCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\Student\DeleteStudentView.xaml">
+    <Page Include="View\Customers\Students\DeleteStudentView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\EditCustomerView.xaml">
+    <Page Include="View\Customers\EditCustomerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\Student\EditStudentView.xaml">
+    <Page Include="View\Customers\Students\EditStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer\ListCustomerUCView.xaml">
+    <Page Include="View\Customers\ListCustomerUCView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Customer\ShowCustomerUCView.xaml">
+    <Page Include="View\Customers\ShowCustomerUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -356,91 +355,91 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Organisation\Program\Campus\AddCampusView.xaml">
+    <Page Include="View\Organisations\Programs\Campuses\AddCampusView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Organisation\AddOrganisationView.xaml">
+    <Page Include="View\Organisations\AddOrganisationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\AddProgramView.xaml">
+    <Page Include="View\Organisations\Programs\AddProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\Campus\DeleteCampusView.xaml">
+    <Page Include="View\Organisations\Programs\Campuses\DeleteCampusView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Organisation\DeleteOrganisationView.xaml">
+    <Page Include="View\Organisations\DeleteOrganisationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\Campus\EditCampusView.xaml">
+    <Page Include="View\Organisations\Programs\Campuses\EditCampusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\DeleteProgramView.xaml">
+    <Page Include="View\Organisations\Programs\DeleteProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\EditOrganisationView.xaml">
+    <Page Include="View\Organisations\EditOrganisationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\EditProgramView.xaml">
+    <Page Include="View\Organisations\Programs\EditProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\ListOrganisationUCView.xaml">
+    <Page Include="View\Organisations\ListOrganisationUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\OrganisationUCView.xaml">
+    <Page Include="View\Organisations\OrganisationUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\ShowOrganisationUCView.xaml">
+    <Page Include="View\Organisations\ShowOrganisationUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Organisation\Program\ShowProgramUCView.xaml">
+    <Page Include="View\Organisations\Programs\ShowProgramUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\AddRequestView.xaml">
+    <Page Include="View\Requests\AddRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\EditRequestView.xaml">
+    <Page Include="View\Requests\EditRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\DeleteRequestView.xaml">
+    <Page Include="View\Requests\DeleteRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\ListEventView.xaml">
+    <Page Include="View\Requests\ListEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\ListRequestUCView.xaml">
+    <Page Include="View\Requests\ListRequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\Proposition\AddInscriptionView.xaml">
+    <Page Include="View\Requests\Propositions\AddInscriptionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\Proposition\AddPropositionView.xaml">
+    <Page Include="View\Requests\Propositions\AddPropositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\RequestUCView.xaml">
+    <Page Include="View\Requests\RequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Request\ShowRequestUCView.xaml">
+    <Page Include="View\Requests\ShowRequestUCView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

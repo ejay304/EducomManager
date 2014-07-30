@@ -67,12 +67,12 @@ namespace PrototypeEDUCOM.ViewModel
             if (login.Length != 0 && pass.Length != 0)
             {
 
-                user[] users = db.users.Where(u => u.email == login).ToArray();
+                User[] users = db.users.Where(u => u.email == login).ToArray();
 
 
                 if (users.Count() != 0)
                 {
-                    user user = users[0];
+                    User user = users[0];
                     if (HashPassword(pass, user.salt) == user.password)
                     {
                         mediator.user = user;

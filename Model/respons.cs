@@ -7,7 +7,7 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.responses")]
-    public partial class respons
+    public partial class Respons
     {
         public int id { get; set; }
 
@@ -20,8 +20,8 @@ namespace PrototypeEDUCOM.Model
 
         public int questions_id { get; set; }
 
-        public virtual question question { get; set; }
+        public virtual Question question { get; set; }
 
-        public virtual request request { get; set; }
+        public virtual Request request { get; set; }
     }
 }

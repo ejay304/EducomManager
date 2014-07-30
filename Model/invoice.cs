@@ -7,7 +7,7 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.invoices")]
-    public partial class invoice
+    public partial class Invoice
     {
         public int id { get; set; }
 
@@ -28,6 +28,6 @@ namespace PrototypeEDUCOM.Model
 
         public int programs_id { get; set; }
 
-        public virtual program program { get; set; }
+        public virtual Program program { get; set; }
     }
 }

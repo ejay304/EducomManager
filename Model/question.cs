@@ -7,12 +7,12 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.questions")]
-    public partial class question
+    public partial class Question
     {
-        public question()
+        public Question()
         {
-            responses = new HashSet<respons>();
-            surveys = new HashSet<survey>();
+            responses = new HashSet<Respons>();
+            surveys = new HashSet<Survey>();
         }
 
         public int id { get; set; }
@@ -33,8 +33,8 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual ICollection<respons> responses { get; set; }
+        public virtual ICollection<Respons> responses { get; set; }
 
-        public virtual ICollection<survey> surveys { get; set; }
+        public virtual ICollection<Survey> surveys { get; set; }
     }
 }

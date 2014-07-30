@@ -7,11 +7,11 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.surveys")]
-    public partial class survey
+    public partial class Survey
     {
-        public survey()
+        public Survey()
         {
-            questions = new HashSet<question>();
+            questions = new HashSet<Question>();
         }
 
         public int id { get; set; }
@@ -20,7 +20,7 @@ namespace PrototypeEDUCOM.Model
         [StringLength(65532)]
         public string type { get; set; }
 
-        public virtual ICollection<question> questions { get; set; }
+        public virtual ICollection<Question> questions { get; set; }
 
         public override string ToString()
         {

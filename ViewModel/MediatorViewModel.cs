@@ -2,23 +2,23 @@
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View;
 using PrototypeEDUCOM.View.Admin;
-using PrototypeEDUCOM.View.Customer;
-using PrototypeEDUCOM.View.Customer.Student;
+using PrototypeEDUCOM.View.Customers;
+using PrototypeEDUCOM.View.Customers.Students;
 using PrototypeEDUCOM.View.Dashboard;
-using PrototypeEDUCOM.View.Organisation;
-using PrototypeEDUCOM.View.Organisation.Program;
-using PrototypeEDUCOM.View.Organisation.Program.Campus;
-using PrototypeEDUCOM.View.Request;
-using PrototypeEDUCOM.View.Request.Proposition;
+using PrototypeEDUCOM.View.Organisations;
+using PrototypeEDUCOM.View.Organisations.Programs;
+using PrototypeEDUCOM.View.Organisations.Programs.Campuses;
+using PrototypeEDUCOM.View.Requests;
+using PrototypeEDUCOM.View.Requests.Propositions;
 using PrototypeEDUCOM.ViewModel.Admin;
-using PrototypeEDUCOM.ViewModel.Customer;
-using PrototypeEDUCOM.ViewModel.Customer.Student;
+using PrototypeEDUCOM.ViewModel.Customers;
+using PrototypeEDUCOM.ViewModel.Customers.Students;
 using PrototypeEDUCOM.ViewModel.Dashboard;
-using PrototypeEDUCOM.ViewModel.Organisation;
-using PrototypeEDUCOM.ViewModel.Organisation.Program;
-using PrototypeEDUCOM.ViewModel.Organisation.Program.Campus;
-using PrototypeEDUCOM.ViewModel.Request;
-using PrototypeEDUCOM.ViewModel.Request.Proposition;
+using PrototypeEDUCOM.ViewModel.Organisations;
+using PrototypeEDUCOM.ViewModel.Organisations.Programs;
+using PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses;
+using PrototypeEDUCOM.ViewModel.Requests;
+using PrototypeEDUCOM.ViewModel.Requests.Propositions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +40,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         private static MediatorViewModel instance;
 
-        public user user { get; set; }
+        public User user { get; set; }
 
         public static MediatorViewModel getInstance()
         {
@@ -93,7 +93,7 @@ namespace PrototypeEDUCOM.ViewModel
             return view;
         }
 
-        public void openShowCustomerView(contact customer)
+        public void openShowCustomerView(Contact customer)
         {
             ShowCustomerUCView showCustomerView = new ShowCustomerUCView();
             showCustomerView.DataContext = new ShowCustomerViewModel(customer);
@@ -112,7 +112,7 @@ namespace PrototypeEDUCOM.ViewModel
             addCustomerView.Show();
         }
 
-        public void openEditCustomerView(contact customer)
+        public void openEditCustomerView(Contact customer)
         {
             EditCustomerViewModel editCustomerViewModel = new EditCustomerViewModel(customer);
             EditCustomerView editCustomerView = new EditCustomerView();
@@ -123,7 +123,7 @@ namespace PrototypeEDUCOM.ViewModel
             editCustomerView.Show();
         }
 
-        public void openDeleteCustomerView(contact customer)
+        public void openDeleteCustomerView(Contact customer)
         {
             DeleteCustomerViewModel deleteCustomerViewModel = new DeleteCustomerViewModel(customer);
             DeleteCustomerView deleteCustomerView = new DeleteCustomerView();
@@ -145,7 +145,7 @@ namespace PrototypeEDUCOM.ViewModel
             return view;
         }
 
-        public void openShowOrganisationView(organisation organisation)
+        public void openShowOrganisationView(Organisation organisation)
         {
             ShowOrganisationUCView showOrganisationView = new ShowOrganisationUCView();
             showOrganisationView.DataContext = new ShowOrganisationViewModel(organisation);
@@ -165,7 +165,7 @@ namespace PrototypeEDUCOM.ViewModel
             addOrganisationView.Show(); 
         }
 
-        public void openEditOrganisationView(organisation organisation)
+        public void openEditOrganisationView(Organisation organisation)
         {
             EditOrganisationViewModel editOrganisationViewModel = new EditOrganisationViewModel(organisation);
             EditOrganisationView editOrganisationView = new EditOrganisationView();
@@ -176,7 +176,7 @@ namespace PrototypeEDUCOM.ViewModel
             editOrganisationView.Show();
         }
 
-        public void openDeleteOrganisationView(organisation organisation)
+        public void openDeleteOrganisationView(Organisation organisation)
         {
             DeleteOrganisationViewModel deleteOrganisationViewModel = new DeleteOrganisationViewModel(organisation);
             DeleteOrganisationView deleteOrganisationView = new DeleteOrganisationView();
@@ -191,7 +191,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         #region Program
 
-        public void openShowProgramView(program program)
+        public void openShowProgramView(Program program)
         {
             ShowProgramUCView showProgramView = new ShowProgramUCView();
             showProgramView.DataContext = new ShowProgramViewModel(program);
@@ -200,7 +200,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         }
 
-        public void openAddProgramView(organisation organisation)
+        public void openAddProgramView(Organisation organisation)
         {
             AddProgramViewModel addProgramViewModel = new AddProgramViewModel(organisation);
             AddProgramView addProgramView = new AddProgramView();
@@ -211,7 +211,7 @@ namespace PrototypeEDUCOM.ViewModel
             addProgramView.Show();
         }
 
-        public void openEditProgramView(program program)
+        public void openEditProgramView(Program program)
         {
             EditProgramViewModel editProgramViewModel = new EditProgramViewModel(program);
             EditProgramView editProgramView = new EditProgramView();
@@ -223,7 +223,7 @@ namespace PrototypeEDUCOM.ViewModel
    
         }
 
-        public void openDeleteProgramView(program program)
+        public void openDeleteProgramView(Program program)
         {
             DeleteProgramViewModel deleteProgramViewModel = new DeleteProgramViewModel(program);
             DeleteProgramView deleteProgramView = new DeleteProgramView();
@@ -246,7 +246,7 @@ namespace PrototypeEDUCOM.ViewModel
             return view;
         }
 
-        public void openShowRequestView(request request)
+        public void openShowRequestView(Request request)
         {
             mainViewModel.selectedTab = BaseViewModel.tabs["request"];
             ShowRequestUCView showRequestView = new ShowRequestUCView();
@@ -255,7 +255,7 @@ namespace PrototypeEDUCOM.ViewModel
             ((RequestViewModel)mainTabs["request"].tabViewModel).actAddTab(request, showRequestView);
         }
 
-        public void openAddRequestView(contact customer)
+        public void openAddRequestView(Contact customer)
         {
             AddRequestViewModel addRequestViewModel = new AddRequestViewModel(customer);
             AddRequestView addRequestView = new AddRequestView();
@@ -265,7 +265,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             addRequestView.Show();
         }
-        public void openDeleteRequestView(request request) {
+        public void openDeleteRequestView(Request request) {
             DeleteRequestViewModel deleteRequestViewModel = new DeleteRequestViewModel(request);
             DeleteRequestView deleteRequestView = new DeleteRequestView();
 
@@ -275,7 +275,7 @@ namespace PrototypeEDUCOM.ViewModel
             deleteRequestView.ShowDialog();
         }
 
-        public void openEditRequestView(request request)
+        public void openEditRequestView(Request request)
         {
             EditRequestViewModel editRequestViewModel = new EditRequestViewModel(request);
             EditRequestView editRequestView = new EditRequestView();
@@ -286,7 +286,7 @@ namespace PrototypeEDUCOM.ViewModel
             editRequestView.Show();
         }
 
-        public void openListEventView(request request) { 
+        public void openListEventView(Request request) { 
             ListEventViewModel listEventViewModel = new ListEventViewModel(request);
             ListEventView listEventView = new ListEventView();
 
@@ -299,7 +299,7 @@ namespace PrototypeEDUCOM.ViewModel
 
         #region Campus
 
-        public void openAddCampusView(program program)
+        public void openAddCampusView(Program program)
         {
             AddCampusViewModel addCampusViewModel = new AddCampusViewModel(program);
             AddCampusView addCampusView = new AddCampusView();
@@ -310,7 +310,7 @@ namespace PrototypeEDUCOM.ViewModel
             addCampusView.Show();
         }
 
-        public void openEditCampusView(campu campus)
+        public void openEditCampusView(Campus campus)
         {
             EditCampusViewModel editCampusViewModel = new EditCampusViewModel(campus);
             EditCampusView editCampusView = new EditCampusView();
@@ -321,7 +321,7 @@ namespace PrototypeEDUCOM.ViewModel
             editCampusView.Show();
         }
 
-        public void openDeleteCampusView(campu campus) {
+        public void openDeleteCampusView(Campus campus) {
             DeleteCampusViewModel deleteCampusViewModel = new DeleteCampusViewModel(campus);
             DeleteCampusView deleteCampusView = new DeleteCampusView();
 
@@ -336,7 +336,7 @@ namespace PrototypeEDUCOM.ViewModel
 
 
 
-        public void openAddPropositionView(request request){
+        public void openAddPropositionView(Request request){
             AddPropositionViewModel addPropositionViewModel = new AddPropositionViewModel(request);
             AddPropositionView addPropositionView = new AddPropositionView();
 
@@ -347,7 +347,7 @@ namespace PrototypeEDUCOM.ViewModel
         }
 
 
-        public void openInscriptionView(proposition proposition)
+        public void openInscriptionView(Proposition proposition)
         {
             AddInscriptionViewModel addInscriptionViewModel = new AddInscriptionViewModel(proposition);
             AddInscriptionView addInscriptionView = new AddInscriptionView();
@@ -407,7 +407,7 @@ namespace PrototypeEDUCOM.ViewModel
             mainTabs.Add(TabName.REQUEST, new TabContent(requestViewModel, requestUCView));
         }
 
-        public void openAddStudentView(contact customer) {
+        public void openAddStudentView(Contact customer) {
             AddStudentViewModel addStudentViewModel = new AddStudentViewModel(customer);
             AddStudentView addStudentView = new AddStudentView();
 
@@ -416,7 +416,7 @@ namespace PrototypeEDUCOM.ViewModel
 
             addStudentView.Show();
         }
-        public void openEditStudentView(student student) {
+        public void openEditStudentView(Student student) {
             EditStudentViewModel editStudentViewModel = new EditStudentViewModel(student);
             EditStudentView editStudentView = new EditStudentView();
 
@@ -426,7 +426,7 @@ namespace PrototypeEDUCOM.ViewModel
             editStudentView.Show();
        
         }
-        public void openDeleteStudentView(student student) {
+        public void openDeleteStudentView(Student student) {
 
             DeleteStudentViewModel deleteStudentViewModel = new DeleteStudentViewModel(student);
             DeleteStudentView deleteStudentView = new DeleteStudentView();

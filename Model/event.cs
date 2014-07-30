@@ -7,7 +7,7 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.events")]
-    public partial class _event
+    public partial class Event
     {
         public int id { get; set; }
 
@@ -22,9 +22,9 @@ namespace PrototypeEDUCOM.Model
 
         public int requests_id { get; set; }
 
-        public virtual event_types event_types { get; set; }
+        public virtual EventTypes event_types { get; set; }
 
-        public virtual request request { get; set; }
+        public virtual Request request { get; set; }
         public override string ToString()
         {
             return this.event_types.name;

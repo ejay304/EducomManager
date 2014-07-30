@@ -8,7 +8,7 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.organisation")]
-    public partial class organisation : NotifyProperty
+    public partial class Organisation : NotifyProperty
     {
 
         private string _name;
@@ -17,10 +17,10 @@ namespace PrototypeEDUCOM.Model
         private string _zip;
         private string _country;
 
-        public organisation()
+        public Organisation()
         {
-            contacts = new HashSet<contact>();
-            programs = new HashSet<program>();
+            contacts = new HashSet<Contact>();
+            programs = new HashSet<Program>();
         }
 
         public int id { get; set; }
@@ -102,12 +102,12 @@ namespace PrototypeEDUCOM.Model
 
         public int? emails_id { get; set; }
 
-        public virtual ICollection<contact> contacts { get; set; }
+        public virtual ICollection<Contact> contacts { get; set; }
 
-        public virtual email email { get; set; }
+        public virtual Email email { get; set; }
 
-        public virtual phone phone { get; set; }
+        public virtual Phone phone { get; set; }
 
-        public virtual ICollection<program> programs { get; set; }
+        public virtual ICollection<Program> programs { get; set; }
     }
 }

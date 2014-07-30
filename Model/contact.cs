@@ -9,7 +9,7 @@ namespace PrototypeEDUCOM.Model
 
 
     [Table("EducomDb.contacts")]
-    public class contact : NotifyProperty
+    public class Contact : NotifyProperty
     {
 
         private string _firstname;
@@ -23,13 +23,13 @@ namespace PrototypeEDUCOM.Model
         private string _language;
         private DateTime? _add_date;
 
-        public contact()
+        public Contact()
         {
-            emails = new HashSet<email>();
-            phones = new HashSet<phone>();
-            students = new HashSet<student>();
-            campaigns = new HashSet<campaign>();
-            requests = new HashSet<request>();
+            emails = new HashSet<Email>();
+            phones = new HashSet<Phone>();
+            students = new HashSet<Student>();
+            campaigns = new HashSet<Campaign>();
+            requests = new HashSet<Request>();
         }
 
         public int id { get; set; }
@@ -187,19 +187,19 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual organisation organisation { get; set; }
+        public virtual Organisation organisation { get; set; }
 
-        public virtual program program { get; set; }
+        public virtual Program program { get; set; }
 
-        public virtual ICollection<email> emails { get; set; }
+        public virtual ICollection<Email> emails { get; set; }
 
-        public virtual ICollection<phone> phones { get; set; }
+        public virtual ICollection<Phone> phones { get; set; }
 
-        public virtual ICollection<request> requests { get; set; }
+        public virtual ICollection<Request> requests { get; set; }
 
-        public virtual ICollection<student> students { get; set; }
+        public virtual ICollection<Student> students { get; set; }
 
-        public virtual ICollection<campaign> campaigns { get; set; }
+        public virtual ICollection<Campaign> campaigns { get; set; }
 
         public string fullName
         {

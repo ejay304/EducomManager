@@ -8,7 +8,7 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.students")]
-    public class student : NotifyProperty
+    public class Student : NotifyProperty
     {
 
         private string _lastname;
@@ -17,9 +17,9 @@ namespace PrototypeEDUCOM.Model
         private DateTime _birthday;
         private string _kinship;
 
-        public student()
+        public Student()
         {
-            requests = new HashSet<request>();
+            requests = new HashSet<Request>();
         }
 
         public int id { get; set; }
@@ -104,9 +104,9 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual contact contact { get; set; }
+        public virtual Contact contact { get; set; }
 
-        public virtual ICollection<request> requests { get; set; }
+        public virtual ICollection<Request> requests { get; set; }
 
         public string fullName
         {

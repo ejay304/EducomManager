@@ -7,9 +7,9 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.propositions")]
-    public partial class proposition : NotifyProperty
+    public partial class Proposition : NotifyProperty
     {
-        private campu _campu;
+        private Campus _campu;
 
         [Key]
         [Column(Order = 0)]
@@ -25,7 +25,7 @@ namespace PrototypeEDUCOM.Model
 
         public int? campus_id { get; set; }
 
-        public virtual campu campu
+        public virtual Campus campu
         {
             get
             {
@@ -38,8 +38,8 @@ namespace PrototypeEDUCOM.Model
             }
         }
 
-        public virtual program program { get; set; }
+        public virtual Program program { get; set; }
 
-        public virtual request request { get; set; }
+        public virtual Request request { get; set; }
     }
 }

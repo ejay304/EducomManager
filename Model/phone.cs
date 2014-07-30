@@ -7,11 +7,11 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.phones")]
-    public partial class phone
+    public partial class Phone
     {
-        public phone()
+        public Phone()
         {
-            organisations = new HashSet<organisation>();
+            organisations = new HashSet<Organisation>();
         }
 
         public int id { get; set; }
@@ -30,9 +30,9 @@ namespace PrototypeEDUCOM.Model
 
         public bool active { get; set; }
 
-        public virtual contact contact { get; set; }
+        public virtual Contact contact { get; set; }
 
-        public virtual ICollection<organisation> organisations { get; set; }
+        public virtual ICollection<Organisation> organisations { get; set; }
 
         public override string ToString()
         {
