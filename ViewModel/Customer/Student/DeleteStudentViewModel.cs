@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace PrototypeEDUCOM.ViewModel.Customer
+namespace PrototypeEDUCOM.ViewModel.Customer.Student
 {
     class DeleteStudentViewModel : BaseViewModel
     {

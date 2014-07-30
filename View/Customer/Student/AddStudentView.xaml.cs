@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PrototypeEDUCOM.View.Customer
+namespace PrototypeEDUCOM.View.Customer.Student
 {
     /// <summary>
     /// Logique d'interaction pour AddStudentView.xaml

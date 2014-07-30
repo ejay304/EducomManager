@@ -39,7 +39,7 @@
                                 <GridViewColumnHeader Content="Etudiant" Command="{Binding cmdSort}" CommandParameter="student" />
                             </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding creation_date}">
+                        <GridViewColumn DisplayMemberBinding="{Binding creation_date, StringFormat={}{0:dd/MM/yyyy}}">
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="Date" Command="{Binding cmdSort}" CommandParameter="date" />
                             </GridViewColumn.Header>

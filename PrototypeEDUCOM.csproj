@@ -152,7 +152,7 @@
     <Compile Include="ViewModel\Request\DeleteRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ListEventViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\Program\AddPropositionViewModel.cs" />
+    <Compile Include="ViewModel\Request\Proposition\AddPropositionViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ShowRequestViewModel.cs" />
     <Compile Include="View\Admin\AdminUCView.xaml.cs">

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PrototypeEDUCOM.View.Organisation
+namespace PrototypeEDUCOM.View.Organisation.Program
 {
     /// <summary>
     /// Logique d'interaction pour ShowProgramUCView.xaml

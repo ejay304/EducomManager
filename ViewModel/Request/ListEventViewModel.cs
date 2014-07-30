@@ -16,7 +16,6 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public ListEventViewModel(request request)
         {
             this.events = new SortableObservableCollection<_event>(request.events.ToList());
-        
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PrototypeEDUCOM.View.Organisation
+namespace PrototypeEDUCOM.View.Organisation.Program
 {
     /// <summary>
     /// Logique d'interaction pour DeleteProgramView.xaml

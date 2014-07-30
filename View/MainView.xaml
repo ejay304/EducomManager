@@ -53,30 +53,38 @@
             <CheckBox Content="Demandes" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"  Grid.Column="1"/>
             <CheckBox Content="Organisations" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1"  Grid.Column="2"/>
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="1*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90" />
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="A Propos" VerticalAlignment="Top" TextDecorations="Underline" Grid.Column="0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Aide" VerticalAlignment="Top" TextDecorations="Underline" Grid.Column="1"/>
-            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" HorizontalAlignment="Left" Command="{Binding cmdLogout}" Margin="0,10,10,0" Content="Déconnexion" VerticalAlignment="Top" Grid.Column="2"/>
-            <Border BorderThickness="1" BorderBrush="#30859a" Grid.ColumnSpan="3" Grid.Row="1" Margin="15" />
+        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Margin="20,0" >
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" Margin="10,10" TextWrapping="Wrap" Text="A Propos" TextDecorations="Underline"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,10" TextWrapping="Wrap" Text="Aide" TextDecorations="Underline"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,10" TextWrapping="Wrap" Text="Déconnexion" TextDecorations="Underline">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <Trigger Property ="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding cmdLogout}" MouseAction="LeftClick" />
+                    </TextBlock.InputBindings>
+                </TextBlock>
 
-            <Grid Grid.Row="1" Grid.ColumnSpan="3" Margin="16" Background="#ebebeb">
+                <!--  <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA"  Command="{Binding cmdLogout}" Margin="0,10,10,0" Content="Déconnexion" VerticalAlignment="Top" />
+           -->
+            </StackPanel>
+            <Border BorderThickness="1" BorderBrush="#30859a" Background="#ebebeb" Margin="10" >
+
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6" Orientation="Horizontal">
                     <Image Source="/PrototypeEDUCOM;component/Ressource/userLogin.png" Width="40" Height="40" />
-                    <StackPanel>
+                    <StackPanel Margin="10,0,0,0">
                         <TextBlock Text="{Binding user.fullName}" FontWeight="Bold" />
                         <TextBlock Text="{Binding user.role}" />
                     </StackPanel>
                 </StackPanel>
-            </Grid>
-        </Grid>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>

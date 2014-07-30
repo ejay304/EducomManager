@@ -86,7 +86,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public void actListEvent(Object o)
         {
-            //mediator.openListEventView(this.request);
+            mediator.openListEventView(this.request);
         }
 
         public void actInscription(proposition p)

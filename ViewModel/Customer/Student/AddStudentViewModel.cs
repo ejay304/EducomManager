@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace PrototypeEDUCOM.ViewModel.Customer
+namespace PrototypeEDUCOM.ViewModel.Customer.Student
 {
     class AddStudentViewModel : BaseViewModel
     {
@@ -26,8 +26,7 @@ namespace PrototypeEDUCOM.ViewModel.Customer
         public Validation validBirthday { get; set; }
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
-        public ShowCustomerViewModel parentVM { get; set; }
-
+    
         public AddStudentViewModel(contact customer) {
 
             this.customer = customer;
@@ -35,7 +34,6 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             this.kinship = kinships.First().Key;
             this.gender = genders.First().Key;
             this.cmdAdd = new RelayCommand<object>(actAdd);
-            this.parentVM = parentVM;
         }
         public void actAdd(object o)
         { 

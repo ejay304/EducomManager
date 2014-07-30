@@ -1,4 +1,4 @@
-﻿<Window x:Class="PrototypeEDUCOM.View.Organisation.DeleteProgramView"
+﻿<Window x:Class="PrototypeEDUCOM.View.Organisation.Program.DeleteProgramView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        Title="DeleteProgramView" SizeToContent="Height" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace PrototypeEDUCOM.ViewModel.Request.Program
+namespace PrototypeEDUCOM.ViewModel.Request.Proposition
 {
     class AddPropositionViewModel : BaseViewModel
     {
