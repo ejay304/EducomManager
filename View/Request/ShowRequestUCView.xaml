@@ -71,6 +71,11 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF30859A">
                 <Label Content="Jauge d'événement" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdListEvent}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
 
             <Grid Grid.Row="1" Background="White" Name="jauge">
@@ -299,6 +304,21 @@
                             <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding program.organisation.name}" />
                             <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding program.organisation.city}" />
                             <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding program.organisation.country}" />
+                            <GridViewColumn Header="Inscription">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding inscription}" Command="{Binding cmdInscription}" CommandParameter="{Binding}">
+                                            <Style TargetType="{x:Type CheckBox}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding isInscription}" Value="true">
+                                                        <Setter Property="IsEnabled" Value="{Binding inscription}" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>

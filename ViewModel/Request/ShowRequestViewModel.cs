@@ -14,20 +14,34 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public request request { get; set; }
         public ObservableCollection<proposition> propositions { get; set; }
 
+        public bool isInscription { get; set; }
+
         public ICommand cmdEdit { get; set; }
         public ICommand cmdAddProposition { get; set; }
         public ICommand cmdDeleteProposition { get; set; }
         public ICommand cmdDeleteRequest { get; set; }
+        public ICommand cmdListEvent { get; set; }
+        public ICommand cmdInscription { get; set; }
 
         public ShowRequestViewModel(request request)
         {
             this.request = request;
             this.propositions = new ObservableCollection<proposition>(request.propositions.ToList());
-            this.cmdEdit = new RelayCommand<request>(actEdit);
 
+            isInscription = false;
+            foreach (proposition p in propositions)
+                if ((bool)p.inscription)
+                {
+                    isInscription = true;
+                    break;
+                }
+
+            this.cmdEdit = new RelayCommand<request>(actEdit);
             this.cmdAddProposition = new RelayCommand<Object>(actAddProposition);
             this.cmdDeleteProposition = new RelayCommand<proposition>(actDeleteProposition);
             this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteRequest);
+            this.cmdListEvent = new RelayCommand<Object>(actListEvent);
+            this.cmdInscription = new RelayCommand<proposition>(actInscription);
 
             mediator.Register(Helper.Event.ADD_REQUEST,this);
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
@@ -52,6 +66,16 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public void actDeleteRequest(Object o) {
            mediator.openDeleteRequestView(this.request);
+        }
+
+        public void actListEvent(Object o)
+        {
+            //mediator.openListEventView(this.request);
+        }
+
+        public void actInscription(proposition p)
+        {
+            //
         }
 
         public override void Update(string eventName, object item)
