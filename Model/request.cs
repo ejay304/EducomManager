@@ -51,7 +51,7 @@
         public string journey_type { 
             get 
             {
-                return Dictionaries.journeys[_journey_type];
+                return _journey_type;
             } 
             set 
             {

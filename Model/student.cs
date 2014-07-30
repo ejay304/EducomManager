@@ -61,7 +61,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return Dictionaries.genders[_gender];
+                return _gender;
             }
             set
             {
@@ -91,7 +91,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return Dictionaries.kinships[_kinship];
+                return _kinship;
             }
             set
             {

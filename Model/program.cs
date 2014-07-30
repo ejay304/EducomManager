@@ -41,7 +41,7 @@ namespace PrototypeEDUCOM.Model
 
         public virtual Organisation organisation { get; set; }
 
-        public virtual ProgramTypes program_types { get; set; }
+        public virtual ProgramType program_types { get; set; }
 
         public virtual ICollection<Proposition> propositions { get; set; }
 

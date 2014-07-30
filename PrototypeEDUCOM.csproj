@@ -103,13 +103,13 @@
     <Compile Include="Model\EducomDb.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Event.cs" />
-    <Compile Include="Model\EventTypes.cs" />
+    <Compile Include="Model\EventType.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\NotifyProperty.cs" />
     <Compile Include="Model\Organisation.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\Program.cs" />
-    <Compile Include="Model\ProgramTypes.cs" />
+    <Compile Include="Model\ProgramType.cs" />
     <Compile Include="Model\Proposition.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Request.cs" />

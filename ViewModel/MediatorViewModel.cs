@@ -107,7 +107,7 @@ namespace PrototypeEDUCOM.ViewModel
             AddCustomerView addCustomerView = new AddCustomerView();
 
             addCustomerView.DataContext = addCustomerViewModel;
-            addCustomerViewModel.CloseActionFormAdd = new Action(() => addCustomerView.Close());
+            addCustomerViewModel.CloseActionAdd = new Action(() => addCustomerView.Close());
 
             addCustomerView.Show();
         }
@@ -118,7 +118,7 @@ namespace PrototypeEDUCOM.ViewModel
             EditCustomerView editCustomerView = new EditCustomerView();
 
             editCustomerView.DataContext = editCustomerViewModel;
-            editCustomerViewModel.CloseActionFormEdit = new Action(() => editCustomerView.Close());
+            editCustomerViewModel.CloseActionEdit = new Action(() => editCustomerView.Close());
 
             editCustomerView.Show();
         }
@@ -160,7 +160,7 @@ namespace PrototypeEDUCOM.ViewModel
             AddOrganisationView addOrganisationView = new AddOrganisationView();
 
             addOrganisationView.DataContext = addOrganisationViewModel;
-            addOrganisationViewModel.CloseActionFormAdd = new Action(() => addOrganisationView.Close());
+            addOrganisationViewModel.CloseActionAdd = new Action(() => addOrganisationView.Close());
 
             addOrganisationView.Show(); 
         }
@@ -171,7 +171,7 @@ namespace PrototypeEDUCOM.ViewModel
             EditOrganisationView editOrganisationView = new EditOrganisationView();
 
             editOrganisationView.DataContext = editOrganisationViewModel;
-            editOrganisationViewModel.CloseActionFormEdit = new Action(() => editOrganisationView.Close());
+            editOrganisationViewModel.CloseActionEdit = new Action(() => editOrganisationView.Close());
 
             editOrganisationView.Show();
         }

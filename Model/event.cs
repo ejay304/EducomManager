@@ -22,7 +22,7 @@ namespace PrototypeEDUCOM.Model
 
         public int requests_id { get; set; }
 
-        public virtual EventTypes event_types { get; set; }
+        public virtual EventType event_types { get; set; }
 
         public virtual Request request { get; set; }
         public override string ToString()

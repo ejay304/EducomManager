@@ -21,8 +21,7 @@ namespace PrototypeEDUCOM.Model
         private string _country;
         private string _district;
         private string _language;
-        private DateTime? _add_date;
-
+     
         public Contact()
         {
             emails = new HashSet<Email>();
@@ -38,7 +37,7 @@ namespace PrototypeEDUCOM.Model
         [StringLength(65532)]
         public string civility {
             get {
-                return Dictionaries.civilities[_civility];
+                return _civility;
             }
             set {
                 _civility = value;

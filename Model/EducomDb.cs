@@ -30,12 +30,12 @@ namespace PrototypeEDUCOM.Model
         public virtual DbSet<Campus> campus { get; set; }
         public virtual DbSet<Contact> contacts { get; set; }
         public virtual DbSet<Email> emails { get; set; }
-        public virtual DbSet<EventTypes> event_types { get; set; }
+        public virtual DbSet<EventType> event_types { get; set; }
         public virtual DbSet<Event> events { get; set; }
         public virtual DbSet<Invoice> invoices { get; set; }
         public virtual DbSet<Organisation> organisations { get; set; }
         public virtual DbSet<Phone> phones { get; set; }
-        public virtual DbSet<ProgramTypes> program_types { get; set; }
+        public virtual DbSet<ProgramType> program_types { get; set; }
         public virtual DbSet<Program> programs { get; set; }
         public virtual DbSet<Proposition> propositions { get; set; }
         public virtual DbSet<Question> questions { get; set; }
@@ -189,15 +189,15 @@ namespace PrototypeEDUCOM.Model
                 .HasForeignKey(e => e.emails_id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<EventTypes>()
+            modelBuilder.Entity<EventType>()
                 .Property(e => e.name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<EventTypes>()
+            modelBuilder.Entity<EventType>()
                 .Property(e => e.description)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<EventTypes>()
+            modelBuilder.Entity<EventType>()
                 .HasMany(e => e.events)
                 .WithRequired(e => e.event_types)
                 .HasForeignKey(e => e.event_types_id)
@@ -256,15 +256,15 @@ namespace PrototypeEDUCOM.Model
                 .HasForeignKey(e => e.phones_id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ProgramTypes>()
+            modelBuilder.Entity<ProgramType>()
                 .Property(e => e.name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ProgramTypes>()
+            modelBuilder.Entity<ProgramType>()
                 .Property(e => e.description)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ProgramTypes>()
+            modelBuilder.Entity<ProgramType>()
                 .HasMany(e => e.programs)
                 .WithRequired(e => e.program_types)
                 .HasForeignKey(e => e.program_types_id)
