@@ -1,5 +1,6 @@
 namespace PrototypeEDUCOM.Model
 {
+    using PrototypeEDUCOM.Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@ namespace PrototypeEDUCOM.Model
     [Table("EducomDb.program_types")]
     public partial class program_types
     {
+
         public program_types()
         {
             programs = new HashSet<program>();
@@ -28,7 +30,7 @@ namespace PrototypeEDUCOM.Model
         
         public override string ToString()
         {
-            return this.name;
+            return this.description;
         }
 
     }

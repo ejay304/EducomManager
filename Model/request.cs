@@ -1,5 +1,6 @@
     namespace PrototypeEDUCOM.Model
 {
+    using PrototypeEDUCOM.Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@
     [Table("EducomDb.requests")]
     public partial class request
     {
+        private string _journey_type;
         public request()
         {
             events = new HashSet<_event>();
@@ -46,7 +48,16 @@
 
         [Column(TypeName = "enum")]
         [StringLength(65532)]
-        public string journey_type { get; set; }
+        public string journey_type { 
+            get 
+            {
+                return Dictionaries.journeys[_journey_type];
+            } 
+            set 
+            {
+                _journey_type = value;
+            }
+        }
 
         public virtual contact contact { get; set; }
 

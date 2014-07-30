@@ -30,12 +30,12 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public void actAdd(Object o) { 
 
-            _event _newEvent = new _event();
-            _newEvent.event_types = db.event_types.OrderBy(event_type => event_type.order).First();
+            _event newEvent = new _event();
+            newEvent.event_types = db.event_types.OrderBy(event_type => event_type.order).First();
 
             request request = new request();
 
-            request.events.Add(_newEvent);
+            request.events.Add(newEvent);
             request.contact = this.customer;
             request.user = mediator.user;
             request.journey_type = this.journey;

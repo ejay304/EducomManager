@@ -18,6 +18,9 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public ICommand cmdAddProposition { get; set; }
         public ICommand cmdDeleteProposition { get; set; }
         public ICommand cmdDeleteRequest { get; set; }
+        public ICommand cmdSendProposition { get; set; }
+   
+        
 
         public ShowRequestViewModel(request request)
         {
@@ -25,14 +28,29 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.propositions = new ObservableCollection<proposition>(request.propositions.ToList());
             this.cmdEdit = new RelayCommand<request>(actEdit);
 
+
             this.cmdAddProposition = new RelayCommand<Object>(actAddProposition);
             this.cmdDeleteProposition = new RelayCommand<proposition>(actDeleteProposition);
             this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteRequest);
+            this.cmdSendProposition = new RelayCommand<Object>(actSendProposition);
 
             mediator.Register(Helper.Event.ADD_REQUEST,this);
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
            
             mediator.Register(Helper.Event.ADD_PROPOSITION,this);
+        }
+
+        public void actSendProposition(Object request)
+        {
+            _event _event = new _event();
+            _event.date = DateTime.Now;
+            _event.event_types = db.event_types.Where(et => et.name == "Proposition").First();
+
+            this.request.events.Add(_event);
+
+            db.SaveChanges();
+            NotifyPropertyChanged("request");
+
         }
 
         public void actEdit(request request)

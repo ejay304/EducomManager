@@ -1,5 +1,6 @@
 namespace PrototypeEDUCOM.Model
 {
+    using PrototypeEDUCOM.Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -37,7 +38,7 @@ namespace PrototypeEDUCOM.Model
         [StringLength(65532)]
         public string civility {
             get {
-                return _civility;
+                return Dictionaries.civilities[_civility];
             }
             set {
                 _civility = value;
@@ -144,7 +145,7 @@ namespace PrototypeEDUCOM.Model
             set
             {
                 _district = value;
-                NotifyPropertyChanged("country");
+                NotifyPropertyChanged("district");
             }
         }
 
@@ -159,7 +160,7 @@ namespace PrototypeEDUCOM.Model
             set
             {
                 _language = value;
-                NotifyPropertyChanged("country");
+                NotifyPropertyChanged("language");
             }
         }
 
