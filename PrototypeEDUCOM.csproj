@@ -151,7 +151,8 @@
     <Compile Include="ViewModel\Request\EditRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\DeleteRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
-    <Compile Include="ViewModel\Request\Program\AddPropositionViewModel.cs" />
+    <Compile Include="ViewModel\Request\Proposition\AddInscriptionViewModel.cs" />
+    <Compile Include="ViewModel\Request\Proposition\AddPropositionViewModel.cs" />
     <Compile Include="ViewModel\Request\RequestViewModel.cs" />
     <Compile Include="ViewModel\Request\ShowRequestViewModel.cs" />
     <Compile Include="View\Admin\AdminUCView.xaml.cs">
@@ -245,6 +246,9 @@
     </Compile>
     <Compile Include="View\Request\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\Proposition\AddInscriptionView.xaml.cs">
+      <DependentUpon>AddInscriptionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\Proposition\AddPropositionView.xaml.cs">
       <DependentUpon>AddPropositionView.xaml</DependentUpon>
@@ -416,6 +420,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Request\Proposition\AddInscriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Request\Proposition\AddPropositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -513,6 +521,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressource\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressource\validBlue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

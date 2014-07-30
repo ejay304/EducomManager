@@ -15,6 +15,7 @@ using PrototypeEDUCOM.ViewModel.Organisation;
 using PrototypeEDUCOM.ViewModel.Organisation.Program.Campus;
 using PrototypeEDUCOM.ViewModel.Request;
 using PrototypeEDUCOM.ViewModel.Request.Program;
+using PrototypeEDUCOM.ViewModel.Request.Proposition;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -331,9 +332,20 @@ namespace PrototypeEDUCOM.ViewModel
             addPropositionViewModel.CloseActionAdd = new Action(() => addPropositionView.Close());
 
             addPropositionView.Show(); 
-
-        
         }
+
+
+        public void openInscriptionView(proposition proposition)
+        {
+            AddInscriptionViewModel addInscriptionViewModel = new AddInscriptionViewModel(proposition);
+            AddInscriptionView addInscriptionView = new AddInscriptionView();
+
+            addInscriptionView.DataContext = addInscriptionViewModel;
+            addInscriptionViewModel.CloseActionAdd = new Action(() => addInscriptionView.Close());
+
+            addInscriptionView.Show(); 
+        }
+
         public void createTabViewModel()
         {
             if (!user.role.Equals("assistant"))
