@@ -20,6 +20,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
         public ICommand cmdAddProposition { get; set; }
         public ICommand cmdDeleteProposition { get; set; }
         public ICommand cmdDeleteRequest { get; set; }
+        public ICommand cmdSendProposition { get; set; }
+
         public ICommand cmdListEvent { get; set; }
         public ICommand cmdInscription { get; set; }
 
@@ -39,6 +41,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.cmdEdit = new RelayCommand<request>(actEdit);
             this.cmdAddProposition = new RelayCommand<Object>(actAddProposition);
             this.cmdDeleteProposition = new RelayCommand<proposition>(actDeleteProposition);
+            this.cmdSendProposition = new RelayCommand<Object>(actSendProposition);
             this.cmdDeleteRequest = new RelayCommand<Object>(actDeleteRequest);
             this.cmdListEvent = new RelayCommand<Object>(actListEvent);
             this.cmdInscription = new RelayCommand<proposition>(actInscription);
@@ -47,6 +50,19 @@ namespace PrototypeEDUCOM.ViewModel.Request
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
             mediator.Register(Helper.Event.ADD_PROPOSITION,this);
             mediator.Register(Helper.Event.ADD_INSCRIPTION, this);
+        }
+
+        public void actSendProposition(Object request)
+        {
+            _event _event = new _event();
+            _event.date = DateTime.Now;
+            _event.event_types = db.event_types.Where(et => et.name == "Proposition").First();
+
+            this.request.events.Add(_event);
+
+            db.SaveChanges();
+            NotifyPropertyChanged("request");
+
         }
 
         public void actEdit(request request)

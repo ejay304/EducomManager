@@ -1,14 +1,16 @@
 namespace PrototypeEDUCOM.Model
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using PrototypeEDUCOM.Helper;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
 
     [Table("EducomDb.users")]
     public partial class user
     {
+        private string _role;
         public user()
         {
             requests = new HashSet<request>();
@@ -38,7 +40,14 @@ namespace PrototypeEDUCOM.Model
         [Column(TypeName = "enum")]
         [Required]
         [StringLength(65532)]
-        public string role { get; set; }
+        public string role {
+            get { 
+                return Dictionaries.users[_role];
+            }
+            set {
+                _role = value;
+            } 
+        }
 
         public bool active { get; set; }
 

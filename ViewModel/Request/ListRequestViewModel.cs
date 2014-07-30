@@ -37,6 +37,7 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public ListRequestViewModel() : base()
         {
+
             this.requests = new SortableObservableCollection<request>(db.requests.ToList());
             this.cmdViewDetail = new RelayCommand<request>(actViewDetail);
             this.cmdSort = new RelayCommand<string>(actSort);
@@ -116,7 +117,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
                 query = query.Where(c => (c.user.lastname == filterAdviser.lastname && c.user.firstname == filterAdviser.firstname));
 
             if (filterState.name != "TOUS")
-                query = query.Where(r => r.events.OrderByDescending(e => e.date).FirstOrDefault().event_types.name == filterState.name);
+                query = query.Where(c => c.events.Any(e => e.event_types_id == filterState.id));
+         
 
             this.requests = new SortableObservableCollection<request>(query.ToList());
             NotifyPropertyChanged("requests");

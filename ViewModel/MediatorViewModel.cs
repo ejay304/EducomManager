@@ -283,6 +283,15 @@ namespace PrototypeEDUCOM.ViewModel
             editRequestView.Show();
         }
 
+        public void openListEventView(request request) { 
+            ListEventViewModel listEventViewModel = new ListEventViewModel(request);
+            ListEventView listEventView = new ListEventView();
+
+            listEventView.DataContext = listEventViewModel;
+
+            listEventView.Show();
+        }
+
         #endregion
 
         #region Campus

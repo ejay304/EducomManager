@@ -1,5 +1,6 @@
 namespace PrototypeEDUCOM.Model
 {
+    using PrototypeEDUCOM.Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -86,7 +87,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return _country;
+                return Dictionaries.countries[_country];
             }
             set
             {

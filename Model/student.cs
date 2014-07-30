@@ -1,5 +1,6 @@
 namespace PrototypeEDUCOM.Model
 {
+    using PrototypeEDUCOM.Helper;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -60,7 +61,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return _gender;
+                return Dictionaries.genders[_gender];
             }
             set
             {
@@ -90,7 +91,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return _kinship;
+                return Dictionaries.kinships[_kinship];
             }
             set
             {

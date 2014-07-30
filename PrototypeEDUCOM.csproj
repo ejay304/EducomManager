@@ -150,6 +150,7 @@
     <Compile Include="ViewModel\Request\AddRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\EditRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\DeleteRequestViewModel.cs" />
+    <Compile Include="ViewModel\Request\ListEventViewModel.cs" />
     <Compile Include="ViewModel\Request\ListRequestViewModel.cs" />
     <Compile Include="ViewModel\Request\Proposition\AddInscriptionViewModel.cs" />
     <Compile Include="ViewModel\Request\Proposition\AddPropositionViewModel.cs" />
@@ -243,6 +244,9 @@
     </Compile>
     <Compile Include="View\Request\DeleteRequestView.xaml.cs">
       <DependentUpon>DeleteRequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Request\ListEventView.xaml.cs">
+      <DependentUpon>ListEventView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Request\ListRequestUCView.xaml.cs">
       <DependentUpon>ListRequestUCView.xaml</DependentUpon>
@@ -413,6 +417,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Request\DeleteRequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Request\ListEventView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
