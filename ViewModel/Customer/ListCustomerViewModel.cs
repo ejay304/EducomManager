@@ -27,9 +27,9 @@ namespace PrototypeEDUCOM.ViewModel.Customer
 
         private Dictionary<string,bool> directionSorted = new Dictionary<string,bool>();
 
-        public Dictionary<string, string> countries { get { return Dictionaries.countries; } set { } }
+        public Dictionary<string, string> countries { get; set; }
 
-        public Dictionary<string, string> languages { get { return Dictionaries.languages; } set { } }
+        public Dictionary<string, string> languages { get; set; }
 
         public string filterCountry { get; set; }
         public string filterLanguage { get; set; }
@@ -62,6 +62,16 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             directionSorted.Add("city", false);
             directionSorted.Add("language", false);
             directionSorted.Add("date", false);
+
+            countries = new Dictionary<string, string>();
+            countries.Add("all", "TOUS");
+            countries = countries.Concat(Dictionaries.countries).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterCountry = countries.First().Key;
+
+            languages = new Dictionary<string, string>();
+            languages.Add("all", "TOUS");
+            languages = languages.Concat(Dictionaries.languages).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterLanguage = languages.First().Key;
         }
 
         private void actAdd(object obj)
@@ -75,10 +85,10 @@ namespace PrototypeEDUCOM.ViewModel.Customer
             var query = from p in db.contacts
                         select p;
 
-            if (filterCountry != null)
+            if (filterCountry != "all")
                 query = query.Where(c => c.country == filterCountry);
 
-            if (filterLanguage != null)
+            if (filterLanguage != "all")
                 query = query.Where(c => c.language == filterLanguage);
 
             this.customers = new SortableObservableCollection<contact>(query.ToList());

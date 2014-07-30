@@ -11,7 +11,8 @@ namespace PrototypeEDUCOM.Helper
         public const string DASHBORAD = "dashboard";
         public const string CUSTOMER = "customer";
         public const string ORGANISATION = "organisation";
-        public const string REQUEST = "request"; 
+        public const string REQUEST = "request";
+        public const string ADMIN = "admin";
         
     }
 }

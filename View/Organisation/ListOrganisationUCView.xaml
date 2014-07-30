@@ -27,8 +27,8 @@
             <StackPanel Orientation="Horizontal" Grid.Row="1" Background="White" HorizontalAlignment="Stretch" Margin="2,2,2,0">
                 <Label Content="Filtre" Margin="10,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
                 <Label Content="Pays" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Height="30" Width="100" Margin="5,0,0,0"  ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterCountry}" />
-                <Button Content="Appliquer" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdFilter}"></Button>
+                <ComboBox Height="30" Width="100" Margin="5,0,10,0" ItemsSource="{Binding countries}" DisplayMemberPath="Value"  SelectedValuePath="Key" SelectedValue="{Binding filterCountry}" />
+                <Button Content="Appliquer" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Command="{Binding cmdFilter}"></Button>
             </StackPanel>
             <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#FF30859A" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding organisations}" x:Name="list" Grid.Row="2" >
                 <ListView.View>

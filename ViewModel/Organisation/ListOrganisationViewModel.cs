@@ -1,4 +1,5 @@
 ﻿using PrototypeEducom.Helper;
+using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Organisation;
 using System;
@@ -50,9 +51,9 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             directionSorted.Add("country", false);
 
             countries = new Dictionary<string, string>();
-            countries.Add("suisse", "Suisse");
-            countries.Add("france", "France");
-            countries.Add("italie", "Italie");
+            countries.Add("all", "TOUS");
+            countries = countries.Concat(Dictionaries.countries).ToDictionary(pair => pair.Key, pair => pair.Value);
+            filterCountry = countries.First().Key;
         }
 
         private void actFilter(object obj)
@@ -60,7 +61,7 @@ namespace PrototypeEDUCOM.ViewModel.Organisation
             var query = from p in db.organisations
                         select p;
 
-            if (filterCountry != null)
+            if (filterCountry != "all")
                 query = query.Where(c => c.country == filterCountry);
 
             this.organisations = new SortableObservableCollection<organisation>(query.ToList());

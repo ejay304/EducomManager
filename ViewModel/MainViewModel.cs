@@ -40,14 +40,17 @@ namespace PrototypeEDUCOM.ViewModel
 
             mediator.createTabViewModel();
 
-            if (Dictionaries.users["assistant"].CompareTo(mediator.user.role) != 0 )
+            if (!mediator.user.role.Equals("assistant"))
                 tabs.Add(TabName.DASHBORAD,new Tab("Dashboard", mediator.mainTabs["dashboard"].tabUC, null, "../Ressource/dashboard.png"));
 
             tabs.Add(TabName.CUSTOMER,new Tab("Clients", mediator.mainTabs["customer"].tabUC, null, "../Ressource/clients.png"));
             tabs.Add(TabName.ORGANISATION, new Tab("Organisations", mediator.mainTabs["organisation"].tabUC, null, "../Ressource/organisations.png"));
             tabs.Add(TabName.REQUEST, new Tab("Demandes", mediator.mainTabs["request"].tabUC, null, "../Ressource/demandes.png"));
 
-            if (Dictionaries.users["assistant"].CompareTo(mediator.user.role) == 0)
+            if (mediator.user.role.Equals("administrator"))
+                tabs.Add(TabName.ADMIN, new Tab("Admin", mediator.mainTabs["admin"].tabUC, null, "../Ressource/admin.png"));
+
+            if (mediator.user.role.Equals("assistant"))
                 this.selectedTab = tabs[TabName.CUSTOMER];
             else
                 this.selectedTab = tabs[TabName.DASHBORAD];

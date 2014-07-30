@@ -1,12 +1,14 @@
 ﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View;
+using PrototypeEDUCOM.View.Admin;
 using PrototypeEDUCOM.View.Customer;
 using PrototypeEDUCOM.View.Dashboard;
 using PrototypeEDUCOM.View.Organisation;
 using PrototypeEDUCOM.View.Organisation.Program.Campus;
 using PrototypeEDUCOM.View.Request;
 using PrototypeEDUCOM.View.Request.Proposition;
+using PrototypeEDUCOM.ViewModel.Admin;
 using PrototypeEDUCOM.ViewModel.Customer;
 using PrototypeEDUCOM.ViewModel.Dashboard;
 using PrototypeEDUCOM.ViewModel.Organisation;
@@ -343,7 +345,7 @@ namespace PrototypeEDUCOM.ViewModel
         }
         public void createTabViewModel()
         {
-            if (Dictionaries.users["assistant"].CompareTo(user.role) != 0)
+            if (!user.role.Equals("assistant"))
             {
                 // Onglet dashboard
                 DashboardViewModel dashboardViewModel = new DashboardViewModel();
@@ -352,6 +354,17 @@ namespace PrototypeEDUCOM.ViewModel
                 dashboardUCView.DataContext = dashboardViewModel;
 
                 mainTabs.Add(TabName.DASHBORAD, new TabContent(dashboardViewModel, dashboardUCView));
+            }
+
+            if (user.role.Equals("administrator"))
+            {
+                // Onglet admin
+                AdminViewModel adminViewModel = new AdminViewModel();
+                AdminUCView adminUCView = new AdminUCView();
+
+                adminUCView.DataContext = adminViewModel;
+
+                mainTabs.Add(TabName.ADMIN, new TabContent(adminViewModel, adminUCView));
             }
 
             // Onglet client
