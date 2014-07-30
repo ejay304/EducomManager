@@ -344,9 +344,20 @@ namespace PrototypeEDUCOM.ViewModel
             addPropositionViewModel.CloseActionAdd = new Action(() => addPropositionView.Close());
 
             addPropositionView.Show(); 
-
-        
         }
+
+
+        public void openInscriptionView(proposition proposition)
+        {
+            AddInscriptionViewModel addInscriptionViewModel = new AddInscriptionViewModel(proposition);
+            AddInscriptionView addInscriptionView = new AddInscriptionView();
+
+            addInscriptionView.DataContext = addInscriptionViewModel;
+            addInscriptionViewModel.CloseActionAdd = new Action(() => addInscriptionView.Close());
+
+            addInscriptionView.Show(); 
+        }
+
         public void createTabViewModel()
         {
             if (!user.role.Equals("assistant"))

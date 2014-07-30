@@ -30,11 +30,11 @@ namespace PrototypeEDUCOM.ViewModel.Request
             this.request = request;
             this.propositions = new ObservableCollection<proposition>(request.propositions.ToList());
 
-            isInscription = false;
+            isInscription = true;
             foreach (proposition p in propositions)
                 if ((bool)p.inscription)
                 {
-                    isInscription = true;
+                    isInscription = false;
                     break;
                 }
 
@@ -48,8 +48,8 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
             mediator.Register(Helper.Event.ADD_REQUEST,this);
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
-           
             mediator.Register(Helper.Event.ADD_PROPOSITION,this);
+            mediator.Register(Helper.Event.ADD_INSCRIPTION, this);
         }
 
         public void actSendProposition(Object request)
@@ -91,7 +91,20 @@ namespace PrototypeEDUCOM.ViewModel.Request
 
         public void actInscription(proposition p)
         {
-            //
+
+            mediator.openInscriptionView(p);
+
+            /*
+            _event _event = new _event();
+            _event.date = DateTime.Now;
+            _event.event_types = db.event_types.Where(et => et.name == "Inscription").First();
+
+            p.inscription = true;
+            db.SaveChanges();
+
+            isInscription = false;
+            NotifyPropertyChanged("isInscription");
+            */
         }
 
         public override void Update(string eventName, object item)
@@ -101,6 +114,10 @@ namespace PrototypeEDUCOM.ViewModel.Request
                 case Helper.Event.ADD_PROPOSITION:
                     this.propositions.Add((proposition)item);
                     NotifyPropertyChanged("propositions");
+                    break;
+                case Helper.Event.ADD_INSCRIPTION:
+                    isInscription = false;
+                    NotifyPropertyChanged("isInscription");
                     break;
             }
         }

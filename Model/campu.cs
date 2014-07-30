@@ -38,5 +38,10 @@ namespace PrototypeEDUCOM.Model
         public virtual ICollection<proposition> propositions { get; set; }
 
         public virtual ICollection<program> programs { get; set; }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

@@ -309,18 +309,15 @@
                             <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding program.organisation.name}" />
                             <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding program.organisation.city}" />
                             <GridViewColumn Header="Pays" DisplayMemberBinding="{Binding program.organisation.country}" />
+                            <GridViewColumn Header="Campus" DisplayMemberBinding="{Binding campu}" />
                             <GridViewColumn Header="Inscription">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox IsChecked="{Binding inscription}" Command="{Binding cmdInscription}" CommandParameter="{Binding}">
-                                            <Style TargetType="{x:Type CheckBox}">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding isInscription}" Value="true">
-                                                        <Setter Property="IsEnabled" Value="{Binding inscription}" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </CheckBox>
+                                        <Button IsEnabled="{Binding ElementName=list, Path=DataContext.isInscription}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdInscription}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/PrototypeEDUCOM;component/Ressource/validBlue.png" Width="15" Height="15" />
+                                            </StackPanel>
+                                        </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

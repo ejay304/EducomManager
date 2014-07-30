@@ -7,8 +7,10 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.propositions")]
-    public partial class proposition
+    public partial class proposition : NotifyProperty
     {
+        private campu _campu;
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -23,7 +25,18 @@ namespace PrototypeEDUCOM.Model
 
         public int? campus_id { get; set; }
 
-        public virtual campu campu { get; set; }
+        public virtual campu campu
+        {
+            get
+            {
+                return _campu;
+            }
+            set
+            {
+                _campu = value;
+                NotifyPropertyChanged("campu");
+            }
+        }
 
         public virtual program program { get; set; }
 
