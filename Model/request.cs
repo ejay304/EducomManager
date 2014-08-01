@@ -1,11 +1,21 @@
-    namespace PrototypeEDUCOM.Model
+using PrototypeEDUCOM.Helper;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+
+namespace PrototypeEDUCOM.Model
 {
-    using PrototypeEDUCOM.Helper;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+
+    /// <filename>Request.cs</filename> 
+    /// <author>Alain FRESCO</author> 
+    /// <author>Romain THERISOD</author> 
+    /// <date>01/08/2014 </date> 
+    /// <summary>
+    ///     Classe de type Model, représentant les données relatives aux demandes.
+    ///     Générée avec EntityFramework comme couche d'abstraction avec la base de données.
+    /// </summary>
 
     [Table("EducomDb.requests")]
     public partial class Request
