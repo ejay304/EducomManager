@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
 {
+    /// <filename>EditCampusViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de modification d'un campus</summary>
     class EditCampusViewModel : BaseViewModel
     {
         public Campus campus { get; set; }
@@ -21,6 +26,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
         public ICommand cmdEdit { get; set; }
         public Action CloseActionAdd { get; set; }
       
+        /// <summary>
+        /// Initialise les valeurs à bindé et lie la commande d'édition avec l'action
+        /// </summary>
+        /// <param name="campus">Le campus à modifier</param>
         public EditCampusViewModel(Campus campus) {
             this.campus = campus;
             this.name = campus.name;
@@ -30,6 +39,11 @@ namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
             this.country = campus.country;
             this.cmdEdit = new RelayCommand<Object>(actEdit);
         }
+
+        /// <summary>
+        ///  Verification des champs saisis dans le formulaire et modification du campus
+        /// </summary>
+        /// <param name="o"></param>
         public void actEdit(Object o) {
 
             bool error = false;

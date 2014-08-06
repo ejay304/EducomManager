@@ -32,8 +32,8 @@
 
             <ComboBox SelectedItem="{Binding programType}" ItemsSource="{Binding programTypes}" Grid.Row="0" Grid.Column="1" Margin="10,8,10,8" />
 
-            <DatePicker SelectedDate="{Binding begin_date}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,8" Grid.Column="1" Grid.Row="1"/>
-            <DatePicker SelectedDate="{Binding end_date}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,8" Grid.Column="1" Grid.Row="2"/>
+            <DatePicker SelectedDate="{Binding beginDate}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,8" Grid.Column="1" Grid.Row="1"/>
+            <DatePicker SelectedDate="{Binding endDate}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,8" Grid.Column="1" Grid.Row="2"/>
             
         </Grid>
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdAdd}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">

@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations
 {
+    /// <filename>ShowOrganisationViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère le contrôle utilisateur qui affiche le détails d'une organisation</summary>
     class ShowOrganisationViewModel : BaseViewModel
     {
 
@@ -51,7 +56,14 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
         private void actShowProgram(Program program)
         {
             mediator.openShowProgramView(program);
+
         }
+
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, object item)
         {
             switch (eventName)

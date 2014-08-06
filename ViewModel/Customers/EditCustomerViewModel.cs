@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers
 {
+    /// <filename>EditCustomerViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014</date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de modification d'un client</summary>
     class EditCustomerViewModel : BaseViewModel
     {
         public Contact customer { get; set; }
@@ -32,6 +37,10 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         public Validation validFirstname { get; set; }
         public Validation validLastname { get; set; }
 
+        /// <summary>
+        /// Initialise les valeur à binder et lie la commande d'édition à la commande
+        /// </summary>
+        /// <param name="customer">Le client à modifier</param>
         public EditCustomerViewModel(Contact customer)
         {
             this.customer = customer;
@@ -62,6 +71,10 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             this.cmdEdit = new RelayCommand<object>(actEdit);
         }
 
+        /// <summary>
+        ///     Verification des champs saisis dans le formulaire et modification du client
+        /// </summary>
+        /// <param name="obj"></param>
         public void actEdit(object obj)
         {
 

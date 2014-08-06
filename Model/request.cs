@@ -8,9 +8,10 @@
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.requests")]
-    public partial class Request
+    public partial class Request : NotifyProperty
     {
         private string _journey_type;
+        private Student _student;
         public Request()
         {
             events = new HashSet<Event>();
@@ -44,6 +45,7 @@
 
                 return e[events.Count - 1];
             }
+
         }
 
         [Column(TypeName = "enum")]
@@ -56,6 +58,7 @@
             set 
             {
                 _journey_type = value;
+                NotifyPropertyChanged("journey_type");
             }
         }
 
@@ -65,7 +68,15 @@
 
         public virtual ICollection<Proposition> propositions { get; set; }
 
-        public virtual Student student { get; set; }
+        public virtual Student student {
+            get {
+                return _student;
+            }
+            set {
+                _student = value;
+                NotifyPropertyChanged("student");
+            }
+        }
 
         public virtual User user { get; set; }
 

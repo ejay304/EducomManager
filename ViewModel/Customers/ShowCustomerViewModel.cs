@@ -12,6 +12,11 @@ using System.Data.Entity;
 
 namespace PrototypeEDUCOM.ViewModel.Customers
 {
+    /// <filename>ShowCustomerViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère le contrôle utilisateur qui affiche le détails d'un client</summary>
     class ShowCustomerViewModel : BaseViewModel {
 
         public Contact customer { get; set; }
@@ -29,6 +34,10 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         public ICommand cmdAddRequest { get; set; }
         public ICommand cmdShowRequest { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder, lie les commandes aux actions et s'abonne au événement le concernant
+        /// </summary>
+        /// <param name="customer"></param>
         public ShowCustomerViewModel(Contact customer)
         {
 
@@ -58,38 +67,71 @@ namespace PrototypeEDUCOM.ViewModel.Customers
 
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'édition de client
+        /// </summary>
+        /// <param name="o"></param>
         public void actEditCustomer(object o)
         {
             mediator.openEditCustomerView(this.customer);
         }
+        /// <summary>
+        /// Ouvre la fenêtre de suppression de client
+        /// </summary>
+        /// <param name="o"></param>
         public void actDeleteCustomer(object o)
         {
             mediator.openDeleteCustomerView(this.customer);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout de client
+        /// </summary>
+        /// <param name="o"></param>
         public void actAddStudent(object o)
         {
             mediator.openAddStudentView(this.customer);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'edition d'étudiant
+        /// </summary>
+        /// <param name="student">L'étudiant concerné</param>
         public void actEditStudent(Student student)
         {
             mediator.openEditStudentView(student);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre de suppression d'étudiant
+        /// </summary>
+        /// <param name="student">L'étudiant concerné</param>
         public void actDeleteStudent(Student student)
         {
             mediator.openDeleteStudentView(student);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout de demande
+        /// </summary>
+        /// <param name="o"></param>
         public void actAddRequest(Object o) {
             mediator.openAddRequestView(customer);
         }
 
+        /// <summary>
+        /// Ouvre l'onglet de la demande
+        /// </summary>
+        /// <param name="request">La requête concernée</param>
         public void actShowRequest(Request request) {
             mediator.openShowRequestView(request);
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, object item)
         {
             switch (eventName)
@@ -100,6 +142,11 @@ namespace PrototypeEDUCOM.ViewModel.Customers
                     break;
                 case Helper.Event.DELETE_STUDENT:
                     this.students.Remove((Student)item);
+
+                    foreach(Request request in ((Student)item).requests)
+                        this.ongoingRequests.Remove(request);
+
+                    NotifyPropertyChanged("ongoingRequests");
                     NotifyPropertyChanged("students");
                     break;
                 case Helper.Event.ADD_REQUEST:

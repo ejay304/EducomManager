@@ -1,25 +1,28 @@
-﻿/*
- * samples:
- * //sort ascending
- * MySortableList.Sort(x => x.Name, ListSortDirection.Ascending);
- *
- * //sort descending
- * MySortableList.Sort(x => x.Name, ListSortDirection.Descending);
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.Windows.Documents;
 
-namespace PrototypeEducom.Helper
+namespace PrototypeEDUCOM.Helper
 {
+
+    /// <filename>Dictionaries.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Etend la classe ObservableCollection, afin d'y ajouter la fonction de tri sur les éléments de la collection</summary>
     public class SortableObservableCollection<T> : ObservableCollection<T>
     {
         public SortableObservableCollection(List<T> list) : base(list) {}
 
+        /// <summary>
+        /// Permet de trier la collection en fonction d'un élément de la collection
+        /// </summary>
+        /// <typeparam name="TKey">Le type d'objet de la collection</typeparam>
+        /// <param name="keySelector">l'atribut de tri</param>
+        /// <param name="direction">Le sens du tri</param>
         public void Sort<TKey>(Func<T, TKey> keySelector, System.ComponentModel.ListSortDirection direction)
         {
             switch (direction)
@@ -37,11 +40,10 @@ namespace PrototypeEducom.Helper
             }
         }
 
-        public void Sort<TKey>(Func<T, TKey> keySelector, IComparer<TKey> comparer)
-        {
-            ApplySort(Items.OrderBy(keySelector, comparer));
-        }
-
+        /// <summary>
+        /// Effectue la permutation des éléments dana la liste
+        /// </summary>
+        /// <param name="sortedItems">Le paramètre de tri</param>
         private void ApplySort(IEnumerable<T> sortedItems)
         {
             var sortedItemsList = sortedItems.ToList();

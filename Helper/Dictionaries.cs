@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace PrototypeEDUCOM.Helper
 {
+    /// <filename>Dictionaries.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe static contenant une liste dictionnaires de mot-clé</summary>
     static class Dictionaries
     {
         public static Dictionary<string, string> countries { get; set; }
@@ -16,6 +21,9 @@ namespace PrototypeEDUCOM.Helper
         public static Dictionary<string, string> users { get; set; }
         public static Dictionary<string, string> languages { get; set; }
 
+        /// <summary>
+        /// Constructeur statique permettant d'initialiser la valeur des dictionnaires
+        /// </summary>
         static Dictionaries() {
 
             countries = new Dictionary<string, string>();

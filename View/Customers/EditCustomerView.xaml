@@ -49,9 +49,32 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,2,10,8">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validFirstname}" Value="{x:Null}">
+                                        <Setter Property="Text" Value="Champ obligatoire"/>
+                                        <Setter Property="Foreground" Value="Gray"/>
+                                        <Setter Property="FontStyle" Value="Italic"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
+                                        <Setter Property="Text" Value="{Binding validFirstname.message}"/>
+                                        <Setter Property="Foreground" Value="Red"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validFirstname.valid}" Value="true">
+                                        <Setter Property="Text" Value="{Binding validFirstname.message}"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Column="3" Grid.Row="1">
-                    <TextBox Text="{Binding lastname }" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2">
+                    <TextBox Text="{Binding lastname}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,8,10,2">
                         <TextBox.Style>
                             <Style TargetType="{x:Type TextBox}">
                                 <Style.Triggers>
@@ -62,7 +85,29 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-
+                    <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Grid.Column="1" Margin="10,2,10,8">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validLastname}" Value="{x:Null}">
+                                        <Setter Property="Text" Value="Champ obligatoire"/>
+                                        <Setter Property="Foreground" Value="Gray"/>
+                                        <Setter Property="FontStyle" Value="Italic"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
+                                        <Setter Property="Text" Value="{Binding validLastname.message}"/>
+                                        <Setter Property="Foreground" Value="Red"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding validLastname.valid}" Value="true">
+                                        <Setter Property="Text" Value="{Binding validLastname.message}"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
@@ -123,81 +168,6 @@
             </Grid>
         </Grid>
 
-        <!-- Champ Prénom-->
-        <Label Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,120,0,0"/>
-        <TextBox Text="{Binding firstname}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="97,120,0,0" Grid.ColumnSpan="2">
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
-                            <Setter Property="BorderBrush" Value="Red"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="99,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.172,0.223" Grid.ColumnSpan="2">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validFirstname}" Value="{x:Null}">
-                            <Setter Property="Text" Value="Champ obligatoire"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="FontStyle" Value="Italic"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="false">
-                            <Setter Property="Text" Value="{Binding validFirstname.message}"/>
-                            <Setter Property="Foreground" Value="Red"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validFirstname.valid}" Value="true">
-                            <Setter Property="Text" Value="{Binding validFirstname.message}"/>
-                            <Setter Property="Foreground" Value="Green"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-
-        <!-- Champ nom -->
-        <Label Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114.223,117,0,0" Grid.Column="1"/>
-        <TextBox Text="{Binding lastname}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="156.223,120,0,0" Grid.Column="1">
-            <TextBox.Style>
-                <Style TargetType="{x:Type TextBox}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
-                            <Setter Property="BorderBrush" Value="Red"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="156.223,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.172,0.223" Grid.Column="1">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding validLastname}" Value="{x:Null}">
-                            <Setter Property="Text" Value="Champ obligatoire"/>
-                            <Setter Property="Foreground" Value="Gray"/>
-                            <Setter Property="FontStyle" Value="Italic"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="false">
-                            <Setter Property="Text" Value="{Binding validLastname.message}"/>
-                            <Setter Property="Foreground" Value="Red"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding validLastname.valid}" Value="true">
-                            <Setter Property="Text" Value="{Binding validLastname.message}"/>
-                            <Setter Property="Foreground" Value="Green"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        
-       
 
         <!-- Button submit -->
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdEdit}" Background="#FFEEEEEE" BorderBrush="#FFAAAAAA" Grid.Row="2">

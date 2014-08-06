@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Requests
 {
+    /// <filename>ShowRequestViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère le contrôle utilisateur qui affiche le détails d'une requête</summary>
     class ShowRequestViewModel : BaseViewModel
     {
         public Request request { get; set; }
@@ -92,6 +97,12 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             mediator.openInscriptionView(p);
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
+        
         public override void Update(string eventName, object item)
         {
             switch (eventName)
@@ -107,6 +118,8 @@ namespace PrototypeEDUCOM.ViewModel.Requests
                
                 case Helper.Event.ADD_INSCRIPTION:
                     isInscription = false;
+                    this.request.events.Add(((Proposition)item).request.state);
+                    NotifyPropertyChanged("request");
                     NotifyPropertyChanged("isInscription");
                     break;
             }

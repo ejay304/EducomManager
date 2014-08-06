@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers
 {
+    /// <filename>DeleteCustomerViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de suppression de clients</summary>
     class DeleteCustomerViewModel : BaseViewModel
     {
 
@@ -20,6 +25,10 @@ namespace PrototypeEDUCOM.ViewModel.Customers
 
         public Action CloseActionDelete { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande de suppression à l'action
+        /// </summary>
+        /// <param name="contact">Le contact à supprimer</param>
         public DeleteCustomerViewModel(Contact contact)
         {
             this.cmdDelete = new RelayCommand<Object>(actDeleteCustomer);
@@ -29,11 +38,15 @@ namespace PrototypeEDUCOM.ViewModel.Customers
 
         }
 
+        /// <summary>
+        ///  Suppression du client et de toutes ses dépendences
+        /// </summary>
+        /// <param name="o">-</param>
         public void actDeleteCustomer(Object o) {
 
             int nbrPhone = contact.phones.Count;
             int nbrEmail = contact.emails.Count;
-
+           
             // Suppression des téléphone
             for (int i = 0; i < nbrPhone; i++)
             {
@@ -45,10 +58,16 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             {
                 db.emails.Remove(contact.emails.First());
             }
-
+            
             // Suppression des demandes
             for (int i = 0; i < nbrRequest; i++ )
             {
+                int nbrEvent = contact.requests.First().events.Count;
+
+                //Suppression des évènements
+                for (int j = 0; j < nbrEvent; j++)
+                    db.events.Remove(contact.requests.First().events.First());
+
                 db.requests.Remove(contact.requests.First());
             }
 

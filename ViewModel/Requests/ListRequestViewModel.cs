@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Data.Entity;
-using PrototypeEducom.Helper;
+using PrototypeEDUCOM.Helper;
 using System.ComponentModel;
 
 namespace PrototypeEDUCOM.ViewModel.Requests
@@ -35,6 +35,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
 
         public ICommand cmdFilter { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à bindé, ainsi que les listes pour les filtres
+        /// lie les commmandes au actions concernée et s'abonne aux événements le concernant
+        /// </summary>
         public ListRequestViewModel() : base()
         {
 
@@ -45,7 +49,7 @@ namespace PrototypeEDUCOM.ViewModel.Requests
 
 
             var query = from p in db.users
-                        where p.role == "adviser"
+                        where p.role != "assistant"
                         select p;
 
             advisers = query.ToList();
@@ -72,14 +76,21 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
         }
 
+        /// <summary>
+        /// Ouvre l'onglet affichant le détail de la deamde
+        /// </summary>
+        /// <param name="request">la demande concernée</param>
         public void actViewDetail(Request request)
         {
             mediator.openShowRequestView(request);
         }
 
+        /// <summary>
+        /// Tri le contenu de la liste de demande
+        /// </summary>
+        /// <param name="arg">Le paramètre de tri</param>
         private void actSort(string arg)
         {
-
             ListSortDirection direction;
 
             direction = directionSorted[arg] ? ListSortDirection.Descending : ListSortDirection.Ascending;
@@ -108,6 +119,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             }
         }
 
+        /// <summary>
+        /// Filtre la liste de demande
+        /// </summary>
+        /// <param name="obj">le paramètre de filtre</param>
         private void actFilter(object obj)
         {
             var query = from p in db.requests
@@ -125,6 +140,11 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             NotifyPropertyChanged("nbrRequest");
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, object item)
         {
             switch (eventName)

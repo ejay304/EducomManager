@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations
 {
+    /// <filename>AddOrganisationViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout d'organisation</summary>
     class AddOrganisationViewModel : BaseViewModel
     {
 
@@ -25,11 +30,17 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
 
         public Action CloseActionAdd { get; set; }
 
+        /// <summary>
+        /// Lie la commande d'ajout à l'action
+        /// </summary>
         public AddOrganisationViewModel() 
         {
             this.cmdAdd = new RelayCommand<object>(actAdd);
         }
 
+        /// <summary>
+        ///     Verification des champs saisis dans le formulaire et ajout de l'organisation
+        /// </summary>
         public void actAdd(object obj)
         {
 

@@ -1,5 +1,4 @@
-﻿using PrototypeEducom.Helper;
-using PrototypeEDUCOM.Helper;
+﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Organisations;
 using System;
@@ -35,6 +34,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
 
         public ICommand cmdAdd { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à bindé, initialise les listes de filtre
+        /// lie les commandes aux action concernées et s'abonne au événement le concernant
+        /// </summary>
         public ListOrganisationViewModel() : base()
         {
             this.organisations = new SortableObservableCollection<Organisation>(db.organisations.ToList());
@@ -42,9 +45,6 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             this.cmdFilter = new RelayCommand<object>(actFilter);
             this.cmdSort = new RelayCommand<string>(actSort);
             this.cmdAdd = new RelayCommand<object>(actAdd);
-
-            mediator.Register(Helper.Event.ADD_ORGANISATION, this);
-            mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
 
             directionSorted.Add("name", false);
             directionSorted.Add("city", false);
@@ -54,8 +54,16 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             countries.Add("all", "TOUS");
             countries = countries.Concat(Dictionaries.countries).ToDictionary(pair => pair.Key, pair => pair.Value);
             filterCountry = countries.First().Key;
+
+            mediator.Register(Helper.Event.ADD_ORGANISATION, this);
+            mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
+
         }
 
+        /// <summary>
+        /// Filtre la liste d'organisation
+        /// </summary>
+        /// <param name="obj">le paramètre de filtre</param>
         private void actFilter(object obj)
         {
             var query = from p in db.organisations
@@ -69,6 +77,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             NotifyPropertyChanged("nbrOrganisation");
         }
 
+        /// <summary>
+        /// Trie la liste d'organisation
+        /// </summary>
+        /// <param name="arg">le paramètre de tri</param>
         private void actSort(string arg)
         {
 
@@ -93,17 +105,29 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             NotifyPropertyChanged("organisations");
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout d'organisation
+        /// </summary>
+        /// <param name="obj"></param>
         private void actAdd(object obj)
         {
             mediator.openAddOrganisationView();
         }
 
+        /// <summary>
+        /// Ouvre l'onglet du détail de l'organisation
+        /// </summary>
+        /// <param name="organisation">L'organisation concernée</param>
         public void actViewDetail(Organisation organisation)
         {
             mediator.openShowOrganisationView(organisation);
         }
 
-
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, object item)
         {
             switch (eventName)

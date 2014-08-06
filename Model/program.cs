@@ -7,8 +7,12 @@ namespace PrototypeEDUCOM.Model
     using System.Data.Entity.Spatial;
 
     [Table("EducomDb.programs")]
-    public partial class Program
+    public partial class Program : NotifyProperty
     {
+
+        private DateTime? _begin_date;
+        private DateTime? _end_date;
+        private string _description;
         public Program()
         {
             contacts = new HashSet<Contact>();
@@ -20,10 +24,27 @@ namespace PrototypeEDUCOM.Model
         public int id { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? begin_date { get; set; }
+        public DateTime? begin_date {
+            get {
+                return _begin_date;
+            }
+            set {
+                _begin_date = value;
+                NotifyPropertyChanged("begin_date");
+            }
+        }
 
         [Column(TypeName = "date")]
-        public DateTime? end_date { get; set; }
+        public DateTime? end_date {
+            get {
+                return _end_date;
+            }
+            set {
+                _end_date = value;
+                NotifyPropertyChanged("end_date");
+            
+            }
+        }
 
         public int program_types_id { get; set; }
 
@@ -33,7 +54,16 @@ namespace PrototypeEDUCOM.Model
 
         [Column(TypeName = "text")]
         [StringLength(65535)]
-        public string description { get; set; }
+        public string description {
+            get {
+                return _description;
+            }
+            set {
+                _description = value;
+                NotifyPropertyChanged("description");
+            
+            }
+        }
 
         public virtual ICollection<Contact> contacts { get; set; }
 

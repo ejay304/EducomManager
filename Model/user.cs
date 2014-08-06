@@ -42,7 +42,7 @@ using System.Data.Entity.Spatial;
         [StringLength(65532)]
         public string role {
             get { 
-                return Dictionaries.users[_role];
+                return _role;
             }
             set {
                 _role = value;

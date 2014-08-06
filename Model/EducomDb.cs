@@ -21,7 +21,7 @@ namespace PrototypeEDUCOM.Model
             if (instance == null)
             {
                 instance = new EducomDb();
-                instance.Database.Log = Console.WriteLine;
+                //instance.Database.Log = Console.WriteLine;
             }
             return instance;
         }

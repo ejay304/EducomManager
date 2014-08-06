@@ -21,11 +21,6 @@
                 <Label Content="{Binding nbrProgram}" />
                 <Label Content=" programme(s)" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
-                <Label Content="{Binding nbrContact}" />
-                <Label Content=" contact(s)" />
-            </StackPanel>
-
         </StackPanel>
 
         <Grid Grid.Row="2">

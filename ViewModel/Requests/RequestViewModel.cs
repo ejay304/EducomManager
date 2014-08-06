@@ -11,6 +11,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Requests
 {
+    /// <filename>RequestViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère le contrôle utilisateur de l'onglet Demande</summary>
     class RequestViewModel : BaseViewModel
     {
         private Tab _selectedTab;
@@ -33,6 +38,11 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             this.requestTabs.Add(new Tab("Liste", mediator.openListRequestView(), null, null,true));
 
             mediator.Register(Helper.Event.DELETE_REQUEST, this);
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
+            mediator.Register(Helper.Event.DELETE_ORGANISATION, this);
+            mediator.Register(Helper.Event.DELETE_PROGRAM, this);
+     
+     
         }
 
         private void actCloseTab(Tab tab)
@@ -72,6 +82,21 @@ namespace PrototypeEDUCOM.ViewModel.Requests
                         }
                     }
 
+                    NotifyPropertyChanged("requestTabs");
+                    NotifyPropertyChanged("selectedTab");
+                    break;
+                case Helper.Event.DELETE_CUSTOMER:
+                    for (int i = 0; i < requestTabs.Count(); i++)
+                    {
+                        foreach (Request request in ((Contact)item).requests)
+                        {
+                            if (requestTabs[i].entity == request)
+                            {
+                                requestTabs.Remove(requestTabs[i]);
+                                i--;
+                            }
+                        }
+                    }
                     NotifyPropertyChanged("requestTabs");
                     NotifyPropertyChanged("selectedTab");
                     break;

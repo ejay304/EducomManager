@@ -8,6 +8,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
 {
+    /// <filename>DeleteCampusViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de suppression de campus</summary>
     class DeleteCampusViewModel : BaseViewModel 
     {
         public Campus campus { get; set; }
@@ -16,6 +21,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
         public int nbrProposition { get; set; }
         public Action CloseActionDelete { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs a binder et lie la commande de suppression à l'action
+        /// </summary>
+        /// <param name="campus"></param>
         public DeleteCampusViewModel(Campus campus){
             this.campus = campus;
             //this.cmdArchive = new RelayCommand<Object>()

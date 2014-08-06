@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace PrototypeEDUCOM.Helper
 {
+
+    /// <filename>Event.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe contenant la liste des événements possibles</summary>
     class Event
     {
         public const string ADD_CUSTOMER = "add_customer";
@@ -30,5 +36,6 @@ namespace PrototypeEDUCOM.Helper
         public const string DELETE_PROPOSITION = "delete_proposition";
 
         public const string ADD_INSCRIPTION = "add_inscription";
+
     }
 }

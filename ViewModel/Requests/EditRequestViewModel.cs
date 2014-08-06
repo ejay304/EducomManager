@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Requests
 {
+    /// <filename>EditRequestViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de modification d'une requête</summary>
     class EditRequestViewModel : BaseViewModel
     {
         public Request request { get; set; }
@@ -19,7 +24,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
         public ICommand cmdEdit { get; set; }
         public Action CloseActionEdit { get; set; }
 
-
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande d'édition à l'action
+        /// </summary>
+        /// <param name="request">La requête à modifier</param>
         public EditRequestViewModel(Request request)
         {
             this.request = request;
@@ -29,6 +37,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             this.cmdEdit = new RelayCommand<object>(actEdit);
         }
 
+        /// <summary>
+        /// Modifie la demande avec les valeurs saisie dans le formulaire
+        /// </summary>
+        /// <param name="obj"></param>
         public void actEdit(object obj)
         {
             this.request.journey_type = journey;

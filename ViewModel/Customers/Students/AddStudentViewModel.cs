@@ -10,6 +10,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers.Students
 {
+    /// <filename>AddStudentViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout d'étudiants</summary>
     class AddStudentViewModel : BaseViewModel
     {
         public Contact customer { get; set; }
@@ -23,10 +28,13 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
         public Validation validFirstname { get; set; }
         public Validation validLastname { get; set; }
         public Validation validGender { get; set; }
-        public Validation validBirthday { get; set; }
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
     
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande d'ajout à l'action
+        /// </summary>
+        /// <param name="customer"></param>
         public AddStudentViewModel(Contact customer) {
 
             this.customer = customer;
@@ -35,6 +43,11 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.gender = genders.First().Key;
             this.cmdAdd = new RelayCommand<object>(actAdd);
         }
+
+        /// <summary>
+        /// Verifie la valeur des champs saisie
+        /// </summary>
+        /// <param name="o"></param>
         public void actAdd(object o)
         { 
             Student student = new Student();
@@ -44,8 +57,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.validFirstname = new Validation();
             this.validLastname = new Validation();
             this.validGender = new Validation();
-            this.validBirthday = new Validation();
-
+      
             // Validation prénom
             if (!this.firstname.Equals(""))
             {
@@ -78,28 +90,13 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
                 error = true;
             }
 
-            // Validation date de naissance
-            if (!this.birthday.Equals(""))
-            {
-                student.birthday = this.birthday;
-                this.validBirthday.message = "Valide";
-                this.validBirthday.valid = true;
-                NotifyPropertyChanged("validBirthday");
-            }
-            else
-            {
-                this.validBirthday.message = "Champ requis";
-                this.validBirthday.valid = false;
-                NotifyPropertyChanged("validBirthday");
-                error = true;
-            }
-
-            student.kinship = this.kinship;
-            student.birthday = birthday;
-            student.gender = this.gender;
 
             if (!error)
             {
+                student.kinship = this.kinship;
+                student.birthday = this.birthday;
+                student.gender = this.gender;
+
                 customer.students.Add(student);
 
                 db.SaveChanges();
