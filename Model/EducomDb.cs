@@ -1,10 +1,20 @@
+using System;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Data.Entity.Migrations;
+
 namespace PrototypeEDUCOM.Model
 {
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.Data.Entity.Migrations;
+
+    /// <filename>EducomDb.cs</filename> 
+    /// <author>Alain FRESCO</author> 
+    /// <author>Romain THERISOD</author> 
+    /// <date>01/08/2014 </date> 
+    /// <summary>
+    ///     Classe contenant tous les DbSet des modèles, avec la définition des relations entres 
+    ///     les classes. Générée avec EntityFramework comme couche d'abstraction avec la base de données.
+    /// </summary>
 
     public partial class EducomDb : DbContext
     {

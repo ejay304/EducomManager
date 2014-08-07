@@ -1,10 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Spatial;
+
 namespace PrototypeEDUCOM.Model
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+
+    /// <filename>Event.cs</filename> 
+    /// <author>Alain FRESCO</author> 
+    /// <author>Romain THERISOD</author> 
+    /// <date>01/08/2014 </date> 
+    /// <summary>
+    ///     Classe de type Model, représentant les données relatives aux événement d'une demande.
+    ///     Générée avec EntityFramework comme couche d'abstraction avec la base de données.
+    /// </summary>
 
     [Table("EducomDb.events")]
     public partial class Event
