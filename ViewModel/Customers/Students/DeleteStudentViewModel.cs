@@ -30,7 +30,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.student = student;
             this.nbrRequest = student.requests.Count();
 
-            this.cmdDelete = new RelayCommand<Object>(actDeleteStudent);s
+            this.cmdDelete = new RelayCommand<Object>(actDeleteStudent);
         }
 
        /// <summary>
