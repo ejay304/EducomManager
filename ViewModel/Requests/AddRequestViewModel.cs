@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Requests
 {
+    /// <filename>AddRequestViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout de requête</summary>
     class AddRequestViewModel : BaseViewModel
     {
         public Contact customer { get; set; }
@@ -18,6 +23,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
 
+        /// <summary>
+        /// Initialise les valeur à binder et lie la commande d'ajout à l'action
+        /// </summary>
+        /// <param name="customer"></param>
         public AddRequestViewModel(Contact customer) {
             this.cmdAdd = new RelayCommand<Object>(actAdd);
             this.customer = customer;
@@ -25,10 +34,15 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             this.journey = this.journeys.First().Key;
         }
 
+        /// <summary>
+        /// Ajoute la demande et crée de l'événement "Création" lié
+        /// </summary>
+        /// <param name="o"></param>
         public void actAdd(Object o) { 
 
             Model.Event newEvent = new Model.Event();
             newEvent.event_types = db.event_types.OrderBy(event_type => event_type.order).First();
+            newEvent.date = DateTime.Now;
 
             Request request = new Request();
 

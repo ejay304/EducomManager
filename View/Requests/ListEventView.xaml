@@ -13,7 +13,7 @@
             <Label Content="Liste des évènements" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Grid.Row="0" Foreground="White" />
         </StackPanel>
 
-        <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" HorizontalAlignment="Stretch" BorderBrush="#FF30859A" BorderThickness="2" VerticalAlignment="Stretch" ItemsSource="{Binding events}" x:Name="list" Grid.Row="1" >
+        <ListView ItemContainerStyle="{StaticResource alternatingListViewItemStyle}" AlternationCount="2" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding events}" x:Name="list" Grid.Row="1" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

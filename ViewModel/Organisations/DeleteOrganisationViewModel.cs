@@ -8,6 +8,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations
 {
+    /// <filename>DeleteOrganisationViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de suppression d'organisations</summary>
     class DeleteOrganisationViewModel : BaseViewModel
     {
         public Organisation organisation { get; set; }
@@ -18,6 +23,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
   
         public Action CloseActionDelete { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande de suppression à l'action
+        /// </summary>
+        /// <param name="organisation"></param>
         public DeleteOrganisationViewModel(Organisation organisation) {
 
             this.cmdDelete = new RelayCommand<Object>(actDelete);
@@ -26,12 +35,16 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             this.nbrProgram = organisation.programs.Count();
         }
 
+        /// <summary>
+        /// Supprimer l'organisation et toutes ses dépendances
+        /// </summary>
+        /// <param name="obj"></param>
         private void actDelete(object obj)
         {
-            for (int i = 0; i < nbrContact; i++)
+            /*for (int i = 0; i < nbrContact; i++)
             {
                 db.contacts.Remove(organisation.contacts.First());
-            }
+            }*/
             for (int i = 0; i < nbrProgram; i++)
             {
                 db.programs.Remove(organisation.programs.First());

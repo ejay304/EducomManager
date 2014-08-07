@@ -18,8 +18,8 @@
         <StackPanel Grid.Row="1">
             <TextBlock TextWrapping="Wrap" Text="En supprimant cet élément vous allez suppimer toutes les dépendances qui sont liées: " HorizontalAlignment="Left" Margin="10,4,4,4"/>
             <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
-                <Label Content="{Binding nbrContact}" />
-                <Label Content=" contact(s)" />
+                <Label Content="{Binding nbrProposition}" />
+                <Label Content=" proposition(s)" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4">
                 <Label Content="{Binding nbrCampus}" />

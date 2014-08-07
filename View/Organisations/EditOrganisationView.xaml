@@ -28,7 +28,17 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Nom" HorizontalAlignment="Right" Grid.Row="0" Margin="0,6,10,6" Grid.Column="0" />
                 <StackPanel Grid.Column="1">
-                    <TextBox Text="{Binding name}" HorizontalAlignment="Stretch" Margin="10,8,40,8" Grid.Row="0" Grid.Column="1"/>
+                    <TextBox Text="{Binding name}" HorizontalAlignment="Stretch" Margin="10,8,40,8" Grid.Row="0" Grid.Column="1">
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding validName.valid}" Value="false">
+                                        <Setter Property="BorderBrush" Value="Red"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,0,0,0">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">

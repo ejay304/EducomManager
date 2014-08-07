@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
 {
+    /// <filename>AddCampusViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout de campus</summary>
     class AddCampusViewModel : BaseViewModel 
     {
         public Program program { get; set; }
@@ -21,10 +26,18 @@ namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
       
+        /// <summary>
+        /// Initialisation des valueurs bindé et lie la commande à l'action
+        /// </summary>
+        /// <param name="program">le programe lié au campus</param>
         public AddCampusViewModel(Program  program) {
             this.program = program;
             this.cmdAdd = new RelayCommand<Object>(actAdd);
         }
+
+        /// <summary>
+        ///     Verification des champs saisis dans le formulaire et ajout du campus
+        /// </summary>
         public void actAdd(Object o) {
 
             bool error = false;

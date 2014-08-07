@@ -73,7 +73,7 @@
                 <Label Content="Jauge d'événement" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" FontSize="14"/>
                 <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdListEvent}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/historyWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -295,9 +295,18 @@
                         <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
-                <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding cmdSendProposition}">
+                <Button Command="{Binding cmdSendProposition}">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding propositions.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/PrototypeEDUCOM;component/Ressource/addWhite.png" Width="20" Height="20" />
+                        <Image Source="/PrototypeEDUCOM;component/Ressource/generateWhite.png" Width="20" Height="20" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -313,7 +322,17 @@
                             <GridViewColumn Header="Inscription">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button IsEnabled="{Binding ElementName=list, Path=DataContext.isInscription}" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Command="{Binding ElementName=list, Path=DataContext.cmdInscription}" CommandParameter="{Binding}">
+                                        <Button IsEnabled="{Binding ElementName=list, Path=DataContext.isInscription}" Command="{Binding ElementName=list, Path=DataContext.cmdInscription}" CommandParameter="{Binding}">
+
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding program.campus.Count}" Value="0">
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Source="/PrototypeEDUCOM;component/Ressource/validBlue.png" Width="15" Height="15" />
                                             </StackPanel>

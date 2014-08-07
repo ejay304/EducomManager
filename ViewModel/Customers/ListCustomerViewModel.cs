@@ -1,5 +1,4 @@
-﻿using PrototypeEducom.Helper;
-using PrototypeEDUCOM.Helper;
+﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using PrototypeEDUCOM.View.Customers;
 using System;
@@ -41,8 +40,12 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         public ICommand cmdFilter { get; set; }
         public ICommand cmdSort { get; set; }
      
+        /// <summary>
+        /// Initialise les valeurs à binder et lie les commandes
+        /// </summary>
         public ListCustomerViewModel() : base()
         {
+            //Récupère tout les clients 
             this.customers = new SortableObservableCollection<Contact>(db.contacts
                 .Include(c => c.requests.Select(r => r.events.Select(e => e.event_types)))
                 .Include(c => c.emails)
@@ -52,7 +55,6 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             this.cmdAdd = new RelayCommand<object>(actAdd);
             this.cmdFilter = new RelayCommand<object>(actFilter);
             this.cmdSort = new RelayCommand<string>(actSort);
-            mediator.Register(Helper.Event.ADD_CUSTOMER, this);
 
             directionSorted.Add("firstname", false);
             directionSorted.Add("lastname", false);
@@ -70,13 +72,24 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             languages.Add("all", "TOUS");
             languages = languages.Concat(Dictionaries.languages).ToDictionary(pair => pair.Key, pair => pair.Value);
             filterLanguage = languages.First().Key;
+
+            mediator.Register(Helper.Event.ADD_CUSTOMER, this);
+            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout
+        /// </summary>
+        /// <param name="obj"></param>
         private void actAdd(object obj)
         {
             mediator.openAddCustomerView();
         }
 
+        /// <summary>
+        /// Filtre le contenu de la liste
+        /// </summary>
+        /// <param name="obj">Le paramètre de filtre</param>
         private void actFilter(object obj)
         {
             var query = from p in db.contacts
@@ -94,6 +107,10 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             NotifyPropertyChanged("nbrCustomer");
         }
 
+        /// <summary>
+        /// Trie le contenu de la liste
+        /// </summary>
+        /// <param name="arg">Le paramètre de tri</param>
         private void actSort(string arg)
         {
 
@@ -127,13 +144,20 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             NotifyPropertyChanged("customers");
         }
 
+        /// <summary>
+        /// Ouvre l'onglet du détail d'un client
+        /// </summary>
+        /// <param name="customer">Le client concerné</param>
         public void actViewDetail(Contact customer)
         {
             mediator.openShowCustomerView(customer);
-            mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
-            mediator.Register(Helper.Event.DELETE_CUSTOMER, mediator.mainTabs[TabName.CUSTOMER].tabViewModel);
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, object item)
         {
             switch (eventName)

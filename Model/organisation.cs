@@ -97,7 +97,7 @@ namespace PrototypeEDUCOM.Model
         {
             get
             {
-                return Dictionaries.countries[_country];
+                return _country;
             }
             set
             {

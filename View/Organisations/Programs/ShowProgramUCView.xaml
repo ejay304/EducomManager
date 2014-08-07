@@ -34,7 +34,7 @@
                 </Button>
             </StackPanel>
             <Border BorderThickness="2" BorderBrush="#30859a" Grid.Column="0" Grid.Row="1" />
-            <Grid Grid.Row="1" Background="#e0f0f4" Margin="2">
+            <Grid Grid.Row="1" Margin="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="27" />
                     <RowDefinition Height="27" />

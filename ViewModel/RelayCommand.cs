@@ -7,16 +7,26 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel
 {
+    /// <filename>RelayCommand.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe utilisée dans les viewModèle pour réaliser la relation entre une commande et l'action à réaliser</summary>
     public class RelayCommand<T> : ICommand
     {
         Action<T> _TargetExecuteMethod;
 
         Func<T, bool> _TargetCanExecuteMethod;
 
+        /// <summary>
+        /// Va déléguer la commande à une action
+        /// </summary>
+        /// <param name="executeMethod"></param>
         public RelayCommand(Action<T> executeMethod)
         {
             _TargetExecuteMethod = executeMethod;
         }
+
 
         public RelayCommand(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
         {

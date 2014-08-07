@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Organisations
 {
+    /// <filename>EditOrganisationViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de modification d'une organisation</summary>
     class EditOrganisationViewModel :BaseViewModel
     {
         public Organisation organisation { get; set; }
@@ -26,6 +31,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
 
         public Action CloseActionEdit { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande d'edition à l'action
+        /// </summary>
+        /// <param name="organisation">L'organisation à modifier</param>
         public EditOrganisationViewModel(Organisation organisation) {
 
             this.organisation = organisation;
@@ -48,6 +57,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             this.cmdEdit = new RelayCommand<object>(actEdit);        
         }
 
+        /// <summary>
+        ///     Verification des champs saisis dans le formulaire et modification de l'organisation
+        /// </summary>
+        /// <param name="obj"></param>
         public void actEdit(object obj)
         {
 
@@ -59,13 +72,13 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
             {
                 this.validName.message = "Valide";
                 this.validName.valid = true;
-                NotifyPropertyChanged("validFirstname");
+                NotifyPropertyChanged("validName");
             }
             else
             {
                 this.validName.message = "Champ requis";
                 this.validName.valid = false;
-                NotifyPropertyChanged("validFirstname");
+                NotifyPropertyChanged("validName");
                 error = true;
             }
 

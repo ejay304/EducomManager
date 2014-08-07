@@ -8,6 +8,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Requests.Propositions
 {
+    /// <filename>AddPropositionViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout de recommandaiton d'une demande</summary>
     class AddPropositionViewModel : BaseViewModel
     {
         public Request request { get; set; }
@@ -18,11 +23,16 @@ namespace PrototypeEDUCOM.ViewModel.Requests.Propositions
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder et lie la commande d'ajout à l'action
+        /// </summary>
+        /// <param name="request"></param>
         public AddPropositionViewModel(Request request) { 
             this.student = request.student;
             this.request = request;
             this.customer = request.contact;
             this.programs = db.programs.ToList();
+            this.program = programs.First();
 
             foreach (Proposition p in this.request.propositions)
                 this.programs.Remove(p.program);
@@ -30,10 +40,15 @@ namespace PrototypeEDUCOM.ViewModel.Requests.Propositions
             this.cmdAdd = new RelayCommand<Object>(actAdd);
         }
 
+        /// <summary>
+        ///     Ajout de la propositiona avec les valeurs du formulaire
+        /// </summary>
+        /// <param name="o"></param>
         public void actAdd(Object o)
         {
             Proposition proposition = new Proposition();
             proposition.program = this.program;
+            proposition.inscription = false;
 
             request.propositions.Add(proposition);
 

@@ -12,6 +12,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel
 {
+    /// <filename>MainViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre principale de l'application</summary>
     class MainViewModel : BaseViewModel
     {
         public User user { get { return mediator.user; } }
@@ -31,6 +36,9 @@ namespace PrototypeEDUCOM.ViewModel
 
         public Action CloseWindow { get; set; }
 
+        /// <summary>
+        /// Ajoute les onglets en fonction de l'utilisateur connecté
+        /// </summary>
         public MainViewModel()
         {
 
@@ -56,6 +64,10 @@ namespace PrototypeEDUCOM.ViewModel
                 this.selectedTab = tabs[TabName.DASHBORAD];
         }
 
+        /// <summary>
+        /// Déconnecte l'utilisateur actuel.
+        /// </summary>
+        /// <param name="obj"></param>
         public void actLogout(object obj)
         {
             mediator.openLoginView();

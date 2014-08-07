@@ -9,6 +9,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers.Students
 {
+    /// <filename>EditStudentViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre de modification d'un étudiant</summary>
     class EditStudentViewModel : BaseViewModel
     {
         public Student student { get; set; }
@@ -22,10 +27,13 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
         public Validation validFirstname { get; set; }
         public Validation validLastname { get; set; }
         public Validation validGender { get; set; }
-        public Validation validBirthday { get; set; }
         public ICommand cmdEdit { get; set; }
         public Action CloseActionEdit { get; set; }
  
+        /// <summary>
+        /// Initialise les valeur à binder et lie la commande d'édition à l'action
+        /// </summary>
+        /// <param name="student">L'étudiant à modifier</param>
         public EditStudentViewModel(Student student)
         {
 
@@ -37,6 +45,11 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.kinship = student.kinship;
             this.cmdEdit = new RelayCommand<object>(actEdit);
         }
+
+        /// <summary>
+        /// Valide la valeur des champs saisie et modifie l'étudiant
+        /// </summary>
+        /// <param name="o"></param>
         public void actEdit(object o)
         {
 
@@ -45,8 +58,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.validFirstname = new Validation();
             this.validLastname = new Validation();
             this.validGender = new Validation();
-            this.validBirthday = new Validation();
-
+          
             // Validation prénom
             if (!this.firstname.Equals(""))
             {
@@ -79,24 +91,11 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
                 error = true;
             }
 
-            // Validation date de naissance
-            if (!this.birthday.Equals(""))
-            {
-                student.birthday = this.birthday;
-                this.validBirthday.message = "Valide";
-                this.validBirthday.valid = true;
-                NotifyPropertyChanged("validBirthday");
-            }
-            else
-            {
-                this.validBirthday.message = "Champ requis";
-                this.validBirthday.valid = false;
-                NotifyPropertyChanged("validBirthday");
-                error = true;
-            }
+          
 
             if (!error)
             {
+                student.birthday = this.birthday;
                 student.kinship = this.kinship;
                 student.gender = this.gender;
 

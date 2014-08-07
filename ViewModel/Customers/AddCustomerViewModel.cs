@@ -12,6 +12,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers
 {
+    /// <filename>AddCustomerViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère la fenêtre d'ajout de client</summary>
     class AddCustomerViewModel : BaseViewModel
     {
 
@@ -33,11 +38,17 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         public ICommand cmdAdd { get; set; }
         public Action CloseActionAdd { get; set; }
 
+        /// <summary>
+        /// Lie la commandes d'ajout a l'action
+        /// </summary>
         public AddCustomerViewModel()
         {
             this.cmdAdd = new RelayCommand<object>(actAdd);
         }
 
+        /// <summary>
+        ///     Verification des champs saisis dans le formulaire et ajout du client
+        /// </summary>
         public void actAdd(object obj)
         {
 

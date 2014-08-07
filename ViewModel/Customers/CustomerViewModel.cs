@@ -11,6 +11,11 @@ using System.Windows.Input;
 
 namespace PrototypeEDUCOM.ViewModel.Customers
 {
+    /// <filename>CustomerViewModel.cs</filename>
+    /// <author>Alain FRESCO</author>
+    /// <author>Romain THERISOD</author>
+    /// <date>01/08/2014 </date>
+    /// <summary>Classe de type ViewModel, qui gère le contrôle utilisateur de l'onglet Client</summary>
     class CustomerViewModel : BaseViewModel
     {
 
@@ -25,7 +30,9 @@ namespace PrototypeEDUCOM.ViewModel.Customers
                 NotifyPropertyChanged("selectedTab");
             }
         }
-
+        /// <summary>
+        /// Initilise les onglets et d'abonne à la suppresion de client
+        /// </summary>
         public CustomerViewModel()
         {
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
@@ -35,12 +42,21 @@ namespace PrototypeEDUCOM.ViewModel.Customers
             mediator.Register(Helper.Event.DELETE_CUSTOMER, this);
         }
 
+        /// <summary>
+        /// Permet de retirer un onglet 
+        /// </summary>
+        /// <param name="tab"></param>
         private void actCloseTab(Tab tab)
         {
             customerTabs.Remove(tab);
             NotifyPropertyChanged("customerTabs");
         }
 
+        /// <summary>
+        /// Permet d'ajouter un onglet 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <param name="view"></param>
         public void actAddTab(Contact customer, UserControl view)
         {
             foreach (Tab t in customerTabs)
@@ -52,12 +68,17 @@ namespace PrototypeEDUCOM.ViewModel.Customers
                 }
             }
 
-            Tab tab = new Tab(customer.lastname, view,customer, null);
+            Tab tab = new Tab(customer.fullName, view,customer, null);
 
             this.customerTabs.Add(tab);
             this.selectedTab = tab;
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, Object item)
         {
             switch (eventName)

@@ -1,4 +1,4 @@
-﻿using PrototypeEducom.Helper;
+﻿using PrototypeEDUCOM.Helper;
 using PrototypeEDUCOM.Model;
 using System;
 using System.Collections.Generic;
@@ -10,12 +10,15 @@ namespace PrototypeEDUCOM.ViewModel.Requests
 {
     class ListEventViewModel : BaseViewModel
     {
-        public SortableObservableCollection<Event> events { get; set; }
+        public SortableObservableCollection<Model.Event> events { get; set; }
 
-
+        /// <summary>
+        /// Initialise la liste d'événement à afficher
+        /// </summary>
+        /// <param name="request"></param>
         public ListEventViewModel(Request request)
         {
-            this.events = new SortableObservableCollection<Event>(request.events.ToList());
+            this.events = new SortableObservableCollection<Model.Event>(request.events.ToList());
         }
     }
 }

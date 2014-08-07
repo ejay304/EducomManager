@@ -18,9 +18,10 @@ namespace PrototypeEDUCOM.Model
     /// </summary>
 
     [Table("EducomDb.requests")]
-    public partial class Request
+    public partial class Request : NotifyProperty
     {
         private string _journey_type;
+        private Student _student;
         public Request()
         {
             events = new HashSet<Event>();
@@ -54,6 +55,7 @@ namespace PrototypeEDUCOM.Model
 
                 return e[events.Count - 1];
             }
+
         }
 
         [Column(TypeName = "enum")]
@@ -66,6 +68,7 @@ namespace PrototypeEDUCOM.Model
             set 
             {
                 _journey_type = value;
+                NotifyPropertyChanged("journey_type");
             }
         }
 
@@ -75,7 +78,15 @@ namespace PrototypeEDUCOM.Model
 
         public virtual ICollection<Proposition> propositions { get; set; }
 
-        public virtual Student student { get; set; }
+        public virtual Student student {
+            get {
+                return _student;
+            }
+            set {
+                _student = value;
+                NotifyPropertyChanged("student");
+            }
+        }
 
         public virtual User user { get; set; }
 
