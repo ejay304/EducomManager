@@ -20,6 +20,11 @@ namespace PrototypeEDUCOM.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Notifie tous les observateur d'un changement de propriété
+        /// </summary>
+        /// <param name="nomPropriete">Le nom de la propriété
+        /// </param>
         public void NotifyPropertyChanged(string nomPropriete)
         {
             if (PropertyChanged != null)

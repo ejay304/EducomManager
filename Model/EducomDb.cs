@@ -26,6 +26,10 @@ namespace PrototypeEDUCOM.Model
 
         }
 
+        /// <summary>
+        /// Retourne l'instance du singleton
+        /// </summary>
+        /// <returns></returns>
         public static EducomDb getInstance()
         {
             if (instance == null)
@@ -55,6 +59,10 @@ namespace PrototypeEDUCOM.Model
         public virtual DbSet<Survey> surveys { get; set; }
         public virtual DbSet<User> users { get; set; }
 
+        /// <summary>
+        /// Création des liens entre les entités
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Campaign>()
