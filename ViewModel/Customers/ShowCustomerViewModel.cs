@@ -37,7 +37,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         /// <summary>
         /// Initialise les valeurs à binder, lie les commandes aux actions et s'abonne au événement le concernant
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="customer">Le client concerné</param>
         public ShowCustomerViewModel(Contact customer)
         {
 

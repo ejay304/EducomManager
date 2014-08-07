@@ -41,7 +41,8 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         public ICommand cmdSort { get; set; }
      
         /// <summary>
-        /// Initialise les valeurs à binder et lie les commandes
+        /// Initialise les valeurs à binder, lie les commandes aux actions concernée
+        /// Initialise les liste déroulante pour les filtres et s'abonne au événement le concernant
         /// </summary>
         public ListCustomerViewModel() : base()
         {

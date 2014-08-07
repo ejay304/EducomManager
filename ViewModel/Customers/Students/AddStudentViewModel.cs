@@ -41,6 +41,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             this.birthday = DateTime.Now;
             this.kinship = kinships.First().Key;
             this.gender = genders.First().Key;
+
             this.cmdAdd = new RelayCommand<object>(actAdd);
         }
 

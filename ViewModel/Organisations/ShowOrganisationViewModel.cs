@@ -23,36 +23,58 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
         public ICommand cmdEdit { get; set; }
         public ICommand cmdDelete { get; set; }
         public ICommand cmdAddProgram { get; set; }
-        public ICommand cmdShowProgram { get; set; } 
+        public ICommand cmdShowProgram { get; set; }
+
+        /// <summary>
+        /// Initialise les valeurs à bindet, les les commandes aux actions concernée 
+        /// S'abonne aux événements le concernant
+        /// </summary>
+        /// <param name="organisation">L'organisaiton concernée</param>
         public ShowOrganisationViewModel(Organisation organisation)
         {
             this.organisation = organisation;
+            this.programs = new ObservableCollection<Program>(organisation.programs.ToList());
+
             this.cmdEdit = new RelayCommand<Organisation>(actEdit);
             this.cmdDelete = new RelayCommand<Organisation>(actDelete);
             this.cmdAddProgram = new RelayCommand<Organisation>(actAddProgram);
             this.cmdShowProgram = new RelayCommand<Program>(actShowProgram);
-     
-            db.SaveChanges();
-            this.programs = new ObservableCollection<Program>(organisation.programs.ToList());
-
 
             mediator.Register(Helper.Event.ADD_PROGRAM, this);
             mediator.Register(Helper.Event.DELETE_PROGRAM, this);
         }
 
-        private void actEdit(Organisation organisation)
+        /// <summary>
+        /// Ouvre la fenêtre d'édition d'organisation
+        /// </summary>
+        /// <param name="o></param>
+        private void actEdit(Object o)
         {
             mediator.openEditOrganisationView(this.organisation);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre de suppression d'organisation
+        /// </summary>
+        /// <param name="o"></param>
         private void actDelete(Object o)
         {
             mediator.openDeleteOrganisationView(this.organisation);
         }
+
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout de programme
+        /// </summary>
+        /// <param name="o"></param>
         private void actAddProgram(Object o)
         {
             mediator.openAddProgramView(this.organisation);
         }
+        
+        /// <summary>
+        /// Ouvre l'onglet programme
+        /// </summary>
+        /// <param name="program">le programme concerné</param>
         private void actShowProgram(Program program)
         {
             mediator.openShowProgramView(program);

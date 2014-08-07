@@ -45,7 +45,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         /// <summary>
         /// Permet de retirer un onglet 
         /// </summary>
-        /// <param name="tab"></param>
+        /// <param name="tab">l'onglet à retirer</param>
         private void actCloseTab(Tab tab)
         {
             customerTabs.Remove(tab);
@@ -55,8 +55,8 @@ namespace PrototypeEDUCOM.ViewModel.Customers
         /// <summary>
         /// Permet d'ajouter un onglet 
         /// </summary>
-        /// <param name="customer"></param>
-        /// <param name="view"></param>
+        /// <param name="customer">l'entity concerné par l'onglet</param>
+        /// <param name="view">le UserControle à afficher</param>
         public void actAddTab(Contact customer, UserControl view)
         {
             foreach (Tab t in customerTabs)

@@ -125,8 +125,7 @@ namespace PrototypeEDUCOM.ViewModel.Customers
                 // Enregistre dans la base
                 db.SaveChanges();
 
-                this.CloseActionEdit();
-                
+                this.CloseActionEdit();   
             }
         }
     }

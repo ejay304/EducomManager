@@ -30,6 +30,9 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             }
         }
 
+        /// <summary>
+        /// Initialise l'onglet demande , s'abonne aux événements le concernant
+        /// </summary>
         public RequestViewModel()
         {
             this.cmdCloseTab = new RelayCommand<Tab>(actCloseTab);
@@ -45,11 +48,20 @@ namespace PrototypeEDUCOM.ViewModel.Requests
      
         }
 
+        /// <summary>
+        /// Permet de retirer un onglet
+        /// </summary>
+        /// <param name="tab">l'onglet à retirer</param>
         private void actCloseTab(Tab tab)
         {
             this.requestTabs.Remove(tab);
         }
 
+        /// <summary>
+        /// Permet d'ajouter un onglet
+        /// </summary>
+        /// <param name="request">l'entité concerné par l'objet</param>
+        /// <param name="view">Le User control à ajouter</param>
         public void actAddTab(Request request, UserControl view)
         {
             foreach (Tab t in requestTabs)
@@ -67,6 +79,11 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             this.selectedTab = tab;
         }
 
+        /// <summary>
+        /// Fonction de mise à jour en cas de notification d'événement
+        /// </summary>
+        /// <param name="eventName">Le type d'événement</param>
+        /// <param name="item">l'objet concerné par l'événement</param>
         public override void Update(string eventName, Object item)
         {
             switch (eventName)

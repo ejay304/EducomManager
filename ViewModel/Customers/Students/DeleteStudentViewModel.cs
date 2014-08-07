@@ -27,13 +27,14 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
         /// <param name="student">L'étudiant à supprimer</param>
         public DeleteStudentViewModel(Student student)
         {
-            this.cmdDelete = new RelayCommand<Object>(actDeleteStudent);
             this.student = student;
             this.nbrRequest = student.requests.Count();
+
+            this.cmdDelete = new RelayCommand<Object>(actDeleteStudent);s
         }
 
        /// <summary>
-        /// Supprimer l'étudiant ainsi que toutes ses dépendances
+       /// Supprimer l'étudiant ainsi que toutes ses dépendances
        /// </summary>
        /// <param name="o"></param>
         private void actDeleteStudent(Object o)

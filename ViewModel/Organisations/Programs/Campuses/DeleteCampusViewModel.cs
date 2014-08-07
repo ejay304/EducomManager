@@ -32,6 +32,10 @@ namespace PrototypeEDUCOM.ViewModel.Organisations.Programs.Campuses
             this.nbrProposition = campus.propositions.Count();
         }
 
+        /// <summary>
+        /// Suppression de du campus et de ses dépendances
+        /// </summary>
+        /// <param name="o"></param>
         public void actDelete(Object o) {
             for (int i = 0; i < nbrProposition; i++)
             {

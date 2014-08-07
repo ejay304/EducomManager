@@ -29,6 +29,11 @@ namespace PrototypeEDUCOM.ViewModel.Requests
         public ICommand cmdListEvent { get; set; }
         public ICommand cmdInscription { get; set; }
 
+        /// <summary>
+        /// Initialise les valeurs à binder, lie les commande aux action concernée
+        /// s'abonnes au événement le concernant
+        /// </summary>
+        /// <param name="request"></param>
         public ShowRequestViewModel(Request request)
         {
             this.request = request;
@@ -55,6 +60,10 @@ namespace PrototypeEDUCOM.ViewModel.Requests
             mediator.Register(Helper.Event.ADD_INSCRIPTION, this);
         }
 
+        /// <summary>
+        /// Crée un événement de type Proposition
+        /// </summary>
+        /// <param name="request">la demande liée</param>
         public void actSendProposition(Object request)
         {
             Event _event = new Event();
@@ -68,30 +77,54 @@ namespace PrototypeEDUCOM.ViewModel.Requests
 
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'edition de demande
+        /// </summary>
+        /// <param name="request">La demande à modifier</param>
         public void actEdit(Request request)
         {
             mediator.openEditRequestView(this.request);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'ajout de proposition
+        /// </summary>
+        /// <param name="o"></param>
         public void actAddProposition(Object o) {
             mediator.openAddPropositionView(this.request);
         }
 
+        /// <summary>
+        /// Supprime la proposition 
+        /// </summary>
+        /// <param name="proposition">la proposition à supprimer</param>
         public void actDeleteProposition(Proposition proposition) {
             db.propositions.Remove(proposition);
             propositions.Remove(proposition);
             NotifyPropertyChanged("propositions");
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre de suppression de demande
+        /// </summary>
+        /// <param name="o"></param>
         public void actDeleteRequest(Object o) {
            mediator.openDeleteRequestView(this.request);
         }
 
+        /// <summary>
+        /// Ouvre le fenêtre avec la liste des 
+        /// </summary>
+        /// <param name="o"></param>
         public void actListEvent(Object o)
         {
             mediator.openListEventView(this.request);
         }
 
+        /// <summary>
+        /// Ouvre la fenêtre d'inscription
+        /// </summary>
+        /// <param name="p"></param>
         public void actInscription(Proposition p)
         {
             mediator.openInscriptionView(p);
@@ -102,7 +135,6 @@ namespace PrototypeEDUCOM.ViewModel.Requests
         /// </summary>
         /// <param name="eventName">Le type d'événement</param>
         /// <param name="item">l'objet concerné par l'événement</param>
-        
         public override void Update(string eventName, object item)
         {
             switch (eventName)

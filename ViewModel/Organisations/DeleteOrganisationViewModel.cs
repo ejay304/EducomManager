@@ -28,11 +28,11 @@ namespace PrototypeEDUCOM.ViewModel.Organisations
         /// </summary>
         /// <param name="organisation"></param>
         public DeleteOrganisationViewModel(Organisation organisation) {
-
-            this.cmdDelete = new RelayCommand<Object>(actDelete);
             this.organisation = organisation;
             this.nbrContact = organisation.contacts.Count();
             this.nbrProgram = organisation.programs.Count();
+
+            this.cmdDelete = new RelayCommand<Object>(actDelete);
         }
 
         /// <summary>
