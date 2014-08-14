@@ -163,7 +163,7 @@
                         <GridView.Columns>
                             <!-- Bouton édition d'une demande -->
                             <GridViewColumn  Header="Date" DisplayMemberBinding="{Binding creation_date, StringFormat={}{0:dd/MM/yyyy}}" />
-                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding student.fullName}" />
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding journey_type}" />
                             <GridViewColumn Header="Etudiant" DisplayMemberBinding="{Binding student.fullName}" />
                             <GridViewColumn Header="Etat">
                                 <GridViewColumn.CellTemplate>

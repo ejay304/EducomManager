@@ -44,6 +44,12 @@ namespace PrototypeEDUCOM.ViewModel.Customers.Students
             for (int i = 0; i < nbrRequest; i++)
             {
                 int nbrEvent = student.requests.First().events.Count;
+                int nbrProposition = student.requests.First().propositions.Count;
+
+                mediator.NotifyViewModel(Helper.Event.DELETE_REQUEST, student.requests.First());
+
+                for (int j = 0; j < nbrProposition; j++)
+                    db.propositions.Remove(student.requests.First().propositions.First());
 
                 //Suppression des évènements
                 for (int j = 0; j < nbrEvent; j++)
